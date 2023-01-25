@@ -1,2 +1,2 @@
 # Farmworld
-An ecommerce website that allows for farmers to sell their farm produce.
+An ecommerce website that provides farmers a platform to sell their farm produce.
