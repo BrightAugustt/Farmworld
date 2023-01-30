@@ -24,17 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brands`
---
-
-CREATE TABLE `brands` (
-  `brand_id` int(11) NOT NULL,
-  `brand_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `cart`
 --
 
@@ -124,7 +113,6 @@ CREATE TABLE `payment` (
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `product_cat` int(11) NOT NULL,
-  `product_brand` int(11) NOT NULL,
   `product_title` varchar(200) NOT NULL,
   `product_price` double NOT NULL,
   `product_desc` varchar(500) DEFAULT NULL,
@@ -135,12 +123,6 @@ CREATE TABLE `products` (
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `brands`
---
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`brand_id`);
 
 
 -- Indexes for table `categories`
@@ -183,17 +165,10 @@ ALTER TABLE `payment`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `product_cat` (`product_cat`),
-  ADD KEY `product_brand` (`product_brand`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `brands`
---
-ALTER TABLE `brands`
-  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -255,7 +230,6 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_cat`) REFERENCES `categories` (`cat_id`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`product_brand`) REFERENCES `brands` (`brand_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
