@@ -39,9 +39,9 @@ CREATE TABLE `brands` (
 --
 
 CREATE TABLE `cart` (
-  `p_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `ip_add` varchar(50) NOT NULL,
-  `c_id` int(11) DEFAULT NULL,
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -108,7 +108,7 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `payment` (
   `pay_id` int(11) NOT NULL,
-  `amt` double NOT NULL,
+  `amount` double NOT NULL,
   `customer_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `currency` text NOT NULL,
@@ -142,14 +142,7 @@ CREATE TABLE `products` (
 ALTER TABLE `brands`
   ADD PRIMARY KEY (`brand_id`);
 
---
--- Indexes for table `cart`
---
-ALTER TABLE `cart`
-  ADD KEY `p_id` (`p_id`),
-  ADD KEY `c_id` (`c_id`);
 
---
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -237,13 +230,7 @@ ALTER TABLE `products`
 --
 
 --
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`c_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
---
 -- Constraints for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
