@@ -15,7 +15,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -47,7 +46,7 @@
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
-            <img class="bi me-2" src="../images/dashlog.png" width="180" height="32" role="img" aria-label="Bootstrap"> Welcome, Admin!
+            <img class="bi me-2" src="#" width="180" height="32" role="img" aria-label="Bootstrap"> Welcome, Admin!
             <use xlink:href="#bootstrap" />
             </img>
         </a>
@@ -57,7 +56,7 @@
         <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search">
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="../login/logout.php">Sign Out</a>
+                <a class="nav-link px-3" href="#">Sign Out</a>
             </div>
         </div>
     </header>
@@ -68,13 +67,13 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="adminHome.php">
+                            <a class="nav-link" aria-current="page" href="#">
                                 <span data-feather="home"></span>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="orders.php">
+                            <a class="nav-link" href="#">
                                 <span data-feather="file"></span>
                                 Orders
                             </a>
@@ -90,13 +89,13 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="../Views/customers.php">
+                            <a class="nav-link active" href="#">
                                 <span data-feather="users"></span>
                                 Customers
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="newsletter.php">
+                            <a class="nav-link" href="#">
                                 <span data-feather="bar-chart-2"></span>
                                 Newsletter
                             </a>
@@ -121,7 +120,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit New Member/Customer Details</h3>
+                                    <h3 class="pull-left">Edit Customer Details</h3>
                                     <a href="addCustomer.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Customer</a>
                                 </div>
                                 <table class="table table-bordered table-striped">
@@ -138,7 +137,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../Controllers/contact_controller.php";
+                                        require "../controllers/contact_controller.php";
                                         $result = get_all_records_ctr();
 
                                         foreach ($result as $contact) {
