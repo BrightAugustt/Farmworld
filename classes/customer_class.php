@@ -1,15 +1,56 @@
 <?php
 include_once(dirname(__FILE__)) . "../../settings/dbClass.php";
 
-class ContactClass extends db_connection
+class customer_class extends db_connection
+
 {
-    function add_Cust_record_cls($fname, $lname, $number, $country, $email, $password, $user_role)
+    // --INSERT--//
+    public function add_customer($name, $email, $contact, $location, $password)
     {
+
+        $sql="INSERT INTO customer (`customer_name`, `customer_email`, `customer_contact`, `customer_location`, `customer_pass`, `user_role`) VALUES ('$name', '$email', '$contact', '$location', '$password')";
         // return true or false
-        return $this->db_query(
-            "INSERT INTO customer (`customer_fname`, `customer_lname`, `customer_contact`, `customer_country`, `customer_email`, `customer_pass`, `user_role`) VALUES ('$fname', '$lname', '$number', '$country', '$email', '$password', '$user_role')"
-        );
+        return $this->db_query($sql);
     }
+
+    // --SELECT--//
+    public function select_one_customer($id)
+    {
+        $sql="SELECT * FROM `customer` where `customer_id`='$id'";
+        return $this->db_query($sql);
+    }
+
+    // --SELECTALL--//
+    public function select_all_customer()
+    {
+        $sql="SELECT * FROM `customer`";
+        return $this->db_query($sql);
+    }
+
+    // --SELECTALL--//
+    public function update_customer($id,$name,$email,$contact,$location,$password,$user_role)
+    {
+        $sql="UPDATE `customer` SET `customer_name`='$name', `customer_email`='$email', `customer_contact`='$contact', `custumer_location`='$location', `customer_password`='$password'";
+        return $this->db_query($sql);
+    }
+
+    // --Delete--//
+    public function delete_customer($id)
+    {
+        $sql="DELETE FROM `customer` WHERE `pid`='$id'";
+        return $this->db_query($sql);
+    }
+
+    // --Verify--//
+    public function verify_customer($email)
+    {
+        $sql="SELECT * FROM `customer` WHERE `customer_email`='$email'";
+        return $this->db_fetch_one($sql);
+    }
+
+
+
+
 
     function add_Admin_record_cls($fname, $lname, $number, $country, $email, $password, $user_role)
     {
