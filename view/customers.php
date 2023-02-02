@@ -89,8 +89,14 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="customers.php">
                                 <span data-feather="users"></span>
+                                Customers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="farmers.php">
+                                <span data-feather="file"></span>
                                 Farmers
                             </a>
                         </li>

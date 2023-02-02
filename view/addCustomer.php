@@ -41,7 +41,7 @@ require("../controllers/contact_controller.php");
                             <input type="text" name="customer_contact" id="customer_contact" class="form-control">
                         </div>
                         <div class="form-floating">
-                            <label>Country</label>
+                            <label>Region</label>
                             <input type="text" name="customer_region" id="customer_region" class="form-control">
                         </div>
                         <div class="form-floating">
