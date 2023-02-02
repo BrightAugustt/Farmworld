@@ -52,7 +52,7 @@ require("../controllers/contact_controller.php");
                             <label>Password</label>
                             <input type="password" name="customer_pass" id="customer_pass" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <input type="submit" class="btn btn-primary" name="insertBtn" value="Submit">
                             <input type="reset" class="btn btn-secondary ml-2" value="Reset">
                         </div>
