@@ -19,14 +19,6 @@ class ContactClass extends db_connection
         );
     }
 
-    function add_newsletrecord_cls($mailname)
-    {
-        // return true or false
-        return $this->db_query(
-            "INSERT INTO newsletter (`news_email`) VALUES ('$mailname')"
-        );
-    }
-    
     
     function getUserDetailsByEmail_cls($email)
     {
