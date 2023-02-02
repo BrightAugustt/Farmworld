@@ -164,7 +164,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD KEY `product_cat` (`product_cat`),
+  ADD KEY `product_cat` (`product_cat`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -229,7 +229,7 @@ ALTER TABLE `payment`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_cat`) REFERENCES `categories` (`cat_id`),
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_cat`) REFERENCES `categories` (`cat_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
