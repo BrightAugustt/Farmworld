@@ -5,5 +5,4 @@ define("DATABASE", "farmaworld");
 define("SERVER", "localhost");
 define("USERNAME", "root");
 define("PASSWD", "");
-
 ?>
