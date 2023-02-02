@@ -124,7 +124,7 @@
                                             <th>First Name Of Customer</th>
                                             <th>Last Name Of Customer</th>
                                             <th>Telephone</th>
-                                            <th>Country</th>
+                                            <th>Region</th>
                                             <th>Email</th>
                                             <th>Actions</th>
                                         </tr>
@@ -140,11 +140,11 @@
                                                         <td>" . $contact['customer_fname'] . "</td>
                                                         <td>" . $contact['customer_lname'] . "</td>
                                                         <td>" . $contact['customer_contact'] . "</td>
-                                                        <td>" . $contact['customer_country'] . "</td>
+                                                        <td>" . $contact['customer_region'] . "</td>
                                                         <td>" . $contact['customer_email'] . "</td>
                                                         <td>";
                                             echo '<a href="updateCustomer.php?customer_id=' . $contact['customer_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../Actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="../actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             "</td>";
                                             "</tr>";
                                         }

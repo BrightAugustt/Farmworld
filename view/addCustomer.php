@@ -42,7 +42,7 @@ require("../controllers/contact_controller.php");
                         </div>
                         <div class="form-floating">
                             <label>Country</label>
-                            <input type="text" name="customer_country" id="customer_country" class="form-control">
+                            <input type="text" name="customer_region" id="customer_region" class="form-control">
                         </div>
                         <div class="form-floating">
                             <label>Email address</label>

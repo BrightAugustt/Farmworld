@@ -3,20 +3,20 @@
 include_once(dirname(__FILE__)) . '/../classes/contact_class.php';
 
 
-function add_record_ctr($fname, $lname, $number, $country, $email, $password, $user_role)
+function add_record_ctr($fname, $lname, $number, $region, $email, $password, $user_role)
 {
     // create an instance of the Product class
     $class_instance = new ContactClass();
     // call the method from the class
-    return $class_instance->add_Cust_record_cls($fname, $lname, $number, $country, $email, $password, $user_role);
+    return $class_instance->add_Cust_record_cls($fname, $lname, $number, $region, $email, $password, $user_role);
 }
 
-function add_Admin_record_ctr($fname, $lname, $number, $country, $email, $password, $user_role)
+function add_Admin_record_ctr($fname, $lname, $number, $region, $email, $password, $user_role)
 {
     // create an instance of the Product class
     $class_instance = new ContactClass();
     // call the method from the class
-    return $class_instance->add_Admin_record_cls($fname, $lname, $number, $country, $email, $password, $user_role);
+    return $class_instance->add_Admin_record_cls($fname, $lname, $number, $region, $email, $password, $user_role);
 }
 
 function add_newsletrecord_ctr($mailname)
@@ -27,11 +27,11 @@ function add_newsletrecord_ctr($mailname)
     return $class_instance->add_newsletrecord_cls($mailname);
 }
 
-// function addcustomer_ctr($name, $email, $pass, $country, $city, $contact, $role){
+// function addcustomer_ctr($name, $email, $pass, $region, $city, $contact, $role){
 // //run instance
 // $add_customer = new ContactPhoneClass();
 // //run method
-// return $add_customer->addcustomer_cls($name, $email, $pass, $country, $city, $contact, $role);
+// return $add_customer->addcustomer_cls($name, $email, $pass, $region, $city, $contact, $role);
 
 // }
 
@@ -185,12 +185,12 @@ function get_one_record_ctr($cid)
     }
 }
 
-function update_record_ctr($id, $name, $number, $country)
+function update_record_ctr($id, $name, $number, $region)
 {
     // create an instance of the Product class
     $class_instance = new ContactClass();
     // call the method from the class
-    return $class_instance->update_record_cls($id, $name, $number, $country);
+    return $class_instance->update_record_cls($id, $name, $number, $region);
 }
 
 function delete_record_ctr($id)
