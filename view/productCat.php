@@ -102,10 +102,9 @@
                 </div>
             </nav>
 
-
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Products Dashboard</h1>
+                    <h1 class="h2">Categories Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
@@ -119,39 +118,29 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit New Product/Product Details</h3>
-                                    <a href="addProduct.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
+                                    <h3 class="pull-left">Crop Category Details</h3>
+                                    <a href="addCategory.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Category</a>
                                 </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Product Category</th>
-                                            <th>Product Brand</th>
-                                            <th>Product Name</th>
-                                            <th>Product Price</th>
-                                            <th>Product Description</th>
-                                            <th>Product Keywords</th>
+                                            <th>Category Name</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         require "../Controllers/product_controller.php";
-                                        $result = get_all_productrecords_ctr();
+                                        $result = get_all_catrecords_ctr();
 
-                                        foreach ($result as $product) {
+                                        foreach ($result as $category) {
                                             echo "<tr>
-                                                        <td>" . $product['product_id'] . "</td>
-                                                        <td>" . $product['product_cat'] . "</td>
-                                                        <td>" . $product['product_brand'] . "</td>
-                                                        <td>" . $product['product_title'] . "</td>
-                                                        <td>" . $product['product_price'] . "</td>
-                                                        <td>" . $product['product_desc'] . "</td>
-                                                        <td>" . $product['product_keywords'] . "</td>
+                                                        <td>" . $category['cat_id'] . "</td>
+                                                        <td>" . $category['cat_name'] . "</td>
                                                         <td>";
-                                            echo '<a href="updateProduct.php?product_id=' . $product['product_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deleteProduct.php?delid=' . $product['product_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="updateCategory.php?customer_id=' . $category['cat_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="../Actions/deleteCategory.php?delid=' . $category['cat_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             "</td>";
                                             "</tr>";
                                         }
