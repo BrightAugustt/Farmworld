@@ -3,11 +3,11 @@ include_once(dirname(__FILE__)) . "../../settings/db_class.php";
 
 class ContactClass extends db_connection
 {
-    function add_Cust_record_cls($fname, $lname, $number, $country, $email, $password, $user_role)
+    function add_Cust_record_cls($fname, $lname, $number, $region, $email, $password, $user_role)
     {
         // return true or false
         return $this->db_query(
-            "INSERT INTO customer (`customer_fname`, `customer_lname`, `customer_contact`, `customer_country`, `customer_email`, `customer_pass`, `user_role`) VALUES ('$fname', '$lname', '$number', '$country', '$email', '$password', '$user_role')"
+            "INSERT INTO customer (`customer_fname`, `customer_lname`, `customer_contact`, `customer_region`, `customer_email`, `customer_pass`, `user_role`) VALUES ('$fname', '$lname', '$number', '$region', '$email', '$password', '$user_role')"
         );
     }
 

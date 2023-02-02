@@ -13,7 +13,7 @@ if (isset($_POST['insertBtn'])) {
     //  var_dump($fname, $lname, $number, $country, $email, $password, $user_role);
     $result = add_record_ctr($fname, $lname, $number, $region, $email, $password, $user_role);
     if ($result == true) {
-        header('Location: ../view/customers.php');
+        header('Location: ../admin/customers.php');
     } else {
         echo 'error';
     }
