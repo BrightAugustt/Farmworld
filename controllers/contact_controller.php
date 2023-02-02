@@ -1,6 +1,6 @@
 <?php 
 //make the controller aware of the class
-include_once(dirname(__FILE__)) . '/../Classes/contact_class.php';
+include_once(dirname(__FILE__)) . '/../classes/contact_class.php';
 
 
 function add_record_ctr($fname, $lname, $number, $country, $email, $password, $user_role)

@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__)) . "../../settings/dbClass.php";
+include_once(dirname(__FILE__)) . "../../settings/db_class.php";
 
 class ContactClass extends db_connection
 {
