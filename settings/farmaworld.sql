@@ -53,7 +53,8 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL,
-  `customer_name` varchar(100) NOT NULL,
+  `customer_fname` varchar(100) NOT NULL,
+  `customer_lname` varchar(100) NOT NULL,
   `customer_email` varchar(50) NOT NULL,
   `customer_pass` varchar(150) NOT NULL,
   `customer_country` varchar(30) NOT NULL,
