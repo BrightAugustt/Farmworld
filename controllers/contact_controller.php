@@ -1,6 +1,6 @@
 <?php 
 //make the controller aware of the class
-include_once(dirname(__FILE__)) . '/../classes/contact_class.php';
+include_once(dirname(__FILE__)) . '/../classes/customer_class.php';
 
 
 function add_record_ctr($fname, $lname, $number, $region, $email, $password, $user_role)
@@ -19,13 +19,6 @@ function add_Admin_record_ctr($fname, $lname, $number, $region, $email, $passwor
     return $class_instance->add_Admin_record_cls($fname, $lname, $number, $region, $email, $password, $user_role);
 }
 
-function add_newsletrecord_ctr($mailname)
-{
-    // create an instance of the Product class
-    $class_instance = new ContactClass();
-    // call the method from the class
-    return $class_instance->add_newsletrecord_cls($mailname);
-}
 
 // function addcustomer_ctr($name, $email, $pass, $region, $city, $contact, $role){
 // //run instance
@@ -107,28 +100,6 @@ function get_all_records_ctr()
     }
 }
 
-function get_all_newsrecords_ctr()
-{
-    //create an instance of the class
-    $item_object = new ContactClass();
-
-    //run the method
-    $item_records = $item_object->get_all_newsrecords_cls();
-
-    //check if the method worked
-    if ($item_records) {
-        //return all the data
-        return $item_object->db_fetch_all();
-    } else {
-        //no data found
-        return false;
-    }
-}
-
-// function get_all_newsrecords_ctr(){
-//     $select= new ContactClass();
-//     return $select->get_all_newsrecords_cls();
-//   }
 
 
 // function get_all_newsrecords_ctr()

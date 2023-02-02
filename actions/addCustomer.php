@@ -5,7 +5,7 @@ if (isset($_POST['insertBtn'])) {
     $fname = $_POST['customer_fname'];
     $lname = $_POST['customer_lname'];
     $number = $_POST['customer_contact'];
-    $country = $_POST['customer_region'];
+    $region = $_POST['customer_region'];
     $email = $_POST['customer_email'];
     $password = password_hash($_POST['customer_pass'], PASSWORD_DEFAULT); 
     $user_role = 1;
