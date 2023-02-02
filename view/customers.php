@@ -79,13 +79,12 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="../Views/products.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-success dropdown-toggle" href="../Views/products.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Products
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="viewBrands.php">Brands</a>
                                 <a class="dropdown-item" href="viewCategory.php">Categories</a>
-                                <a class="dropdown-item" href="products.php">All Products</a>
+                                <a class="dropdown-item" href="allProducts.php">All Products</a>
                             </div>
                         </li>
                         <li class="nav-item">
