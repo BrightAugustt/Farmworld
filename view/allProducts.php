@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard - Products</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
@@ -37,7 +37,6 @@
         });
     </script>
 
-
     <!-- Custom styles for this template -->
     <link href="../css/dashboard.css" rel="stylesheet">
 </head>
@@ -46,7 +45,7 @@
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
-            <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap"> Welcome, Admin!
+            <img class="bi me-2" src="../images/dashlog.png" width="180" height="32" role="img" aria-label="Bootstrap">Welcome, Admin!
             <use xlink:href="#bootstrap" />
             </img>
         </a>
@@ -56,7 +55,7 @@
         <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search">
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Sign Out</a>
+                <a class="nav-link px-3" href="../login/logout.php">Sign Out</a>
             </div>
         </div>
     </header>
@@ -103,9 +102,10 @@
                 </div>
             </nav>
 
+
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Customer Dashboard</h1>
+                    <h1 class="h2">Products Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
@@ -119,37 +119,39 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit Customer Details</h3>
-                                    <a href="addCustomer.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Customer</a>
+                                    <h3 class="pull-left">Edit New Product/Product Details</h3>
+                                    <a href="addProduct.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
                                 </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>First Name Of Customer</th>
-                                            <th>Last Name Of Customer</th>
-                                            <th>Telephone</th>
-                                            <th>Region</th>
-                                            <th>Email</th>
+                                            <th>Product Category</th>
+                                            <th>Product Brand</th>
+                                            <th>Product Name</th>
+                                            <th>Product Price</th>
+                                            <th>Product Description</th>
+                                            <th>Product Keywords</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../controllers/contact_controller.php";
-                                        $result = get_all_records_ctr();
+                                        require "../Controllers/product_controller.php";
+                                        $result = get_all_productrecords_ctr();
 
-                                        foreach ($result as $contact) {
+                                        foreach ($result as $product) {
                                             echo "<tr>
-                                                        <td>" . $contact['customer_id'] . "</td>
-                                                        <td>" . $contact['customer_fname'] . "</td>
-                                                        <td>" . $contact['customer_lname'] . "</td>
-                                                        <td>" . $contact['customer_contact'] . "</td>
-                                                        <td>" . $contact['customer_region'] . "</td>
-                                                        <td>" . $contact['customer_email'] . "</td>
+                                                        <td>" . $product['product_id'] . "</td>
+                                                        <td>" . $product['product_cat'] . "</td>
+                                                        <td>" . $product['product_brand'] . "</td>
+                                                        <td>" . $product['product_title'] . "</td>
+                                                        <td>" . $product['product_price'] . "</td>
+                                                        <td>" . $product['product_desc'] . "</td>
+                                                        <td>" . $product['product_keywords'] . "</td>
                                                         <td>";
-                                            echo '<a href="updateCustomer.php?customer_id=' . $contact['customer_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="updateProduct.php?product_id=' . $product['product_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="../actions/deleteProduct.php?delid=' . $product['product_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             "</td>";
                                             "</tr>";
                                         }
@@ -164,14 +166,6 @@
         </div>
     </div>
 
-    <script>
-        var myModal = document.getElementById('myModal')
-        var myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', function() {
-            myInput.focus()
-        })
-    </script>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -2,7 +2,7 @@
 //database
 
 //database credentials
-require 'dbCred.php';
+require 'db_cred.php';
 
 class db_connection
 {

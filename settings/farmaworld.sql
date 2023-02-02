@@ -53,11 +53,11 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL,
-  `customer_name` varchar(100) NOT NULL,
+  `customer_fname` varchar(100) NOT NULL,
+  `customer_lname` varchar(100) NOT NULL,
   `customer_email` varchar(50) NOT NULL,
   `customer_pass` varchar(150) NOT NULL,
-  `customer_country` varchar(30) NOT NULL,
-  `customer_city` varchar(30) NOT NULL,
+  `customer_region` varchar(30) NOT NULL,
   `customer_contact` varchar(15) NOT NULL,
   `customer_image` varchar(100) DEFAULT NULL,
   `user_role` int(11) NOT NULL

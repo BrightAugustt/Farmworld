@@ -1,5 +1,5 @@
 <?php
-	// landing/index page
+	//redirect to index
+	header('Location: ../view/customers.php');
 ?>
-
 	
