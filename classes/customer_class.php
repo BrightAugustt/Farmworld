@@ -1,21 +1,21 @@
 <?php
-include_once(dirname(__FILE__)) . "../../settings/db_class.php";
+include_once(dirname(__FILE__)) . "../../settings/dbClass.php";
 
 class ContactClass extends db_connection
 {
-    function add_Cust_record_cls($fname, $lname, $number, $region, $email, $password, $user_role)
+    function add_Cust_record_cls($fname, $lname, $number, $country, $email, $password, $user_role)
     {
         // return true or false
         return $this->db_query(
-            "INSERT INTO customer (`customer_fname`, `customer_lname`, `customer_contact`, `customer_region`, `customer_email`, `customer_pass`, `user_role`) VALUES ('$fname', '$lname', '$number', '$region', '$email', '$password', '$user_role')"
+            "INSERT INTO customer (`customer_fname`, `customer_lname`, `customer_contact`, `customer_country`, `customer_email`, `customer_pass`, `user_role`) VALUES ('$fname', '$lname', '$number', '$country', '$email', '$password', '$user_role')"
         );
     }
 
-    function add_Admin_record_cls($fname, $lname, $number, $region, $email, $password, $user_role)
+    function add_Admin_record_cls($fname, $lname, $number, $country, $email, $password, $user_role)
     {
         // return true or false
         return $this->db_query(
-            "INSERT INTO customer (`customer_fname`, `customer_lname`, `customer_contact`, `customer_region`, `customer_email`, `customer_pass`, `user_role`) VALUES ('$fname', '$lname', '$number', '$region', '$email', '$password', '$user_role')"
+            "INSERT INTO customer (`customer_fname`, `customer_lname`, `customer_contact`, `customer_country`, `customer_email`, `customer_pass`, `user_role`) VALUES ('$fname', '$lname', '$number', '$country', '$email', '$password', '$user_role')"
         );
     }
 
@@ -83,11 +83,11 @@ class ContactClass extends db_connection
         );
     }
 
-    function update_record_cls($id, $name, $number, $region)
+    function update_record_cls($id, $name, $number, $country)
     {
         // return true or false
         return $this->db_query(
-            "UPDATE `customer` SET `customer_name`='$name',`customer_contact`='$number',`customer_region`='$region' WHERE `customer_id`='$id'"
+            "UPDATE `customer` SET `customer_name`='$name',`customer_contact`='$number',`customer_country`='$country' WHERE `customer_id`='$id'"
         );
     }
 
