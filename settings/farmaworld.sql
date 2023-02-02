@@ -164,7 +164,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD KEY `product_cat` (`product_cat`),
+  ADD KEY `product_cat` (`product_cat`);
 
 --
 -- AUTO_INCREMENT for dumped tables
