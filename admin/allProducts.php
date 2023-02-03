@@ -87,7 +87,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="customers.php">
+                            <a class="nav-link" href="customers.php">
                                 <span data-feather="users"></span>
                                 Customers
                             </a>
