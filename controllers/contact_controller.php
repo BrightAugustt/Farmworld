@@ -20,48 +20,6 @@ function add_Admin_record_ctr($fname, $lname, $number, $region, $email, $passwor
 }
 
 
-// function addcustomer_ctr($name, $email, $pass, $region, $city, $contact, $role){
-// //run instance
-// $add_customer = new ContactPhoneClass();
-// //run method
-// return $add_customer->addcustomer_cls($name, $email, $pass, $region, $city, $contact, $role);
-
-// }
-
-// function delcontact_ctr($itemid){
-// //run instance
-// $delete_contact = new ContactPhoneClass();
-// //run method
-// return $delete_contact->deleteContact_cls($itemid);
-
-// }
-
-// function editcontact_ctr($id,$newname,$newphone){
-// //run instance
-// $edit_contact = new ContactPhoneClass();
-// //run method
-// return $edit_contact->editContact_cls($id,$newname,$newphone);
-
-// }
-
-
-// function selectcontact_ctr(){
-//     $selcon = new ContactPhoneClass();
-
-//     $run_select = $selcon->selectContact_cls();
-
-//     if ($run_select){
-//         $view = array();
-
-//         while ($onewho=$selcon->db_fetch_all()){
-//             $view=$onewho;
-//         }
-//         return $view;
-//     }else{
-//         return false;
-//     }
-// }
-
 function select_exist_customer_ctr($b,$c){
     $select = new ContactClass();
     return $select->sel_regis_cls($b,$c);
@@ -100,25 +58,6 @@ function get_all_records_ctr()
     }
 }
 
-
-
-// function get_all_newsrecords_ctr()
-// {
-//     //create an instance of the class
-//     $item_object = new ContactClass();
-
-//     //run the method
-//     $item_records = $item_object->get_all_newsrecords_cls();
-
-//     //check if the method worked
-//     if ($item_records) {
-//         //return all the data
-//         return $item_object->db_fetch_all();
-//     } else {
-//         //no data found
-//         return false;
-//     }
-// }
 
 function get_all_adminrecords_ctr()
 {

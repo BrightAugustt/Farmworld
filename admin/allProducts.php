@@ -45,7 +45,11 @@
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allProducts.php">
+<<<<<<< HEAD
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">Welcome, Admin!
+=======
+        <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap"> Welcome, Admin!
+>>>>>>> 083f608c2ff4628fc2b9dcb0aac75f8954cf4aab
             <use xlink:href="#bootstrap" />
             </img>
         </a>
@@ -87,7 +91,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="customers.php">
+                            <a class="nav-link" href="customers.php">
                                 <span data-feather="users"></span>
                                 Customers
                             </a>
@@ -126,12 +130,13 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Product Category</th>
-                                            <th>Product Brand</th>
-                                            <th>Product Name</th>
-                                            <th>Product Price</th>
-                                            <th>Product Description</th>
-                                            <th>Product Keywords</th>
+                                            <th>Crop Name</th>
+                                            <th>Farmer Name</th> //foreign key
+                                            <th>Quantity</th>
+                                            <th>Crop Price/kg</th>
+                                            <th>Date</th>
+                                            <th>Crop Category</th>
+                                            <th>Description</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -142,13 +147,13 @@
 
                                         foreach ($result as $product) {
                                             echo "<tr>
-                                                        <td>" . $product['product_id'] . "</td>
-                                                        <td>" . $product['product_cat'] . "</td>
-                                                        <td>" . $product['product_brand'] . "</td>
-                                                        <td>" . $product['product_title'] . "</td>
-                                                        <td>" . $product['product_price'] . "</td>
-                                                        <td>" . $product['product_desc'] . "</td>
-                                                        <td>" . $product['product_keywords'] . "</td>
+                                                        <td>" . $product['crop_id'] . "</td>
+                                                        <td>" . $product['crop_name'] . "</td>
+                                                        <td>" . $product['farmer_name'] . "</td>
+                                                        <td>" . $product['qty'] . "</td>
+                                                        <td>" . $product['crop_price'] . "</td>
+                                                        <td>" . $product['crop_cat'] . "</td>
+                                                        <td>" . $product['crop_desc'] . "</td>
                                                         <td>";
                                             echo '<a href="updateProduct.php?product_id=' . $product['product_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
                                             echo '<a href="../actions/deleteProduct.php?delid=' . $product['product_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
