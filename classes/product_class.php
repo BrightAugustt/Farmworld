@@ -13,11 +13,11 @@ class product_class extends db_connection
         );
     }
 
-    function add_productrecord_cls($pcategory, $pbrand, $ptitle, $pprice, $pdesc, $file, $pkeywords)
+    function add_productrecord_cls($cropName, $farmerName, $ptitle, $pprice, $pdesc, $file, $pkeywords)
     {
         // return true or false
         return $this->db_query(
-            "INSERT INTO products (`product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`) VALUES ('$pcategory', '$pbrand', '$ptitle', '$pprice','$pdesc', '$file', '$pkeywords')"
+            "INSERT INTO crops (`crop_name`, `farmer_name`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`) VALUES ('$pcategory', '$pbrand', '$ptitle', '$pprice','$pdesc', '$file', '$pkeywords')"
         );
     }
 
