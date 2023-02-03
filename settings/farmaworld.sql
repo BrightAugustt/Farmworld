@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `product_id` int(11) NOT NULL,
+  `crop_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `ip_add` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL
@@ -71,7 +71,7 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `orderdetails` (
   `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `crop_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -107,17 +107,18 @@ CREATE TABLE `payment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `crops`
 --
 
-CREATE TABLE `products` (
-  `product_id` int(11) NOT NULL,
-  `product_cat` int(11) NOT NULL,
-  `product_title` varchar(200) NOT NULL,
-  `product_price` double NOT NULL,
-  `product_desc` varchar(500) DEFAULT NULL,
-  `product_image` varchar(100) DEFAULT NULL,
-  `product_keywords` varchar(100) DEFAULT NULL
+CREATE TABLE `crops` (
+  `crop_id` int(11) NOT NULL,
+  `crop_name` varchar(200) NOT NULL,
+  `farmer_name` varchar(200) NOT NULL,
+  `qty` double NOT NULL,
+  `crop_price` double NOT NULL,
+  `crop_image` varchar(100) DEFAULT NULL,
+  `crop_cat` varchar(100) DEFAULT NULL,
+  `crop_desc` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -142,7 +143,7 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `orderdetails`
   ADD KEY `order_id` (`order_id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD KEY `crop_id` (`crop_id`);
 
 --
 -- Indexes for table `orders`
@@ -160,11 +161,11 @@ ALTER TABLE `payment`
   ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for table `products`
+-- Indexes for table `crops`
 --
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`),
-  ADD KEY `product_cat` (`product_cat`);
+ALTER TABLE `crops`
+  ADD PRIMARY KEY (`crop_id`),
+  ADD UNIQUE KEY `crop_cat` (`crop_cat`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -195,10 +196,10 @@ ALTER TABLE `payment`
   MODIFY `pay_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `crops`
 --
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `crops`
+  MODIFY `crop_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -210,7 +211,7 @@ ALTER TABLE `products`
 --
 ALTER TABLE `orderdetails`
   ADD CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+  ADD CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`crop_id`) REFERENCES `crops` (`crop_id`);
 
 --
 -- Constraints for table `orders`
@@ -226,10 +227,10 @@ ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
--- Constraints for table `products`
+-- Constraints for table `crops`
 --
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_cat`) REFERENCES `categories` (`cat_id`);
+ALTER TABLE `crops`
+  ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`crop_cat`) REFERENCES `categories` (`cat_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
