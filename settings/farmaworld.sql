@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `product_id` int(11) NOT NULL,
+  `crop_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `ip_add` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL
@@ -71,7 +71,7 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `orderdetails` (
   `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `crop_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -230,7 +230,7 @@ ALTER TABLE `payment`
 -- Constraints for table `crops`
 --
 ALTER TABLE `crops`
-  ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`crop_cat`) REFERENCES `categories` (`cat_id`);
+  ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`crop_cat`) REFERENCES `categories` (`crop_cat`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
