@@ -2,7 +2,7 @@
 //connect to database class
 include_once(dirname(__FILE__)) . '../../settings/db_class.php';
 
-class product_class extends db_connection
+class crop_class extends db_connection
 {
 
     function add_catrecord_cls($catname)
@@ -13,19 +13,19 @@ class product_class extends db_connection
         );
     }
 
-    function add_productrecord_cls($pcategory, $pbrand, $ptitle, $pprice, $pdesc, $file, $pkeywords)
+    function add_croprecord_cls($cropName, $farmerName, $qty, $price, $category, $file, $cdesc)
     {
         // return true or false
         return $this->db_query(
-            "INSERT INTO products (`product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`) VALUES ('$pcategory', '$pbrand', '$ptitle', '$pprice','$pdesc', '$file', '$pkeywords')"
+            "INSERT INTO crops (`crop_name`, `farmer_name`, `qty`, `crop_price`, `crop_cat`, `crop_image`, `crop_desc`) VALUES ('$cropName', '$farmerName', '$qty', '$price', '$category', '$file', '$cdesc')"
         );
     }
 
-    function get_all_productrecords_cls()
+    function get_all_croprecords_cls()
     {
         // return true or false
         return $this->db_query(
-            "SELECT * from products"
+            "SELECT * from crops"
         );
     }
 
@@ -48,16 +48,16 @@ class product_class extends db_connection
     }
 
 
-     function get_one_productrecord_cls($pid)
+     function get_one_croprecord_cls($pid)
     {
         // return true or false
         return $this->db_query(
-            "SELECT * from products where product_id ='$pid'"
+            "SELECT * from crops where crop_id ='$pid'"
         );
     }
 
-    function search_for_one_product_cls($searchkeys){
-		$sql= "SELECT `product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords` FROM products WHERE `product_keywords` LIKE '%$searchkeys%' or `product_title` LIKE '$searchkeys'";
+    function search_for_one_crop_cls($searchkeys){
+		$sql= "SELECT `crop_id`, `crop_cat`, `crop_brand`, `crop_title`, `crop_price`, `crop_desc`, `crop_image`, `crop_keywords` FROM crops WHERE `crop_keywords` LIKE '%$searchkeys%' or `crop_title` LIKE '$searchkeys'";
 		return $this->fetch($sql);
 	}
 
@@ -85,19 +85,19 @@ class product_class extends db_connection
         );
     }
 
-    function update_productrecord_cls($pid, $pcategory, $pbrand, $ptitle, $pprice, $pdesc, $pimage, $pkeywords)
+    function update_croprecord_cls($pid, $pcategory, $pbrand, $ptitle, $pprice, $pdesc, $pimage, $pkeywords)
     {
         // return true or false
         return $this->db_query(
-            "UPDATE `products` SET `product_cat`='$pcategory',`product_brand`='$pbrand',`product_title`='$ptitle', `product_price`='$pprice',`product_desc`='$pdesc', `product_image`='$pimage',`product_keywords`='$pkeywords' WHERE `product_id`='$pid'"
+            "UPDATE `crops` SET `crop_cat`='$pcategory',`crop_brand`='$pbrand',`crop_title`='$ptitle', `crop_price`='$pprice',`crop_desc`='$pdesc', `crop_image`='$pimage',`crop_keywords`='$pkeywords' WHERE `crop_id`='$pid'"
         );
     }
 
-    function delete_productrecord_cls($id)
+    function delete_croprecord_cls($id)
     {
         // return true or false
         return $this->db_query(
-            "DELETE FROM `products` WHERE `product_id`='$id'"
+            "DELETE FROM `crops` WHERE `crop_id`='$id'"
         );
     }
 

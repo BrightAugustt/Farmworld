@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Dashboard - Products</title>
+    <title>Admin Dashboard - crops</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
@@ -44,8 +44,8 @@
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
-            <img class="bi me-2" src="../images/dashlog.png" width="180" height="32" role="img" aria-label="Bootstrap">Welcome, Admin!
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
+            <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">Welcome, Admin!
             <use xlink:href="#bootstrap" />
             </img>
         </a>
@@ -79,15 +79,15 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Products
+                                crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="productCat.php">Categories</a>
-                                <a class="dropdown-item" href="allProducts.php">All Products</a>
+                                <a class="dropdown-item" href="cropCat.php">Categories</a>
+                                <a class="dropdown-item" href="allcrops.php">All crops</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="customers.php">
+                            <a class="nav-link" href="customers.php">
                                 <span data-feather="users"></span>
                                 Customers
                             </a>
@@ -105,7 +105,7 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Products Dashboard</h1>
+                    <h1 class="h2">crops Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
@@ -119,15 +119,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit New Product/Product Details</h3>
-                                    <a href="addProduct.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Product</a>
+                                    <h3 class="pull-left">Edit New crop/crop Details</h3>
+                                    <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New crop</a>
                                 </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
                                             <th>Crop Name</th>
-                                            <th>Farmer Name</th> //foreign key
+                                            <th>Farmer Name</th>
                                             <th>Quantity</th>
                                             <th>Crop Price/kg</th>
                                             <th>Date</th>
@@ -138,21 +138,21 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../Controllers/product_controller.php";
-                                        $result = get_all_productrecords_ctr();
+                                        require "../controllers/product_controller.php";
+                                        $result = get_all_croprecords_ctr();
 
-                                        foreach ($result as $product) {
+                                        foreach ($result as $crop) {
                                             echo "<tr>
-                                                        <td>" . $product['crop_id'] . "</td>
-                                                        <td>" . $product['crop_name'] . "</td>
-                                                        <td>" . $product['farmer_name'] . "</td>
-                                                        <td>" . $product['qty'] . "</td>
-                                                        <td>" . $product['crop_price'] . "</td>
-                                                        <td>" . $product['crop_cat'] . "</td>
-                                                        <td>" . $product['crop_desc'] . "</td>
+                                                        <td>" . $crop['crop_id'] . "</td>
+                                                        <td>" . $crop['crop_name'] . "</td>
+                                                        <td>" . $crop['farmer_name'] . "</td>
+                                                        <td>" . $crop['qty'] . "</td>
+                                                        <td>" . $crop['crop_price'] . "</td>
+                                                        <td>" . $crop['crop_cat'] . "</td>
+                                                        <td>" . $crop['crop_desc'] . "</td>
                                                         <td>";
-                                            echo '<a href="updateProduct.php?product_id=' . $product['product_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deleteProduct.php?delid=' . $product['product_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            echo '<a href="updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             "</td>";
                                             "</tr>";
                                         }
