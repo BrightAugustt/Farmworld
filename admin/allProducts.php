@@ -45,7 +45,7 @@
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
-            <img class="bi me-2" src="../images/dashlog.png" width="180" height="32" role="img" aria-label="Bootstrap">Welcome, Admin!
+        <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap"> Welcome, Admin!
             <use xlink:href="#bootstrap" />
             </img>
         </a>
