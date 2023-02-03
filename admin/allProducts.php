@@ -126,12 +126,13 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Product Category</th>
-                                            <th>Product Brand</th>
-                                            <th>Product Name</th>
-                                            <th>Product Price</th>
-                                            <th>Product Description</th>
-                                            <th>Product Keywords</th>
+                                            <th>Crop Name</th>
+                                            <th>Farmer Name</th> //foreign key
+                                            <th>Quantity</th>
+                                            <th>Crop Price/kg</th>
+                                            <th>Date</th>
+                                            <th>Crop Category</th>
+                                            <th>Description</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -142,13 +143,13 @@
 
                                         foreach ($result as $product) {
                                             echo "<tr>
-                                                        <td>" . $product['product_id'] . "</td>
-                                                        <td>" . $product['product_cat'] . "</td>
-                                                        <td>" . $product['product_brand'] . "</td>
-                                                        <td>" . $product['product_title'] . "</td>
-                                                        <td>" . $product['product_price'] . "</td>
-                                                        <td>" . $product['product_desc'] . "</td>
-                                                        <td>" . $product['product_keywords'] . "</td>
+                                                        <td>" . $product['crop_id'] . "</td>
+                                                        <td>" . $product['crop_name'] . "</td>
+                                                        <td>" . $product['farmer_name'] . "</td>
+                                                        <td>" . $product['qty'] . "</td>
+                                                        <td>" . $product['crop_price'] . "</td>
+                                                        <td>" . $product['crop_cat'] . "</td>
+                                                        <td>" . $product['crop_desc'] . "</td>
                                                         <td>";
                                             echo '<a href="updateProduct.php?product_id=' . $product['product_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
                                             echo '<a href="../actions/deleteProduct.php?delid=' . $product['product_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
