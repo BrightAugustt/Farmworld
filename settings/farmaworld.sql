@@ -165,7 +165,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `crops`
   ADD PRIMARY KEY (`crop_id`),
-  ADD KEY `crop_cat` (`crop_cat`);
+  ADD UNIQUE KEY `crop_cat` (`crop_cat`);
 
 --
 -- AUTO_INCREMENT for dumped tables
