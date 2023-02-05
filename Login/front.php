@@ -18,7 +18,7 @@ session_start();
     <div class="container">
         <div class="form">
             <h2>Create Account</h2>
-            <form id="formid" action="" method="POST">
+            <form id="formId" action="" method="POST">
                 <div class="form-floating">
                     <label>Your First Name</label>
                     <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name">
@@ -63,7 +63,7 @@ session_start();
 			  var form = $("#formId");
 			  var fname = $("#fname").val();
 			  var fnumber = $("#fnumber").val();
-			  var url = form.attr('./actions/adduser.php');
+			  var url = form.attr('./actions/addCustomer.php');
 			  if (fname!="" && fnumber!=""){
 				$.ajax({
 				  type: "POST",
@@ -90,7 +90,7 @@ session_start();
 			  var form = $("#formId");
 			  var fname = $("#fname").val();
 			  var fnumber = $("#fnumber").val();
-			  var url = form.attr('./actions/adduser.php');
+			  var url = form.attr('./actions/addaeo.php');
 			  if (fname!="" && fnumber!=""){
 				$.ajax({
 				  type: "POST",
