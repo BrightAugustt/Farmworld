@@ -79,11 +79,11 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                crops
+                                Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="cropCat.php">Categories</a>
-                                <a class="dropdown-item" href="allcrops.php">All crops</a>
+                                <a class="dropdown-item" href="allcrops.php">All Crops</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -105,7 +105,7 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">crops Dashboard</h1>
+                    <h1 class="h2">Crops Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
@@ -120,7 +120,7 @@
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
                                     <h3 class="pull-left">Edit New crop/crop Details</h3>
-                                    <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New crop</a>
+                                    <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Crop</a>
                                 </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>

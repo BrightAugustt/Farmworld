@@ -1,5 +1,5 @@
 <?php
-require("../Controllers/product_controller.php");
+require("../controllers/product_controller.php");
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ require("../Controllers/product_controller.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Add Crop</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
@@ -25,13 +25,13 @@ require("../Controllers/product_controller.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Create Product Record</h2>
-                    <p>Please fill this form and submit to add new Product record to the database.</p>
-                    <form action="../Actions/addProduct.php" method="post" enctype="multipart/form-data">
+                    <h2 class="mt-5">Create Crop Record</h2>
+                    <p>Please fill this form and submit to add new Crop record to the database.</p>
+                    <form action="../actions/addProduct.php" method="post" enctype="multipart/form-data">
 
                         <div class="form-group">
-                            <label for="product_cat" class="form-label"> Select Category</label>
-                            <select name='product_cat'>
+                            <label for="crop_cat" class="form-label"> Select Category</label>
+                            <select name='crop_cat'>
 
                                 <?php
                                 $cat = get_all_catrecords_ctr();
@@ -44,18 +44,18 @@ require("../Controllers/product_controller.php");
                         </div>
 
                         <div class="form-group">
-                            <label for="product_title">Enter Crop Name</label>
-                            <input type="text" name="product_title">
+                            <label for="crop_name">Enter Crop Name</label>
+                            <input type="text" name="crop_name">
                         </div>
 
                         <div class="form-group">
-                            <label for="product_price">Enter Product Price</label>
-                            <input type="number" required name="product_price" min="0" value="0" step="any">
+                            <label for="farmer_name">Enter Harvesteer's name</label>
+                            <input type="text" required name="farmer_name" min="0" value="0" step="any">
                         </div>
 
                         <div class="form-group">
-                            <label for="product_desc">Enter Product Description</label>
-                            <input type="textarea" name="product_desc">
+                            <label for="crop_desc">Enter Crop Description</label>
+                            <input type="textarea" name="crop_desc">
                         </div>
 
                         <div class="form-group">
