@@ -11,7 +11,7 @@ $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products</title>
+    <title>Homepage</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@ $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="../Views/homepage.php" class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="../Views/homepage.php" class="nav-link px-2 text-dark">Home</a></li>
                     <li><a href="../Views/about.php" class="nav-link px-2 text-white">About</a></li>
-                    <li><a href="../Views/shop.php" class="nav-link px-2 text-dark">Shop</a></li>
+                    <li><a href="../Views/shop.php" class="nav-link px-2 text-white">Shop</a></li>
                     <li><a href="../Views/contactUs.php" class="nav-link px-2 text-white">Contact Us</a></li>
                 </ul>
 
