@@ -31,7 +31,7 @@ if (isset($_POST['insertcustomer'])) {
             header('Location:../Login/register.php');
         }
     }
-     var_dump($fname, $lname, $number, $country, $email, $password, $user_role);
+    //  var_dump($fname, $lname, $number, $country, $email, $password, $user_role);
 
 }
 
