@@ -13,6 +13,7 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/register.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="addcustomer.js"></script>
 </head>
 <body>
     <div class="container">
@@ -50,7 +51,7 @@ session_start();
                 </div>
 
                 <div class="button">
-                <button class="button1" id="butcustomer" name="insertcustomer" >Sign up as a customer</button>
+                <button class="button1" id="butcustomer" name="insertcustomer" onclick="formsubmit()" >Sign up as a customer</button>
                 <p>OR</p>
                 <button class="button2" id="butaeo" name="insertaeo">Sign up as an AEO</button>
                 </div>
@@ -63,10 +64,31 @@ session_start();
     </div>
 
 
-    <script>
+    <!-- <script>
+    $(document).ready(function(){
+        $('#formid').submit(function(e){
+            e.preventDefault();
+        
+        var form = $(this);
+        var actionUrl = form.attr('action');
+        
+        $.ajax({
+            type: "POST",
+            url: actionUrl,
+            data: form.serialize(),
+            dataType: "json",
+            success:function(data){
+                // Process with the response data
+                alert("Form Submitted Successfully")
+            }
+        });
+        });
+    });
+    </script> -->
+    <!-- <script>
         $("#butcustomer").click(function(ev) {
-			  var form = $("#formId");
-			  var url = form.attr('./actions/addCustomer.php');
+			  var form = $("#formid");
+			  var url = form.attr('../actions/addCustomer.php');
 				$.ajax({
 				  type: "POST",
 				  url: url,
@@ -84,7 +106,7 @@ session_start();
 		  });
 
           $("#butaeo").click(function(ev) {
-			  var form = $("#formId");
+			  var form = $("#formid");
 			  var fname = $("#fname").val();
 			  var fnumber = $("#fnumber").val();
 			  var url = form.attr('./actions/adduser.php');
@@ -109,6 +131,6 @@ session_start();
 			  }
 			  
 		  });
-    </script>
+    </script> -->
 </body>
 </html>
