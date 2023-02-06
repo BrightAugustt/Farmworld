@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__)) . "../../settings/db_class.php";
 
 
-class CropClass extends db_connection
+class crop_class extends db_connection
 {
     // Insert crop into database
     function add_crop($crop_name,$farmer_name,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
@@ -18,12 +18,12 @@ class CropClass extends db_connection
     {
         // return true or false
         return $this->db_query(
-            "SELECT * FROM `crops` where crop_id=$crop_id"
+            "SELECT * FROM `crops` where `crop_id`='$crop_id'"
         );
     }
 
     // select all crops
-    function selectAll_crop($crop_id)
+    function selectAll_crop()
     {
         // return true or false
         return $this->db_fetch_all(
@@ -36,7 +36,7 @@ class CropClass extends db_connection
     {
         // return true or false
         return $this->db_query(
-            "UPDATE `crops` SET `crop_name`='$crop_name',`farmer_name`='$farmer_name',`farm_size`='$farm_size',`qty`='$qty',`crop_price`='$crop_price',`crop_image`='$crop_image',`crop_cat`='$crop_cat',`crop_desc`='$crop_desc' WHERE crop_id=$crop_id"
+            "UPDATE `crops` SET `crop_name`='$crop_name',`farmer_name`='$farmer_name',`farm_size`='$farm_size',`qty`='$qty',`crop_price`='$crop_price',`crop_image`='$crop_image',`crop_cat`='$crop_cat',`crop_desc`='$crop_desc' WHERE `crop_id`='$crop_id'"
         );
     }
 
@@ -51,7 +51,7 @@ class CropClass extends db_connection
 
 
     // search crop
-    
+
 
 
 
