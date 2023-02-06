@@ -83,8 +83,8 @@
                                 Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="productCat.php">Categories</a>
-                                <a class="dropdown-item" href="allProducts.php">All Products</a>
+                                <a class="dropdown-item" href="cropCat.php">Categories</a>
+                                <a class="dropdown-item" href="allcrops.php">All Crops</a>
                             </div>
                         </li>
                         <li class="nav-item">
