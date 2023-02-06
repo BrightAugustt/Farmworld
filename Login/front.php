@@ -20,11 +20,11 @@ session_start();
             <h2>Create Account</h2>
             <form id="formId" action="" method="POST">
                 <div class="form-floating">
-                    <label>Your First Name</label>
+                    <label>First Name</label>
                     <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name">
                 </div>
                 <div class="form-floating">
-                    <label>Your Last Name</label>
+                    <label>Last Name</label>
                     <input type="text" name="customer_lname" name="customer_lname" class="form-control" placeholder="Last Name">
                 </div>
                 <div class="form-floating">
