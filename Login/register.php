@@ -21,15 +21,15 @@ session_start();
             <form id="formid" action="" method="POST">
                 <div class="form-floating">
                     <label>First Name</label>
-                    <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name">
+                    <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name" pattern="[A-Za-z]+">
                 </div>
                 <div class="form-floating">
                     <label>Last Name</label>
-                    <input type="text" name="customer_lname" name="customer_lname" class="form-control" placeholder="Last Name">
+                    <input type="text" name="customer_lname" name="customer_lname" class="form-control" placeholder="Last Name" pattern="[A-Za-z]+">
                 </div>
                 <div class="form-floating">
                     <label>Contact Number</label>
-                    <input type="text" name="customer_contact" id="customer_contact" class="form-control" placeholder="Contact">
+                    <input type="tel" name="customer_contact" id="customer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
                 </div>
                 <div class="form-floating">
                     <label>Region</label>
@@ -37,17 +37,22 @@ session_start();
                 </div>
                 <div class="form-floating">
                     <label>Email address</label>
-                    <input type="text" name="customer_email" id="customer_email" class="form-control" placeholder="Email Address">
+                    <input type="text" name="customer_email" id="customer_email" class="form-control" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 </div>
                 <div class="form-floating">
                     <label>Password</label>
-                    <input type="password" name="customer_pass" id="customer_pass" class="form-control" placeholder="Password">
+                    <input type="password" name="customer_pass" id="customer_pass" class="form-control" placeholder="Password"  pattern=".{6,}">
+                </div>
+
+                <div class="form-floating">
+                    <label> Confirm Password</label>
+                    <input type="password" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password"  pattern=".{6,}">
                 </div>
 
                 <div class="button">
-                <button class="button1" id="butcustomer" >Sign up as a customer</button>
+                <button class="button1" id="butcustomer" name="insertcustomer" >Sign up as a customer</button>
                 <p>OR</p>
-                <button class="button2" id="butaeo">Sign up as an AEO</button>
+                <button class="button2" id="butaeo" name="insertaeo">Sign up as an AEO</button>
                 </div>
 
                 <div class="already">
