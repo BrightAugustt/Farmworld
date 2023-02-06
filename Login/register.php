@@ -55,7 +55,6 @@ session_start();
                 <p>OR</p>
                 <button class="button2" id="butaeo" name="insertaeo">Sign up as an AEO</button>
                 </div>
-
                 <div class="already">
                     <p>Already have an account? <span class="login"><a href="login.php" class="login">Login Here</a></span></p>
                 </div>
