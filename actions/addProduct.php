@@ -22,7 +22,7 @@ if (isset($_POST['insertBtn'])) {
 
     // echo $pcategory, $pbrand, $ptitle, $pprice, $pdesc, $pimage, $pkeywords;
 
-    $result = add_productrecord_ctr($pcategory, $pbrand, $ptitle, $pprice, $pdesc, $file, $pkeywords);
+    $result=add_productrecord_ctr($pcategory, $pbrand, $ptitle, $pprice, $pdesc, $file, $pkeywords);
     if ($result == true) {
         header('Location: ../admin/allProducts.php');
     } else {
