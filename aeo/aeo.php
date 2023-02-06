@@ -79,11 +79,11 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                crops
+                                Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="cropCat.php">Categories</a>
-                                <a class="dropdown-item" href="allcrops.php">All crops</a>
+                                <a class="dropdown-item" href="allcrops.php">All Crops</a>
                             </div>
                         </li>
                         <li class="nav-item">

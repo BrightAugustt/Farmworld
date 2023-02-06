@@ -104,6 +104,7 @@ CREATE TABLE `payment` (
   `payment_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 -- --------------------------------------------------------
 
 --
@@ -114,6 +115,7 @@ CREATE TABLE `crops` (
   `crop_id` int(11) NOT NULL,
   `crop_name` varchar(200) NOT NULL,
   `farmer_name` varchar(200) NOT NULL,
+  `farm_size` int(10) NOT NULL,
   `qty` double NOT NULL,
   `crop_price` double NOT NULL,
   `crop_image` varchar(100) DEFAULT NULL,
