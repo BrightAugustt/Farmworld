@@ -20,22 +20,6 @@ session_start();
             <h2>Create Account</h2>
             <form id="formId" action="" method="POST">
                 <div class="form-floating">
-                    <label>First Name</label>
-                    <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name">
-                </div>
-                <div class="form-floating">
-                    <label>Last Name</label>
-                    <input type="text" name="customer_lname" name="customer_lname" class="form-control" placeholder="Last Name">
-                </div>
-                <div class="form-floating">
-                    <label>Contact Number</label>
-                    <input type="text" name="customer_contact" id="customer_contact" class="form-control" placeholder="Contact">
-                </div>
-                <div class="form-floating">
-                    <label>Region</label>
-                    <input type="text" name="customer_region" id="customer_region" class="form-control" placeholder="Region">
-                </div>
-                <div class="form-floating">
                     <label>Email address</label>
                     <input type="text" name="customer_email" id="customer_email" class="form-control" placeholder="Email Address">
                 </div>
