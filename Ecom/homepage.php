@@ -1,6 +1,6 @@
-<?php require("../controllers/crop_controller.php"); 
+<?php require("../controllers/product_controller.php");
 
-$customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
+$customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
 ?>
 
@@ -66,13 +66,16 @@ $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
         </div>
 
         <div class="container mt-4">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
+                        <div class="container">
+                        </div>
                         <div class="card-header">
                             <h4>All Crops</h4>
                         </div>
-
+                        
                         <?php
                         $p_list = get_all_croprecords_ctr();
                         //print_r($brand_list);
@@ -86,7 +89,7 @@ $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
                                         foreach ($p_list as $apat) {
 
                                             // print_r($apat);
-                                            
+
                                             $cropname = $apat['crop_name'];
                                             $cropcat = $apat['crop_brand'];
                                             $qty = $apat['qty'];
