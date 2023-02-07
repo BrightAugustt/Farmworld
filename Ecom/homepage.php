@@ -92,7 +92,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
                                             $cropname = $apat['crop_name'];
                                             $cropcat = $apat['crop_brand'];
-                                            $qty = $apat['qty'];
+                                            $qtyavail = $apat['qty'];
                                             $price = $apat['crop_price'];
                                             $desc = $apat['crop_desc'];
                                             //Displaying image
@@ -108,12 +108,12 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                         <h4 class="card-title"><?php echo $cropname; ?></h4>
                                                         <h5 class="card-title">GHc<?php echo $price; ?></h5>
                                                         <p class="card-text"><?php echo $desc; ?></p>
-                                                        <form action="singlecrop.php" method="GET">
+                                                        <form action="#" method="GET">
                                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                                             <button type="submit" name="view" class="btn btn-primary">View</button>
                                                         </form>
                                                         <!-- <br> -->
-                                                        <form action="../Actions/addCart.php" method="POST">
+                                                        <form action="../actions/addtoCart.php" method="POST">
                                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                                             <input type="hidden" name="qty" value="1">
                                                             <button type="submit" name="addcart" class="btn btn-success my-3">Add To Cart <i class="fas fa-shopping-cart"></i></button>
