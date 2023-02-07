@@ -1,4 +1,4 @@
-<?php require("../controllers/product_controller.php"); 
+<?php require("../controllers/crop_controller.php"); 
 
 $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
 
@@ -55,7 +55,7 @@ $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
             <div class="row height d-flex justify-content-center align-items-center">
                 <nav class="navbar bg-light col-md-8 ">
                     <div class="container-fluid justify-content-center align-items-center">
-                        <form action="product_search_result.php" method="GET" class="d-flex" role="search">
+                        <form action="crop_search_result.php" method="GET" class="d-flex" role="search">
                             <i class="fa fa-search" aria-hidden="true"></i>
                             <input class="form-control me-2" name="search" placeholder=" Search " aria-label="Search">
                             <button class="btn btn-outline-primary" type="submit">Search</button>
@@ -70,11 +70,11 @@ $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Products</h4>
+                            <h4>All Crops</h4>
                         </div>
 
                         <?php
-                        $p_list = get_all_productrecords_ctr();
+                        $p_list = get_all_croprecords_ctr();
                         //print_r($brand_list);
                         ?>
                         <div class="container">
@@ -87,31 +87,31 @@ $customer_id = isset($_SESSION['customer_id'])? $_SESSION['customer_id']: "";
 
                                             // print_r($apat);
                                             
-                                            $pnamee = $apat['product_cat'];
-                                            $pbrand = $apat['product_brand'];
-                                            $pname = $apat['product_title'];
-                                            $pprice = $apat['product_price'];
-                                            $pdesc = $apat['product_desc'];
+                                            $cropname = $apat['crop_name'];
+                                            $cropcat = $apat['crop_brand'];
+                                            $qty = $apat['qty'];
+                                            $price = $apat['crop_price'];
+                                            $desc = $apat['crop_desc'];
                                             //Displaying image
-                                            $pimage = ("<img src='{$apat['product_image']}'. height=200 width=200 ");
+                                            $pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200 ");
                                         ?>
 
 
 
                                             <div class="card" style="width: 18rem">
                                                 <div class="card-block">
-                                                    <img src='../images/productImages/<?php echo $apat["product_image"] ?>' class="img-fluid card-img-top" style="width: 200; height: 200;" alt="<?php echo $pname; ?>">
+                                                    <img src='../images/cropImages/<?php echo $apat["crop_image"] ?>' class="img-fluid card-img-top" style="width: 200; height: 200;" alt="<?php echo $pname; ?>">
                                                     <div class="card-body">
-                                                        <h4 class="card-title"><?php echo $pname; ?></h4>
-                                                        <h5 class="card-title">GHc<?php echo $pprice; ?></h5>
-                                                        <p class="card-text"><?php echo $pdesc; ?></p>
-                                                        <form action="singleProduct.php" method="GET">
-                                                            <input type="hidden" name="product_id" value="<?php echo $apat['product_id'] ?>">
+                                                        <h4 class="card-title"><?php echo $cropname; ?></h4>
+                                                        <h5 class="card-title">GHc<?php echo $price; ?></h5>
+                                                        <p class="card-text"><?php echo $desc; ?></p>
+                                                        <form action="singlecrop.php" method="GET">
+                                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                                             <button type="submit" name="view" class="btn btn-primary">View</button>
                                                         </form>
                                                         <!-- <br> -->
                                                         <form action="../Actions/addCart.php" method="POST">
-                                                            <input type="hidden" name="product_id" value="<?php echo $apat['product_id'] ?>">
+                                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                                             <input type="hidden" name="qty" value="1">
                                                             <button type="submit" name="addcart" class="btn btn-success my-3">Add To Cart <i class="fas fa-shopping-cart"></i></button>
                                                         </form>
