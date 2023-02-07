@@ -1,0 +1,57 @@
+.admin{
+    display: flex;
+    justify-content: center;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+.header{
+    /* margin-left: 227px; */
+    /* padding-left: 50px; */
+    color: rgba(4, 255, 0, 0.807);
+    display: flex;
+    /* justify-content: center; */
+}
+
+h6{
+    padding-left: 30px;
+}
+
+.nav-item{
+    margin:auto;
+    margin-top: 20px;
+}
+.dashboard{
+    /* margin-top: 40px; */
+    font-size:18px;
+    font-weight: 700;
+    background-color: aqua;
+}
+
+
+.icon{
+    margin-right: 5px;
+}
+
+.crop{
+    margin-right: 25px;
+}
+
+.record{
+    margin-right: 25px;
+}
+
+.profile{
+    margin-right: 25px;
+}
+
+.help{
+    margin-right: 35px;
+}
+
+hr{
+    margin-top: 20px;
+    margin-left:20px;
+    width: 200px;
+}
+

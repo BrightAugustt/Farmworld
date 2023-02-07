@@ -69,45 +69,49 @@ session_start();
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="aeo.php">
                                 <span data-feather="home"></span>
                                 Dashboard
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
-                            </a>
-                        </li>
+                      
                         <li class="nav-item dropdown">
                             <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="cropCat.php">Categories</a>
-                                <a class="dropdown-item" href="allcrops.php">All Crops</a>
+                                <a class="dropdown-item" href="addcrop.php">Add New Crops</a>
+                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
                             </div>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="record.php">
+                                <span data-feather="file"></span>
+                                Records
+                            </a>
+                        </li>
+                        <hr>
                         <li class="nav-item">
                             <a class="nav-link" href="customers.php">
                                 <span data-feather="users"></span>
-                                Customers
+                                Profile
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="farmers.php">
                                 <span data-feather="file"></span>
-                                Farmers
+                                Help
                             </a>
                         </li>
                     </ul>
                 </div>
             </nav>
+
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

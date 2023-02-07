@@ -15,12 +15,14 @@ session_start();
     <title>AEO Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/aeo.css">
 
 
     <style>
@@ -51,19 +53,20 @@ session_start();
 
 <body>
 
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
-            <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">Welcome, Admin!
-            <use xlink:href="#bootstrap" />
+    <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
+         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
+            <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search">
+        <h6 style="color:black;text-align:center;">Welcome AEO Officer</h6>
         <div class="navbar-nav">
-            <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="../login/logout.php">Sign Out</a>
+            <div class=" text-nowrap admin" >
+                <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
+                <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
         </div>
     </header>
@@ -74,36 +77,46 @@ session_start();
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
                                 <span data-feather="home"></span>
-                                Dashboard
+                                <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
+                                </i>Dashboard
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
-                            </a>
-                        </li>
+                      
                         <li class="nav-item dropdown">
-                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Crops
+                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="cropCat.php">Categories</a>
-                                <a class="dropdown-item" href="allcrops.php">All Crops</a>
+                                <a class="dropdown-item" href="addcrop.php">Add New Crops</a>
+                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="customers.php">
+                            <a class="nav-link dashboard" href="record.php">
+                                <span data-feather="file"></span>
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>Records
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                Customers
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="farmers.php">
+                            <a class="nav-link dashboard" href="farmers.php">
                                 <span data-feather="file"></span>
-                                Farmers
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>Help
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../login/logout.php">
+                                <span data-feather="file"></span>
+                                Signout
                             </a>
                         </li>
                     </ul>
