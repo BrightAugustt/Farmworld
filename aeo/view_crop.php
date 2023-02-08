@@ -129,14 +129,16 @@ session_start();
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <div>
                     <h1 class="h2">Crop List</h1>
-                    <p>A list of all crops added.</p>
+                    <p>A complete list of all crops uploaded.</p>
                     </div>
+                    
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button"  class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-plus-square-fill record" style="font-size: 20px; color:white; margin-right:5px"></span></i> Add New Crop</a>
-                        </button>
+                        <a href="add_crop.php"><button type="button" class="btn btn-sm btn btn-outline-success">
+                            Add new crops
+                        </button></a>
                     </div>
                 </div>
 
@@ -147,7 +149,6 @@ session_start();
                                 <table class="table">
                     <thead>
                     <tr>
-                    ($crop_name,$farmer_name,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
                         <th>Crop Name</th>
                         <th>Farmer</th>
                         <th>Farmer Contact</th>
@@ -162,7 +163,7 @@ session_start();
                                     <tbody>
                                         <?php
                                         require "../controllers/crop_controller.php";
-                                        $result = get_all_croprecords_ctr();
+                                        $result = selectallCrop_ctr();
 
                                         foreach ($result as $crop) {
                                             echo "<tr>
