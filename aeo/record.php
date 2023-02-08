@@ -73,39 +73,46 @@ session_start();
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="aeo.php">
+                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
                                 <span data-feather="home"></span>
-                                Dashboard
+                                <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
+                                </i>Dashboard
                             </a>
                         </li>
                       
                         <li class="nav-item dropdown">
-                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Crops
+                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="addcrop.php">Add New Crops</a>
                                 <a class="dropdown-item" href="view_crop.php">All Crops</a>
                             </div>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="record.php">
+                            <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
-                                Records
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>Records
                             </a>
                         </li>
                         <hr>
                         <li class="nav-item">
-                            <a class="nav-link" href="customers.php">
+                            <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                Profile
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="farmers.php">
+                            <a class="nav-link dashboard" href="farmers.php">
                                 <span data-feather="file"></span>
-                                Help
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>Help
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../login/logout.php">
+                                <span data-feather="file"></span>
+                                Signout
                             </a>
                         </li>
                     </ul>
