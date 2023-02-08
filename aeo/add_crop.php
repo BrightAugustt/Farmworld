@@ -6,7 +6,6 @@ session_start();
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +54,7 @@ session_start();
 
 <body>
 
-<header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
+    <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
          <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
                 <use xlink:href="#bootstrap" />
@@ -75,7 +74,7 @@ session_start();
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -98,20 +97,23 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>Records
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
+                                Records
                             </a>
                         </li>
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>Profile
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
+                                Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dashboard" href="farmers.php">
+                            <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>Help
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                Help
                             </a>
                         </li>
 
@@ -124,7 +126,6 @@ session_start();
                     </ul>
                 </div>
             </nav>
-
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

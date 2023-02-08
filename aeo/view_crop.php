@@ -1,6 +1,10 @@
 <?php
 session_start();
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +54,7 @@ session_start();
 
 <body>
 
-<header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
+    <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
          <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
                 <use xlink:href="#bootstrap" />
@@ -70,7 +74,7 @@ session_start();
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -93,20 +97,23 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>Records
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
+                                Records
                             </a>
                         </li>
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>Profile
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
+                                Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dashboard" href="farmers.php">
+                            <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>Help
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                Help
                             </a>
                         </li>
 
@@ -119,7 +126,6 @@ session_start();
                     </ul>
                 </div>
             </nav>
-
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -185,6 +191,39 @@ session_start();
             </main>
         </div>
     </div>
+    <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Crop Name</th>
+                                            <th>Farmer</th>
+                                            <th>Quantity</th>
+                                            <th>Crop Price/kg</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        require "../controllers/product_controller.php";
+                                        $result = get_all_croprecords_ctr();
+
+                                        foreach ($result as $crop) {
+                                            echo "<tr>
+                                                        <td>" . $crop['crop_id'] . "</td>
+                                                        <td>" . $crop['crop_name'] . "</td>
+                                                        <td>" . $crop['farmer_name'] . "</td>
+                                                        <td>" . $crop['qty'] . "</td>
+                                                        <td>" . $crop['crop_price'] . "</td>
+                                                        <td>" . $crop['crop_cat'] . "</td>
+                                                        <td>" . $crop['crop_desc'] . "</td>
+                                                        <td>";
+                                            echo '<a href="updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                            "</td>";
+                                            "</tr>";
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

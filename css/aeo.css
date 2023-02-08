@@ -11,6 +11,7 @@
     color: rgba(4, 255, 0, 0.807);
     display: flex;
     /* justify-content: center; */
+    margin-bottom: 30px;
 }
 
 h6{
@@ -34,19 +35,19 @@ h6{
 }
 
 .crop{
-    margin-right: 25px;
+    margin-right: 15px;
 }
 
 .record{
-    margin-right: 25px;
+    margin-right: 15px;
 }
 
 .profile{
-    margin-right: 25px;
+    margin-right: 15px;
 }
 
 .help{
-    margin-right: 35px;
+    margin-right: 15px;
 }
 
 hr{
@@ -57,3 +58,16 @@ hr{
 
 
 
+.heading{
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.card{
+    /* border: 0.2px solid hsla(0, 0%, 0%, 0.5); */
+    box-shadow: 8px 8px 20px -10px #ab98ab;
+}
+
+.btn-success{
+    background-color: #16AD22;
+}

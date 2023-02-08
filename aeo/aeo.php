@@ -97,20 +97,23 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>Records
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
+                                Records
                             </a>
                         </li>
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>Profile
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
+                                Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dashboard" href="farmers.php">
+                            <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>Help
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                Help
                             </a>
                         </li>
 
@@ -126,13 +129,47 @@ session_start();
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">crops Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
                             This week
                         </button>
+                    </div>
+                </div> -->
+
+                <h5 class="heading">Overview</h5>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card">
+                        <div class="card-body">
+                        <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                        <h5 class="card-title">Revenue</h5>
+                            <p class="card-text">Revenue obtained from selling the produce of all farmers on platform.</p>
+                        
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                        <div class="card-body">
+
+                        <span id="boot-icon"class="bi bi-cash help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                           
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="card">
+                        <div class="card-body">
+                        <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            
+                        </div>
+                        </div>
                     </div>
                 </div>
 
@@ -141,23 +178,19 @@ session_start();
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit New crop/crop Details</h3>
-                                    <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New crop</a>
+                                    <h3 class="pull-left">Transactions</h3>
+                                    <a href="report.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
                                 </div>
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Crop Name</th>
-                                            <th>Farmer Name</th>
-                                            <th>Quantity</th>
-                                            <th>Crop Price/kg</th>
-                                            <th>Date</th>
-                                            <th>Crop Category</th>
-                                            <th>Description</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
+                                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Crop Name</th>
+                        <th>Farmer</th>
+                        <th>Quantity</th>
+                        <th>Crop Price/kg</th>
+                        <th>Date</th>
+                        </tr>
+                    </thead>
                                     <tbody>
                                         <?php
                                         require "../controllers/product_controller.php";
@@ -180,11 +213,12 @@ session_start();
                                         }
                                         ?>
                                     </tbody>
-                                </table>
+                    </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </main>
         </div>
     </div>
