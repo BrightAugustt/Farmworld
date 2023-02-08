@@ -179,7 +179,7 @@ session_start();
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
                                     <h3 class="pull-left">Transactions</h3>
-                                    <a href="report.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
+                                    <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
                                 </div>
                                 <table class="table">
                     <thead>
