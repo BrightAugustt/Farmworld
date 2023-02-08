@@ -71,3 +71,18 @@ hr{
 .btn-success{
     background-color: #16AD22;
 }
+
+.btn-outline-success:hover {
+    background-color: #16AD22;
+    color: white;
+  }
+
+
+  /* .wrapper {
+    width: 600px;
+} */
+
+.form-floating{
+    margin-bottom: 20px;
+}
+

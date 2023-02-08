@@ -90,7 +90,7 @@ session_start();
                            <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="addcrop.php">Add New Crops</a>
+                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
                                 <a class="dropdown-item" href="view_crop.php">All Crops</a>
                             </div>
                         </li>
@@ -198,16 +198,12 @@ session_start();
 
                                         foreach ($result as $crop) {
                                             echo "<tr>
-                                                        <td>" . $crop['crop_id'] . "</td>
                                                         <td>" . $crop['crop_name'] . "</td>
                                                         <td>" . $crop['farmer_name'] . "</td>
                                                         <td>" . $crop['qty'] . "</td>
                                                         <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
+                                                        <td>" . $crop['crop_date'] . "</td>
                                                         <td>";
-                                            echo '<a href="updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                             "</td>";
                                             "</tr>";
                                         }

@@ -90,7 +90,7 @@ session_start();
                            <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="addcrop.php">Add New Crops</a>
+                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
                                 <a class="dropdown-item" href="view_crop.php">All Crops</a>
                             </div>
                         </li>

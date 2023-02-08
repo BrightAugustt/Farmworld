@@ -17,6 +17,7 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -90,7 +91,7 @@ session_start();
                            <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="addcrop.php">Add New Crops</a>
+                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
                                 <a class="dropdown-item" href="view_crop.php">All Crops</a>
                             </div>
                         </li>
@@ -130,64 +131,142 @@ session_start();
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">crops Dashboard</h1>
+                    <div>
+                    <h1 class="h2">Add New Crops</h1>
+                    <p>Complete this form to upload crops to find buyers.</p>
+                    </div>
+                    
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span>
-                            This week
-                        </button>
+                        <a href="view_crop.php"><button type="button" class="btn btn-sm btn btn-outline-success">
+                            View All Crops
+                        </button></a>
                     </div>
                 </div>
 
-                <div class="wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit New crop/crop Details</h3>
-                                    <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New crop</a>
-                                </div>
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Crop Name</th>
-                                            <th>Farmer Name</th>
-                                            <th>Quantity</th>
-                                            <th>Crop Price/kg</th>
-                                            <th>Date</th>
-                                            <th>Crop Category</th>
-                                            <th>Description</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
-
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_id'] . "</td>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
-                                                        <td>";
-                                            echo '<a href="updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            "</td>";
-                                            "</tr>";
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                <!-- <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Complete this form to upload crops to find buyers.</p> 
+                    
+                      <form id="formid" action="" method="POST">
+                <div class="form-floating">
+                    <label>First Name</label>
+                    <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name" pattern="[A-Za-z]+">
                 </div>
+                <div class="form-floating">
+                    <label>Last Name</label>
+                    <input type="text" name="customer_lname" name="customer_lname" class="form-control" placeholder="Last Name" pattern="[A-Za-z]+">
+                </div>
+                <div class="form-floating">
+                    <label>Contact Number</label>
+                    <input type="tel" name="customer_contact" id="customer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
+                </div>
+                <div class="form-floating">
+                    <label>Region</label>
+                    <input type="text" name="customer_region" id="customer_region" class="form-control" placeholder="Region">
+                </div>
+                <div class="form-floating">
+                    <label>Email address</label>
+                    <input type="text" name="customer_email" id="customer_email" class="form-control" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                </div>
+                <div class="form-floating">
+                    <label>Password</label>
+                    <input type="password" name="customer_pass" id="customer_pass" class="form-control" placeholder="Password"  pattern=".{6,}">
+                </div>
+
+                <div class="form-floating">
+                    <label> Confirm Password</label>
+                    <input type="password" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password"  pattern=".{6,}">
+                </div>
+
+                <div class="button">
+                <button class="button1" id="butcustomer" name="insertcustomer" onclick="formsubmit()" >Sign up as a customer</button>
+                <p>OR</p>
+                <button class="button2" id="butaeo" name="insertaeo">Sign up as an AEO</button>
+                </div>
+                <div class="already">
+                    <p>Already have an account? <span class="login"><a href="login.php" class="login">Login Here</a></span></p>
+                </div>
+            </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+      <div class="container">
+        <div class="form">
+            <form id="formid" action="" method="POST" class="row g-3">
+                <div class="col-12">
+                    <label>Crop Name</label>
+                    <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
+                </div>
+                <div class="col-12">
+                    <label>Farmer Name</label>
+                    <input type="text" name="farmer_name" id="farmer_name" class="form-control" placeholder="Farmer Name" pattern="[A-Za-z]+">
+                </div>
+                <div class="col-12">
+                    <label>Farmer Contact</label>
+                    <input type="tel" name="farmer_contact" id="farmer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
+                </div>
+                <div class="col-12">
+                    <label>Farm Size</label>
+                    <input type="text" name="farm_size" id="farm_size" class="form-control" placeholder="Farm size">
+                </div>
+                <div class="col-12">
+                    <label>Quantity(kg)</label>
+                    <input type="text" name="qty" id="qty" class="form-control" placeholder="Quantity" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                </div>
+                <div class="col-12">
+                    <label>Crop Price/Kg</label>
+                    <input type="tel" name="crop_price" id="crop_price" class="form-control" placeholder="Crop Price"  pattern=".{6,}">
+                </div>
+
+                <!-- <div class="col-12">
+                    <label> Crop Image</label>
+                    <input type="file" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password"  pattern=".{6,}">
+                </div> -->
+
+                <div class="col-12">
+                    <label> Crop Category</label>
+                    <input type="text" name="crop_cat" id="crop_cat" class="form-control" placeholder=" Crop Category"  pattern=".{6,}">
+                </div>
+
+                <div class="col-12">
+                    <label> Crop Description</label>
+                    <input type="text" name="crop_desc" id="crop_desc" class="form-control" placeholder=" Crop Description"  pattern=".{6,}">
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="submit" class="btn btn-success" name="insertBtn" value="Submit">
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- <form class="row g-3">
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="inputNanme4">
+                </div>
+                <div class="col-12">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-12">
+                  <label for="inputPassword4" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form> -->
+              <!-- Vertical Form -->
             </main>
         </div>
     </div>
