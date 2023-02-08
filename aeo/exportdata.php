@@ -2,6 +2,9 @@
 session_start();
 
 
+header('Content-type: application/vnd-ms-excel');
+$filename="Transaction Report.xls";
+header("Content-Disposition:attachment;filename=\"$filename\"");
 ?>
 
 
@@ -54,93 +57,7 @@ session_start();
 
 <body>
 
-    <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
-            <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
-            </img>
-        </a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <h6 style="color:black;text-align:center;">Welcome AEO Officer</h6>
-        <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
-                <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
-                <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
-            </div>
-        </div>
-    </header>
-
-    <div class="container-fluid">
-        <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
-                                <span data-feather="home"></span>
-                                <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
-                                </i>Dashboard
-                            </a>
-                        </li>
-                      
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
-                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" href="record.php">
-                                <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
-                                Records
-                            </a>
-                        </li>
-                        <hr>
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" href="profile.php">
-                                <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
-                                Profile
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" href="help.php">
-                                <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
-                                Help
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../login/logout.php">
-                                <span data-feather="file"></span>
-                                Signout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div>
-                    <h1 class="h2">Transactions</h1>
-                    <p>A complete list of all crops sold.</p>
-                    </div>
-                    
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <a href="exportdata.php"><button type="button" class="btn btn-sm btn btn-outline-success">
-                            Export Excel Format
-                        </button></a>
-                    </div>
-                </div>
+   
 
                 <div class="wrapper">
                     <div class="container-fluid">
@@ -157,7 +74,6 @@ session_start();
                         <th>Crop Price/kg</th>
                         <th>Crop Category</th>
                         <th>Crop Description</th>
-                        <th>Action</th>
                         </tr>
                     </thead>
                                     <tbody>
