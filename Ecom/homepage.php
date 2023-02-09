@@ -203,13 +203,13 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     <h3 class="pb-4 mb-4 fst-italic border-bottom">
                         <div class="col-md-4">
                             <div class="position-sticky" style="top: 2rem;">
-                                <div class="p-4 mb-3 bg-light rounded">
+                                <!-- <div class="p-4 mb-3 bg-light rounded">
                                     <h4 class="fst-italic">About</h4>
                                     <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
-                                </div>
+                                </div> -->
 
                                 <div class="p-4">
-                                    <h4 class="fst-italic">Archives</h4>
+                                    <h4 class="fst-italic">Crops</h4>
                                     <ol class="list-unstyled mb-0">
                                         <li><a href="#">March 2021</a></li>
                                         <li><a href="#">February 2021</a></li>
@@ -242,9 +242,6 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
         </main>
     </body>
     <footer>
-        <div class="b-example-divider"></div>
-
-
         <div class="container">
             <footer class="py-5">
                 <div class="row">
