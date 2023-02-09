@@ -52,13 +52,20 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
     <body>
         <div class="container">
+            <div class="row height d-flex justify-content-center align-items-center ">
+                <span class="col-md-3 mb-5"> Find any crop in... 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg> Greater Accra
+                </span>
+            </div>
             <div class="row height d-flex justify-content-center align-items-center">
                 <nav class="navbar bg-light col-md-8 ">
                     <div class="container-fluid justify-content-center align-items-center">
                         <form action="crop_search_result.php" method="GET" class="d-flex" role="search">
                             <i class="fa fa-search" aria-hidden="true"></i>
-                            <input class="form-control me-2" name="search" placeholder=" Search " aria-label="Search">
-                            <button class="btn btn-outline-primary" type="submit">Search</button>
+                            <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>
                 </nav>
@@ -80,7 +87,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                         <div class="card-header">
                             <h4>All Crops</h4>
                         </div>
-                        
+
                         <?php
                         $p_list = get_all_croprecords_ctr();
                         //print_r($brand_list);
