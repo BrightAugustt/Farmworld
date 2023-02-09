@@ -100,6 +100,17 @@
                         </li>
                     </ul>
                 </div>
+                <hr class="">
+                <div class="nav-item dropdown mt-8">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>mdo</strong>
+                    </a>
+                    <li class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Profile</a>
+                    </li>
+                </div>
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">

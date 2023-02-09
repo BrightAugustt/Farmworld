@@ -65,6 +65,11 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
             </div>
         </div>
 
+        <!-- Bar on the side and picture on top like jiji -->
+        <div>
+
+        </div>
+
         <div class="container mt-4">
 
             <div class="row">

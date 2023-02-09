@@ -101,46 +101,58 @@
                         </li>
                     </ul>
                 </div>
-            </nav>
-
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Customer Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span>
-                            This week
-                        </button>
-                    </div>
+                <hr class="">
+                <div class="nav-item dropdown mt-8">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                        <strong>mdo</strong>
+                    </a>
+                    <li class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Profile</a>
+                    </li>
                 </div>
+        </div>
+        </nav>
 
-                <div class="wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit Customer Details</h3>
-                                    <a href="addCustomer.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Customer</a>
-                                </div>
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>First Name Of Customer</th>
-                                            <th>Last Name Of Customer</th>
-                                            <th>Telephone</th>
-                                            <th>Region</th>
-                                            <th>Email</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        require "../controllers/contact_controller.php";
-                                        $result = get_all_records_ctr();
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Customer Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span>
+                        This week
+                    </button>
+                </div>
+            </div>
 
-                                        foreach ($result as $contact) {
-                                            echo "<tr>
+            <div class="wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mt-5 mb-3 clearfix">
+                                <h3 class="pull-left">Edit Customer Details</h3>
+                                <a href="addCustomer.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Customer</a>
+                            </div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>First Name Of Customer</th>
+                                        <th>Last Name Of Customer</th>
+                                        <th>Telephone</th>
+                                        <th>Region</th>
+                                        <th>Email</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    require "../controllers/contact_controller.php";
+                                    $result = get_all_records_ctr();
+
+                                    foreach ($result as $contact) {
+                                        echo "<tr>
                                                         <td>" . $contact['customer_id'] . "</td>
                                                         <td>" . $contact['customer_fname'] . "</td>
                                                         <td>" . $contact['customer_lname'] . "</td>
@@ -148,20 +160,20 @@
                                                         <td>" . $contact['customer_region'] . "</td>
                                                         <td>" . $contact['customer_email'] . "</td>
                                                         <td>";
-                                            echo '<a href="updateCustomer.php?customer_id=' . $contact['customer_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            "</td>";
-                                            "</tr>";
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        echo '<a href="updateCustomer.php?customer_id=' . $contact['customer_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                        echo '<a href="../actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                        "</td>";
+                                        "</tr>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+            </div>
+        </main>
+    </div>
     </div>
 
     <script>
