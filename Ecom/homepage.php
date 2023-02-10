@@ -85,7 +85,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
                                 </svg>     
                         </span>
-                        <form method="post" action="region-controller.php">
+                        <form method="post" action="../controllers/region-controller.php">
                             <select name="region" >
                                 <option value="Greater Accra">Greater Accra</option>
                                 <option value="Eastern">Eastern</option>
@@ -201,11 +201,6 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                         <li><a href="#">November 2020</a></li>
                                         <li><a href="#">October 2020</a></li>
                                         <li><a href="#">September 2020</a></li>
-                                        <li><a href="#">August 2020</a></li>
-                                        <li><a href="#">July 2020</a></li>
-                                        <li><a href="#">June 2020</a></li>
-                                        <li><a href="#">May 2020</a></li>
-                                        <li><a href="#">April 2020</a></li>
                                     </ol>
                                 </div>
 
@@ -225,5 +220,4 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
         </main>
     </body>
     <?php require("./footer.php"); ?>
-
 </html>

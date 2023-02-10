@@ -4,10 +4,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   switch ($destination) {
     case 'Greater Accra':
-      header('Location: gAccra.php');
+      header('Location: ../Ecom/gAccra.php');
       break;
     case 'Eastern':
-      header('Location: eastern.php');
+      header('Location: ../Ecom/eastern.php');
       break;
     default:
       echo 'Invalid destination selected.';
