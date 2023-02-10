@@ -56,7 +56,7 @@ session_start();
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
+         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
                 <use xlink:href="#bootstrap" />
             </img>
@@ -64,7 +64,7 @@ session_start();
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h6 style="color:black;text-align:center;">Welcome AEO Officer</h6>
+        <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
         <div class="navbar-nav">
             <div class=" text-nowrap admin" >
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
@@ -75,7 +75,7 @@ session_start();
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -120,6 +120,7 @@ session_start();
 
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
+                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; color:black;"></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
