@@ -15,6 +15,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet"href="home.css">
 
     <style>
         .bd-placeholder-img {
@@ -75,12 +76,11 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 <?php require("./header.php"); ?>
 
     <body>
-    <!-- <img src="../images/Farm-removebg.png" height="100px" width="100px" alt=""> -->
         <section">
             <div class="w-100 h-50" style="background: linear-gradient(160.29deg,#00b53f .67%,#00831e 100.93%)">
             <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%">
                 <div class="row height d-flex justify-content-center align-items-center ">
-                    <div style="display: flex; flex-direction:row; width:100%; justify-content:center">
+                    <div style="display: flex; flex-direction:row; width:100%; justify-content:center;margin-bottom:-120px;">
                         <span class=" mb-5" style="color:white; text-align:center"> Find any crop in...
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="success" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
@@ -95,14 +95,18 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                         </form>
                     </div>
                 </div>
-                <div class="row height d-flex justify-content-center align-items-center">
-                    <nav class="navbar  col-md-8 ">
+                <div class="row height d-flex  search">
+                        
+                    <nav class="navbar  col-md-11 ">
+                    
                         <div class="container-fluid justify-content-center align-items-center">
-                            <form action="crop_search_result.php" method="GET" class="d-flex" role="search">
+                        <img src="../images/Farm-removebg.png"   class="img" alt="">
+                            <form action="crop_search_result.php" method="GET" class="d-flex find" role="search">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
                                 <button class="btn btn-outline-light" type="submit">Search</button>
                             </form>
+                        <img src="../images/Farm-removebg.png" class="img" alt="">
                         </div>
                     </nav>
                 </div>
