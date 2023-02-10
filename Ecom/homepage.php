@@ -70,11 +70,10 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
     </style>
 </head>
 
-<body>
-    <div class="b-example-divider"></div>
+<body class="vh-100 vw-100">
 
     <!--Header of Page-->
-    <header class="p-3 mb-2 bg-success text-white">
+    <header class="p-3 text-white" style="background-color: #00b53f">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -91,7 +90,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                 </ul>
 
                 <div class="text-end">
-                    <a href="../Views/cart.php">
+                    <a href="#" style="text-decoration:none; color:white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                         </svg>
@@ -103,28 +102,41 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
     </header>
 
     <body>
-        <div class="container">
-            <div class="row height d-flex justify-content-center align-items-center ">
-                <span class="col-md-3 mb-5"> Find any crop in...
-                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="success" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                        </svg>
-                        Greater Accra
-                    </a>
-                </span>
-            </div>
-            <div class="row height d-flex justify-content-center align-items-center">
-                <nav class="navbar bg-light col-md-8 ">
-                    <div class="container-fluid justify-content-center align-items-center">
-                        <form action="crop_search_result.php" method="GET" class="d-flex" role="search">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                            <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+        <section">
+            <div class="w-100 h-50" style="background: linear-gradient(160.29deg,#00b53f .67%,#00831e 100.93%)">
+            <div style="display:flex; flex-direction:column; justify-content:space-around; height:100%">
+                <div class="row height d-flex justify-content-center align-items-center ">
+                    <div style="display: flex; flex-direction:row; width:100%; justify-content:center">
+                        <span class=" mb-5" style="color:white; text-align:center"> Find any crop in...
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="success" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                </svg>     
+                        </span>
+                        <form method="post" action="region-controller.php">
+                            <select name="region" >
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                            <input type="submit"  value="Go">
                         </form>
                     </div>
-                </nav>
+                </div>
+                <div class="row height d-flex justify-content-center align-items-center">
+                    <nav class="navbar  col-md-8 ">
+                        <div class="container-fluid justify-content-center align-items-center">
+                            <form action="crop_search_result.php" method="GET" class="d-flex" role="search">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
             </div>
-        </div>
+            </div>
+        </section>
 
         <main>
             <div class="container mt-4">
@@ -241,61 +253,6 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
             </div>
         </main>
     </body>
-    <footer>
-        <div class="container">
-            <footer class="py-5">
-                <div class="row">
-                    <div class="col-2">
-                        <h4>Navigation</h4>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="../index.php" class="nav-link p-0 text-muted">Home</a></li>
-                            <li class="nav-item mb-2"><a href="about.php" class="nav-link p-0 text-muted">About</a></li>
-                            <li class="nav-item mb-2"><a href="shop.php" class="nav-link p-0 text-muted">Shop</a></li>
-                            <li class="nav-item mb-2"><a href="contactUs.php" class="nav-link p-0 text-muted">Contact Us</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-2">
-                        <h4>Contact Us</h4>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="mailto:neanama@gmail.com" class="nav-link p-0 text-muted">neanama@gmail.com</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Tel: (+233) 24 426 2700</a></li>
-                            <li class="nav-item mb-2"><a href="http://v6.ashesi.edu.gh/about/contact-us.html" class="nav-link p-0 text-muted">Location: Dansoman, <br> Accra-Ghana</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-4 offset-4">
-                        <form action="../actions/newsLet.php" method="POST">
-                            <h4>Subscribe to our newsletter</h4>
-                            <p>Monthly digest of whats new and exciting from us.</p>
-                            <div class="d-flex w-90 gap-2">
-                                <label for="news_email" class="visually-hidden">Email address</label>
-                                <input id="news_email" type="text" name="news_email" class="form-control" placeholder="Email address">
-                                <button class="btn btn-primary" name="email" type="submit">Subscribe</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between py-4 my-4 border-top">
-                    <p>&copy; 2022 Company, Inc. All rights reserved.</p>
-                    <ul class="list-unstyled d-flex">
-                        <li class="ms-3"><a class="link-dark" href="https://twitter.com"><svg class="bi" width="24" height="24">
-                                    <use xlink:href="#twitter" />
-                                </svg></a></li>
-                        <li class="ms-3"><a class="link-dark" href="https://instagram.com"><svg class="bi" width="24" height="24">
-                                    <use xlink:href="#instagram" />
-                                </svg></a></li>
-                        <li class="ms-3"><a class="link-dark" href="https://facebook.com"><svg class="bi" width="24" height="24">
-                                    <use xlink:href="#meta" />
-                                </svg></a></li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
-
-
-        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    </footer>
+    <?php require("./footer.php"); ?>
 
 </html>
