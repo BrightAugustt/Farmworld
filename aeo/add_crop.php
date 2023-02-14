@@ -144,56 +144,6 @@ session_start();
                     </div>
                 </div>
 
-                <!-- <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Complete this form to upload crops to find buyers.</p> 
-                    
-                      <form id="formid" action="" method="POST">
-                <div class="form-floating">
-                    <label>First Name</label>
-                    <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name" pattern="[A-Za-z]+">
-                </div>
-                <div class="form-floating">
-                    <label>Last Name</label>
-                    <input type="text" name="customer_lname" name="customer_lname" class="form-control" placeholder="Last Name" pattern="[A-Za-z]+">
-                </div>
-                <div class="form-floating">
-                    <label>Contact Number</label>
-                    <input type="tel" name="customer_contact" id="customer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
-                </div>
-                <div class="form-floating">
-                    <label>Region</label>
-                    <input type="text" name="customer_region" id="customer_region" class="form-control" placeholder="Region">
-                </div>
-                <div class="form-floating">
-                    <label>Email address</label>
-                    <input type="text" name="customer_email" id="customer_email" class="form-control" placeholder="Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                </div>
-                <div class="form-floating">
-                    <label>Password</label>
-                    <input type="password" name="customer_pass" id="customer_pass" class="form-control" placeholder="Password"  pattern=".{6,}">
-                </div>
-
-                <div class="form-floating">
-                    <label> Confirm Password</label>
-                    <input type="password" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password"  pattern=".{6,}">
-                </div>
-
-                <div class="button">
-                <button class="button1" id="butcustomer" name="insertcustomer" onclick="formsubmit()" >Sign up as a customer</button>
-                <p>OR</p>
-                <button class="button2" id="butaeo" name="insertaeo">Sign up as an AEO</button>
-                </div>
-                <div class="already">
-                    <p>Already have an account? <span class="login"><a href="login.php" class="login">Login Here</a></span></p>
-                </div>
-            </form>
-                </div>
-            </div>
-        </div>
-    </div> -->
       <div class="container">
         <div class="form">
             <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3">
@@ -222,10 +172,10 @@ session_start();
                     <input type="tel" name="crop_price" id="crop_price" class="form-control" placeholder="Crop Price"  pattern=".{6,}">
                 </div>
 
-                <!-- <div class="col-12">
+                <div class="col-12">
                     <label> Crop Image</label>
                     <input type="file" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password"  pattern=".{6,}">
-                </div> -->
+                </div>
 
                 <div class="col-12">
                     <label> Crop Category</label>

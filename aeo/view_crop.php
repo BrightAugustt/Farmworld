@@ -156,6 +156,7 @@ session_start();
                         <th>Farm Size</th>
                         <th>Quantity</th>
                         <th>Crop Price/kg</th>
+                        <th>Crop Image</th>
                         <th>Crop Category</th>
                         <th>Crop Description</th>
                         <th>Action</th>
