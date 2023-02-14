@@ -75,6 +75,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
 <?php require("./header.php"); ?>
 
+<!-- create filter section -->
     <body>
         <section">
             <div class="w-100 h-50" style="background: linear-gradient(160.29deg,#00b53f .67%,#00831e 100.93%)">
