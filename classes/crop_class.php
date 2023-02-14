@@ -26,8 +26,8 @@ class crop_class extends db_connection
     function selectAll_crop()
     {
         // return true or false
-        return $this->db_fetch_all(
-            "SELECT * FROM `crops`"
+        return $this->db_query(
+            "SELECT * from crops"
         );
     }
 
