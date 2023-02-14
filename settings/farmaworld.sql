@@ -115,6 +115,7 @@ CREATE TABLE `crops` (
   `crop_id` int(11) NOT NULL,
   `crop_name` varchar(200) NOT NULL,
   `farmer_name` varchar(200) NOT NULL,
+  `farmer_contact` varchar(20) NOT NULL,
   `farm_size` int(10) NOT NULL,
   `qty` double NOT NULL,
   `crop_price` double NOT NULL,
