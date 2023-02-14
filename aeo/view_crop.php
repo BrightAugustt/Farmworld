@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+// include("../controllers/crop_controller.php");
 ?>
 
 
@@ -156,6 +156,7 @@ session_start();
                         <th>Farm Size</th>
                         <th>Quantity</th>
                         <th>Crop Price/kg</th>
+                        <th>Crop Image</th>
                         <th>Crop Category</th>
                         <th>Crop Description</th>
                         <th>Action</th>
@@ -163,24 +164,44 @@ session_start();
                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../controllers/crop_controller.php";
-                                        $result = selectallCrop_ctr();
-
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['farmer_contact'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
-                                                        <td>";
-                                            echo '<a href="../actions/updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            "</td>";
-                                            "</tr>";
+                                        // require "../controllers/crop_controller.php";
+                                        function displayproductCtr(){
+                                                $crop = selectallCrop_ctr();
+                                                for ($i=0; $i < count($crop); $i++){
+                                                    echo "<tr>";
+                                                    echo "<td>".$crop[$i]['crop_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_contact']."<td>";
+                                                    echo "<td>".$crop[$i]['farm_size']."<td>";
+                                                    echo "<td>".$crop[$i]['qty']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_price']."<td>";
+                                                    echo "<td><img src='../images/crop/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
+                                                    echo "<td>".$crop[$i]['crop_cat']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_desc']."<td>";
+                                            }
                                         }
+                       
+
+
+
+
+
+
+                                        // foreach ($result as $crop) {
+                                        //     echo "<tr>
+                                        //                 <td>" . $crop['crop_name'] . "</td>
+                                        //                 <td>" . $crop['farmer_name'] . "</td>
+                                        //                 <td>" . $crop['farmer_contact'] . "</td>
+                                        //                 <td>" . $crop['qty'] . "</td>
+                                        //                 <td>" . $crop['crop_price'] . "</td>
+                                        //                 <td>" . $crop['crop_cat'] . "</td>
+                                        //                 <td>" . $crop['crop_desc'] . "</td>
+                                        //                 <td>";
+                                        //     echo '<a href="../actions/updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                        //     echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                        //     "</td>";
+                                        //     "</tr>";
+                                        // }
                                         ?>
                                     </tbody>
                     </table>

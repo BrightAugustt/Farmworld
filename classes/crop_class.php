@@ -26,17 +26,17 @@ class crop_class extends db_connection
     function selectAll_crop()
     {
         // return true or false
-        return $this->db_fetch_all(
-            "SELECT * FROM `crops`"
+        return $this->db_query(
+            "SELECT * from crops"
         );
     }
 
     // update crop
-    function update_crop($crop_id,$crop_name,$farmer_name,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
+    function update_crop($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
     {
         // return true or false
         return $this->db_query(
-            "UPDATE `crops` SET `crop_name`='$crop_name',`farmer_name`='$farmer_name',`farm_size`='$farm_size',`qty`='$qty',`crop_price`='$crop_price',`crop_image`='$crop_image',`crop_cat`='$crop_cat',`crop_desc`='$crop_desc' WHERE `crop_id`='$crop_id'"
+            "UPDATE `crops` SET `crop_name`='$crop_name',`farmer_name`='$farmer_name',`farmer_contact`='$farmer_contact',`farm_size`='$farm_size',`qty`='$qty',`crop_price`='$crop_price',`crop_image`='$crop_image',`crop_cat`='$crop_cat',`crop_desc`='$crop_desc' WHERE `crop_id`='$crop_id'"
         );
     }
 
