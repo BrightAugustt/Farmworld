@@ -55,7 +55,7 @@ session_start();
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
+         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
                 <use xlink:href="#bootstrap" />
             </img>
@@ -63,7 +63,7 @@ session_start();
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
+        <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
         <div class="navbar-nav">
             <div class=" text-nowrap admin" >
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
@@ -78,14 +78,22 @@ session_start();
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
+                            <a class="nav-link dashboard" aria-current="page" href="admin.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
                                 </i>Dashboard
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
+                                <span data-feather="home"></span>
+                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
+                                </i>Products
+                            </a>
+                        </li>
                       
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
@@ -93,11 +101,11 @@ session_start();
                                 <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
                                 <a class="dropdown-item" href="view_crop.php">All Crops</a>
                             </div>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link dashboard" href="record.php">
+                            <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px;"></span>
                                 Records
                             </a>
                         </li>
@@ -105,20 +113,20 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px ;"></span>
                                 Profile
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; "></span>
                                 Help
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; color:black;"></span>
+                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -129,15 +137,7 @@ session_start();
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">crops Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span>
-                            This week
-                        </button>
-                    </div>
-                </div> -->
+        
 
                 <h5 class="heading">Overview</h5>
                 <div class="row over">
