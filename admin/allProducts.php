@@ -24,6 +24,14 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
     <script defer src="../js/activepage.js"></script>
+    <script>
+        $('#exampleModal$i').on('shown.bs.modal', function (event) {
+        $('#myInput').trigger('focus')
+        })
+        $('modal2').on('shown.bs.modal', function (event) {
+        $('#myInput').trigger('focus')
+        })
+    </script>
 
 
     <style>
@@ -88,20 +96,11 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
                                 <span data-feather="home"></span>
-                                <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
+                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
                                 </i>Products
                             </a>
                         </li>
                       
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px; color:black;"></span></i>Crops
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
-                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
-                            </div>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
@@ -137,43 +136,10 @@ session_start();
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        
-
-                <h5 class="heading">Overview</h5>
-                <div class="row over">
-                    <div class="col-sm-4">
-                        <div class="card over">
-                        <div class="card-body over">
-                            <div>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
-                            </div>
-
-                            <div>
-                                <h5 class="card-title">Revenue</h5>
-                                <p class="card-text">Revenue obtained from selling the produce of all farmers on platform.</p>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                        <div class="card-body">
-
-                        <span id="boot-icon"class="bi bi-cash help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                           
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="card">
-                        <div class="card-body">
-                        <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            
-                        </div>
-                        </div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <div>
+                    <h1 class="h2">Crop List</h1>
+                    <p>A complete list of all uploaded by AEO vendors.</p>
                     </div>
                 </div>
 
@@ -181,35 +147,98 @@ session_start();
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Transactions</h3>
-                                    <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
-                                </div>
                                 <table class="table">
                     <thead>
                     <tr>
                         <th>Crop Name</th>
                         <th>Farmer</th>
+                        <th>Farmer Contact</th>
+                        <th>Farm Size</th>
                         <th>Quantity</th>
                         <th>Crop Price/kg</th>
-                        <th>Date</th>
-                        </tr>
+                        <th>Crop Image</th>
+                        <th>Crop Category</th>
+                        <th>Crop Description</th>
+                        <th>Actions</th>
+                    </tr>
                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
+                                        // require "../controllers/crop_controller.php";
+                                        function displayproductCtr(){
+                                                $crop = selectallCrop_ctr();
+                                                for ($i=0; $i < count($crop); $i++){
+                                                    echo "<tr>";
+                                                    echo "<td>".$crop[$i]['crop_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_contact']."<td>";
+                                                    echo "<td>".$crop[$i]['farm_size']."<td>";
+                                                    echo "<td>".$crop[$i]['qty']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_price']."<td>";
+                                                    echo "<td><img src='../images/crop/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
+                                                    echo "<td>".$crop[$i]['crop_cat']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_desc']."<td>";
 
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_date'] . "</td>
-                                                        <td>";
-                                            "</td>";
-                                            "</tr>";
+                                                    // Edit & Delete form 
+                                                    echo "<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#examplemodal$i'>
+                                                    Update
+                                                    </button><th>";
+                                                    echo "<tr>";
+
+                                                    echo
+                                                    "
+                                                    <div class='modal fade' id='examplemodal$i' tabindex='-1' role='dialog' aria-labelledby='examplemodalLabel' aria-hidden='true'>
+                                                    <div class='modal-dialog' role='document'>
+                                                      <div class='modal-content'>
+                                                        <div class='modal-header'>
+                                                          <h5 class='modal-title' id='examplemodalLabel'>Shoot Edit</h5>
+                                                          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                            <span aria-hidden='true'>&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class='modal-body'>
+                                                          <form action='../actions/updatewedding.php' method='POST' enctype='multipart/form-data'>
+                                                             <div class='formgroup'>
+                                                                <input type='hidden' name='wedding_id' value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Wedding Name:</label>
+                                                              <input type='text' class='form-control' id='wedding_name' name='wedding_name' required placeholder= '".$wedding[$i]['wedding_name']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Wedding Price:</label>
+                                                              <input type='text' class='form-control' id='wedding_price' name='wedding_price' required placeholder= '".$wedding[$i]['wedding_price']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Wedding Label:</label>
+                                                              <input type='text' class='form-control' id='wedding_label' name='wedding_label' required placeholder= '".$wedding[$i]['wedding_label']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                           <div class='form-group'>
+                                                           <input type='hidden' class='form-control' id='wedding_img' name='wedding_img[]'  required placeholder= '".$wedding[$i]['wedding_img']."'>
+                                                           <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                           </div>
+                           
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Shoot Key:</label>
+                                                              <input type='text' class='form-control' id='wedding_key' name='wedding_key'  required placeholder= '".$wedding[$i]['wedding_key']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                            <div class='modal-footer'>
+                                                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
+                                                            <input type = 'submit' value='update' name='updatewedding' class='btn btn-primary''>
+                                                            <input type='hidden' name='wedding_id' value='".$wedding[$i]['wedding_id']."'>
+                                                          </div>
+                                                          </form>
+                                                          </div>
+                                                    ";
+                                            }
                                         }
                                         ?>
                                     </tbody>
@@ -218,7 +247,6 @@ session_start();
                         </div>
                     </div>
                 </div>
-                
             </main>
         </div>
     </div>

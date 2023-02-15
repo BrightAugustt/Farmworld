@@ -7,6 +7,7 @@ if(isset($_POST["updatecrop"])){
     $crop_id=$_POST["crop_id"];
     $crop_name=$_POST["crop_name"];
     $farmer_name=$_POST["farmer_name"];
+    $farmer_contact=$_POST["farmer_contact"];
     $farm_size=$_POST["farm_size"];
     $qty=$_POST["qty"];
     $crop_price=$_POST["crop_price"];
@@ -35,7 +36,7 @@ if(isset($_POST["updatecrop"])){
 
         $crop_image=upload("Images","crop",$tmp,$image);
     
-        $updatecrop=updatecrop_ctr($crop_id,$crop_name,$farmer_name,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc);
+        $updatecrop=updatecrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc);
     
        
             if($updatecrop== true){

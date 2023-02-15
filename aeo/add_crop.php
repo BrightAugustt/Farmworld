@@ -98,7 +98,7 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; "></span>
                                 Records
                             </a>
                         </li>
@@ -106,21 +106,21 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; "></span>
                                 Profile
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; "></span>
                                 Help
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; color:black;"></span>
+                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
