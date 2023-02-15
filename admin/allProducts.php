@@ -130,8 +130,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit New crop/crop Details</h3>
-                                    <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Crop</a>
+                                    <h3 class="pull-left">Edit New Crop Details</h3>
+                                    <!-- <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Crop</a> -->
                                 </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>
