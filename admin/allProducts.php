@@ -1,18 +1,37 @@
+<?php
+session_start();
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Dashboard - crops</title>
+    <title>AEO Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/aeo.css">
+    <script defer src="../js/activepage.js"></script>
+    <script>
+        $('#exampleModal$i').on('shown.bs.modal', function (event) {
+        $('#myInput').trigger('focus')
+        })
+        $('modal2').on('shown.bs.modal', function (event) {
+        $('#myInput').trigger('focus')
+        })
+    </script>
 
 
     <style>
@@ -43,73 +62,75 @@
 
 <body>
 
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="allcrops.php">
-            <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">Welcome, Admin!
-            <use xlink:href="#bootstrap" />
+    <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
+         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
+            <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-50" type="text" placeholder="Search" aria-label="Search">
+        <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
         <div class="navbar-nav">
-            <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="../login/logout.php">Sign Out</a>
+            <div class=" text-nowrap admin" >
+                <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
+                <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
         </div>
     </header>
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
                                 <span data-feather="home"></span>
-                                Dashboard
+                                <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
+                                </i>Dashboard
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
+                                <span data-feather="home"></span>
+                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
+                                </i>Products
+                            </a>
+                        </li>
+                      
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
-                                Orders
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px;"></span>
+                                Records
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Crops
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="productCat.php">Categories</a>
-                                <a class="dropdown-item" href="allProducts.php">All Crops</a>
-                            </div>
-                        </li>
+                        <hr>
                         <li class="nav-item">
-                            <a class="nav-link" href="customers.php">
+                            <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                Customers
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px ;"></span>
+                                Profile
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="farmers.php">
+                            <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                Farmers
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; "></span>
+                                Help
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../login/logout.php">
+                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span data-feather="file"></span>
+                                Signout
                             </a>
                         </li>
                     </ul>
-                </div>
-                <hr class="">
-                <div class="nav-item dropdown mt-8">
-                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                        <strong>mdo</strong>
-                    </a>
-                    <li class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Profile</a>
-                    </li>
                 </div>
             </nav>
 
@@ -120,7 +141,7 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
-                            This Year
+                            This week
                         </button>
                     </div>
                 </div>
@@ -131,7 +152,7 @@
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
                                     <h3 class="pull-left">Edit New Crop Details</h3>
-                                    <!-- <a href="addProduct.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Crop</a> -->
+                                    <!-- <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Crop</a> -->
                                 </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>
@@ -149,27 +170,85 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
+                                        // require "../controllers/crop_controller.php";
+                                        function displayproductCtr(){
+                                                $crop = selectallCrop_ctr();
+                                                for ($i=0; $i < count($crop); $i++){
+                                                    echo "<tr>";
+                                                    echo "<td>".$crop[$i]['crop_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_contact']."<td>";
+                                                    echo "<td>".$crop[$i]['farm_size']."<td>";
+                                                    echo "<td>".$crop[$i]['qty']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_price']."<td>";
+                                                    echo "<td><img src='../images/crop/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
+                                                    echo "<td>".$crop[$i]['crop_cat']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_desc']."<td>";
 
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_id'] . "</td>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
-                                                        <td>";
-                                            echo '<a href="updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            "</td>";
-                                            "</tr>";
+                                                    // Edit & Delete form 
+                                                    echo "<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#examplemodal$i'>
+                                                    Update
+                                                    </button><th>";
+                                                    echo "<tr>";
+
+                                                    echo
+                                                    "
+                                                    <div class='modal fade' id='examplemodal$i' tabindex='-1' role='dialog' aria-labelledby='examplemodalLabel' aria-hidden='true'>
+                                                    <div class='modal-dialog' role='document'>
+                                                      <div class='modal-content'>
+                                                        <div class='modal-header'>
+                                                          <h5 class='modal-title' id='examplemodalLabel'>Shoot Edit</h5>
+                                                          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                            <span aria-hidden='true'>&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class='modal-body'>
+                                                          <form action='../actions/updatewedding.php' method='POST' enctype='multipart/form-data'>
+                                                             <div class='formgroup'>
+                                                                <input type='hidden' name='wedding_id' value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Wedding Name:</label>
+                                                              <input type='text' class='form-control' id='wedding_name' name='wedding_name' required placeholder= '".$wedding[$i]['wedding_name']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Wedding Price:</label>
+                                                              <input type='text' class='form-control' id='wedding_price' name='wedding_price' required placeholder= '".$wedding[$i]['wedding_price']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Wedding Label:</label>
+                                                              <input type='text' class='form-control' id='wedding_label' name='wedding_label' required placeholder= '".$wedding[$i]['wedding_label']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                           <div class='form-group'>
+                                                           <input type='hidden' class='form-control' id='wedding_img' name='wedding_img[]'  required placeholder= '".$wedding[$i]['wedding_img']."'>
+                                                           <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                           </div>
+                           
+                                                            <div class='form-group'>
+                                                              <label for='recipient-name' class='col-form-label'>Shoot Key:</label>
+                                                              <input type='text' class='form-control' id='wedding_key' name='wedding_key'  required placeholder= '".$wedding[$i]['wedding_key']."'>
+                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                            </div>
+                           
+                                                            <div class='modal-footer'>
+                                                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
+                                                            <input type = 'submit' value='update' name='updatewedding' class='btn btn-primary''>
+                                                            <input type='hidden' name='wedding_id' value='".$wedding[$i]['wedding_id']."'>
+                                                          </div>
+                                                          </form>
+                                                          </div>
+                                                    ";
+                                            }
                                         }
                                         ?>
                                     </tbody>
-                                </table>
+                    </table>
                             </div>
                         </div>
                     </div>

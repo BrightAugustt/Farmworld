@@ -13,7 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/aeo.css">
+    <script defer src="modal.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -160,10 +161,90 @@
                                                         <td>" . $contact['customer_region'] . "</td>
                                                         <td>" . $contact['customer_email'] . "</td>
                                                         <td>";
-                                        echo '<a href="updateCustomer.php?customer_id=' . $contact['customer_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                        echo '<a href="../actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+
+                                        echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-primary btn-lg' data-toggle='modal' data-target='#first-modal' style='font-size:10px;'>
+                                        <span class='fa fa-pencil'></span>
+                                        </button><th>";  
+                                        echo "<th><button type='button' class='btn-second-modal btn btn-primary btn-lg'>
+                                        <span class='bi bi-envelope-fill'></span>
+                                        </button><th>"; 
+                                        // echo '<a href="updateCustomer.php?customer_id=' . $contact['customer_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                        // echo '<a href="../actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                         "</td>";
                                         "</tr>";
+
+                                        echo 
+                                        "
+                                        <div class='modal' id='first-modal' data-backdrop='static' data-keyboard='false'>
+                                            <div class='modal-dialog'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                <h4 class='modal-title' id='myModalLabel'>First Modal</h4>
+                                                </div>
+                                                <div class='modal-body'>
+                                                    <div class='form'>
+                                                        <form id='formid' action='../actions/updatecrop.php' method='POST' class='row g-3'>
+                                                            <div class='col-12'>
+                                                                <label>Crop Name</label>
+                                                                <input type='text' name='crop_name' id='crop_name' class='form-control' placeholder='Crop Name' pattern='[A-Za-z]+'>
+                                                            </div>
+                                                            <div class='col-12'>
+                                                                <label>Farmer Name</label>
+                                                                <input type='text' name='farmer_name' id='farmer_name' class='form-control' placeholder='Farmer Name' pattern='[A-Za-z]+'>
+                                                            </div>
+                                                            <div class='col-12'>
+                                                                <label>Farmer Contact</label>
+                                                                <input type='tel' name='farmer_contact' id='farmer_contact' class='form-control' placeholder='Contact' pattern='^\d{10}$'>
+                                                            </div>
+                                                            <div class='col-12'>
+                                                                <label>Farm Size</label>
+                                                                <input type='text' name='farm_size' id='farm_size' class='form-control' placeholder='Farm size'>
+                                                            </div>
+                                                            <div class='col-12'>
+                                                                <label>Quantity(kg)</label>
+                                                                <input type='text' name='qty' id='qty' class='form-control' placeholder='Quantity' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class='modal-footer'>
+                                                <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                <button type='button' class='btn btn-primary'>Send message</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>";
+
+
+                                        echo "
+                                        <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
+                                        <div class='modal-dialog'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                            <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
+                                            <h4 class='modal-title'>Second Modal</h4>
+                                            </div>
+                                            <div class='modal-body'>
+                                            <form>
+                                                <div class='form-group'>
+                                                    <label for='recipient-name' class='col-form-label'>Recipient:</label>
+                                                    <input type='text' class='form-control' id='recipient-name'>
+                                                </div>
+                                                <div class='form-group'>
+                                                    <label for='message-text' class='col-form-label'>Message:</label>
+                                                    <textarea class='form-control' id='message-text'></textarea>
+                                                </div>
+                                             </form>
+                                            </div>
+                                            <div class='modal-footer'>
+                                            <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                            <button type='button' class='btn btn-primary'>Send message</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                        ";
                                     }
                                     ?>
                                 </tbody>
@@ -172,6 +253,89 @@
                     </div>
                 </div>
             </div>
+            <!-- <div class="container text-center">
+                    <h1>Working with Multiple Modals</h1>
+                    <div class="margin-lg">
+                        <button type="button" class="btn-first-modal btn btn-primary btn-lg" data-toggle="modal" data-target="#first-modal">
+                        Launch First Modal
+                        </button>
+                    </div>
+                    <div class="margin-lg">
+                        <button type="button" class="btn-second-modal btn btn-primary btn-lg">
+                        Launch second Modal
+                        </button>
+                    </div>
+                    
+
+                    <div class="modal" id="first-modal" data-backdrop="static" data-keyboard="false">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">First Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form">
+                                    <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3">
+                                        <div class="col-12">
+                                            <label>Crop Name</label>
+                                            <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Farmer Name</label>
+                                            <input type="text" name="farmer_name" id="farmer_name" class="form-control" placeholder="Farmer Name" pattern="[A-Za-z]+">
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Farmer Contact</label>
+                                            <input type="tel" name="farmer_contact" id="farmer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Farm Size</label>
+                                            <input type="text" name="farm_size" id="farm_size" class="form-control" placeholder="Farm size">
+                                        </div>
+                                        <div class="col-12">
+                                            <label>Quantity(kg)</label>
+                                            <input type="text" name="qty" id="qty" class="form-control" placeholder="Quantity" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn-second-modal-close btn btn-default">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="second-modal" data-backdrop="static" data-keyboard="false">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="btn-second-modal-close close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Second Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                             </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn-second-modal-close btn btn-default">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div> -->
+            
         </main>
     </div>
     </div>

@@ -23,7 +23,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
-    <script defer src="activepage.js"></script>
+    <script defer src="../js/activepage.js"></script>
 
 
     <style>
@@ -74,7 +74,7 @@ session_start();
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -97,7 +97,7 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; "></span>
                                 Records
                             </a>
                         </li>
@@ -105,21 +105,21 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; "></span>
                                 Profile
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; "></span>
                                 Help
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; color:black;"></span>
+                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -156,6 +156,7 @@ session_start();
                         <th>Farm Size</th>
                         <th>Quantity</th>
                         <th>Crop Price/kg</th>
+                        <th>Crop Image</th>
                         <th>Crop Category</th>
                         <th>Crop Description</th>
                         <th>Action</th>
@@ -163,24 +164,23 @@ session_start();
                     </thead>
                                     <tbody>
                                         <?php
-                                        require "../controllers/crop_controller.php";
-                                        $result = selectallCrop_ctr();
-
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['farmer_contact'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
-                                                        <td>";
-                                            echo '<a href="../actions/updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            "</td>";
-                                            "</tr>";
+                                        // require "../controllers/crop_controller.php";
+                                        function displayproductCtr(){
+                                                $crop = selectallCrop_ctr();
+                                                for ($i=0; $i < count($crop); $i++){
+                                                    echo "<tr>";
+                                                    echo "<td>".$crop[$i]['crop_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_name']."<td>";
+                                                    echo "<td>".$crop[$i]['farmer_contact']."<td>";
+                                                    echo "<td>".$crop[$i]['farm_size']."<td>";
+                                                    echo "<td>".$crop[$i]['qty']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_price']."<td>";
+                                                    echo "<td><img src='../images/crop/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
+                                                    echo "<td>".$crop[$i]['crop_cat']."<td>";
+                                                    echo "<td>".$crop[$i]['crop_desc']."<td>";
+                                            }
                                         }
+                       
                                         ?>
                                     </tbody>
                     </table>

@@ -24,7 +24,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
-    <script defer src="activepage.js"></script>
+    <script defer src="../js/activepage.js"></script>
 
 
     <style>
@@ -98,7 +98,7 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; "></span>
                                 Records
                             </a>
                         </li>
@@ -106,21 +106,21 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; "></span>
                                 Profile
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="help.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; "></span>
                                 Help
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; color:black;"></span>
+                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
