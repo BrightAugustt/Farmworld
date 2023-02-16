@@ -120,7 +120,7 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
                             <span data-feather="calendar"></span>
-                            This week
+                            This Year
                         </button>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
                                     <h3 class="pull-left">Edit New Crop Details</h3>
-                                    <!-- <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Crop</a> -->
+                                    <!-- <a href="addProduct.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Crop</a> -->
                                 </div>
                                 <table class="table table-bordered table-striped">
                                     <thead>
