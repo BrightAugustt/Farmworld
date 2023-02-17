@@ -163,45 +163,101 @@ session_start();
                         </tr>
                     </thead>
                                     <tbody>
-                                        <?php
-                                        // require "../controllers/crop_controller.php";
-                                        function displayproductCtr(){
-                                                $crop = selectallCrop_ctr();
-                                                for ($i=0; $i < count($crop); $i++){
-                                                    echo "<tr>";
-                                                    echo "<td>".$crop[$i]['crop_name']."<td>";
-                                                    echo "<td>".$crop[$i]['farmer_name']."<td>";
-                                                    echo "<td>".$crop[$i]['farmer_contact']."<td>";
-                                                    echo "<td>".$crop[$i]['farm_size']."<td>";
-                                                    echo "<td>".$crop[$i]['qty']."<td>";
-                                                    echo "<td>".$crop[$i]['crop_price']."<td>";
-                                                    echo "<td><img src='../images/crop/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
-                                                    echo "<td>".$crop[$i]['crop_cat']."<td>";
-                                                    echo "<td>".$crop[$i]['crop_desc']."<td>";
-                                            }
+                                    <?php
+                                        require "../controllers/product_controller.php";
+                                        $result = get_all_croprecords_ctr();
+
+                                        foreach ($result as $crop) {
+                                            echo "<tr>
+                                                        <td>" . $crop['crop_name'] . "</td>
+                                                        <td>" . $crop['farmer_name'] . "</td>
+                                                        <td>" . $crop['farmer_contact'] . "</td>
+                                                        <td>" . $crop['farm_size'] . "</td>
+                                                        <td>" . $crop['qty'] . "</td>
+                                                        <td>" . $crop['crop_price'] . "</td>
+                                                        <td>" . $crop['crop_image'] . "</td>
+                                                        <td>" . $crop['crop_cat'] . "</td>
+                                                        <td>" . $crop['crop_desc'] . "</td>
+                                                        <th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal' style='font-size:10px;'>
+                                                        <span class='fa fa-pencil'></span> 
+                                                        </button>
+                                                        <th>
+                                                        <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                        <span class='bi bi-trash'></span>
+                                                        </button>
+                                                        
+                                                        <th>
+                                                        <td>";
+
+                                                        echo 
+                                                        "
+                                                        <div class='modal' id='first-modal' data-backdrop='static' data-keyboard='false'>
+                                                            <div class='modal-dialog'>
+                                                            <div class='modal-content'>
+                                                                <div class='modal-header'>
+                                                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                                // <h4 class='modal-title' id='myModalLabel'>First Modal</h4>
+                                                                </div>
+                                                                <div class='modal-body'>
+                                                                    <div class='form'>
+                                                                        <form id='formid' action='../actions/updatecrop.php' method='POST' class='row g-3'>
+                                                                            <div class='col-12'>
+                                                                                <label>Crop Name</label>
+                                                                                <input type='text' name='crop_name' id='crop_name' class='form-control'  pattern='[A-Za-z]+'>
+                                                                                <input type='hidden' name='crop_id'  value= '".$crop['crop_name']."'>
+                                                                            </div>
+                                                                            <div class='col-12'>
+                                                                                <label>Farmer Name</label>
+                                                                                <input type='text' name='farmer_name' id='farmer_name' class='form-control'  pattern='[A-Za-z]+'>
+                                                                                <input type='hidden' name='crop_id'  value= '".$crop['farmer_name']."'>
+                                                                            </div>
+                                                                            <div class='col-12'>
+                                                                                <label>Farmer Contact</label>
+                                                                                <input type='tel' name='farmer_contact' id='farmer_contact' class='form-control'  pattern='^\d{10}$'>
+                                                                                <input type='hidden' name='crop_id'  value= '".$crop['farmer_contact']."'>
+                                                                            </div>
+                                                                            <div class='col-12'>
+                                                                                <label>Farm Size</label>
+                                                                                <input type='text' name='farm_size' id='farm_size' class='form-control' >
+                                                                                <input type='hidden' name='crop_id'  value= '".$crop['farm_size']."'>
+                                                                            </div>
+                                                                            <div class='col-12'>
+                                                                            <label>Crop Price</label>
+                                                                            <input type='text' name='crop_price' id='crop_price' class='form-control'  pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'>
+                                                                            <input type='hidden' name='crop_id'  value= '".$crop['crop_price']."'>
+                                                                            </div>
+                                                                            <div class='col-12'>
+                                                                                <label>Quantity(kg)</label>
+                                                                                <input type='text' name='qty' id='qty' class='form-control' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'>
+                                                                                <input type='hidden' name='crop_id'  value= '".$crop['qty']."'>
+                                                                            </div>
+                                                                            
+                                                                            <div class='col-12'>
+                                                                            <label>Crop Category</label>
+                                                                            <input type='text' name='crop_cat' id='crop_cat' class='form-control' pattern='[A-Za-z]+'>
+                                                                            <input type='hidden' name='crop_id'  value= '".$crop['crop_cat']."'>
+                                                                            </div>
+                                                                            <div class='col-12'>
+                                                                            <label>Crop Description</label>
+                                                                            <input type='text' name='crop_desc' id='crop_desc' class='form-control' pattern='[A-Za-z]+'>
+                                                                            <input type='hidden' name='crop_id'  value= '".$crop['crop_desc']."'>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                                <div class='modal-footer'>
+                                                                <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                                <button type='button' class='btn btn-primary'>Send message</button>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>";
+
+                                             
+                                            
+                                            "</td>";
+                                            "</tr>";
                                         }
-                       
-
-
-
-
-
-
-                                        // foreach ($result as $crop) {
-                                        //     echo "<tr>
-                                        //                 <td>" . $crop['crop_name'] . "</td>
-                                        //                 <td>" . $crop['farmer_name'] . "</td>
-                                        //                 <td>" . $crop['farmer_contact'] . "</td>
-                                        //                 <td>" . $crop['qty'] . "</td>
-                                        //                 <td>" . $crop['crop_price'] . "</td>
-                                        //                 <td>" . $crop['crop_cat'] . "</td>
-                                        //                 <td>" . $crop['crop_desc'] . "</td>
-                                        //                 <td>";
-                                        //     echo '<a href="../actions/updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                        //     echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                        //     "</td>";
-                                        //     "</tr>";
-                                        // }
                                         ?>
                                     </tbody>
                     </table>
@@ -213,6 +269,14 @@ session_start();
         </div>
     </div>
     
+    <script>
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function() {
+            myInput.focus()
+        })
+    </script>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

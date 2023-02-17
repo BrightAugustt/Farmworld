@@ -164,9 +164,9 @@ session_start();
                     </thead>
                                     <tbody>
                                         <?php
-                                        // require "../controllers/crop_controller.php";
+                                        require "../controllers/crop_controller.php";
                                         function displayproductCtr(){
-                                                $crop = selectallCrop_ctr();
+                                                $crop=selectallCrop_ctr();
                                                 for ($i=0; $i < count($crop); $i++){
                                                     echo "<tr>";
                                                     echo "<td>".$crop[$i]['crop_name']."<td>";
@@ -175,12 +175,12 @@ session_start();
                                                     echo "<td>".$crop[$i]['farm_size']."<td>";
                                                     echo "<td>".$crop[$i]['qty']."<td>";
                                                     echo "<td>".$crop[$i]['crop_price']."<td>";
-                                                    echo "<td><img src='../images/crop/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
+                                                    echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
                                                     echo "<td>".$crop[$i]['crop_cat']."<td>";
                                                     echo "<td>".$crop[$i]['crop_desc']."<td>";
                                             }
                                         }
-                       
+                                        displayproductCtr();
                                         ?>
                                     </tbody>
                     </table>

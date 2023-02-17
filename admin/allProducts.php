@@ -12,7 +12,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AEO Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -24,6 +24,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
     <script defer src="../js/activepage.js"></script>
+    <script defer src="../js/modal.js"></script>
     <script>
         $('#exampleModal$i').on('shown.bs.modal', function (event) {
         $('#myInput').trigger('focus')
@@ -71,7 +72,7 @@ session_start();
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
+        <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
         <div class="navbar-nav">
             <div class=" text-nowrap admin" >
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
@@ -86,7 +87,7 @@ session_start();
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
+                            <a class="nav-link dashboard" aria-current="page" href="admin.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
                                 </i>Dashboard
@@ -185,64 +186,93 @@ session_start();
                                                     echo "<td>".$crop[$i]['crop_cat']."<td>";
                                                     echo "<td>".$crop[$i]['crop_desc']."<td>";
 
-                                                    // Edit & Delete form 
-                                                    echo "<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#examplemodal$i'>
-                                                    Update
-                                                    </button><th>";
-                                                    echo "<tr>";
 
-                                                    echo
+                                                    echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-primary btn-lg' data-toggle='modal' data-target='#first-modal' style='font-size:10px;'>
+                                                    <span class='fa fa-pencil'></span>
+                                                    </button><th>";  
+                                                    echo "<th><button type='button' class='btn-second-modal btn btn-primary btn-lg'>
+                                                    <span class='bi bi-envelope-fill'></span>
+                                                    </button><th>"; 
+                                                    "</td>";
+                                                    "</tr>";
+
+                                                    // Edit & Delete form 
+                                                    // echo "<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#examplemodal$i'>
+                                                    // Update
+                                                    // </button><th>";
+                                                    // echo "<tr>";
+
+                                                    echo 
                                                     "
-                                                    <div class='modal fade' id='examplemodal$i' tabindex='-1' role='dialog' aria-labelledby='examplemodalLabel' aria-hidden='true'>
-                                                    <div class='modal-dialog' role='document'>
-                                                      <div class='modal-content'>
+                                                    <div class='modal' id='first-modal' data-backdrop='static' data-keyboard='false'>
+                                                        <div class='modal-dialog'>
+                                                        <div class='modal-content'>
+                                                            <div class='modal-header'>
+                                                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                                                            <h4 class='modal-title' id='myModalLabel'>First Modal</h4>
+                                                            </div>
+                                                            <div class='modal-body'>
+                                                                <div class='form'>
+                                                                    <form id='formid' action='../actions/updatecrop.php' method='POST' class='row g-3'>
+                                                                        <div class='col-12'>
+                                                                            <label>Crop Name</label>
+                                                                            <input type='text' name='crop_name' id='crop_name' class='form-control' placeholder='Crop Name' pattern='[A-Za-z]+'>
+                                                                        </div>
+                                                                        <div class='col-12'>
+                                                                            <label>Farmer Name</label>
+                                                                            <input type='text' name='farmer_name' id='farmer_name' class='form-control' placeholder='Farmer Name' pattern='[A-Za-z]+'>
+                                                                        </div>
+                                                                        <div class='col-12'>
+                                                                            <label>Farmer Contact</label>
+                                                                            <input type='tel' name='farmer_contact' id='farmer_contact' class='form-control' placeholder='Contact' pattern='^\d{10}$'>
+                                                                        </div>
+                                                                        <div class='col-12'>
+                                                                            <label>Farm Size</label>
+                                                                            <input type='text' name='farm_size' id='farm_size' class='form-control' placeholder='Farm size'>
+                                                                        </div>
+                                                                        <div class='col-12'>
+                                                                            <label>Quantity(kg)</label>
+                                                                            <input type='text' name='qty' id='qty' class='form-control' placeholder='Quantity' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <div class='modal-footer'>
+                                                            <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                            <button type='button' class='btn btn-primary'>Send message</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>";
+            
+            
+                                                    echo "
+                                                    <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
+                                                    <div class='modal-dialog'>
+                                                    <div class='modal-content'>
                                                         <div class='modal-header'>
-                                                          <h5 class='modal-title' id='examplemodalLabel'>Shoot Edit</h5>
-                                                          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                                            <span aria-hidden='true'>&times;</span>
-                                                          </button>
+                                                        <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
+                                                        <h4 class='modal-title'>Second Modal</h4>
                                                         </div>
                                                         <div class='modal-body'>
-                                                          <form action='../actions/updatewedding.php' method='POST' enctype='multipart/form-data'>
-                                                             <div class='formgroup'>
-                                                                <input type='hidden' name='wedding_id' value= '".$wedding[$i]['wedding_id']."'>
+                                                        <form>
+                                                            <div class='form-group'>
+                                                                <label for='recipient-name' class='col-form-label'>Recipient:</label>
+                                                                <input type='text' class='form-control' id='recipient-name'>
                                                             </div>
                                                             <div class='form-group'>
-                                                              <label for='recipient-name' class='col-form-label'>Wedding Name:</label>
-                                                              <input type='text' class='form-control' id='wedding_name' name='wedding_name' required placeholder= '".$wedding[$i]['wedding_name']."'>
-                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
+                                                                <label for='message-text' class='col-form-label'>Message:</label>
+                                                                <textarea class='form-control' id='message-text'></textarea>
                                                             </div>
-                           
-                                                            <div class='form-group'>
-                                                              <label for='recipient-name' class='col-form-label'>Wedding Price:</label>
-                                                              <input type='text' class='form-control' id='wedding_price' name='wedding_price' required placeholder= '".$wedding[$i]['wedding_price']."'>
-                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
-                                                            </div>
-                           
-                                                            <div class='form-group'>
-                                                              <label for='recipient-name' class='col-form-label'>Wedding Label:</label>
-                                                              <input type='text' class='form-control' id='wedding_label' name='wedding_label' required placeholder= '".$wedding[$i]['wedding_label']."'>
-                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
-                                                            </div>
-                           
-                                                           <div class='form-group'>
-                                                           <input type='hidden' class='form-control' id='wedding_img' name='wedding_img[]'  required placeholder= '".$wedding[$i]['wedding_img']."'>
-                                                           <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
-                                                           </div>
-                           
-                                                            <div class='form-group'>
-                                                              <label for='recipient-name' class='col-form-label'>Shoot Key:</label>
-                                                              <input type='text' class='form-control' id='wedding_key' name='wedding_key'  required placeholder= '".$wedding[$i]['wedding_key']."'>
-                                                              <input type='hidden' name='wedding_id'  value= '".$wedding[$i]['wedding_id']."'>
-                                                            </div>
-                           
-                                                            <div class='modal-footer'>
-                                                            <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cancel</button>
-                                                            <input type = 'submit' value='update' name='updatewedding' class='btn btn-primary''>
-                                                            <input type='hidden' name='wedding_id' value='".$wedding[$i]['wedding_id']."'>
-                                                          </div>
-                                                          </form>
-                                                          </div>
+                                                         </form>
+                                                        </div>
+                                                        <div class='modal-footer'>
+                                                        <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                        <button type='button' class='btn btn-primary'>Send message</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
                                                     ";
                                             }
                                         }

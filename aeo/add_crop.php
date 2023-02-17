@@ -146,7 +146,7 @@ session_start();
 
       <div class="container">
         <div class="form">
-            <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3">
+            <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3" enctype="multipart/form-data">
                 <div class="col-12">
                     <label>Crop Name</label>
                     <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
@@ -161,30 +161,30 @@ session_start();
                 </div>
                 <div class="col-12">
                     <label>Farm Size</label>
-                    <input type="text" name="farm_size" id="farm_size" class="form-control" placeholder="Farm size">
+                    <input type="tel" name="farm_size" id="farm_size" class="form-control" placeholder="Farm size">
                 </div>
                 <div class="col-12">
                     <label>Quantity(kg)</label>
-                    <input type="text" name="qty" id="qty" class="form-control" placeholder="Quantity" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <input type="tel" name="qty" id="qty" class="form-control" placeholder="Quantity" >
                 </div>
                 <div class="col-12">
                     <label>Crop Price/Kg</label>
-                    <input type="tel" name="crop_price" id="crop_price" class="form-control" placeholder="Crop Price"  pattern=".{6,}">
+                    <input type="tel" name="crop_price" id="crop_price" class="form-control" placeholder="Crop Price"  >
                 </div>
 
                 <div class="col-12">
                     <label> Crop Image</label>
-                    <input type="file" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password"  pattern=".{6,}">
+                    <input type="file" name="crop_image[]" id="customer_pass" class="form-control"  required accept="image/*">
                 </div>
 
                 <div class="col-12">
                     <label> Crop Category</label>
-                    <input type="text" name="crop_cat" id="crop_cat" class="form-control" placeholder=" Crop Category"  pattern=".{6,}">
+                    <input type="text" name="crop_cat" id="crop_cat" class="form-control" placeholder=" Crop Category" pattern="[A-Za-z]+" >
                 </div>
 
                 <div class="col-12">
                     <label> Crop Description</label>
-                    <input type="text" name="crop_desc" id="crop_desc" class="form-control" placeholder=" Crop Description"  pattern=".{6,}">
+                    <input type="text" name="crop_desc" id="crop_desc" class="form-control" placeholder=" Crop Description"  pattern="[A-Za-z]+">
                 </div>
 
                 <div class="form-group mt-3">
@@ -194,30 +194,6 @@ session_start();
 
         </div>
     </div>
-
-    <!-- <form class="row g-3">
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Your Name</label>
-                  <input type="text" class="form-control" id="inputNanme4">
-                </div>
-                <div class="col-12">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="col-12">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-              </form> -->
-              <!-- Vertical Form -->
             </main>
         </div>
     </div>
