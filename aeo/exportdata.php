@@ -69,28 +69,36 @@ header("Content-Disposition:attachment;filename=\"$filename\"");
                         <th>Farmer Contact</th>
                         <th>Farm Size</th>
                         <th>Quantity</th>
+                        <th>Crop Image</th>
                         <th>Crop Price/kg</th>
                         <th>Crop Category</th>
                         <th>Crop Description</th>
                         </tr>
                     </thead>
                                     <tbody>
-                                        <?php
-                                        require "../controllers/crop_controller.php";
-                                        $result = selectallCrop_ctr();
+                                    <?php
+                                        require "../controllers/product_controller.php";
+                                        $result = get_all_croprecords_ctr();
 
                                         foreach ($result as $crop) {
                                             echo "<tr>
                                                         <td>" . $crop['crop_name'] . "</td>
                                                         <td>" . $crop['farmer_name'] . "</td>
                                                         <td>" . $crop['farmer_contact'] . "</td>
+                                                        <td>" . $crop['farm_size'] . "</td>
                                                         <td>" . $crop['qty'] . "</td>
                                                         <td>" . $crop['crop_price'] . "</td>
+                                                        <td>" . $crop['crop_image'] . "</td>
                                                         <td>" . $crop['crop_cat'] . "</td>
                                                         <td>" . $crop['crop_desc'] . "</td>
+    
+                                                        
+                                                        <th>
                                                         <td>";
-                                            echo '<a href="../actions/updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+
+                                                        
+                                             
+                                            
                                             "</td>";
                                             "</tr>";
                                         }
