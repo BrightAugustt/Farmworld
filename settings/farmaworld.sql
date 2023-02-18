@@ -120,7 +120,7 @@ CREATE TABLE `crops` (
   `qty` double NOT NULL,
   `crop_price` double NOT NULL,
   `crop_image` varchar(100) DEFAULT NULL,
-  `cat_id` int(11) NOT NULL,
+  `crop_cat` varchar(20) NOT NULL,
   `crop_desc` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

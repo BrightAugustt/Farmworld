@@ -19,7 +19,7 @@ session_start();
     <div class="container">
         <div class="form">
             <h2>Create Account</h2>
-            <form id="formid" action="" method="POST">
+            <form id="formid" action="../actions/addCustomer.php" method="POST">
                 <div class="form-floating">
                     <label>First Name</label>
                     <input type="text" name="customer_fname" id="customer_fname" class="form-control" placeholder="First Name" pattern="[A-Za-z]+">

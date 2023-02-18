@@ -159,28 +159,35 @@ session_start();
                         <th>Crop Image</th>
                         <th>Crop Category</th>
                         <th>Crop Description</th>
-                        <th>Action</th>
                         </tr>
                     </thead>
                                     <tbody>
-                                        <?php
-                                        // require "../controllers/crop_controller.php";
-                                        function displayproductCtr(){
-                                                $crop = selectallCrop_ctr();
-                                                for ($i=0; $i < count($crop); $i++){
-                                                    echo "<tr>";
-                                                    echo "<td>".$crop[$i]['crop_name']."<td>";
-                                                    echo "<td>".$crop[$i]['farmer_name']."<td>";
-                                                    echo "<td>".$crop[$i]['farmer_contact']."<td>";
-                                                    echo "<td>".$crop[$i]['farm_size']."<td>";
-                                                    echo "<td>".$crop[$i]['qty']."<td>";
-                                                    echo "<td>".$crop[$i]['crop_price']."<td>";
-                                                    echo "<td><img src='../images/crop/"  . $crop[$i]['crop_image']  . "' height='100px'></td>";
-                                                    echo "<td>".$crop[$i]['crop_cat']."<td>";
-                                                    echo "<td>".$crop[$i]['crop_desc']."<td>";
-                                            }
+                                    <?php
+                                        require "../controllers/product_controller.php";
+                                        $result = get_all_croprecords_ctr();
+
+                                        foreach ($result as $crop) {
+                                            echo "<tr>
+                                                        <td>" . $crop['crop_name'] . "</td>
+                                                        <td>" . $crop['farmer_name'] . "</td>
+                                                        <td>" . $crop['farmer_contact'] . "</td>
+                                                        <td>" . $crop['farm_size'] . "</td>
+                                                        <td>" . $crop['qty'] . "</td>
+                                                        <td>" . $crop['crop_price'] . "</td>
+                                                        <td>" . $crop['crop_image'] . "</td>
+                                                        <td>" . $crop['crop_cat'] . "</td>
+                                                        <td>" . $crop['crop_desc'] . "</td>
+    
+                                                        
+                                                        <th>
+                                                        <td>";
+
+                                                        
+                                             
+                                            
+                                            "</td>";
+                                            "</tr>";
                                         }
-                       
                                         ?>
                                     </tbody>
                     </table>

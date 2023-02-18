@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
-    <script defer src="modal.js"></script>
+    <script defer src="../js/modal.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -168,8 +168,7 @@
                                         echo "<th><button type='button' class='btn-second-modal btn btn-primary btn-lg'>
                                         <span class='bi bi-envelope-fill'></span>
                                         </button><th>"; 
-                                        // echo '<a href="updateCustomer.php?customer_id=' . $contact['customer_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                        // echo '<a href="../actions/deletePerson.php?delid=' . $contact['customer_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                        
                                         "</td>";
                                         "</tr>";
 
