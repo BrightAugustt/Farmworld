@@ -200,13 +200,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     <div class="col-md-8">
                         <h3 class="pb-4 mb-4 fst-italic border-bottom">
                             <div class="col-md-4">
-                                <div class="position-sticky" style="top: 2rem;">
-                                    <!-- <div class="p-4 mb-3 bg-light rounded">
-                                    <h4 class="fst-italic">About</h4>
-                                    <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
-                                </div> -->
-
-                                    <div class="p-5">
+                                    <div class="p-4">
                                         <h5 class="fst-italic">Crop Categories</h5>
                                         <ol class="list-unstyled mb-0">
                                             <li><a href="#">Vegetables</a></li>
@@ -217,14 +211,14 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                         </ol>
                                     </div>
 
-                                    <div class="p-4">
+                                    <!-- <div class="p-4">
                                         <h4 class="fst-italic">Elsewhere</h4>
                                         <ol class="list-unstyled">
                                             <li><a href="#">GitHub</a></li>
                                             <li><a href="#">Twitter</a></li>
                                             <li><a href="#">Facebook</a></li>
                                         </ol>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                     </div>
