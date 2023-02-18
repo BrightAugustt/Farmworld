@@ -89,12 +89,12 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
                                 </svg>
                             </span>
-                            <form class="form-select" aria-label="Disabled select example" disabled method="post" action="../controllers/region-controller.php">
-                                <select name="region">
+                            <form method="post" action="../controllers/region-controller.php">
+                                <select class="form-select" aria-label="Disabled select example" name="region">
                                     <option value="Greater Accra">Greater Accra</option>
                                     <option value="Eastern">Eastern</option>
                                 </select>
-                                <input type="submit" value="Go">
+                                <button class="btn btn-outline-light" type="submit">Go</button>
                             </form>
                         </div>
                     </div>
