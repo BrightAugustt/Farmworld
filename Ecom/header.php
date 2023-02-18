@@ -10,10 +10,9 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="../Views/homepage.php" class="nav-link px-2 text-dark">Home</a></li>
-                    <li><a href="../Views/about.php" class="nav-link px-2 text-white">About</a></li>
-                    <li><a href="../Views/shop.php" class="nav-link px-2 text-white">Shop</a></li>
-                    <li><a href="../Views/contactUs.php" class="nav-link px-2 text-white">Contact Us</a></li>
+                    <li><a href="homepage.php" class="nav-link px-2 text-dark">Home</a></li>
+                    <li><a href="about.php" class="nav-link px-2 text-white">About</a></li>
+                    <!-- <li><a href="contactUs.php" class="nav-link px-2 text-white">Contact Us</a></li> -->
                 </ul>
 
                 <div class="text-end">
