@@ -50,6 +50,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
             vertical-align: -.125em;
             fill: currentColor;
         }
+        
 
         .nav-scroller {
             position: relative;
@@ -88,7 +89,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
                                 </svg>
                             </span>
-                            <form method="post" action="../controllers/region-controller.php">
+                            <form class="form-select" aria-label="Disabled select example" disabled method="post" action="../controllers/region-controller.php">
                                 <select name="region">
                                     <option value="Greater Accra">Greater Accra</option>
                                     <option value="Eastern">Eastern</option>
@@ -100,9 +101,8 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     <div class="row height d-flex  search">
 
                         <nav class="navbar  col-md-11 ">
-
                             <div class="container-fluid justify-content-center align-items-center">
-                                <img src="../images/Farm-removebg.png" class="img" alt="">
+                                <!-- <img src="../images/Farm-removebg.png" class="img" alt=""> -->
                                 <form action="crop_search_result.php" method="GET" class="d-flex find" role="search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
@@ -206,16 +206,14 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                     <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
                                 </div> -->
 
-                                    <div class="p-4">
-                                        <h4 class="fst-italic">Crops</h4>
+                                    <div class="p-5">
+                                        <h5 class="fst-italic">Crop Categories</h5>
                                         <ol class="list-unstyled mb-0">
-                                            <li><a href="#">March 2021</a></li>
-                                            <li><a href="#">February 2021</a></li>
-                                            <li><a href="#">January 2021</a></li>
-                                            <li><a href="#">December 2020</a></li>
-                                            <li><a href="#">November 2020</a></li>
-                                            <li><a href="#">October 2020</a></li>
-                                            <li><a href="#">September 2020</a></li>
+                                            <li><a href="#">Vegetables</a></li>
+                                            <li><a href="#">Cereal</a></li>
+                                            <li><a href="#">Fruits</a></li>
+                                            <li><a href="#">Legumes</a></li>
+                                            <li><a href="#">Spices</a></li>
                                         </ol>
                                     </div>
 
