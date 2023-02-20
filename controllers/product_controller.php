@@ -75,13 +75,13 @@ function get_all_orderrecords_ctr()
 }
 
 
-function get_one_croprecord_ctr($pid)
+function get_one_croprecord_ctr($cid)
 {
     //create an instance of the class
     $item_object = new crop_class();
 
     //run the method
-    $item_records = $item_object->get_one_croprecord_cls($pid);
+    $item_records = $item_object->get_one_croprecord_cls($cid);
 
     //check if the method worked
     if ($item_records) {

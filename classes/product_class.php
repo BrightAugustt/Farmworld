@@ -48,16 +48,16 @@ class crop_class extends db_connection
     }
 
 
-     function get_one_croprecord_cls($pid)
+     function get_one_croprecord_cls($cid)
     {
         // return true or false
         return $this->db_query(
-            "SELECT * from crops where crop_id ='$pid'"
+            "SELECT * from crops where crop_id ='$cid'"
         );
     }
 
     function search_for_one_crop_cls($searchkeys){
-		$sql= "SELECT `crop_id`, `crop_name`, `farmer_name`, `qty`, `crop_price`, `crop_desc`, `crop_image` FROM crops WHERE `crop_desc` LIKE '%$searchkeys%' or `crop_name` LIKE '$searchkeys'";
+		$sql= "SELECT `crop_id`, `crop_name`, `farmer_name`, `qty`, `crop_price`, `crop_desc`, `crop_ cat`, `crop_image` FROM crops WHERE `crop_desc` LIKE '%$searchkeys%' or `crop_name` LIKE '$searchkeys'or `crop_cat` LIKE '$searchkeys'";
 		return $this->fetch($sql);
 	}
 

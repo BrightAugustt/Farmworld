@@ -168,7 +168,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                                 <h4 class="card-title"><?php echo $cropname; ?></h4>
                                                                 <h5 class="card-title">GHc<?php echo $price; ?></h5>
                                                                 <p class="card-text"><?php echo $desc; ?></p>
-                                                                <form action="#" method="GET">
+                                                                <form action="singleCrop.php" method="GET">
                                                                     <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                                                     <button type="submit" name="view" class="btn btn-primary">View</button>
                                                                 </form>
