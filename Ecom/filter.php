@@ -54,14 +54,8 @@
             </div>
         </div>
     </div>
-    <!-- 
-    <li style="color: #333;font-size: 12px;font-family: 'Roboto', sans-serif;">
-        <label class="checkbox">
-            <input type="checkbox" id="check" name="id" value=<?php echo $row['id']; ?>>
-            <?php //echo $row[''];
-            ?>
-        </label>
-    </li> -->
+    
+ 
 
     <!-- <div class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
