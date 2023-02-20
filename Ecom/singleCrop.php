@@ -19,7 +19,7 @@ include("../controllers/product_controller.php");
 
 <?php
 
-$cid = $_GET['product_id'];
+$cid = $_GET['crop_id'];
 $apat = get_one_croprecord_ctr($cid);
 //print_r($brand_list);
 $cid = $apat['crop_id'];
@@ -30,14 +30,14 @@ $cropprice = ($apat['crop_price']);
 $cdesc = ($apat['crop_desc']);
 
 //Displaying image
-$pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200 ");
+$pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200");
 $cdesc = ($apat['crop_desc']);
 ?>
 
 
 
 <div class="container-fluid mt-5 justify-content-center align-items-center" style="width: 18rem ;">
-    <img src='../images/productImages/<?php echo $apat['product_image']; ?>' class="card-img-top" style="width: 200; height: 200;" alt="<?php echo $cropname; ?>">
+    <img src='../images/crops/<?php echo $apat['crop_image']; ?>' class="card-img-top" style="width: 200; height: 200;" alt="<?php echo $cropname; ?>">
     <div class="card-body">
         <h4 class="card-title"><?php echo $cropname; ?></h4>
         <h5 class="card-title">GHc<?php echo $cropprice; ?></h5>
