@@ -160,7 +160,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 ?>
 
 
-
+ 
                                                     <div class="card" style="width: 18rem">
                                                         <div class="card-block">
                                                             <img src='../images/crops/<?php echo $apat["crop_image"] ?>' class="img-fluid card-img-top" style="width: 200; height: 200;" alt="<?php echo $pname; ?>">
