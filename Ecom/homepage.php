@@ -103,10 +103,10 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                         <nav class="navbar  col-md-11 ">
                             <div class="container-fluid justify-content-center align-items-center">
                                 <!-- <img src="../images/Farm-removebg.png" class="img" alt=""> -->
-                                <form action="crop_search_result.php" method="GET" class="d-flex find" role="search">
+                                <form action="crop_search.php" method="GET" class="d-flex find" role="search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
-                                    <a href="crop_search.php"><button class="btn btn-outline-light" type="submit">Search</button></a>
+                                    <button class="btn btn-outline-light" type="submit">Search</button>
                                 </form>
                                 <!-- <img src="../images/Farm-removebg.png" class="img" alt=""> -->
                             </div>
