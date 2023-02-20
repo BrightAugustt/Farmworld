@@ -17,7 +17,7 @@ include("../controllers/product_controller.php");
 </head>
 
 <body>
-    <div class="b-example-divider"></div>  
+    <div class="b-example-divider"></div>   
 
     <?php require("./header.php"); ?>
 
