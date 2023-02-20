@@ -156,14 +156,14 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                     $price = $apat['crop_price'];
                                                     $desc = $apat['crop_desc'];
                                                     //Displaying image
-                                                    $pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200 ");
+                                                    $pimage = ("<img src='{$apat['image/crop_image']}'. height=200 width=200 ");
                                                 ?>
 
 
 
                                                     <div class="card" style="width: 18rem">
                                                         <div class="card-block">
-                                                            <img src='../images/cropImages/<?php echo $apat["crop_image"] ?>' class="img-fluid card-img-top" style="width: 200; height: 200;" alt="<?php echo $pname; ?>">
+                                                            <img src='../images/crops/<?php echo $apat["image/crop_image"] ?>' class="img-fluid card-img-top" style="width: 200; height: 200;" alt="<?php echo $pname; ?>">
                                                             <div class="card-body">
                                                                 <h4 class="card-title"><?php echo $cropname; ?></h4>
                                                                 <h5 class="card-title">GHc<?php echo $price; ?></h5>
