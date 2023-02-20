@@ -113,6 +113,7 @@ CREATE TABLE `payment` (
 
 CREATE TABLE `crops` (
   `crop_id` int(11) NOT NULL,
+  `crop_cat` int(11) NOT NULL,
   `crop_name` varchar(200) NOT NULL,
   `farmer_name` varchar(200) NOT NULL,
   `farmer_contact` varchar(20) NOT NULL,
@@ -120,7 +121,6 @@ CREATE TABLE `crops` (
   `qty` double NOT NULL,
   `crop_price` double NOT NULL,
   `crop_image` varchar(100) DEFAULT NULL,
-  `crop_cat` varchar(20) NOT NULL,
   `crop_desc` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -168,7 +168,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `crops`
   ADD PRIMARY KEY (`crop_id`),
-  ADD KEY `cat_id` (`cat_id`);
+  ADD KEY `crop_cat` (`crop_cat`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -233,7 +233,7 @@ ALTER TABLE `payment`
 -- Constraints for table `crops`
 --
 ALTER TABLE `crops`
-  ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`);
+  ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`crop_cat`) REFERENCES `categories` (`cat_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

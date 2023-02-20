@@ -1,6 +1,6 @@
 <?php
 //connect to database class
-include_once(dirname(__FILE__)) . '../../settings/db_class.php';
+include_once(dirname(__FILE__))  . '../../settings/db_class.php';
 
 class crop_class extends db_connection
 {
@@ -124,6 +124,6 @@ class crop_class extends db_connection
             "DELETE FROM `orders` WHERE `order_id`='$oid'"
         );
     }
-    
+
 }
 ?>

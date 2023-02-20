@@ -167,5 +167,3 @@ function delete_orderrecord_ctr($oid)
     // call the method from the class
     return $class_instance->delete_orderrecord_cls($oid);
 }
-
-

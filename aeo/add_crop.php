@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 
 
@@ -56,9 +54,9 @@ session_start();
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +64,7 @@ session_start();
         </button>
         <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -85,10 +83,10 @@ session_start();
                                 </i>Dashboard
                             </a>
                         </li>
-                      
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
+                                <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
@@ -120,7 +118,7 @@ session_start();
 
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -133,67 +131,77 @@ session_start();
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div>
-                    <h1 class="h2">Add New Crops</h1>
-                    <p>Complete this form to upload crops to find buyers.</p>
+                        <h1 class="h2">Add New Crops</h1>
+                        <p>Complete this form to upload crops to find buyers.</p>
                     </div>
-                    
+
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <a href="view_crop.php"><button type="button" class="btn btn-sm btn btn-outline-success">
-                            View All Crops
-                        </button></a>
+                                View All Crops
+                            </button></a>
                     </div>
                 </div>
 
-      <div class="container">
-        <div class="form">
-            <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3" enctype="multipart/form-data">
-                <div class="col-12">
-                    <label>Crop Name</label>
-                    <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
-                </div>
-                <div class="col-12">
-                    <label>Farmer Name</label>
-                    <input type="text" name="farmer_name" id="farmer_name" class="form-control" placeholder="Farmer Name" pattern="[A-Za-z]+">
-                </div>
-                <div class="col-12">
-                    <label>Farmer Contact</label>
-                    <input type="tel" name="farmer_contact" id="farmer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
-                </div>
-                <div class="col-12">
-                    <label>Farm Size</label>
-                    <input type="tel" name="farm_size" id="farm_size" class="form-control" placeholder="Farm size">
-                </div>
-                <div class="col-12">
-                    <label>Quantity(kg)</label>
-                    <input type="tel" name="qty" id="qty" class="form-control" placeholder="Quantity" >
-                </div>
-                <div class="col-12">
-                    <label>Crop Price/Kg</label>
-                    <input type="tel" name="crop_price" id="crop_price" class="form-control" placeholder="Crop Price"  >
-                </div>
+                <div class="container">
+                    <div class="form">
+                        <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3" enctype="multipart/form-data">
+                            <div class="col-12">
+                                <label>Crop Name</label>
+                                <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
+                            </div>
+                            <div class="form-group">
+                                <label for="crop_cat" class="form-label"> Crop Category:</label>
+                                <select name='crop_cat'>
+                                <?php
+                                require("../controllers/crop_controller.php");
 
-                <div class="col-12">
-                    <label> Crop Image</label>
-                    <input type="file" name="crop_image[]" id="customer_pass" class="form-control"  required accept="image/*">
-                </div>
+                                    $cat = get_all_catrecords_ctr();
 
-                <div class="col-12">
-                    <label> Crop Category</label>
-                    <input type="text" name="crop_cat" id="crop_cat" class="form-control" placeholder=" Crop Category" pattern="[A-Za-z]+" >
-                </div>
+                                        foreach ($cat as $contact) {
+                                ?>
+                                <option value=<?php echo ($contact['cat_id']) ?>><?php echo ($contact['cat_name']) ?></option>
+                                <?php } ?>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="col-12">
+                                <label>Farmer Name</label>
+                                <input type="text" name="farmer_name" id="farmer_name" class="form-control" placeholder="Farmer Name" pattern="[A-Za-z]+">
+                            </div>
+                            <div class="col-12">
+                                <label>Farmer Contact</label>
+                                <input type="tel" name="farmer_contact" id="farmer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
+                            </div>
+                            <div class="col-12">
+                                <label>Farm Size</label>
+                                <input type="tel" name="farm_size" id="farm_size" class="form-control" placeholder="Farm size">
+                            </div>
+                            <div class="col-12">
+                                <label>Quantity(kg)</label>
+                                <input type="tel" name="qty" id="qty" class="form-control" placeholder="Quantity">
+                            </div>
+                            <div class="col-12">
+                                <label>Crop Price/Kg</label>
+                                <input type="tel" name="crop_price" id="crop_price" class="form-control" placeholder="Crop Price">
+                            </div>
 
-                <div class="col-12">
-                    <label> Crop Description</label>
-                    <input type="text" name="crop_desc" id="crop_desc" class="form-control" placeholder=" Crop Description"  pattern="[A-Za-z]+">
-                </div>
+                            <div class="col-12">
+                                <label> Crop Image</label>
+                                <input type="file" name="crop_image[]" id="customer_pass" class="form-control" required accept="image/*">
+                            </div>
 
-                <div class="form-group mt-3">
-                    <input type="submit" class="btn btn-success" name="addcrop" value="Submit">
-                </div>
-            </form>
+                            <div class="col-12">
+                                <label> Crop Description</label>
+                                <input type="text" name="crop_desc" id="crop_desc" class="form-control" placeholder=" Crop Description" pattern="[A-Za-z]+">
+                            </div>
 
-        </div>
-    </div>
+                            <div class="form-group mt-3">
+                                <input type="submit" class="btn btn-success" name="addcrop" value="Submit">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
             </main>
         </div>
     </div>

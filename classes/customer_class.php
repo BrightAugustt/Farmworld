@@ -51,21 +51,6 @@ class ContactClass extends db_connection
         );
     }
 
-    function get_all_newsrecords_cls()
-    {
-        // return true or false
-        return $this->db_query(
-            "SELECT * from newsletter"
-        );
-    }
-    
-
-    // function get_all_newsrecords_cls()
-    // {
-    //     $sql = "SELECT * FROM `newsletter`";
-    //     // return true or false
-    //     return $this->fetch($sql);
-    // }
 
     function get_all_adminrecords_cls()
     {

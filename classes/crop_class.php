@@ -1,3 +1,4 @@
+
 <?php
 include_once(dirname(__FILE__)) . "../../settings/db_class.php";
 
@@ -5,13 +6,20 @@ include_once(dirname(__FILE__)) . "../../settings/db_class.php";
 class crop_class extends db_connection
 {
     // Insert crop into database
-    function add_crop($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
+    function add_crop($crop_name,$crop_cat,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_desc)
     {
-      
         // Write query
-		$sql = "INSERT INTO `crops`( `crop_name`,`farmer_name`, `farmer_contact`,`farm_size`, `qty`, `crop_price`, `crop_image`,`crop_cat`,`crop_desc`) VALUES ('$crop_name','$farmer_name','$farmer_contact','$farm_size','$qty','$crop_price','$crop_image','$crop_cat','$crop_desc')";
+		$sql = "INSERT INTO `crops`( `crop_name`,`crop_cat`,`farmer_name`, `farmer_contact`,`farm_size`, `qty`, `crop_price`, `crop_image`,`crop_desc`) VALUES ('$crop_name','$crop_cat','$farmer_name','$farmer_contact','$farm_size','$qty','$crop_price','$crop_image','$crop_desc')";
 		// Return  
 		return $this -> db_query($sql);
+    }
+
+    function add_cat($catname)
+    {
+        // return true or false
+        return $this->db_query(
+            "INSERT INTO categories (cat_name) values ('$catname')"
+        );
     }
 
     // select one
@@ -30,6 +38,15 @@ class crop_class extends db_connection
 		// Return
 		return $this->db_fetch_all($sql);
     }
+
+    // select all crop categories
+    function selectAll_cat()
+    {
+        $sql = "SELECT * FROM `categories`";
+        // Return
+        return $this->db_fetch_all($sql);
+    }
+    
 
     // update crop
     function update_crop($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
@@ -54,10 +71,5 @@ class crop_class extends db_connection
 
 
 
-
-    
 }
-
-
-
 ?>

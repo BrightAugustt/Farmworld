@@ -3,12 +3,20 @@
 include_once(dirname(__FILE__)) . '/../classes/crop_class.php';
 
 
-function addCrop_ctr($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
+function addCrop_ctr($crop_name,$crop_cat,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_desc)
 {
     // create an instance of the crop class
     $add_crop = new crop_class();
 
     return $add_crop->add_crop($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc);
+}
+
+function add_catrecord_ctr($catname)
+{
+    // create an instance of the crop class
+    $add_cat = new crop_class();
+
+    return $add_cat->add_cat($catname);
 }
 
 function updateCrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
@@ -21,7 +29,7 @@ function updateCrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_s
 
 function selectallCrop_ctr()
 {
-    // create an instance of the crop class
+    //create an instance of the crop class
     $selectall = new crop_class();
 
     return $selectall->selectAll_crop();
@@ -43,29 +51,14 @@ function deleteCrop_ctr($crop_id)
     return $delete->delete_crop($crop_id);
 }
 
+function get_all_catrecords_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
 
+    //run the method
+   return $item_object->selectAll_cat();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 ?>
