@@ -11,29 +11,26 @@ require("../controllers/crop_controller.php");
     <title>Filter</title>
 
     <style>
-        .filter-component
-        {
-        margin-bottom:
-        10px;
-        }
-        .filter-component
-        label
-        {
-        font-weight:
-        bold;
-        margin-right:
-        10px;
-        }
-        .filter-select
-        {
-        width:
-        200px;
-        height:
-        30px;
-        font-size:
-        14px;
+        .filter-component {
+            margin-bottom:
+                10px;
         }
 
+        .filter-component label {
+            font-weight:
+                bold;
+            margin-right:
+                10px;
+        }
+
+        .filter-select {
+            width:
+                200px;
+            height:
+                30px;
+            font-size:
+                14px;
+        }
     </style>
 </head>
 
@@ -55,11 +52,25 @@ require("../controllers/crop_controller.php");
         </div>
         <br>
     </div>
-    <script>
-        // Get the selected category value
-        var categoryFilter = $('#category-filter').val();
 
-        // Loop through the products and show/hide based on the selected category
+</body>
+<script>
+    // Get the selected category value
+    var categoryFilter = $('#category-filter').val();
+
+    // Loop through the products and show/hide based on the selected category
+    $('.product-item').each(function() {
+        var category = $(this).data('category');
+        if (categoryFilter === 'all' || category === categoryFilter) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+
+    // Add an event listener to update the products when the category filter is changed
+    $('#category-filter').on('change', function() {
+        categoryFilter = $(this).val();
         $('.product-item').each(function() {
             var category = $(this).data('category');
             if (categoryFilter === 'all' || category === categoryFilter) {
@@ -68,20 +79,7 @@ require("../controllers/crop_controller.php");
                 $(this).hide();
             }
         });
-
-        // Add an event listener to update the products when the category filter is changed
-        $('#category-filter').on('change', function() {
-            categoryFilter = $(this).val();
-            $('.product-item').each(function() {
-                var category = $(this).data('category');
-                if (categoryFilter === 'all' || category === categoryFilter) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
-        });
-    </script>
-</body>
+    });
+</script>
 
 </html>

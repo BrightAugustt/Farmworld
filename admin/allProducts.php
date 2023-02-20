@@ -168,8 +168,8 @@ session_start();
                     </thead>
                                     <tbody>
                                     <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
+                                        require "../controllers/crop_controller.php";
+                                        $result = selectallCrop_ctr();
 
                                         foreach ($result as $crop) {
                                             echo "<tr>

@@ -31,6 +31,13 @@ class crop_class extends db_connection
         );
     }
 
+    // function selectAll_crops()
+    // {
+    //     $sql = "SELECT * FROM `crops`";
+    //     // return true or false
+    //     return $this->fetch($sql);
+    // }
+
     // select all crops
     function selectAll_crop()
     {

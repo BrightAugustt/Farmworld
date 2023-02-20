@@ -152,15 +152,15 @@ session_start();
                             <div class="form-group">
                                 <label for="crop_cat" class="form-label"> Crop Category:</label>
                                 <select name='crop_cat'>
-                                    <?php
-                                    require("../controllers/crop_controller.php");
+                                <?php
+                                require("../controllers/crop_controller.php");
 
                                     $cat = get_all_catrecords_ctr();
 
-                                    foreach ($cat as $contact) {
-                                    ?>
-                                        <option value=<?php echo ($contact['cat_id']) ?>><?php echo ($contact['cat_name']) ?></option>
-                                    <?php } ?>
+                                        foreach ($cat as $contact) {
+                                ?>
+                                <option value=<?php echo ($contact['cat_id']) ?>><?php echo ($contact['cat_name']) ?></option>
+                                <?php } ?>
                                 </select>
                             </div>
                             <br>

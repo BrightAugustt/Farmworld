@@ -137,7 +137,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                 </div>
 
                                 <?php
-                                $p_list = get_all_croprecords_ctr();
+                                $p_list = selectallCrop_ctr();
                                 //print_r($brand_list);
                                 ?>
                                 <div class="container">
