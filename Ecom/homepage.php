@@ -100,7 +100,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     </div>
                     <div class="row height d-flex  search">
 
-                        <nav class="navbar  col-md-11 ">
+                        <nav class="navbar  col-md-11 "> 
                             <div class="container-fluid justify-content-center align-items-center">
                                 <!-- <img src="../images/Farm-removebg.png" class="img" alt=""> -->
                                 <form action="crop_search.php" method="GET" class="d-flex find" role="search">
