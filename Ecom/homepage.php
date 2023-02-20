@@ -1,4 +1,4 @@
-<?php require("../controllers/crop_controller.php");
+<?php require("../controllers/product_controller.php");
 
 $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
@@ -137,7 +137,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                 </div>
 
                                 <?php
-                                $p_list = selectallCrop_ctr();
+                                $p_list = get_all_croprecords_ctr();
                                 //print_r($brand_list);
                                 ?>
                                 <div class="container">
@@ -151,12 +151,12 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                     // print_r($apat);
 
                                                     $cropname = $apat['crop_name'];
-                                                    $cropcat = $apat['crop_brand'];
+                                                    $cropcat = $apat['crop_cat'];
                                                     $qtyavail = $apat['qty'];
                                                     $price = $apat['crop_price'];
                                                     $desc = $apat['crop_desc'];
                                                     //Displaying image
-                                                    $pimage = ("<img src='{$apat['image/crop_image']}'. height=200 width=200 ");
+                                                    $pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200 ");
                                                 ?>
 
 
