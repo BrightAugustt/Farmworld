@@ -203,11 +203,11 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                     <div class="p-4">
                                         <h5 class="fst-italic">Crop Categories</h5>
                                         <ol class="list-unstyled mb-0">
-                                            <li><a href="#">Vegetables</a></li>
-                                            <li><a href="#">Cereal</a></li>
-                                            <li><a href="#">Fruits</a></li>
-                                            <li><a href="#">Legumes</a></li>
-                                            <li><a href="#">Spices</a></li>
+                                            <li><a href="vegAccra.php">Vegetables</a></li>
+                                            <li><a href="cerAccra.php">Cereal</a></li>
+                                            <li><a href="fruAccra.php">Fruits</a></li>
+                                            <li><a href="legAccra.php">Legumes</a></li>
+                                            <li><a href="spiAccra.php">Spices</a></li>
                                         </ol>
                                     </div>
 
