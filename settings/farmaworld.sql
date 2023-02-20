@@ -168,7 +168,7 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `crops`
   ADD PRIMARY KEY (`crop_id`),
-  ADD KEY `crop_cat` (`crop_cat`);
+
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -232,9 +232,9 @@ ALTER TABLE `payment`
 --
 -- Constraints for table `crops`
 --
-ALTER TABLE `crops`
-  ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`crop_cat`) REFERENCES `categories` (`cat_id`);
-COMMIT;
+-- ALTER TABLE `crops`
+--   ADD CONSTRAINT `crops_ibfk_1` FOREIGN KEY (`crop_cat`) REFERENCES `categories` (`cat_id`);
+-- COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
