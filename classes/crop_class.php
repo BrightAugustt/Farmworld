@@ -14,6 +14,14 @@ class crop_class extends db_connection
 		return $this -> db_query($sql);
     }
 
+    function add_cat($catname)
+    {
+        // return true or false
+        return $this->db_query(
+            "INSERT INTO categories (cat_name) values ('$catname')"
+        );
+    }
+
     // select one
     function selectOne_crop($crop_id)
     {

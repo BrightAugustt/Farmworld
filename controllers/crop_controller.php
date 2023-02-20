@@ -11,6 +11,14 @@ function addCrop_ctr($crop_name,$crop_cat,$farmer_name,$farmer_contact,$farm_siz
     return $add_crop->add_crop($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc);
 }
 
+function add_catrecord_ctr($catname)
+{
+    // create an instance of the crop class
+    $add_cat = new crop_class();
+
+    return $add_cat->add_cat($catname);
+}
+
 function updateCrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
 {
     // create an instance of the crop class
@@ -52,6 +60,7 @@ function get_all_catrecords_ctr()
    return $item_object->selectAll_cat();
 
 }
+
 
 
 
