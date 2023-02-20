@@ -1,4 +1,4 @@
-<?php require("../controllers/product_controller.php");
+<?php require("../controllers/crop_controller.php");
 
 $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
@@ -106,7 +106,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                 <form action="crop_search_result.php" method="GET" class="d-flex find" role="search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
-                                    <button class="btn btn-outline-light" type="submit">Search</button>
+                                    <a href="../actions/search.php"><button class="btn btn-outline-light" type="submit">Search</button></a>
                                 </form>
                                 <!-- <img src="../images/Farm-removebg.png" class="img" alt=""> -->
                             </div>
