@@ -43,6 +43,23 @@ function deleteCrop_ctr($crop_id)
     return $delete->delete_crop($crop_id);
 }
 
+function get_all_catrecords_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->selectAll_crop();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
 
 
 
