@@ -5,12 +5,12 @@ include("../controllers/crop_controller.php");
 if(isset($_POST["addcrop"])){
     $allowTypes=array('jpg','png','jpeg','gif');
     $crop_name=$_POST["crop_name"];
-    $crop_cat=$_POST["crop_cat"];
     $farmer_name=$_POST["farmer_name"];
     $farmer_contact=$_POST["farmer_contact"];
     $farm_size=$_POST["farm_size"];
     $qty=$_POST["qty"];
     $crop_price=$_POST["crop_price"];
+    $crop_cat=$_POST["crop_cat"];
     $crop_desc=$_POST["crop_desc"];
 
     // image upload

@@ -3,7 +3,7 @@
 include_once(dirname(__FILE__)) . '/../classes/crop_class.php';
 
 
-function addCrop_ctr($crop_name,$crop_cat,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_desc)
+function addCrop_ctr($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
 {
     // create an instance of the crop class
     $add_crop = new crop_class();

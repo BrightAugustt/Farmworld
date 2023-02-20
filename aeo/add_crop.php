@@ -149,20 +149,7 @@ session_start();
                                 <label>Crop Name</label>
                                 <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
                             </div>
-                            <div class="form-group">
-                                <label for="crop_cat" class="form-label"> Crop Category:</label>
-                                <select name='crop_cat'>
-                                <?php
-                                require("../controllers/crop_controller.php");
-
-                                    $cat = get_all_catrecords_ctr();
-
-                                        foreach ($cat as $contact) {
-                                ?>
-                                <option value=<?php echo ($contact['cat_id']) ?>><?php echo ($contact['cat_name']) ?></option>
-                                <?php } ?>
-                                </select>
-                            </div>
+                       
                             <br>
                             <div class="col-12">
                                 <label>Farmer Name</label>
@@ -188,6 +175,11 @@ session_start();
                             <div class="col-12">
                                 <label> Crop Image</label>
                                 <input type="file" name="crop_image[]" id="customer_pass" class="form-control" required accept="image/*">
+                            </div>
+
+                            <div class="col-12">
+                                <label> Crop Category</label>
+                                <input type="text" name="crop_cat" id="crop_cat" class="form-control" placeholder=" Crop Category" pattern="[A-Za-z]+">
                             </div>
 
                             <div class="col-12">
