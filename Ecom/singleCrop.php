@@ -47,4 +47,6 @@ $cdesc = ($apat['crop_desc']);
     <a class="btn btn-success" href="homepage.php" role="button">Go Back</a>
 </div>
 
+<?php require("./footer.php"); ?>
+
 </html>
