@@ -20,7 +20,7 @@ include("../controllers/product_controller.php");
     <div class="b-example-divider"></div>
 
     <?php require("./header.php"); ?>
-    
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
@@ -43,6 +43,7 @@ include("../controllers/product_controller.php");
                                     $qty = $apat['qty'];
                                     $cropprice = ($apat['crop_price']);
                                     $cdesc = ($apat['crop_desc']);
+                                    $crop_cat = ($apat['crop_cat']);
                                 ?>
 
 
@@ -55,7 +56,7 @@ include("../controllers/product_controller.php");
                                             <p class="card-text"><?php echo $cdesc; ?></p>
                                             <form action="searchResult.php" method="GET">
                                                 <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
-                                                <button type="submit" name="view" class="btn btn-primary">View</button>
+                                                <a href="singleCrop.php"></a><button type="submit" name="view" class="btn btn-primary">View</button>
                                             </form>
                                         </div>
                                     </div>
