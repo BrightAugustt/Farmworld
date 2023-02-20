@@ -1,5 +1,5 @@
 <?php
-require("../ocntrollers/crop_controller.php");
+require("../controllers/crop_controller.php");
 ?>
 
 <html lang="en">

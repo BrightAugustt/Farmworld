@@ -5,11 +5,11 @@ include_once(dirname(__FILE__)) . "../../settings/db_class.php";
 class crop_class extends db_connection
 {
     // Insert crop into database
-    function add_crop($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
+    function add_crop($crop_name,$crop_cat,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_desc)
     {
       
         // Write query
-		$sql = "INSERT INTO `crops`( `crop_name`,`farmer_name`, `farmer_contact`,`farm_size`, `qty`, `crop_price`, `crop_image`,`crop_cat`,`crop_desc`) VALUES ('$crop_name','$farmer_name','$farmer_contact','$farm_size','$qty','$crop_price','$crop_image','$crop_cat','$crop_desc')";
+		$sql = "INSERT INTO `crops`( `crop_name`,`crop_cat`,`farmer_name`, `farmer_contact`,`farm_size`, `qty`, `crop_price`, `crop_image`,`crop_desc`) VALUES ('$crop_name','$crop_cat','$farmer_name','$farmer_contact','$farm_size','$qty','$crop_price','$crop_image','$crop_desc')";
 		// Return  
 		return $this -> db_query($sql);
     }
