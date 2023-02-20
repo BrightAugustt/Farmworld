@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-require("../controllers/crop_controller.php");
 ?>
 
 
@@ -155,6 +153,8 @@ require("../controllers/crop_controller.php");
                                 <label for="crop_cat" class="form-label"> Crop Category:</label>
                                 <select name='crop_cat'>
                                     <?php
+                                    require("../controllers/crop_controller.php");
+
                                     $cat = get_all_catrecords_ctr();
 
                                     foreach ($cat as $contact) {

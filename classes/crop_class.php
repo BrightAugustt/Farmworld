@@ -31,6 +31,15 @@ class crop_class extends db_connection
 		return $this->db_fetch_all($sql);
     }
 
+    // select all crop categories
+    function selectAll_cat()
+    {
+        $sql = "SELECT * FROM `categories`";
+        // Return
+        return $this->db_fetch_all($sql);
+    }
+    
+
     // update crop
     function update_crop($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
     {
@@ -57,7 +66,3 @@ class crop_class extends db_connection
 
     
 }
-
-
-
-?>

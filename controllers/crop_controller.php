@@ -49,16 +49,8 @@ function get_all_catrecords_ctr()
     $item_object = new crop_class();
 
     //run the method
-    $item_records = $item_object->selectAll_crop();
+   return $item_object->selectAll_cat();
 
-    //check if the method worked
-    if ($item_records) {
-        //return all the data
-        return $item_object->db_fetch_all();
-    } else {
-        //no data found
-        return false;
-    }
 }
 
 
