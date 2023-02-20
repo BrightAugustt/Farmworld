@@ -7,7 +7,7 @@ if (isset($_POST['insertBtn'])) {
 
     $result = add_catrecord_ctr($catname);
     if ($result) {
-        header('Location: productCat.php');
+        header('Location: ../admin/productCat.php');
     } else {
         echo 'error';
     }
