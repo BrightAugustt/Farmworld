@@ -9,7 +9,7 @@ class crop_class extends db_connection
     function add_crop($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
     {
         // Write query
-		$sql = "INSERT INTO `crops`( `crop_name`,`farmer_name`, `farmer_contact`,`farm_size`, `qty`, `crop_price`, `crop_image`,`crop_cat``crop_desc`) VALUES ('$crop_name','$farmer_name','$farmer_contact','$farm_size','$qty','$crop_price','$crop_image','$crop_cat','$crop_desc')";
+		$sql = "INSERT INTO `crops`( `crop_name`, `farmer_name`, `farmer_contact`, `farm_size`, `qty`, `crop_price`, `crop_image`, `crop_cat`, `crop_desc`) VALUES ('$crop_name','$farmer_name','$farmer_contact','$farm_size','$qty','$crop_price','$crop_image','$crop_cat','$crop_desc')";
 		// Return  
 		return $this -> db_query($sql);
     }
