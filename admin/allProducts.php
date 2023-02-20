@@ -167,7 +167,7 @@ session_start();
                         </tr>
                     </thead>
                                     <tbody>
-                                    <?php
+                                    <?php 
                                         require "../controllers/product_controller.php";
                                         $result = get_all_croprecords_ctr();
 
