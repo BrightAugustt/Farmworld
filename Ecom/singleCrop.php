@@ -16,6 +16,7 @@ include("../controllers/product_controller.php");
     <!-- <link rel="stylesheet" href="../css/search.css"> -->
 </head>
 
+<?php require("./header.php"); ?>
 
 <?php
 
