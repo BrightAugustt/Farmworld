@@ -113,7 +113,7 @@ CREATE TABLE `payment` (
 
 CREATE TABLE `crops` (
   `crop_id` int(11) NOT NULL,
-  `crop_cat` varchar(20) NOT NULL,
+  `crop_cat` int(11) NOT NULL,
   `crop_name` varchar(200) NOT NULL,
   `farmer_name` varchar(200) NOT NULL,
   `farmer_contact` varchar(20) NOT NULL,
