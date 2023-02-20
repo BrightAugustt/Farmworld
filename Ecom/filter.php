@@ -1,7 +1,3 @@
-<?php
-require("../controllers/crop_controller.php");
-?>
-
 <html lang="en">
 
 <head>
@@ -35,6 +31,29 @@ require("../controllers/crop_controller.php");
 </head>
 
 <body>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 
     <li style="color: #333;font-size: 12px;font-family: 'Roboto', sans-serif;">
         <label class="checkbox">
@@ -44,24 +63,37 @@ require("../controllers/crop_controller.php");
         </label>
     </li> -->
 
+    <!-- <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="filter-component">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="books">Books</option>
+                           Add more categories here
+                        </select>
+                    </div>
 
-    </label>
-    <!-- HTML code for the filter component -->
-    <div class="filter-component">
-        <div class="form-group">
-            <label for="crop_cat" class="form-label"> Select Category</label>
-            <select name='crop_cat'>
-                <?php
-                $cat = get_all_catrecords_ctr();
-
-                foreach ($cat as $contact) {
-                ?>
-                    <option value=<?php echo ($contact['cat_id']) ?>><?php echo ($contact['cat_name']) ?></option>
-                <?php } ?>
-            </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Filter</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <br>
-    </div>
+    </div> -->
+
+
 
 </body>
 <script>

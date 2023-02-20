@@ -57,7 +57,7 @@ class crop_class extends db_connection
     }
 
     function search_for_one_crop_cls($searchkeys){
-		$sql= "SELECT `crop_id`, `crop_cat`, `crop_brand`, `crop_title`, `crop_price`, `crop_desc`, `crop_image`, `crop_keywords` FROM crops WHERE `crop_keywords` LIKE '%$searchkeys%' or `crop_title` LIKE '$searchkeys'";
+		$sql= "SELECT `crop_id`, `crop_name`, `farmer_name`, `qty`, `crop_price`, `crop_desc`, `crop_image` FROM crops WHERE `crop_desc` LIKE '%$searchkeys%' or `crop_name` LIKE '$searchkeys'";
 		return $this->fetch($sql);
 	}
 

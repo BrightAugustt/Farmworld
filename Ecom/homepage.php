@@ -50,7 +50,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
             vertical-align: -.125em;
             fill: currentColor;
         }
-        
+
 
         .nav-scroller {
             position: relative;
@@ -106,7 +106,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                 <form action="crop_search_result.php" method="GET" class="d-flex find" role="search">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                     <input class="form-control me-2" name="search" placeholder=" I am looking for... " aria-label="Search">
-                                    <a href="../actions/search.php"><button class="btn btn-outline-light" type="submit">Search</button></a>
+                                    <a href="crop_search.php"><button class="btn btn-outline-light" type="submit">Search</button></a>
                                 </form>
                                 <!-- <img src="../images/Farm-removebg.png" class="img" alt=""> -->
                             </div>
@@ -160,7 +160,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 ?>
 
 
- 
+
                                                     <div class="card" style="width: 18rem">
                                                         <div class="card-block">
                                                             <img src='../images/crops/<?php echo $apat["crop_image"] ?>' class="img-fluid card-img-top" style="width: 200; height: 200;" alt="<?php echo $pname; ?>">
@@ -200,18 +200,18 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     <div class="col-md-8">
                         <h3 class="pb-4 mb-4 fst-italic border-bottom">
                             <div class="col-md-4">
-                                    <div class="p-4">
-                                        <h5 class="fst-italic">Crop Categories</h5>
-                                        <ol class="list-unstyled mb-0">
-                                            <li><a href="vegAccra.php">Vegetables</a></li>
-                                            <li><a href="cerAccra.php">Cereal</a></li>
-                                            <li><a href="fruAccra.php">Fruits</a></li>
-                                            <li><a href="legAccra.php">Legumes</a></li>
-                                            <li><a href="spiAccra.php">Spices</a></li>
-                                        </ol>
-                                    </div>
+                                <div class="p-4">
+                                    <h5 class="fst-italic">Crop Categories</h5>
+                                    <ol class="list-unstyled mb-0">
+                                        <li><a href="vegAccra.php">Vegetables</a></li>
+                                        <li><a href="cerAccra.php">Cereal</a></li>
+                                        <li><a href="fruAccra.php">Fruits</a></li>
+                                        <li><a href="legAccra.php">Legumes</a></li>
+                                        <li><a href="spiAccra.php">Spices</a></li>
+                                    </ol>
+                                </div>
 
-                                    <!-- <div class="p-4">
+                                <!-- <div class="p-4">
                                         <h4 class="fst-italic">Elsewhere</h4>
                                         <ol class="list-unstyled">
                                             <li><a href="#">GitHub</a></li>
@@ -219,9 +219,9 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                             <li><a href="#">Facebook</a></li>
                                         </ol>
                                     </div> -->
-                                </div>
                             </div>
                     </div>
+                </div>
                 </div>
                 </div>
             </main>
