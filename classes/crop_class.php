@@ -67,7 +67,17 @@ class crop_class extends db_connection
     }
 
 
-    // search crop
+    // show crop
+    function show_all_crop()
+    {
+        $sql="SELECR * FROM `crops` where `Approved`='Yes'";
+        return $this->db_fetch_all($sql);
+    }
+
+    function showUpdateCrop($id,$status){
+        $sql="UPDATE  `crops` set Approved='$status' where `crop_id`='$id'";
+        return $this->db_query($sql);
+    }
 
 
 

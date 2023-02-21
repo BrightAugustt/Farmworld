@@ -61,4 +61,18 @@ function get_all_catrecords_ctr()
 
 }
 
+function show_all_crops_ctr()
+{
+    $show= new crop_class();
+
+    return $show->show_all_crop();
+}
+
+
+function update_show_crop_ctr($id,$status)
+{
+    $update= new crop_class();
+    return $update->showUpdateCrop($id,$status);
+}
+
 ?>
