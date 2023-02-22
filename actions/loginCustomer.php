@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 include("../controllers/contact_controller.php");
 
