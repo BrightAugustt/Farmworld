@@ -1,7 +1,7 @@
 <?php
 include_once '../controllers/contact_controller.php';
 
-if (isset($_POST['logincus'])) {
+if (isset($_POST['login'])) {
     $customer_email = $_POST['customer_email'];
     $customer_pass=$_POST["customer_pass"];
     $login =loginCustomer_ctr($customer_email);

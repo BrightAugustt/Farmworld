@@ -18,7 +18,19 @@ session_start();
 <body>
     <div class="container">
         <div class="form">
+			
             <h2>Login to Account</h2>
+					<?php
+                    session_start();
+                    if(!empty($_SESSION['error'])){
+                    ?>
+                    <div style = "color : red; font-weight:600;">
+                    <?php
+                        echo $_SESSION['error'];
+                        
+                        unset($_SESSION['error']); 
+                    } 
+                    ?>
             <form id="formId" action="../actions/loginCustomer.php" method="POST">
                 <div class="form-floating">
                     <label>Email address</label>
@@ -30,9 +42,9 @@ session_start();
                 </div>
 
                 <div class="button">
-                <button class="button1" id="butcustomer" name="logincus" >Login as a customer</button>
-                <p>OR</p>
-                <button class="button2" id="butaeo" name="loginaeo">Login as an AEO</button>
+                <button class="button1" id="butcustomer" name="login" >Login</button>
+                <!-- <p>OR</p>
+                <button class="button2" id="butaeo" name="loginaeo">Login as an AEO</button> -->
                 </div>
 
                 <div class="already">
