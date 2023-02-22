@@ -61,9 +61,10 @@ class cart_class extends db_connection{
 	}
 
 	function view_cart_cls($customer_id){
-		$sql = "SELECT crops.crop_id, crops.crop_name, crops.crop_image, crops.crop_price, cart.crop_id, cart.qty, cart.customer_id FROM `crops` JOIN cart WHERE 
-		crop_id = cart.crop_id AND cart.customer_id = '$customer_id'";
-
+		$sql = "SELECT crops.crop_id, crops.crop_name, cart.qty
+		FROM crops
+		JOIN cart ON crops.crop_id = cart.crop_id
+		WHERE crops.crop_id = '$customer_id'";
 		return $this->fetch($sql);
 	}
 
@@ -86,7 +87,11 @@ class cart_class extends db_connection{
      }
 
 	 function multiplyPrice($custId){
-		$sql = "SELECT SUM(crops.crop_price * cart.qty) AS Multiply FROM `cart` inner join crops on crop_id = crop_id WHERE cart.customer_id = $custId";
+		$sql = "SELECT SUM(crops.crop_price * cart.qty) AS Multiply
+		FROM crops
+		JOIN cart ON crops.crop_id = cart.crop_id
+		WHERE cart.customer_id = '$custId'
+		";
 		return $this-> fetchOne($sql);
 	 }
 }

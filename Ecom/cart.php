@@ -35,7 +35,7 @@ $total = 0;
     <?php require("./header.php"); ?>
     <main>
         <div class="container">
-            <a class="btn btn-primary" href="../Views/shop.php" role="button">Continue Shopping</a>
+            <a class="btn btn-success" href="../Views/shop.php" role="button">Continue Shopping</a>
             <h1 style="text-align: center;"><u> Items in Cart</u></h1>
 
             <table class="container mt-5 d-flex justify-content-center">
