@@ -167,7 +167,7 @@ ALTER TABLE `payment`
 -- Indexes for table `crops`
 --
 ALTER TABLE `crops`
-  ADD PRIMARY KEY (`crop_id`),
+  ADD PRIMARY KEY (`crop_id`);
 
 
 --
