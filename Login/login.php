@@ -1,8 +1,3 @@
-<?php
-
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +13,6 @@ session_start();
 <body>
     <div class="container">
         <div class="form">
-			
             <h2>Login to Account</h2>
 					<?php
                     session_start();
