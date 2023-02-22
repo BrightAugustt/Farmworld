@@ -1,78 +1,40 @@
 <?php
-include_once '../controllers/contact_controller.php';
+session_start();
 
-if (isset($_POST['logincus'])) {
-    $customer_email = $_POST['customer_email'];
-    $customer_pass=$_POST["customer_pass"];
-    $login =loginCustomer_ctr($customer_email);
+include("../controllers/contact_controller.php");
 
+//for login
+if (isset($_POST['loginButton'])) {
 
-    if($login != false){
-        if (password_verify($customer_pass,$login['customer_pass']) and $login['user_role']==1 ){
+    $email = $_POST['customer_email'];
+    $password = $_POST['customer_pass'];
 
-                  session_start();
-                   $_SESSION['customer_pass']= $login['customer_pass'];
-                   $_SESSION['customer_name'] = $result['cname'];
-                   $_SESSION['customer_email'] = $result['cemail'];
-                   $_SESSION['user_role'] = 1;
-                   $_SESSION['customer_id'] = $login['customer_id'] ;
-                     // redirect to login
-                        header('Location:../view/homepage.php');
+    var_dump($email, $password);
+
+    // Checking if email is in database. Retunns user data if it exists or false of it doesnt
+    $result = getUserDetailsByEmail_ctr($email);
+
+    // If the result if true
+    if ($result) {
+        // Get the user password from the array that is returned
+        $user_password = $result['customer_pass'];
+        // Verify the hash against the password entered
+        $verify = password_verify($password, $user_password);
+        // Compare if the user's input matches what is in the database. If true redirect to index page. if false echo failed.
+        if ($verify) {
+            $_SESSION['customer_email'] = $result['customer_email'];
+            $_SESSION['customer_id'] = $result['customer_id'];
+            $_SESSION['user_role'] = $result['user_role'];
+            header("Location: ../Ecom/homepage.php");
+            if ($_SESSION['user_role'] == 2) {
+                header('location: ../aeo/aeo.php');
+            } else {
+                header('location: ../Ecom/homepage.php');
+            }
+        } else {
+            header("location: ../errors/failLog.php");
         }
-
-        else if (password_verify($customer_pass,$login['customer_pass']) and $login['user_role']==2){
-            session_start();
-
-            $_SESSION['customer_pass']= $login['customer_pass'];
-            $_SESSION['custmer_name'] = $login['cname'];
-            $_SESSION['customer_email'] = $login['cemail'];
-            $_SESSION['user_role'] = $login['user_role'];
-            $_SESSION['customer_id'] = $login['customer_id'];
-            // redirect to login
-               header('Location:../aeo/aeo.php');
-        }
-
-        else if (password_verify($customer_pass,$login['customer_pass']) and $login['user_role']==3){
-            session_start();
-
-            $_SESSION['customer_pass']= $login['customer_pass'];
-            $_SESSION['custmer_name'] = $login['cname'];
-            $_SESSION['customer_email'] = $login['cemail'];
-            $_SESSION['user_role'] = $login['user_role'];
-            $_SESSION['customer_id'] = $login['customer_id'];
-            // redirect to login
-               header('Location:../admin/admin.php');
-        }
-        
-
-
-        else{
-            session_start();
-$_SESSION['error']='Invalid credentials';
-            header('Location:../Login/login.php');
-        }
-                }
-                else{
-                    session_start();
-$_SESSION['error']='Invalid credentials';
-                    header('Location:../Login/login.php');
-                }
-    
-
-
+    } else {
+        header("location: ../errors/loginerror.php");
+    }
 }
-
-
-    // $password = password_hash($_POST['customer_pass'], PASSWORD_DEFAULT); 
-    // $user_role = 1;
-
-    //  var_dump($fname, $lname, $number, $country, $email, $password, $user_role);
-    // $result = add_record_ctr($fname, $lname, $number, $region, $email, $password, $user_role);
-    // if ($result == true) {
-    //     header('Location: ../homepage.php');
-    // } else {
-    //     echo 'error';
-    // }
-// }
-
-?>

@@ -30,9 +30,9 @@ session_start();
                 </div>
 
                 <div class="button">
-                <button class="button1" id="butcustomer" name="logincus" >Login as a customer</button>
+                <button class="button1" id="butcustomer" name="loginButton" >Login as a customer</button>
                 <p>OR</p>
-                <button class="button2" id="butaeo" name="loginaeo">Login as an AEO</button>
+                <button class="button2" id="butaeo" name="loginButton">Login as an AEO</button>
                 </div>
 
                 <div class="already">
