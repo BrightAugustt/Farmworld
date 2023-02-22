@@ -75,4 +75,9 @@ function update_show_crop_ctr($id,$status)
     return $update->showUpdateCrop($id,$status);
 }
 
+function update_image_ctr($crop_id,$crop_image)
+{
+    $edit=new crop_class();
+    return $edit->update_crop_image($crop_id,$crop_image);
+}
 ?>

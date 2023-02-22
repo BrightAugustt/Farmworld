@@ -162,7 +162,7 @@
                                                         <td>" . $contact['customer_email'] . "</td>
                                                         <td>";
 
-                                        echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-primary btn-lg' data-toggle='modal' data-target='#first-modal' style='font-size:10px;'>
+                                        echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-primary btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
                                         <span class='fa fa-pencil'></span>
                                         </button><th>";  
                                         echo "<th><button type='button' class='btn-second-modal btn btn-primary btn-lg'>

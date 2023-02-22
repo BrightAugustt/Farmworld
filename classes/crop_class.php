@@ -79,7 +79,10 @@ class crop_class extends db_connection
         return $this->db_query($sql);
     }
 
-
+    function update_crop_image($crop_id,$crop_image){
+        $sql="UPDATE `crops` SET `crop_image`=$crop_image WHERE `crop_id`='$crop_id'";
+        return $this->db_query($sql);
+    }
 
 }
 ?>
