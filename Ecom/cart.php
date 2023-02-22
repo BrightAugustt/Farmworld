@@ -89,7 +89,7 @@ $total = 0;
                                     <form id="paymentForm">
                                         <input type="hidden" id="amount" value="<?php echo $totalsum['Multiply']; ?>">
                                         <input type="hidden" id="email" value="<?php echo $_SESSION['customer_email'] ?>">
-                                        <th><button type="submit" onclick="payWithPaystack()" class="btn btn-success">Pay</button></th>
+                                        <th><button type="submit"  class="btn btn-success">Pay</button></th>
                                     </form>
                                 </tr>
                             </tbody>
