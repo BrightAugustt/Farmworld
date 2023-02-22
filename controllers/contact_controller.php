@@ -119,4 +119,13 @@ function delete_newsrecord_ctr($id)
     return $class_instance->delete_newsrecord_cls($id);
 }
 
+//--verify--//
+function loginCustomer_ctr($customer_email){
+
+    // Create an instance of the class
+    $verify_customer = new ContactClass();
+
+     return $verify_customer->verify_customer($customer_email);
+
+}
 ?>

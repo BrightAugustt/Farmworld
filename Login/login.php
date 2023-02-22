@@ -19,7 +19,7 @@ session_start();
     <div class="container">
         <div class="form">
             <h2>Login to Account</h2>
-            <form id="formId" action="" method="POST">
+            <form id="formId" action="../actions/loginCustomer.php" method="POST">
                 <div class="form-floating">
                     <label>Email address</label>
                     <input type="text" name="customer_email" id="email" class="form-control" placeholder="Email Address" required>
@@ -30,20 +30,20 @@ session_start();
                 </div>
 
                 <div class="button">
-                <button class="button1" id="butcustomer" >Login as a customer</button>
+                <button class="button1" id="butcustomer" name="logincus" >Login as a customer</button>
                 <p>OR</p>
-                <button class="button2" id="butaeo">Login as an AEO</button>
+                <button class="button2" id="butaeo" name="loginaeo">Login as an AEO</button>
                 </div>
 
                 <div class="already">
-                    <p>Already have an account? <span class="login"><a href="front.php" class="login">Register Here</a></span></p>
+                    <p>Already have an account? <span class="login"><a href="register.php" class="login">Register Here</a></span></p>
                 </div>
             </form>
         </div>
     </div>
 
 
-    <script>
+    <!-- <script>
         $("#butcustomer").click(function(ev) {
 			  var form = $("#formId");
 			  var customer_email = $("#email").val();
@@ -97,6 +97,6 @@ session_start();
 			  }
 			  
 		  });
-    </script>
+    </script> -->
 </body>
 </html>
