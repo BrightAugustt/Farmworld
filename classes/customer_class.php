@@ -92,4 +92,15 @@ class ContactClass extends db_connection
         );
     }
 
+    function verify_customer($customer_email){
+
+		
+		// Write query
+		$sql = "Select * FROM `customer` where customer_email = '$customer_email'";
+
+		// Excute query
+		return$this -> db_fetch_one($sql);
+
+	}
+
 }

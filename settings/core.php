@@ -26,21 +26,21 @@ function get_id(){
  }
 }
 
-//function to check for role (admin, customer, etc)
-function check_aeo(){
-    if ($_SESSION['user_role'] == 2) {
-    return $_SESSION['user_role'];
-    header('location: ../login/logout.php');
-    }
-}
+// //function to check for role (admin, customer, etc)
+// function check_aeo(){
+//     if ($_SESSION['user_role'] == 2) {
+//     return $_SESSION['user_role'];
+//     header('location: ../login/logout.php');
+//     }
+// }
 
-//function to check for role (admin, customer, etc)
-function check_admin(){
-    if ($_SESSION['user_role'] == 3) {
-    return $_SESSION['user_role'];
-    header('location: ../login/logout.php');
-    }
-}
+// //function to check for role (admin, customer, etc)
+// function check_admin(){
+//     if ($_SESSION['user_role'] == 3) {
+//     return $_SESSION['user_role'];
+//     header('location: ../login/logout.php');
+//     }
+// }
 
 
 ?>
