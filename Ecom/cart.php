@@ -43,10 +43,10 @@ $total = 0;
                     <table class="table table-striped">
                         <thread>
                             <tr>
-                                <th>Product Image </th>
-                                <th>Product Title</th>
+                                <th>Crop Image </th>
+                                <th>Crop Name</th>
                                 <th>Quantity</th>
-                                <th>Price</th>
+                                <th>Crop Price</th>
                                 <th>Total</th>
                                 <th>Manage Quantity</th>
                                 <th>Actions</th>
@@ -55,32 +55,31 @@ $total = 0;
                             <tbody>
                                 <?php
                                 foreach ($all_cartproducts as $key => $cart) {
-                                    $totals = $total + ($cart['qty'] * $cart['product_price']);
+                                    $totals = $total + ($cart['qty'] * $cart['crop_price']);
                                     echo "
                                     <tr>
-                                    <td><img src='./../images/productImages/{$cart['product_image']}' style = height:100px; width:100px;></td>
-                                    <td>{$cart['product_title']}</td>
+                                    <td><img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;></td>
+                                    <td>{$cart['crop_name']}</td>
                                     <td>{$cart['qty']}</td>
-                                    <td>{$cart['product_price']}</td>
+                                    <td>{$cart['crop_price']}</td>
                                     <td>$totals</td>
                                     <td>
-                                    <form class='form-inline' method='POST' action='../Actions/manage_cartQty.php'>
+                                    <form class='form-inline' method='POST' action='../actions/manage_cartQty.php'>
                                         <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
                                         <input class='form-control mr-sm-2' type='hidden' value='{$_SESSION["customer_id"]}' name='customer_id'>
-                                        <input class='form-control mr-sm-2' type='hidden' name='product_id' value ='{$cart['product_id']}'>
+                                        <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
                                         <input class='form-control mr-sm-2' name='quantity' type='number' placeholder='Quantity' aria-label='Quantity'>
                                         <input type='submit' class='btn-btn primary' name='updateQty' value='Update'>
                                     </form>
                                     </td>
                                     <td>
-                                    <a href='../Actions/deletefromCart.php?product_id={$cart['product_id']}'data-toggle='tooltip'><i class='fa fa-trash' style='color:red'></i></a>
+                                    <a href='../Actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><i class='fa fa-trash' style='color:red'></i></a>
                                     </td>
                                     <br>
                                     </tr> ";
                                 }
-
                                 ?>
-                                <?php $totalsum = totalPrice_ctr($cids); ?>
+                                <?php $totalsum = totalPrice_ctr($custId); ?>
                                 <tr>
                                     <th></th>
                                     <th></th>
