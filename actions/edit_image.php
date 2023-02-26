@@ -26,6 +26,7 @@
         $allowTypes = array('jpg','png','jpeg','gif'); 
         $crop_id = $_POST['crop_id'];
         $crop_image=$_FILES['crop_image']["name"];
+        $img=$_POST['image'];
     
 
         $output_dir = "../images/crops/";/* Path for file upload */
@@ -39,8 +40,9 @@
         $ret[$NewImageName]= $output_dir.$NewImageName;
         
         if(empty($ImageName)!=TRUE){
-
-            $file="../images/crops/".$crop_image;
+echo $crop_id;
+echo $NewImageName;
+            $file=$img;
             unlink($file);
             move_uploaded_file($_FILES["crop_image"]["tmp_name"][0],$output_dir."/".$NewImageName );
             if(update_image_ctr($crop_id,$NewImageName)==TRUE){

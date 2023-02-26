@@ -189,14 +189,18 @@ session_start();
                                                 echo "<td>".$crop[$i]['crop_cat']."<td>";
                                                 echo "<td>".$crop[$i]['crop_desc']."<td>";
                                                 echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
-                                                <span class='fa fa-pencil'></span> 
+                                                <span class='bi bi-card-image'></span> 
                                                 </button></th>";
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
                                                 <span class='bi bi-envelope-fill'></span>
                                                 </button>";
-                                                echo "<th><div class='form-group form-check'>
-                                                <input type='checkbox' class='form-check-input' id='exampleCheck1'>
-                                              </div></th>";
+                                                echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
+                                                        <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
+                                                        <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
+                                                        <div class='form-group form-check'>
+                                                        <input type='checkbox' class='form-check-input' id='exampleCheck1' if(.$crop[$i]['Approved']=='Yes'){echo 'checked'} name='status' onclick='document.getElementById(echo 'approve'.$i).submit();'>
+                                                        </div>
+                                                    </form></th>";
                                                 echo 
                                                 "
                                                 <div class='modal' id='first-modal$i' data-backdrop='static' data-keyboard='false'>
@@ -211,6 +215,7 @@ session_start();
                                                                 <form id='formid' action='../actions/edit_image.php' method='POST' class='row g-3' enctype='multipart/form-data'>
                                                                 <input type='hidden' name='product_id' value= '".$crop[$i]['crop_id']."'>
                                                                 <input type='hidden' name='product_id' value= '".$crop[$i]['crop_id']."'>
+                                                                <input type='hidden' name='image' value= '../images/crops/"  . $crop[$i]['crop_image'] ."'>
                                                                 
                                                                     <div class='col-12'>
                                                                         <label>Crop Image</label>
