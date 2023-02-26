@@ -45,7 +45,7 @@ $total = 0;
                             <tr>
                                 <th>Crop Image </th>
                                 <th>Crop Name</th>
-                                <th>Quantity</th>
+                                <th>Quantity (Kg)</th>
                                 <th>Crop Price</th>
                                 <th>Total</th>
                                 <th>Manage Quantity</th>
