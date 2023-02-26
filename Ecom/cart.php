@@ -5,7 +5,7 @@ include("../function/function.php");
 
 
 $custId = get_id();
-echo $custId;
+// echo $custId;
 $all_cartproducts = view_cart_ctr($custId);
 $ip_add = getIPAddress();
 $total = 0;
