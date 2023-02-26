@@ -122,6 +122,7 @@ CREATE TABLE `crops` (
   `crop_image` varchar(100) DEFAULT NULL,
   `crop_cat`varchar(200) NOT NULL,
   `crop_desc` varchar(100) DEFAULT NULL
+  `Approved` enum('No','Yes') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
