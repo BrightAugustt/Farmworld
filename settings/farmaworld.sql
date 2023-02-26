@@ -124,6 +124,8 @@ CREATE TABLE `crops` (
   `crop_desc` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 --
 -- Indexes for dumped tables
 --

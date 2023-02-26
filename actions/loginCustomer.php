@@ -32,9 +32,9 @@ if (isset($_POST['loginButton'])) {
                 header('location: ../Ecom/homepage.php');
             }
         } else {
-            header("location: ../errors/failLog.php");
+            header("location: ../error/failLog.php");
         }
     } else {
-        header("location: ../errors/loginerror.php");
+        header("location: ../error/loginerror.php");
     }
 }
