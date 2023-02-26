@@ -22,7 +22,7 @@ $total = 0;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
     <!-- <style>
-            img{
+            img{+
                 width:150px;
                 height: 150px;
             }
