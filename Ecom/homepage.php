@@ -1,7 +1,9 @@
-<?php require("../controllers/product_controller.php");
-
+<?php 
+// session_start();
+include("../settings/core.php");
+ require("../controllers/product_controller.php");
 $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
-
+// $customer_id = $_SESSION['customer_id'];
 ?>
 
 <!DOCTYPE html>
