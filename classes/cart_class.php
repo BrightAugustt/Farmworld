@@ -60,11 +60,11 @@ class cart_class extends db_connection{
 		return $this-> fetch($sql);
 	}
 
-	function view_cart_cls($customer_id){
+	function view_cart_cls($custId){
 		$sql = "SELECT crops.crop_id, crops.crop_name, cart.qty
 		FROM crops
 		JOIN cart ON crops.crop_id = cart.crop_id
-		WHERE crops.crop_id = '$customer_id'";
+		WHERE crops.crop_id = '$custId'";
 		return $this->fetch($sql);
 	}
 

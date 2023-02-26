@@ -3,8 +3,8 @@ include("../settings/core.php");
 include("../controllers/cart_controller.php");
 include("../function/function.php");
 
-$all_cartproducts = view_cart_ctr($_SESSION["customer_id"]);
 $custId = $_SESSION["customer_id"];
+$all_cartproducts = view_cart_ctr($custId);
 $ip_add = getIPAddress();
 $total = 0;
 ?>
@@ -35,7 +35,7 @@ $total = 0;
     <?php require("./header.php"); ?>
     <main>
         <div class="container">
-            <a class="btn btn-success" href="../Views/shop.php" role="button">Continue Shopping</a>
+            <a class="btn btn-success" href="homepage.php" role="button">Continue Shopping</a>
             <h1 style="text-align: center;"><u> Items in Cart</u></h1>
 
             <table class="container mt-5 d-flex justify-content-center">
@@ -53,6 +53,20 @@ $total = 0;
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+                                                //  var_dump($p_list);
+                                                foreach ($p_list as $apat) {
+
+                                                    // print_r($apat);
+
+                                                    $cropname = $apat['crop_name'];
+                                                    $cropcat = $apat['crop_cat'];
+                                                    $qtyavail = $apat['qty'];
+                                                    $price = $apat['crop_price'];
+                                                    $desc = $apat['crop_desc'];
+                                                    //Displaying image
+                                                    $pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200 ");
+                                                ?>
                                 <?php
                                 foreach ($all_cartproducts as $key => $cart) {
                                     $totals = $total + ($cart['qty'] * $cart['crop_price']);
