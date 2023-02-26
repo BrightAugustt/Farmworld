@@ -168,7 +168,7 @@ session_start();
                         <th>Crop Category</th>
                         <th></th>
                         <th>Crop Description</th>
-                     
+                        <th></th>
                         <th>Actions</th>
                         </tr>
                     </thead>
