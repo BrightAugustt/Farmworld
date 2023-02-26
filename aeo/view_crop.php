@@ -36,7 +36,14 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
     <script defer src="../js/activepage.js"></script>
 
-
+    <script>
+        $('#exampleModal$i').on('shown.bs.modal', function (event) {
+        $('#myInput').trigger('focus')
+        })
+        $('modal2').on('shown.bs.modal', function (event) {
+        $('#myInput').trigger('focus')
+        })
+    </script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -205,9 +212,12 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
                                                 <span class='bi bi-pen'></span>
                                                 </button>";
-                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                echo "<th><form action='../actions/deletecrop.php'  method='POST'>
+                                                <button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;' name='deletecrop' id='deletecrop'>
                                                 <span class='bi bi-trash'></span>
-                                                </button>";
+                                                </button>
+                                                <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']. "'>
+                                                </form><th>";
                                                 echo 
                                                 "
                                                 <div class='modal' id='first-modal$i' data-backdrop='static' data-keyboard='false'>
@@ -288,10 +298,10 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
     </div>
     
     <script>
-        var myModal = document.getElementById('myModal')
-        var myInput = document.getElementById('myInput')
+        var myModal = document.getElementById('myModal$i')
+        var myInput = document.getElementById('myInput$i')
 
-        myModal.addEventListener('shown.bs.modal', function() {
+        myModal.$i.addEventListener('shown.bs.modal', function() {
             myInput.focus()
         })
     </script>
