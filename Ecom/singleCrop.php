@@ -1,5 +1,6 @@
 <?php
 include("../controllers/product_controller.php");
+
 ?>
 <!doctype html>
 <html lang="en">
