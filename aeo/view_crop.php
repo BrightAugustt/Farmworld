@@ -203,7 +203,10 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 <span class='bi bi-card-image'></span> 
                                                 </button></th>";
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
-                                                <span class='bi bi-trash3'></span>
+                                                <span class='bi bi-pen'></span>
+                                                </button>";
+                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                <span class='bi bi-trash'></span>
                                                 </button>";
                                                 echo 
                                                 "

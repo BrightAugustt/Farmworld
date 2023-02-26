@@ -161,43 +161,55 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     <thead>
                     <tr>
                         <th>Crop Name</th>
+                        <th></th>
                         <th>Farmer</th>
+                        <th></th>
                         <th>Farmer Contact</th>
-                        <th>Farm Size</th>
+                        <th></th>
+                        <th>Farmer Contact</th>
+                        <th></th>
                         <th>Quantity</th>
+                        <th></th>
                         <th>Crop Price/kg</th>
+                        <th></th>
                         <th>Crop Image</th>
                         <th>Crop Category</th>
+                        <th></th>
                         <th>Crop Description</th>
+                        <th></th>
+                        <th>Actions</th>
                         </tr>
                     </thead>
                                     <tbody>
-                                    <?php
+                                    <?php 
                                         require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
+                                        function displayCtr(){
+                                            $crop = get_all_croprecords_ctr();
 
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['farmer_contact'] . "</td>
-                                                        <td>" . $crop['farm_size'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_image'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
-    
-                                                        
-                                                        <th>
-                                                        <td>";
-
-                                                        
-                                             
-                                            
-                                            "</td>";
-                                            "</tr>";
+                                            for ($i=0; $i < count($crop); $i++) {
+                                                echo "<tr>";
+                                                echo "<td>".$crop[$i]['crop_name']."<td>";
+                                                echo "<td>".$crop[$i]['farmer_name']."<td>";
+                                                echo "<td>".$crop[$i]['farmer_contact']."<td>";
+                                                echo "<td>".$crop[$i]['farm_size']."<td>";
+                                                echo "<td>".$crop[$i]['qty']."<td>";
+                                                echo "<td>".$crop[$i]['crop_price']."<td>";
+                                                echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px'></td>";
+                                                echo "<td>".$crop[$i]['crop_cat']."<td>";
+                                                echo "<td>".$crop[$i]['crop_desc']."<td>";
+                                                echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
+                                                <span class='bi bi-card-image'></span> 
+                                                </button></th>";
+                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                <span class='bi bi-pen'></span>
+                                                </button>";
+                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                <span class='bi bi-trash'></span>
+                                                </button>";
+                                            }
                                         }
+                                        displayCtr();
+                                            
                                         ?>
                                     </tbody>
                     </table>
