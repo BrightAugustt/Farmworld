@@ -4,7 +4,7 @@ include("../controllers/cart_controller.php");
 include("../function/function.php");
 
 $all_cartproducts = view_cart_ctr($_SESSION["customer_id"]);
-$cids = $_SESSION["customer_id"];
+$custId = $_SESSION["customer_id"];
 $ip_add = getIPAddress();
 $total = 0;
 ?>
