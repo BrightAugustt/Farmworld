@@ -3,8 +3,8 @@ include("../settings/core.php");
 include("../controllers/cart_controller.php");
 include("../function/function.php");
 
-$all_cartproducts = view_cart_ctr($_SESSION["customer_id"]);
-$cids = $_SESSION["customer_id"];
+$custId = get_id();
+$all_cartproducts = view_cart_ctr($custId);
 $ip_add = getIPAddress();
 $total = 0;
 ?>
@@ -35,7 +35,7 @@ $total = 0;
     <?php require("./header.php"); ?>
     <main>
         <div class="container">
-            <a class="btn btn-success" href="../Views/shop.php" role="button">Continue Shopping</a>
+            <a class="btn btn-success" href="homepage.php" role="button">Continue Shopping</a>
             <h1 style="text-align: center;"><u> Items in Cart</u></h1>
 
             <table class="container mt-5 d-flex justify-content-center">
@@ -45,7 +45,7 @@ $total = 0;
                             <tr>
                                 <th>Crop Image </th>
                                 <th>Crop Name</th>
-                                <th>Quantity</th>
+                                <th>Quantity (Kg)</th>
                                 <th>Crop Price</th>
                                 <th>Total</th>
                                 <th>Manage Quantity</th>
@@ -54,7 +54,7 @@ $total = 0;
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($all_cartproducts as $key => $cart) {
+                                foreach ($all_cartproducts as $cart) {
                                     $totals = $total + ($cart['qty'] * $cart['crop_price']);
                                     echo "
                                     <tr>
@@ -66,14 +66,14 @@ $total = 0;
                                     <td>
                                     <form class='form-inline' method='POST' action='../actions/manage_cartQty.php'>
                                         <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
-                                        <input class='form-control mr-sm-2' type='hidden' value='{$_SESSION["customer_id"]}' name='customer_id'>
+                                        <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
                                         <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
-                                        <input class='form-control mr-sm-2' name='quantity' type='number' placeholder='Quantity' aria-label='Quantity'>
+                                        <input class='form-control mr-sm-2' name='qty' type='number' placeholder='Quantity' aria-label='Quantity'>
                                         <input type='submit' class='btn-btn primary' name='updateQty' value='Update'>
                                     </form>
                                     </td>
                                     <td>
-                                    <a href='../Actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><i class='fa fa-trash' style='color:red'></i></a>
+                                    <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><i class='fa fa-trash' style='color:red'></i></a>
                                     </td>
                                     <br>
                                     </tr> ";
@@ -86,9 +86,9 @@ $total = 0;
                                     <th></th>
                                     <th>Subtotal: <?php echo $totalsum['Multiply']; ?></th>
                                     <form id="paymentForm">
-                                        <input type="hidden" id="amount" value="<?php echo $totalsum['Multiply']; ?>">
-                                        <input type="hidden" id="email" value="<?php echo $_SESSION['customer_email'] ?>">
-                                        <th><button type="submit"  class="btn btn-success">Pay</button></th>
+                                        <input type="hidden" id="amount" value="<?php //echo $totalsum['Multiply']; ?>">
+                                        <input type="hidden" id="email" value="<?php //echo $_SESSION['customer_email']; ?>">
+                                        <th><button type="submit" class="btn btn-success">Pay</button></th>
                                     </form>
                                 </tr>
                             </tbody>

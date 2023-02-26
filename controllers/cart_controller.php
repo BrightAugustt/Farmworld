@@ -43,9 +43,9 @@ function dup_cart_qty_ctr($crpId, $custId){
 }
 
 // function to check for duplicate
-function view_cart_ctr($customer_id){
+function view_cart_ctr($custId){
   $duplicate= new cart_class();
-  return $duplicate->view_cart_cls($customer_id);
+  return $duplicate->view_cart_cls($custId);
 }
 
 
