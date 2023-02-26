@@ -54,20 +54,6 @@ $total = 0;
                             </thead>
                             <tbody>
                             <?php
-                                                //  var_dump($p_list);
-                                                foreach ($p_list as $apat) {
-
-                                                    // print_r($apat);
-
-                                                    $cropname = $apat['crop_name'];
-                                                    $cropcat = $apat['crop_cat'];
-                                                    $qtyavail = $apat['qty'];
-                                                    $price = $apat['crop_price'];
-                                                    $desc = $apat['crop_desc'];
-                                                    //Displaying image
-                                                    $pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200 ");
-                                                ?>
-                                <?php
                                 foreach ($all_cartproducts as $key => $cart) {
                                     $totals = $total + ($cart['qty'] * $cart['crop_price']);
                                     echo "
