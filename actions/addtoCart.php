@@ -5,6 +5,27 @@ require ('../controllers/cart_controller.php');
 
 check_login();
 
+// // Get the product ID and user ID from the request
+// $product_id = $_POST['product_id'];
+// $user_id = $_SESSION['user_id'];
+
+// // Check if the product is already in the cart for this user
+// $query = "SELECT quantity FROM cart WHERE user_id = $user_id AND product_id = $product_id";
+// $result = mysqli_query($conn, $query);
+// $row = mysqli_fetch_assoc($result);
+
+// if ($row) {
+//   // Product is already in cart, so update the quantity
+//   $new_quantity = $row['quantity'] + 1;
+//   $query = "UPDATE cart SET quantity = $new_quantity WHERE user_id = $user_id AND product_id = $product_id";
+//   mysqli_query($conn, $query);
+// } else {
+//   // Product is not in cart, so insert a new row
+//   $query = "INSERT INTO cart (user_id, product_id, quantity) VALUES ($user_id, $product_id, 1)";
+//   mysqli_query($conn, $query);
+// }
+
+
 if (isset($_POST['addcart'])) {
     $ip_address = $_SERVER["REMOTE_ADDR"];
     $prodId = $_POST['crop_id'];

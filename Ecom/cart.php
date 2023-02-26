@@ -55,6 +55,7 @@ $total = 0;
                             <tbody>
                                 <?php
                                 foreach ($all_cartproducts as $cart) {
+                                    $totals = $total + ($cart['qty'] * $cart['crop_price']);
                                     echo "
                                     <tr>
                                     <td><img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;></td>
@@ -65,18 +66,17 @@ $total = 0;
                                     <td>
                                     <form class='form-inline' method='POST' action='../actions/manage_cartQty.php'>
                                         <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
-                                        <input class='form-control mr-sm-2' type='hidden' value='{$_SESSION["customer_id"]}' name='customer_id'>
+                                        <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
                                         <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
-                                        <input class='form-control mr-sm-2' name='quantity' type='number' placeholder='Quantity' aria-label='Quantity'>
+                                        <input class='form-control mr-sm-2' name='qty' type='number' placeholder='Quantity' aria-label='Quantity'>
                                         <input type='submit' class='btn-btn primary' name='updateQty' value='Update'>
                                     </form>
                                     </td>
                                     <td>
-                                    <a href='../Actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><i class='fa fa-trash' style='color:red'></i></a>
+                                    <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><i class='fa fa-trash' style='color:red'></i></a>
                                     </td>
                                     <br>
                                     </tr> ";
-                                    $totals = $total + ($cart['qty'] * $cart['crop_price']);
                                 }
                                 ?>
                                 <?php $totalsum = totalPrice_ctr($custId); ?>
