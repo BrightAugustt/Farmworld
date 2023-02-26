@@ -4,12 +4,12 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
     header('Location:../Login/login.php');
  };
 
-$cid = $_SESSION['customer_id'];
-echo $cid;
-$customer = $_SESSION['customer_email'];
-echo $customer;
-$cust = $_SESSION['user_role'];
-echo $cust;
+// $cid = $_SESSION['customer_id'];
+// echo $cid;
+// $customer = $_SESSION['customer_email'];
+// echo $customer;
+// $cust = $_SESSION['user_role'];
+// echo $cust;
 $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
 // include("../controllers/crop_controller.php");
@@ -203,7 +203,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 <span class='bi bi-card-image'></span> 
                                                 </button></th>";
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
-                                                <span class='bi bi-envelope-fill'></span>
+                                                <span class='bi bi-trash3'></span>
                                                 </button>";
                                                 echo 
                                                 "
