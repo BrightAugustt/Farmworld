@@ -125,6 +125,8 @@ CREATE TABLE `crops` (
   `Approved` enum('No','Yes') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 --
 -- Indexes for dumped tables
 --
