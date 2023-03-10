@@ -51,6 +51,14 @@ class ContactClass extends db_connection
         );
     }
 
+    function getAdminActions()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT "
+        );
+    }
+
 
     function get_all_adminrecords_cls()
     {

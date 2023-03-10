@@ -195,11 +195,13 @@ session_start();
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
                                                 <span class='bi bi-envelope-fill'></span>
                                                 </button>";
-                                                echo " <th><form action='../actions/sendmail.php' method='POST'>
-                                                <button type='button'name='send_mail' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
-                                                <span class='bi bi-envelope-fill'></span>
-                                                </button></form>";
-                                             
+                                                echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
+                                                        <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
+                                                        <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
+                                                        <div class='form-group form-check'>
+                                                        <input type='checkbox' class='form-check-input' id='exampleCheck1' if(.$crop[$i]['Approved']=='Yes'){echo 'checked'} name='status' onclick='document.getElementById(echo 'approve'.$i).submit();'>
+                                                        </div>
+                                                    </form></th>";
                                                 echo 
                                                 "
                                                 <div class='modal' id='first-modal$i' data-backdrop='static' data-keyboard='false'>

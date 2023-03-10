@@ -19,6 +19,12 @@ function add_croprecord_ctr($cropName, $farmerName, $qty, $price, $category, $fi
     return $class_instance->add_croprecord_cls($cropName, $farmerName, $qty, $price, $category, $file, $cdesc);
 }
 
+function getEmailSender_ctr($email){
+
+    $details = new crop_class();
+
+    return $details->getEmailSender($email);
+}
 
 function get_all_croprecords_ctr()
 {
@@ -117,6 +123,8 @@ function get_one_catrecord_ctr($cid)
         return false;
     }
 }
+
+
 
 function update_catrecord_ctr($id, $name)
 {

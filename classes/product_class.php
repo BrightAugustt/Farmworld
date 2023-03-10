@@ -125,5 +125,11 @@ class crop_class extends db_connection
         );
     }
 
+    function getEmailSender($email){
+        $sql = "SELECT `customer_email` FROM `customer` 
+        JOIN entries ON customer.customer_id = entries.customer_id
+        WHERE entries.entry_id = $email";
+    }
+
 }
 ?>
