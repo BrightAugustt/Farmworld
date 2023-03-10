@@ -2,6 +2,7 @@
 session_start();
 
 
+
 ?>
 
 
@@ -194,13 +195,11 @@ session_start();
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
                                                 <span class='bi bi-envelope-fill'></span>
                                                 </button>";
-                                                echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
-                                                        <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
-                                                        <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
-                                                        <div class='form-group form-check'>
-                                                        <input type='checkbox' class='form-check-input' id='exampleCheck1' if(.$crop[$i]['Approved']=='Yes'){echo 'checked'} name='status' onclick='document.getElementById(echo 'approve'.$i).submit();'>
-                                                        </div>
-                                                    </form></th>";
+                                                echo " <th><form action='../actions/sendmail.php' method='POST'>
+                                                <button type='button'name='send_mail' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                <span class='bi bi-envelope-fill'></span>
+                                                </button></form>";
+                                             
                                                 echo 
                                                 "
                                                 <div class='modal' id='first-modal$i' data-backdrop='static' data-keyboard='false'>
@@ -250,6 +249,7 @@ session_start();
                                                         <div class='form-group'>
                                                             <label for='recipient-name' class='col-form-label'>Recipient:</label>
                                                             <input type='text' class='form-control' id='recipient-name'>
+                                                            <input type='hidden' name='crop_id' value='".$crop[$i]['crop_']."'>
                                                         </div>
                                                         <div class='form-group'>
                                                             <label for='message-text' class='col-form-label'>Message:</label>

@@ -172,6 +172,14 @@
                                         "</td>";
                                         "</tr>";
 
+                                        echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
+                                        <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
+                                        <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
+                                        <div class='form-group form-check'>
+                                        <input type='checkbox' class='form-check-input' id='exampleCheck1' if(.$crop[$i]['Approved']=='Yes'){echo 'checked'} name='status' onclick='document.getElementById(echo 'approve'.$i).submit();'>
+                                        </div>
+                                    </form></th>";
+
                                         echo 
                                         "
                                         <div class='modal' id='first-modal' data-backdrop='static' data-keyboard='false'>
