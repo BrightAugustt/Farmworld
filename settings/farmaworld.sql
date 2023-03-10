@@ -121,16 +121,31 @@ CREATE TABLE `crops` (
   `crop_price` double NOT NULL,
   `crop_image` varchar(100) DEFAULT NULL,
   `crop_cat`varchar(200) NOT NULL,
-  `crop_desc` varchar(100) DEFAULT NULL
+  `crop_desc` varchar(100) DEFAULT NULL,
   `Approved` enum('No','Yes') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Table structure for table `entries`
+--
+CREATE TABLE `entries` (
+  `entry_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- --------------------------------------------------------
 
 
 --
 -- Indexes for dumped tables
 --
 
+-- Indexes for table `entries`
+--
+ALTER TABLE `entries`
+  ADD PRIMARY KEY (`entry_id`),
+  ADD KEY `customer_id` (`customer_id`);
 
 -- Indexes for table `categories`
 --
