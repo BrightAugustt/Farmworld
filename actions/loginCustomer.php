@@ -9,7 +9,7 @@ if (isset($_POST['loginButton'])) {
     $email = $_POST['customer_email'];
     $password = $_POST['customer_pass'];
 
-    var_dump($email, $password);
+    // var_dump($email, $password);
 
     // Checking if email is in database. Retunns user data if it exists or false of it doesnt
     $result = getUserDetailsByEmail_ctr($email);
