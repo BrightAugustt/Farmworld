@@ -196,22 +196,7 @@ session_start();
                         </tr>
                     </thead>
                                     <tbody>
-                                        <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
-
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_date'] . "</td>
-                                                        <td>";
-                                            "</td>";
-                                            "</tr>";
-                                        }
-                                        ?>
+                                       
                                     </tbody>
                     </table>
                             </div>
