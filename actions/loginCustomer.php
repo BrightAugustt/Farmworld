@@ -28,15 +28,11 @@ if (isset($_POST['loginButton'])) {
             header("Location: ../Ecom/homepage.php");
             if ($_SESSION['user_role'] == 2) {
                 header('location: ../aeo/aeo.php');
-            } else if ($_SESSION['user_role'] == 3) {
-                header('location: ../admin/admin.php');
             } else {
-                header('location: ../Ecom/homepage.php');
+                header("location: ../error/failLog.php");
             }
         } else {
-            header("location: ../error/failLog.php");
+            header("location: ../error/loginerror.php");
         }
-    } else {
-        header("location: ../error/loginerror.php");
     }
 }
