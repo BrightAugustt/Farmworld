@@ -6,8 +6,8 @@ include("../controllers/contact_controller.php");
 //for login
 if (isset($_POST['loginButton'])) {
 
-    $email = $_POST['customer_email'];
-    $password = $_POST['customer_pass'];
+    $email =$_POST['customer_email'];
+    $password =$_POST['customer_pass'];
 
     // var_dump($email, $password);
 
@@ -25,18 +25,17 @@ if (isset($_POST['loginButton'])) {
             $_SESSION['customer_email'] = $result['customer_email'];
             $_SESSION['customer_id'] = $result['customer_id'];
             $_SESSION['user_role'] = $result['user_role'];
-            header("Location: ../Ecom/homepage.php");
             if ($_SESSION['user_role'] == 2) {
-                header('location: ../aeo/aeo.php');
+                header('location:../aeo/aeo.php');
             } else if ($_SESSION['user_role'] == 3) {
-                header('location: ../admin/admin.php');
+                header('location:../admin/admin.php');
             } else {
-                header('location: ../Ecom/homepage.php');
+                header('location:../Ecom/homepage.php');
             }
         } else {
-            header("location: ../error/failLog.php");
+            header("location:../error/failLog.php");
         }
     } else {
-        header("location: ../error/loginerror.php");
+        header("location:../error/loginerror.php");
     }
 }

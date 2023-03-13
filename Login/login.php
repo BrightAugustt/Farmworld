@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,17 +16,6 @@
     <div class="container">
         <div class="form">
             <h2>Login to Account</h2>
-					<?php
-                    session_start();
-                    if(!empty($_SESSION['error'])){
-                    ?>
-                    <div style = "color : red; font-weight:600;">
-                    <?php
-                        echo $_SESSION['error'];
-                        
-                        unset($_SESSION['error']); 
-                    } 
-                    ?>
             <form id="formId" action="../actions/loginCustomer.php" method="POST">
                 <div class="form-floating">
                     <label>Email address</label>
