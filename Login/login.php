@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,26 +15,29 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="form">
-			<h2>Login to Account</h2>
-			<?php
-			session_start();
-			// if (!empty($_SESSION['error'])) {
-			// 	echo $_SESSION['error'];
-
-			// 	unset($_SESSION['error']);
-			// }
-			?>
-				<form id="formId" action="../actions/loginCustomer.php" method="POST">
-					<div class="form-floating">
-						<label>Email address</label>
-						<input type="text" name="customer_email" id="email" class="form-control" placeholder="Email Address" required>
-					</div>
-					<div class="form-floating">
-						<label>Password</label>
-						<input type="password" name="customer_pass" id="pass" class="form-control" placeholder="Password" required>
-					</div>
+    <div class="container">
+        <div class="form">
+            <h2>Login to Account</h2>
+					<?php
+                    session_start();
+                    if(!empty($_SESSION['error'])){
+                    ?>
+                    <div style = "color : red; font-weight:600;">
+                    <?php
+                        echo $_SESSION['error'];
+                        
+                        unset($_SESSION['error']); 
+                    } 
+                    ?>
+            <form id="formId" action="../actions/loginCustomer.php" method="POST">
+                <div class="form-floating">
+                    <label>Email address</label>
+                    <input type="text" name="customer_email" id="email" class="form-control" placeholder="Email Address" required>
+                </div>
+                <div class="form-floating">
+                    <label>Password</label>
+                    <input type="password" name="customer_pass" id="pass" class="form-control" placeholder="Password" required>
+                </div>
 
 					<div class="button">
 						<button class="button1" id="butcustomer" name="loginButton">Login as a customer</button>
