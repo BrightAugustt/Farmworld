@@ -3,7 +3,7 @@
 // These credentials will be used to authenticate your requests to the PayBox API. You can store them in your website's configuration file or 
 // environment variables for security.
 // PayBox API credentials
-$merchant_id = "YOUR_MERCHANT_ID";
+$merchant_id = "#1678807611";
 $api_key = "YOUR_API_KEY";
 
 // When the customer submits this form, it will redirect them to the PayBox payment page, where they can complete the transaction 
