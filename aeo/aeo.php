@@ -4,11 +4,11 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
     header('Location:../Login/login.php');
  };
  $cid = $_SESSION['customer_id'];
- echo $cid;
+//  echo $cid;
  $customer = $_SESSION['customer_email'];
- echo $customer;
+//  echo $customer;
  $cust = $_SESSION['user_role'];
- echo $cust;
+//  echo $cust;
 ?>
 
 
