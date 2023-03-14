@@ -12,7 +12,8 @@ if(isset($_POST["addcrop"])){
     $crop_price=$_POST["crop_price"];
     $crop_cat=$_POST["crop_cat"];
     $crop_desc=$_POST["crop_desc"];
-
+    $customer_id=$_SESSION["customer_id"];
+echo $customer_id."sap man";
     // image upload
     $output_dir = "../images/crops/";
     $RandomNum = time();
@@ -24,8 +25,10 @@ if(isset($_POST["addcrop"])){
     $NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
     $ret[$NewImageName]= $output_dir.$NewImageName;
     
+    echo "Heyyaa";
     move_uploaded_file($_FILES["crop_image"]["tmp_name"][0],$output_dir."/".$NewImageName);
-        if(addCrop_ctr($crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$NewImageName,$crop_cat,$crop_desc)==TRUE){
+        if(addCrop_ctr($crop_name,$customer_id,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$NewImageName,$crop_cat,$crop_desc)==TRUE){
+            echo $customer_id."idiot";
             echo"<script>alert('Crop uploaded successfully')</script>";
             header('Location:../aeo/view_crop.php');
         }else{

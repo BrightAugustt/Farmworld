@@ -3,8 +3,8 @@ session_start();
 if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
     header('Location:../Login/login.php');
  };
-// $cid = $_SESSION['customer_id'];
-// echo $cid;
+$customer_id = $_SESSION['customer_id'];
+echo $cid;
 // $customer = $_SESSION['customer_email'];
 // echo $customer;
 // $cust = $_SESSION['user_role'];
