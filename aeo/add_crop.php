@@ -3,8 +3,8 @@ session_start();
 if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
     header('Location:../Login/login.php');
  };
-// $cid = $_SESSION['customer_id'];
-// echo $cid;
+$customer_id = $_SESSION['customer_id'];
+echo $customer_id;
 // $customer = $_SESSION['customer_email'];
 // echo $customer;
 // $cust = $_SESSION['user_role'];
@@ -155,6 +155,8 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                 <div class="container">
                     <div class="form">
                         <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3" enctype="multipart/form-data">
+
+                            
                             <div class="col-12">
                                 <label>Crop Name</label>
                                 <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
@@ -198,7 +200,10 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                             </div>
 
                             <div class="form-group mt-3">
+                                <input type="hidden" name="customer_id" value="<?php echo $_SESSION['customer_id'];?>">
+                                
                                 <input type="submit" class="btn btn-success" name="addcrop" value="Submit">
+                                
                             </div>
                         </form>
 
