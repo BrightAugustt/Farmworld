@@ -1,41 +1,45 @@
 <?php
-
-
 include("../controllers/contact_controller.php");
 
-//for login
-if (isset($_POST['loginButton'])) {
 
-    $email =$_POST['customer_email'];
-    $password =$_POST['customer_pass'];
 
-    // var_dump($email, $password);
+if(isset($_POST['loginButton'])){
+    $email=$_POST['customer_email'];
+    $unencryptpass=$_POST['customer_pass'];
 
-    // Checking if email is in database. Retunns user data if it exists or false of it doesnt
-    $result = getUserDetailsByEmail_ctr($email);
 
-    // If the result if true
-    if ($result) {
-        // Get the user password from the array that is returned
-        $user_password = $result['customer_pass'];
-        // Verify the hash against the password entered
-        $verify = password_verify($password, $user_password);
-        // Compare if the user's input matches what is in the database. If true redirect to index page. if false echo failed.
-        if ($verify) {
-            $_SESSION['customer_email'] = $result['customer_email'];
-            $_SESSION['customer_id'] = $result['customer_id'];
-            $_SESSION['user_role'] = $result['user_role'];
+    if(getUserDetailsByEmail_ctr($email)!=false){
+        
+        $result=getUserDetailsByEmail_ctr($email);
+        $encryptpass=$result['customer_pass'];
+        $verify=password_verify($unencryptpass,$encryptpass);
+        if($verify){
+            session_start();
+            $_SESSION['customer_id']=$result['customer_id'];
+            $_SESSION['customer_fname']=$result['customer_fname'];
+            $_SESSION['customer_lname']=$result['customer_lname'];
+            $_SESSION['customer_email']=$result['customer_email'];
+            $_SESSION['user_role']=$result['user_role'];
             if ($_SESSION['user_role'] == 2) {
                 header('location: ../aeo/aeo.php');
-            } else if ($_SESSION['user_role'] == 3) {
-                header('location: ../admin/admin.php');
-            } else {
-                header('location: ../Ecom/homepage.php');
-            }
-        } else {
-            header("location: ../error/failLog.php");
+                } else if ($_SESSION['user_role'] == 3) {
+                    header('location: ../admin/admin.php');
+                } else if($_SESSION['user_role'] == 1) {
+                    header('location: ../Ecom/homepage.php');
+                }
+        
         }
-    } else {
-        header("location: ../error/loginerror.php");
+        else{
+            session_start();
+            $_SESSION['error'] = 'Invalid login details!';		
+            header('Location:../Login/login.php');
+        }
     }
 }
+else {
+	
+	header('Location:../login/login.php');
+}
+
+
+?>
