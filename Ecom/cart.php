@@ -3,13 +3,19 @@ include("../settings/core.php");
 include("../controllers/cart_controller.php");
 include("../function/function.php");
 
-
 $custId = get_id();
 // echo $custId;
 $all_cartproducts = view_cart_ctr($custId);
 $ip_add = getIPAddress();
 $total = 0;
+
+$merchant_id = "#e476bf07-dffb-43bc-a8ae-a42be8be9c02";
+$api_key = "e476bf07-dffb-43bc-a8ae-a42be8be9c02";
+
+$transaction_id = $_POST['transaction_id'];
+$status = $_POST['status'];
 ?>
+
 
 <html lang="en">
 
@@ -87,10 +93,16 @@ $total = 0;
                                     <th></th>
                                     <th></th>
                                     <th>Subtotal: <?php echo $totalsum['Multiply']; ?></th>
-                                    <form id="paymentForm">
+                                    <form method="post" action="https://www.paybox.com.gh/payment" id="paymentForm">
+                                        <input type="hidden" name="merchant_id" value="<?php echo $merchant_id; ?>">
+                                        <input type="hidden" name="transaction_id" value="<?php echo uniqid(); ?>">
+                                        <input type="hidden" name="description" value="Order payment">
+                                        <input type="hidden" name="return_url" value="https://www.example.com/checkout/thank-you">
+                                        <input type="hidden" name="cancel_url" value="https://www.example.com/checkout/cancel">
+                                        <input type="hidden" name="notify_url" value="https://www.example.com/checkout/paybox-ipn">
                                         <input type="hidden" id="amount" value="<?php //echo $totalsum['Multiply']; ?>">
                                         <input type="hidden" id="email" value="<?php //echo $_SESSION['customer_email']; ?>">
-                                        <th><button type="submit" class="btn btn-success">Pay</button></th>
+                                        <th><button type="submit" name="paybox_submit" class="btn btn-success">Pay</button></th>
                                     </form>
                                 </tr>
                             </tbody>
@@ -101,5 +113,6 @@ $total = 0;
     </main>
     <?php require("./footer.php"); ?>
 </body>
+
 
 </html>
