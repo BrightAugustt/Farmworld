@@ -13,40 +13,48 @@ if(isset($_POST["updatecrop"])){
     $crop_price=$_POST["crop_price"];
     $crop_cat=$_POST["crop_cat"];
     $crop_desc=$_POST["crop_desc"];
-    $image = $_FILES['crop_image']["name"];
-    $tmp = $_FILES['crop_image']["tmp_name"];
 
-    $prevImage = $_POST['image'];
-    function upload($directory,$subdir,$tempname,$image){
-
-        $folder = "../$directory/$subdir/".$image;
-
-        if(!file_exists("../$directory/$subdir/")){
-            // Create a new directory if file does not exist
-            @mkdir("../$directory/$subdir/",0777);
-            // echo("New folder created");
-            move_uploaded_file($tempname,$folder);
-            return $folder;
-        }else{
-            move_uploaded_file($tempname,$folder);
-            return $folder;
-        }
-        return false;
-        }
-
-        $crop_image=upload("Images","crop",$tmp,$image);
-    
-        $updatecrop=updatecrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc);
-    
-       
-            if($updatecrop== true){
-                header('Location:../aeo/view_crop.php');
-    
-            }
-    
+    $updatecrop=updateCropdetails_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_cat,$crop_desc);
+    if($updatecrop==TRUE){
+        header('Location:../aeo/view_crop.php');
     }else{
-        echo "Something went wrong";
-}
+        echo "unable to edit crop details";
+    }
+
+    } else if(isset($_POST['edit_image'])){
+        $allowTypes = array('jpg','png','jpeg','gif'); 
+        $crop_id = $_POST['crop_id'];
+        $crop_image=$_FILES['crop_image']["name"];
+        $img=$_POST['image'];
+    
+
+        $output_dir = "../images/crops/";/* Path for file upload */
+        $RandomNum  = time();
+        $ImageName  = str_replace(' ','-',strtolower($_FILES['crop_image']['name'][0]));
+        $ImageType = $_FILES['crop_image']['type'][0];
+        $ImageExt = substr($ImageName, strrpos($ImageName, '.'));
+        $ImageExt = str_replace('.','',$ImageExt);
+        $ImageName=preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
+        $NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
+        $ret[$NewImageName]= $output_dir.$NewImageName;
+        
+        if(empty($ImageName)!=TRUE){
+        echo $crop_id;
+        echo $NewImageName;
+            $file=$img;
+            unlink($file);
+            move_uploaded_file($_FILES["crop_image"]["tmp_name"][0],$output_dir."/".$NewImageName );
+            if(update_image_ctr($crop_id,$NewImageName)==TRUE){
+                header('Location:../admin/allProducts.php');
+            }else{
+                echo "unable to edit image";
+            }
+        }
+    }
+
+
+
+
 
 
 
