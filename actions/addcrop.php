@@ -12,7 +12,7 @@ if(isset($_POST["addcrop"])){
     $crop_price=$_POST["crop_price"];
     $crop_cat=$_POST["crop_cat"];
     $crop_desc=$_POST["crop_desc"];
-    $customer_id=$_SESSION["customer_id"];
+    $customer_id = $_POST["customer_id"];
 echo $customer_id."sap man";
     // image upload
     $output_dir = "../images/crops/";
