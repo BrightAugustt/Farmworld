@@ -4,13 +4,13 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
     header('Location:../Login/login.php');
  };
 
-$cid = $_SESSION['customer_id'];
-echo $cid;
+
+// echo $customer_id;
 // $customer = $_SESSION['customer_email'];
 // echo $customer;
 // $cust = $_SESSION['user_role'];
 // echo $cust;
-$customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
+
 
 // include("../controllers/crop_controller.php");
 ?>
@@ -35,6 +35,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
     <script defer src="../js/activepage.js"></script>
+    <script defer src="../js/modal.js"></script>
 
     <script>
         $('#exampleModal$i').on('shown.bs.modal', function (event) {
@@ -193,7 +194,11 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                     <?php 
                                         require "../controllers/product_controller.php";
                                         function displayCtr(){
-                                            $crop = get_all_croprecords_ctr();
+
+                                            $customer_id= $_SESSION['customer_id'];
+                                            
+                                            // $customer_id = $_GET['customer_id'];
+                                            $crop = get_all_officercrop_ctr($customer_id);
 
                                             for ($i=0; $i < count($crop); $i++) {
                                                 echo "<tr>";
@@ -213,9 +218,8 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 <span class='bi bi-pen'></span>
                                                 </button>";
                                                 echo "<th><form action='../actions/deletecrop.php'  method='POST'>
-                                                <button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;' name='deletecrop' id='deletecrop'>
-                                                <span class='bi bi-trash'></span>
-                                                </button>
+                                                
+                                                <input type='submit' value='delete' name='deletecrop' class='btn btn-outline-success btn-lg' style='font-size:10px;'>
                                                 <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']. "'>
                                                 </form><th>";
                                                 echo 
@@ -260,23 +264,59 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 <div class='modal-content'>
                                                     <div class='modal-header'>
                                                     <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
-                                                    <h4 class='modal-title'>Second Modal</h4>
+                                                    
                                                     </div>
                                                     <div class='modal-body'>
-                                                    <form>
-                                                        <div class='form-group'>
-                                                            <label for='recipient-name' class='col-form-label'>Recipient:</label>
-                                                            <input type='text' class='form-control' id='recipient-name'>
-                                                        </div>
-                                                        <div class='form-group'>
-                                                            <label for='message-text' class='col-form-label'>Message:</label>
-                                                            <textarea class='form-control' id='message-text'></textarea>
-                                                        </div>
-                                                     </form>
+                                                    <form id='formid' action='../actions/updatecrop.php' method='POST' class='row g-3' enctype='multipart/form-data'>
+
+                            
+                                                    <div class='col-12'>
+                                                        <label>Crop Name</label>
+                                                        <input type='text' name='crop_name' id='crop_name' class='form-control' placeholder='Crop Name' pattern='[A-Za-z]+'>
+                                                    </div>
+                                               
+                                                    <br>
+                                                    <div class='col-12'>
+                                                        <label>Farmer Name</label>
+                                                        <input type='text' name='farmer_name' id='farmer_name' class='form-control' placeholder='Farmer Name' pattern='[A-Za-z]+'>
+                                                    </div>
+                                                    <div class='col-12'>
+                                                        <label>Farmer Contact</label>
+                                                        <input type='tel' name='farmer_contact' id='farmer_contact' class='form-control' placeholder='Contact' pattern='^\d{10}$'>
+                                                    </div>
+                                                    <div class='col-12'>
+                                                        <label>Farm Size</label>
+                                                        <input type='tel' name='farm_size' id='farm_size' class='form-control' placeholder='Farm size'>
+                                                    </div>
+                                                    <div class='col-12'>
+                                                        <label>Quantity(kg)</label>
+                                                        <input type='tel' name='qty' id='qty' class='form-control' placeholder='Quantity'>
+                                                    </div>
+                                                    <div class='col-12'>
+                                                        <label>Crop Price/Kg</label>
+                                                        <input type='tel' name='crop_price' id='crop_price' class='form-control' placeholder='Crop Price'>
+                                                    </div>
+                        
+                                                    <div class='col-12'>
+                                                        <label> Crop Category</label>
+                                                        <input type='text' name='crop_cat' id='crop_cat' class='form-control' placeholder=' Crop Category' pattern='[A-Za-z]+'>
+                                                    </div>
+                        
+                                                    <div class='col-12'>
+                                                        <label> Crop Description</label>
+                                                        <input type='text' name='crop_desc' id='crop_desc' class='form-control' placeholder=' Crop Description' pattern='[A-Za-z]+'>
+                                                    </div>
+                        
+                                                    <div class='form-group mt-3'>
+                                                        
+                                                        <input type='submit' class='btn btn-success' name='addcrop' value='Submit'>
+                                                        
+                                                    </div>
+                                                </form>
                                                     </div>
                                                     <div class='modal-footer'>
                                                     <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                    <button type='button' class='btn btn-primary'>Send message</button>
+                                                    <button type='button' class='btn btn-outline-success'>Update Crop</button>
                                                     </div>
                                                 </div>
                                                 </div>

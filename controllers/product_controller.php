@@ -44,6 +44,24 @@ function get_all_croprecords_ctr()
     }
 }
 
+function get_all_officercrop_ctr($customer_id)
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->get_all_officercrop_cls($customer_id);
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
 function get_all_catrecords_ctr()
 {
     //create an instance of the class

@@ -29,6 +29,14 @@ class crop_class extends db_connection
         );
     }
 
+    function get_all_officercrop_cls($customer_id)
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT * from crops WHERE `customer_id`='$customer_id'"
+        );
+    }
+
     function get_all_catrecords_cls()
     {
         // return true or false

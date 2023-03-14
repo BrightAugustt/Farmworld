@@ -39,6 +39,14 @@ class crop_class extends db_connection
 		return $this->db_fetch_all($sql);
     }
 
+       // select all crops
+       function selectofficer_crop($customer_id)
+       {
+           $sql = "SELECT * FROM `crops` WHERE `customer_id`='$customer_id'";
+           // Return
+           return $this->db_fetch_all($sql);
+       }
+
     // select all crop categories
     function selectAll_cat()
     {

@@ -3,15 +3,21 @@ include_once '../controllers/crop_controller.php';
 
 if(isset($_POST["deletecrop"])){
     $crop_id=$_POST["crop_id"];
-
-    $result=deleteCrop_ctr($crop_id);
-    if($result==true){
-        header('Location:../aeo/view_crop.php');
-    }else{
-        echo"Couldn't delete";
+    $img=$_POST['image'];
+    if(unlink("../images/crops/".$img)){
+        if(deleteCrop_ctr($crop_id)==True){
+            header('Location:../aeo/view_crop.php');
+        }else{
+            echo "Unable to delete";
+        }
+    }else if (!unlink("../images/crops/".$img)){
+        if(deleteCrop_ctr($crop_id)==True){
+            header('Location:../aeo/view_crop.php');
+        }
     }
-    }else{
-        echo "Something went wrong";
+}
+else{
+    header('Location:../aeo/aeo.php');
 }
 
 ?>

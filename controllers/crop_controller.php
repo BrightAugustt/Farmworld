@@ -35,6 +35,14 @@ function selectallCrop_ctr()
     return $selectall->selectAll_crop();
 }
 
+function selectallOfficerCrop_ctr($customer_id)
+{
+    //create an instance of the crop class
+    $selectall = new crop_class();
+
+    return $selectall->selectofficer_crop($customer_id);
+}
+
 function selectoneCrop_ctr($crop_id)
 {
     // create an instance of the crop class
