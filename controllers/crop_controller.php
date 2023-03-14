@@ -19,12 +19,12 @@ function add_catrecord_ctr($catname)
     return $add_cat->add_cat($catname);
 }
 
-function updateCropdetails_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_cat,$crop_desc)
+function updateCrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
 {
     // create an instance of the crop class
     $update_crop = new crop_class();
 
-    return $update_crop->update_cropdetails($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_cat,$crop_desc);
+    return $update_crop->update_crop($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc);
 }
 
 function selectallCrop_ctr()

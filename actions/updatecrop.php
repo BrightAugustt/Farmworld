@@ -1,9 +1,7 @@
 <?php
-include_once '../controllers/crop_controller.php';
+ include("../controllers/crop_controller.php");
 
-if(isset($_POST["updatecrop"])){
-
-     // Variable to capture the name value for each user input.
+ if(isset($_POST['edit'])){
     $crop_id=$_POST["crop_id"];
     $crop_name=$_POST["crop_name"];
     $farmer_name=$_POST["farmer_name"];
@@ -13,15 +11,18 @@ if(isset($_POST["updatecrop"])){
     $crop_price=$_POST["crop_price"];
     $crop_cat=$_POST["crop_cat"];
     $crop_desc=$_POST["crop_desc"];
+    $image = $_FILES['crop_image']["name"];
+    $tmp = $_FILES['crop_image']["tmp_name"];
 
-    $updatecrop=updateCropdetails_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_cat,$crop_desc);
-    if($updatecrop==TRUE){
-        header('Location:../aeo/view_crop.php');
-    }else{
-        echo "unable to edit crop details";
-    }
-
-    } else if(isset($_POST['edit_image'])){
+   if( updateCrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)==TRUE){
+    header('Location:../admin/viewproduct.php');
+   }else{
+    echo "Unable to edit";
+   }
+    
+  
+ } 
+    if(isset($_POST['edit_image'])){
         $allowTypes = array('jpg','png','jpeg','gif'); 
         $crop_id = $_POST['crop_id'];
         $crop_image=$_FILES['crop_image']["name"];
@@ -39,8 +40,8 @@ if(isset($_POST["updatecrop"])){
         $ret[$NewImageName]= $output_dir.$NewImageName;
         
         if(empty($ImageName)!=TRUE){
-        echo $crop_id;
-        echo $NewImageName;
+echo $crop_id;
+echo $NewImageName;
             $file=$img;
             unlink($file);
             move_uploaded_file($_FILES["crop_image"]["tmp_name"][0],$output_dir."/".$NewImageName );
@@ -50,12 +51,5 @@ if(isset($_POST["updatecrop"])){
                 echo "unable to edit image";
             }
         }
-    }
-
-
-
-
-
-
-
+ }
 ?>
