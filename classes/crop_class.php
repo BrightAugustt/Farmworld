@@ -92,5 +92,11 @@ class crop_class extends db_connection
         return $this->db_query($sql);
     }
 
+    function Sendemail($customer_id){
+        $sql="SELECT customer_email FROM customer JOIN crops ON customer.customer_id = crops.customer_id WHERE crops.customer_id = '$customer_id'";
+        return $this->db_query($sql);
+    }
+
+
 }
 ?>

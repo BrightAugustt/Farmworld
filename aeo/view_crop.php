@@ -39,10 +39,10 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
     <script>
         $('#exampleModal$i').on('shown.bs.modal', function (event) {
-        $('#myInput').trigger('focus')
+        $('#myInput$i').trigger('focus')
         })
-        $('modal2').on('shown.bs.modal', function (event) {
-        $('#myInput').trigger('focus')
+        $('modal2$i').on('shown.bs.modal', function (event) {
+        $('#myInput$i').trigger('focus')
         })
     </script>
     <style>
@@ -214,7 +214,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                                 echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
                                                 <span class='bi bi-card-image'></span> 
                                                 </button></th>";
-                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;' data-target='#second-modal$i' >
                                                 <span class='bi bi-pen'></span>
                                                 </button>";
                                                 echo "<th><form action='../actions/deletecrop.php'  method='POST'>
@@ -259,7 +259,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
         
         
                                                 echo "
-                                                <div class='modal' id='second-modal$i' data-backdrop='static' data-keyboard='false'>
+                                                <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
                                                 <div class='modal-dialog'>
                                                 <div class='modal-content'>
                                                     <div class='modal-header'>
@@ -272,7 +272,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                             
                                                     <div class='col-12'>
                                                         <label>Crop Name</label>
-                                                        <input type='text' name='crop_name' id='crop_name' class='form-control' placeholder='".$crop[$i]['crop_name']." pattern='[A-Za-z]+'>
+                                                        <input type='text' name='crop_name' id='crop_name' class='form-control' placeholder='".$crop[$i]['crop_name']."' pattern='[A-Za-z]+'>
                                                         <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                                                
