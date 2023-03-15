@@ -316,7 +316,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                                     </div>
                                                     <div class='modal-footer'>
                                                     <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                    <button type='button' class='btn btn-outline-success'>Update Crop</button>
+                                                    <button type='button' class='btn btn-outline-success'>edit</button>
                                                     </div>
                                                 </div>
                                                 </div>
