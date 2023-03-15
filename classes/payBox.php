@@ -1,86 +1,71 @@
 <?php
-class PayBox {
-    private $merchantId;
-    private $secretKey;
-    private $apiEndpoint;
+    
+	require_once(__DIR__. "'/../settings/core.php'");
 
-    public function __construct($merchantId, $secretKey) {
-        $this->merchantId = $merchantId;
-        $this->secretKey = $secretKey;
-        $this->apiEndpoint = 'https://api.paybox.com.gh/pay'; // Default API endpoint
-    }
 
-    public function setTestMode($isTestMode) {
-        if ($isTestMode) {
-            $this->apiEndpoint = 'https://sandbox.paybox.com.gh/pay'; // Sandbox API endpoint
-        } else {
-            $this->apiEndpoint = 'https://api.paybox.com.gh/pay'; // Live API endpoint
-        }
-    }
+	class paybox_custom{
+		private http_handler $http;
+		private $mode;
 
-    public function generatePaymentRequest($amount, $description, $orderId, $redirectUrl, $cancelUrl) {
-        $timestamp = time();
-        $nonce = uniqid();
-        $reference = $this->generateReference();
-        $hash = $this->generateHash($amount, $reference, $timestamp, $nonce);
 
-        $data = array(
-            'merchant_id' => $this->merchantId,
-            'order_id' => $orderId,
-            'amount' => $amount,
-            'description' => $description,
-            'reference' => $reference,
-            'timestamp' => $timestamp,
-            'nonce' => $nonce,
-            'hash' => $hash,
-            'redirect_url' => $redirectUrl,
-            'cancel_url' => $cancelUrl,
-        );
+		function __construct(){
+			$this->http = new http_handler();
+			$this->mode = "Test";
+			// $this->mode = "Bank";
+		}
 
-        $response = $this->sendRequest('POST', $this->apiEndpoint . '/create', $data);
+		//Add to payload, booking_id, seats_booked,$trip_id,$user_id
+		function charge_momo($order_id, $email,$amount, $network, $number, $payload = []){
+			$body = array (
+				"payerEmail" => $email,
+				"payload" => json_encode($payload),
+				"currency" => "GHS",
+				"amount" => $amount,
+				"mobile_network" => $network,
+				"mode" => $this->mode,
+				"order_id" => $order_id,
+				"mobile_number" => $number,
+				"callback_url" => "https://www.easygo.com.gh/processors/callback.php?action=paybox&mode="
+			);
 
-        if ($response['status'] == 'success') {
-            return $response['data']['checkout_url'];
-        } else {
-            throw new Exception($response['message']);
-        }
-    }
 
-    public function checkPaymentStatus($paymentData) {
-        $timestamp = time();
-        $nonce = uniqid();
-        $hash = $this->generateHash($paymentData['reference'], $timestamp, $nonce);
+			return $this->http->post(
+				"https://paybox.com.co/pay",
+				$body,
+				array("Authorization: Bearer ". paybox_token())
+			);
 
-        $data = array(
-            'merchant_id' => $this->merchantId,
-            'reference' => $paymentData['reference'],
-            'timestamp' => $timestamp,
-            'nonce' => $nonce,
-            'hash' => $hash,
-        );
+		}
 
-        $response = $this->sendRequest('POST', $this->apiEndpoint . '/status', $data);
 
-        if ($response['status'] == 'success') {
-            return $response['data'];
-        } else {
-            throw new Exception($response['message']);
-        }
-    }
+		function get_transaction($transaction_id){
+			return $this->http->get("https://paybox.com.co/transaction/$transaction_id");
+		}
 
-    private function generateReference() {
-        // Generate a unique payment reference
-        // ...
-    }
+		function get_banks(){
+			return $this->http->get("https://paybox.com.co/settlement_accounts");
+		}
 
-    private function generateHash($amount, $reference, $timestamp, $nonce) {
-        // Generate a hash for the payment request or status check
-        // ...
-    }
 
-    private function sendRequest($method, $url, $data) {
-        // Send an HTTP request to the PayBox API endpoint
-        // ...
-    }
-}
+		function withdraw($amount, $bank_account,$bank_code, $receiver_name, $receiver_email, $user_id, $currency = "GHS"){
+			return $this->http->post(
+				"https://paybox.com.co/transfer",
+				array(
+					"amount" => $amount,
+					"currency" => $currency,
+					"mode" => $this->mode,
+					"customer_id" => $user_id,
+					"bank_code" => $bank_code,
+					"receiverName" => $receiver_name,
+					"receiverEmail" => $receiver_email,
+					"bank_account" => $bank_account,
+					"callback_url" => "https://www.easygo.com.gh/processors/callback.php?id=paybox_transfer"
+				),
+				header: array("Authorization: Bearer ". paybox_token())
+
+			);
+		}
+	}
 ?>
+
+

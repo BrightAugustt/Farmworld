@@ -113,6 +113,7 @@ $status = $_POST['status'];
     </main>
     <?php require("./footer.php"); ?>
 </body>
-
+<!-- embed script -->
+<script src="https://widget.paybox.com.co/js/app.js" defer></script>
 
 </html>

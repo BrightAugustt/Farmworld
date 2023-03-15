@@ -42,5 +42,9 @@ function check_admin(){
     }
 }
 
+/**Returns the paybox token */
+function paybox_token(){
+	return getenv("PAYBOX_BEARER_TOKEN");
+}
 
 ?>
