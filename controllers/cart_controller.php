@@ -48,6 +48,11 @@ function view_cart_ctr($custId){
   return $duplicate->view_cart_cls($custId);
 }
 
+function get_products_by_id_ctr($order_id, $customer_id){
+  $select= new cart_class();
+  return $select-> get_products_by_id_cls($order_id, $customer_id);
+}
+
 
 //--UPDATE--//
 function update_cart_qty_ctr($crpId, $custId, $qty){

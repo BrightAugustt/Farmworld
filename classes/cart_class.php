@@ -68,6 +68,13 @@ class cart_class extends db_connection{
 		return $this->fetch($sql);
 	}
 
+	function get_products_by_id_cls($order_id, $customer_id){
+		$sql = "SELECT p.*
+		FROM crops p
+		JOIN cart c ON p.crop_id = c.crop_id
+		WHERE c.customer_id = '$customer_id' AND c.orders_id = '$order_id'";
+		return $this->fetch($sql);		
+	}
 
     //controller for duplicate
     function dup_cart_qty_cls($crpId, $custId){

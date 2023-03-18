@@ -24,19 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
---
-
-CREATE TABLE `cart` (
-  `crop_id` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `ip_add` varchar(50) NOT NULL,
-  `qty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `categories`
 --
 
@@ -91,6 +78,19 @@ CREATE TABLE `orders` (
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `crop_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `ip_add` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `payment`
 --
@@ -173,6 +173,13 @@ ALTER TABLE `orderdetails`
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `customer_id` (`customer_id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD KEY `order_id` (`order_id`);
+
 
 --
 -- Indexes for table `payment`

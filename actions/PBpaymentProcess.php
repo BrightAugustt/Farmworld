@@ -1,52 +1,27 @@
 <?php
+include_once '../controllers/cart_controller.php';
+//order table will be used
+if (isset($_POST['paybox_submit'])) {
+	$order_id = $_POST['transaction_id'];
+	$customer_id = $_POST['customer_id'];
+	$merchant_id = $_POST['merchant_id'];
+	$email = $_POST['customer_email'];
+    $order_amount = $_POST['order_amount'];
+	$order_date = date('Y/m/d');
 
-if (isset($_POST)) {
-	if ($_POST["action"] == "create_booking") {
-		// $reference = $_POST["ref"]; //transaction id
-		$contact_number = $_POST["em_number"];
-		$contact_name = $_POST["em_name"];
-		$seats = $_POST["seats"];
-		// $m_name = $_POST["m_name"];
-		// $m_number = $_POST["m_number"];
-		$user = get_session_user_id();
-		$occurance = $_POST["trip_occ"];
-		$amount = get_trip_occurance_by_id_ctrl($occurance)["fee"] * $seats;
-
-		//don't let a user book several times for one trip occurance
-		// Reason: Internet speeds let people book several times in short bursts
-		$booking_check = get_user_trip_booking_ctrl($user,$occurance);
-		if ($booking_check){
-			echo $booking_check["booking_id"];
-			exit();
-		}
-
-
-		$success = create_booking_ctrl($occurance, $user, $contact_name, $contact_number, $amount, $seats);
-
-		if($success){
-			echo $success;
-			$user_info = get_user_by_id_ctrl($user);
-			$user_name = $user_info["user_name"];
-			$email = $user_info["email"];
-			$trip_name = get_trip_occurance_by_id_ctrl($occurance)["trip_id"];#trip_id
-			$trip_name = get_trip_by_id_ctrl($trip_name)["trip_title"];#trip_name
-			notify_booking($user_name,$email,$trip_name);
-			send_booking_invoice($email,$success,$user);
-
-		}else {
-			echo "error";
-		}
-		exit();
-	} else if ($_POST["action"] == "process_payment") {
+	$success = insert_payment_ctr($order_amount,  $custId, $order_id, $merchant_id, $email, );
+    
+    
+	if ($_POST["action"] == "process_payment") {
 		$curl = curl_init();
-		// $order_id = $_POST["booking_id"];
-		$user_id = $_POST["user_id"];
+		// $order_id = $_POST["order_id$order_id"];
+		$customer_id = $_POST['customer_id'];
 		// if (!$user_id){
 		// 	$user_id = $_POST["user_id"];
 		// }
 
-		$booking_id = $_POST["booking_id"];
-		$booking = get_trip_booking_by_id_ctrl($booking_id, $user_id);
+		$order_id = $_POST["order_id"];
+		$booking = get_products_by_id_ctr($order_id, $customer_id);
 		$user = get_user_by_id_ctrl($user_id);
 
 		// Getting booking information
@@ -55,7 +30,7 @@ if (isset($_POST)) {
 
 
 		//If user has an invoice for payment, redirect them to that
-		$prev_booking = get_booking_transactions_by_id_ctrl($booking_id);
+		$prev_booking = get_booking_transactions_by_id_ctrl($order_id);
 		if(count($prev_booking ?? [])>0){
 			echo ("https://paybox.com.co/invoice/".$prev_booking[0]["transaction_id"]);
 			exit();
@@ -75,11 +50,11 @@ if (isset($_POST)) {
 			CURLOPT_CUSTOMREQUEST => 'POST',
 
 			CURLOPT_POSTFIELDS => array(
-				'amount' => "$amount",
+				'amount' => "$order_amount",
 				'currency' => 'GHS',
-				'order_id' => $booking_id,
+				'order_id' => $order_id,
 				'name ' => $user["user_name"],
-				'email ' => $user["email"],
+				'email ' => $email,
 				'contact' => $user["user_phone"],
 				'customer_id' => $user["user_id"]
 			),
@@ -101,40 +76,40 @@ if (isset($_POST)) {
 			$curator_id = $booking["curator_id"];
 
 			create_transaction_ctrl($reference, $amount, $user_id, $curator_id);
-			// create_booking_transaction_ctrl($booking_id, $reference);
+			// create_booking_transaction_ctrl($order_id, $reference);
 			$user_info = get_user_by_id_ctrl($user_id);
 			$user_name = $user_info["user_name"];
 			$email = $user_info["email"];
 			notify_transaction_initiation($reference,$user_name,$email,$amount);
-			 create_transaction_invoice_ctrl($json["token"],$booking_id);
+			 create_transaction_invoice_ctrl($json["token"],$order_id);
 			 echo $json["url"];
 			exit();
 		}else {
 			echo "something went wrong";
 		}
 	} else if ($_POST["action"] == "verify_payment") {
-		// $order_id = $_POST["booking_id"]
-		$booking_id = $_POST["booking_id"];
+		// $order_id = $_POST["order_id$order_id"]
+		$order_id = $_POST["order_id$order_id"];
 		$user_id = get_session_user_id();
 		//if get user id from post (might be a mobile app call)
 		if (!$user_id){
 			$user_id = $_POST["user_id"];
 		}
-		$booking = get_trip_booking_by_id_ctrl($booking_id, $user_id);
+		$booking = get_trip_booking_by_id_ctrl($order_id, $user_id);
 		$user = get_user_by_id_ctrl($user_id);
 
 
 		// Getting booking information
 		// $amount = $booking["amount"];
 		// $seats = $booking["seats_booked_count"];
-		// $entry = get_booking_transactions_by_id_cls($booking_id)[0];
+		// $entry = get_booking_transactions_by_id_cls($order_id)[0];
 		// return $entry["transaction_id"];
 		// foreach ($transactions as $entry) {
 			$curl = curl_init();
 			// $transaction_id = $entry["transaction_id"];
 
 			curl_setopt_array($curl, array(
-				CURLOPT_URL => "https://paybox.com.co/transaction/$booking_id",
+				CURLOPT_URL => "https://paybox.com.co/transaction/$order_id",
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_ENCODING => '',
 				CURLOPT_MAXREDIRS => 10,
@@ -157,12 +132,12 @@ if (isset($_POST)) {
 						// $reference = $json["token"];
 						// $amount = $json["amount"];
 						// $curator_id = $booking["curator_id"];
-						// $success = remove_all_failed_transactions_ctrl($booking_id);
+						// $success = remove_all_failed_transactions_ctrl($order_id);
 
 						notify_transaction_completion($json["token"],$json["amount"]);
 						// create_transaction_ctrl($reference, $amount, $user_id, $curator_id);
-						// create_booking_transaction_ctrl($booking_id, $reference);
-						// send_payment_reciept($user["email"],$booking_id,$user_id);
+						// create_booking_transaction_ctrl($order_id, $reference);
+						// send_payment_reciept($user["email"],$order_id,$user_id);
 						echo "Payment has been received";
 						exit();
 						// }
