@@ -1,7 +1,8 @@
 <?php
+require("../settings/core.php");
 include_once '../controllers/cart_controller.php';
 //order table will be used
-if ($_POST["action"] == "paymentForm") {
+
 	// $curl = curl_init();
 	$order_id = $_POST['order_id'];
 	$customer_id = $_POST['customer_id'];
@@ -21,7 +22,7 @@ if ($_POST["action"] == "paymentForm") {
 		'pg_currency' => 'GHS',
 		'pg_email' => $email,
 		'pg_order_id' => $order_id,
-		'pg_description' => 'Payment description',
+		'pg_date' => $order_date,
 		'pg_result_url' => 'https://yourwebsite.com/payment/success', // URL to redirect the user after successful payment
 		'pg_success_url' => 'https://yourwebsite.com/payment/success', // URL to redirect the user after successful payment
 		'pg_failure_url' => 'https://yourwebsite.com/payment/failure', // URL to redirect the user after failed payment
@@ -51,13 +52,36 @@ if ($_POST["action"] == "paymentForm") {
 	parse_str($response, $result);
 	
 	if ($result['pg_status'] == 'ok') {
-		// Payment successful
-		// Redirect the user to the success URL
-		header('Location: ' . $params['pg_success_url']);
+		$order = insert_order_ctr($customer_id,$p_invoice,$order_date,$orderStatus);
+
+		if($order){
+			// Payment successful
+			// Redirect the user to the success URL
+			header('Location: ' . $params['pg_success_url']);
+		}else{
+			echo "Order insert failed";
+		}
 	} else {
 		// Payment failed
 		// Redirect the user to the failure URL
 		header('Location: ' . $params['pg_failure_url']);
 	}
+
+	// convert the response to PHP object
+if(isset($decodedResponse->data->status) && $decodedResponse->data->status === 'success'){
+    $email = $_SESSION['customer_email'];
+    $random = rand(10,10000);
+    $add = $_GET['amount'];
+    $cid = $_SESSION['customer_id'];
+    $p_invoice = mt_rand(10, 1000);
+    $date = date('Y/m/d');
+    $orderStatus = 'success';
+
+
+
+if($order){
+    header("location: ../Views/paymentSuccess.php");
+}else{
+    echo "Order insert failed";
 }
 ?>
