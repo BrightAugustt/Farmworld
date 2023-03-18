@@ -68,11 +68,11 @@ class cart_class extends db_connection{
 		return $this->fetch($sql);
 	}
 
-	function get_products_by_id_cls($order_id, $customer_id){
+	function get_products_by_id_cls($order_id, $custId){
 		$sql = "SELECT p.*
 		FROM crops p
 		JOIN cart c ON p.crop_id = c.crop_id
-		WHERE c.customer_id = '$customer_id' AND c.orders_id = '$order_id'";
+		WHERE c.customer_id = '$custId' AND c.orders_id = '$order_id'";
 		return $this->fetch($sql);		
 	}
 
@@ -81,6 +81,14 @@ class cart_class extends db_connection{
 		$sql= "SELECT * FROM `cart` WHERE `crop_id`= '$crpId' AND `customer_id` = '$custId'";
 		return $this-> db_fetch_all($sql);
 	}
+
+	function getUserDetailsById_cls($id)
+    {
+        //write the sql
+        $sql = "SELECT * FROM `customer` WHERE `customer_id` = '$id'";
+        //execute the sql
+        return $this->fetchOne($sql);
+    }
  	
     //--UPDATE--//
     function update_cart_qty_cls($crpId, $custId, $qty){

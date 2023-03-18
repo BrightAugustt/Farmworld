@@ -48,9 +48,16 @@ function view_cart_ctr($custId){
   return $duplicate->view_cart_cls($custId);
 }
 
-function get_products_by_id_ctr($order_id, $customer_id){
+function get_products_by_id_ctr($order_id, $custId){
   $select= new cart_class();
-  return $select-> get_products_by_id_cls($order_id, $customer_id);
+  return $select-> get_products_by_id_cls($order_id, $custId);
+}
+
+function getUserDetailsById_ctr($id){
+
+  $details = new cart_class();
+
+  return $details->getUserDetailsById_cls($id);
 }
 
 

@@ -96,7 +96,7 @@ $api_key = "e476bf07-dffb-43bc-a8ae-a42be8be9c02";
                                     <form method="post" action="../actions/PBpaymentProcess.php" id="paymentForm">
                                         <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
                                         <input type="hidden" name="merchant_id" value="<?php echo $merchant_id; ?>">
-                                        <input type="hidden" name="order_id" value="<?php echo $order_id(); ?>">
+                                        <input type="hidden" name="order_id" value="<?php //echo $order_id(); ?>">
                                         <input type="hidden" name="description" value="Order payment">
                                         <input type="hidden" name="return_url" value="https://www.example.com/checkout/thank-you">
                                         <input type="hidden" name="cancel_url" value="https://www.example.com/checkout/cancel">
