@@ -66,22 +66,4 @@ include_once '../controllers/cart_controller.php';
 		// Redirect the user to the failure URL
 		header('Location: ' . $params['pg_failure_url']);
 	}
-
-	// convert the response to PHP object
-if(isset($decodedResponse->data->status) && $decodedResponse->data->status === 'success'){
-    $email = $_SESSION['customer_email'];
-    $random = rand(10,10000);
-    $add = $_GET['amount'];
-    $cid = $_SESSION['customer_id'];
-    $p_invoice = mt_rand(10, 1000);
-    $date = date('Y/m/d');
-    $orderStatus = 'success';
-
-
-
-if($order){
-    header("location: ../Views/paymentSuccess.php");
-}else{
-    echo "Order insert failed";
-}
 ?>
