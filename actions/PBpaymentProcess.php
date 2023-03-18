@@ -13,7 +13,7 @@ include_once '../controllers/cart_controller.php';
 
 
 	// Set the API endpoint URL
-	$url = 'https://api.paybox.money/payment.php';
+	$url = 'https://paybox.com.co/pay';
 	
 	// Set the payment parameters
 	$params = array(
