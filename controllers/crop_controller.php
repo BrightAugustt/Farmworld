@@ -88,4 +88,10 @@ function update_image_ctr($crop_id,$crop_image)
     $edit=new crop_class();
     return $edit->update_crop_image($crop_id,$crop_image);
 }
+
+function Sendemail_ctr($customer_id)
+{
+    $edit=new crop_class();
+    return $edit->Sendemail($customer_id);
+}
 ?>

@@ -61,7 +61,7 @@ class crop_class extends db_connection
     {
         // return true or false
         return $this->db_query(
-            "UPDATE `crops` SET `crop_name`='$crop_name',`farmer_name`='$farmer_name',`farmer_contact`='$farmer_contact',`farm_size`='$farm_size',`qty`='$qty',`crop_price`='$crop_price',`crop_image`='$crop_image',`crop_cat`='$crop_cat',`crop_desc`='$crop_desc' WHERE `crop_id`='$crop_id'"
+            "UPDATE `crops` SET `crop_id`='$crop_id',`crop_name`='$crop_name',`farmer_name`='$farmer_name',`farmer_contact`='$farmer_contact',`farm_size`='$farm_size',`qty`='$qty',`crop_price`='$crop_price',`crop_image`='$crop_image',`crop_cat`='$crop_cat',`crop_desc`='$crop_desc' WHERE `crop_id`='$crop_id'"
         );
     }
 
@@ -91,6 +91,12 @@ class crop_class extends db_connection
         $sql="UPDATE `crops` SET `crop_image`='$crop_image' WHERE `crop_id`='$crop_id'";
         return $this->db_query($sql);
     }
+
+    function Sendemail($customer_id){
+        $sql="SELECT customer_email FROM customer JOIN crops ON customer.customer_id = crops.customer_id WHERE crops.customer_id = '$customer_id'";
+        return $this->db_query($sql);
+    }
+
 
 }
 ?>

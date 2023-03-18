@@ -15,14 +15,13 @@
     $tmp = $_FILES['crop_image']["tmp_name"];
 
    if( updateCrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)==TRUE){
-    header('Location:../admin/viewproduct.php');
+    header('Location:../aeo/view_crop.php');
    }else{
     echo "Unable to edit";
    }
     
   
- } 
-    if(isset($_POST['edit_image'])){
+ } else if(isset($_POST['edit_image'])){
         $allowTypes = array('jpg','png','jpeg','gif'); 
         $crop_id = $_POST['crop_id'];
         $crop_image=$_FILES['crop_image']["name"];

@@ -39,10 +39,10 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
     <script>
         $('#exampleModal$i').on('shown.bs.modal', function (event) {
-        $('#myInput').trigger('focus')
+        $('#myInput$i').trigger('focus')
         })
-        $('modal2').on('shown.bs.modal', function (event) {
-        $('#myInput').trigger('focus')
+        $('modal2$i').on('shown.bs.modal', function (event) {
+        $('#myInput$i').trigger('focus')
         })
     </script>
     <style>
@@ -214,7 +214,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                                 echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
                                                 <span class='bi bi-card-image'></span> 
                                                 </button></th>";
-                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
+                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;' data-target='#second-modal$i' >
                                                 <span class='bi bi-pen'></span>
                                                 </button>";
                                                 echo "<th><form action='../actions/deletecrop.php'  method='POST'>
@@ -272,39 +272,47 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                             
                                                     <div class='col-12'>
                                                         <label>Crop Name</label>
-                                                        <input type='text' name='crop_name' id='crop_name' class='form-control' placeholder='Crop Name' pattern='[A-Za-z]+'>
+                                                        <input type='text' name='crop_name' id='crop_name' class='form-control' placeholder='".$crop[$i]['crop_name']."' pattern='[A-Za-z]+'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                                                
                                                     <br>
                                                     <div class='col-12'>
                                                         <label>Farmer Name</label>
-                                                        <input type='text' name='farmer_name' id='farmer_name' class='form-control' placeholder='Farmer Name' pattern='[A-Za-z]+'>
+                                                        <input type='text' name='farmer_name' id='farmer_name' class='form-control' placeholder='".$crop[$i]['farmer_name']."' pattern='[A-Za-z]+'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                                                     <div class='col-12'>
                                                         <label>Farmer Contact</label>
-                                                        <input type='tel' name='farmer_contact' id='farmer_contact' class='form-control' placeholder='Contact' pattern='^\d{10}$'>
+                                                        <input type='tel' name='farmer_contact' id='farmer_contact' class='form-control' placeholder='".$crop[$i]['farmer_contact']."' pattern='^\d{10}$'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                                                     <div class='col-12'>
                                                         <label>Farm Size</label>
-                                                        <input type='tel' name='farm_size' id='farm_size' class='form-control' placeholder='Farm size'>
+                                                        <input type='tel' name='farm_size' id='farm_size' class='form-control' placeholder='".$crop[$i]['farm_size']."'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                                                     <div class='col-12'>
                                                         <label>Quantity(kg)</label>
-                                                        <input type='tel' name='qty' id='qty' class='form-control' placeholder='Quantity'>
+                                                        <input type='tel' name='qty' id='qty' class='form-control' placeholder='".$crop[$i]['qty']."'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                                                     <div class='col-12'>
                                                         <label>Crop Price/Kg</label>
-                                                        <input type='tel' name='crop_price' id='crop_price' class='form-control' placeholder='Crop Price'>
+                                                        <input type='tel' name='crop_price' id='crop_price' class='form-control' placeholder='".$crop[$i]['crop_price']."'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                         
                                                     <div class='col-12'>
                                                         <label> Crop Category</label>
-                                                        <input type='text' name='crop_cat' id='crop_cat' class='form-control' placeholder=' Crop Category' pattern='[A-Za-z]+'>
+                                                        <input type='text' name='crop_cat' id='crop_cat' class='form-control' placeholder='".$crop[$i]['crop_cat']."' pattern='[A-Za-z]+'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                         
                                                     <div class='col-12'>
                                                         <label> Crop Description</label>
-                                                        <input type='text' name='crop_desc' id='crop_desc' class='form-control' placeholder=' Crop Description' pattern='[A-Za-z]+'>
+                                                        <input type='text' name='crop_desc' id='crop_desc' class='form-control' placeholder='".$crop[$i]['crop_desc']."' pattern='[A-Za-z]+'>
+                                                        <input type='hidden' name='crop_id'  value= '".$crop[$i]['crop_id']."'>
                                                     </div>
                         
                                                     <div class='form-group mt-3'>
@@ -316,7 +324,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                                     </div>
                                                     <div class='modal-footer'>
                                                     <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                    <button type='button' class='btn btn-outline-success'>Update Crop</button>
+                                                    <button type='button' class='btn btn-outline-success'>edit</button>
                                                     </div>
                                                 </div>
                                                 </div>
