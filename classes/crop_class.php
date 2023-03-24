@@ -97,6 +97,14 @@ class crop_class extends db_connection
         return $this->db_query($sql);
     }
 
+    function admincropshow(){
+        $sql="SELECT crops.*, customer.customer_email FROM crops JOIN customer ON crops.customer_id = customer.customer_id ORDER BY crops.crop_id DESC";
+        return $this->db_query($sql);
+    }
+
+
+
+
 
 }
 ?>

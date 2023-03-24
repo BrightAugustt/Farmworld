@@ -94,4 +94,11 @@ function Sendemail_ctr($customer_id)
     $edit=new crop_class();
     return $edit->Sendemail($customer_id);
 }
+
+function admincropshow_ctr()
+{
+    $edit=new crop_class();
+    return $edit->admincropshow();
+}
+
 ?>

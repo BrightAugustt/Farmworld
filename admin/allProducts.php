@@ -1,5 +1,9 @@
 <?php
 session_start();
+// if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+//     header('Location:../Login/login.php');
+//  };
+// include_once '../controllers/crop_controller.php';
 
 
 
@@ -177,9 +181,11 @@ session_start();
                                     <?php 
                                         require "../controllers/product_controller.php";
                                         function displayCtr(){
-                                            $crop = get_all_croprecords_ctr();
 
+                                            $crop = get_all_croprecords_ctr();
+                                         
                                             for ($i=0; $i < count($crop); $i++) {
+                                              
                                                 echo "<tr>";
                                                 echo "<td>".$crop[$i]['crop_name']."<td>";
                                                 echo "<td>".$crop[$i]['farmer_name']."<td>";
@@ -247,22 +253,20 @@ session_start();
                                                     <h4 class='modal-title'>Second Modal</h4>
                                                     </div>
                                                     <div class='modal-body'>
-                                                    <form>
+                                                    <form method='POST' action='../actions/mail.php'>
                                                         <div class='form-group'>
                                                             <label for='recipient-name' class='col-form-label'>Recipient:</label>
-                                                            <input type='text' class='form-control' id='recipient-name'>
-                                                            <input type='hidden' name='crop_id' value='".$crop[$i]['crop_']."'>
+                                                            <input type='text' class='form-control' id='recipient-name' placeholder='".$crop[$i]['customer_email']."' name='customer_email'>
+                                                            <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
                                                         </div>
-                                                        <div class='form-group'>
-                                                            <label for='message-text' class='col-form-label'>Message:</label>
-                                                            <textarea class='form-control' id='message-text'></textarea>
-                                                        </div>
+
+                                                        <div class='modal-footer'>
+                                                        <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                        <button type='submit' class='btn btn-outline-success' name='send_mail'>Send Email</button>
+                                                    </div>
                                                      </form>
                                                     </div>
-                                                    <div class='modal-footer'>
-                                                    <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                    <button type='button' class='btn btn-primary'>Send message</button>
-                                                    </div>
+                                                   
                                                 </div>
                                                 </div>
                                             </div>

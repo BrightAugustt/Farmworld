@@ -25,7 +25,10 @@ class crop_class extends db_connection
     {
         // return true or false
         return $this->db_query(
-            "SELECT * from crops"
+            "SELECT crops.*, customer.customer_email 
+            FROM crops 
+            JOIN customer ON crops.customer_id = customer.customer_id 
+            ORDER BY crops.crop_id DESC"
         );
     }
 
@@ -138,6 +141,15 @@ class crop_class extends db_connection
         JOIN entries ON customer.customer_id = entries.customer_id
         WHERE entries.entry_id = $email";
     }
+
+    function admincropshow(){
+        $sql = "SELECT crops.*, customer.customer_email 
+        FROM crops 
+        JOIN customer ON crops.customer_id = customer.customer_id 
+        ORDER BY crops.crop_id DESC";
+    }
+
+
 
 }
 ?>

@@ -193,3 +193,11 @@ function delete_orderrecord_ctr($oid)
     // call the method from the class
     return $class_instance->delete_orderrecord_cls($oid);
 }
+
+function admincropshow_ctr()
+{
+    // create an instance of the crop class
+    $class_instance = new crop_class();
+    // call the method from the class
+    return $class_instance->admincropshow();
+}
