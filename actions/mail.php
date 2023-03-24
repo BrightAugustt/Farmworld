@@ -45,6 +45,7 @@ if(isset($_POST['send_mail']))
     //Finally send email
         if ( $mail->send() ) {
             echo "Email Sent..!";
+            header('Location: ../admin/allproducts.php');
         }else{
             echo'Email could not be sent. Error: ' . $mail->ErrorInfo;
         }
