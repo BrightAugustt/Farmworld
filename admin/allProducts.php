@@ -235,7 +235,7 @@ session_start();
                                                         </div>
                                                         <div class='modal-footer'>
                                                         <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                        <input type = 'submit' value='update' name='edit_image' class='btn btn-outline-success''>
+                                                        <input type = 'submit' value='update' name='edit_image' class='btn btn-outline-success'>
                                                         <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
                                                         </div>
                                                         </form>
@@ -256,12 +256,13 @@ session_start();
                                                     <form method='POST' action='../actions/mail.php'>
                                                         <div class='form-group'>
                                                             <label for='recipient-name' class='col-form-label'>Recipient:</label>
-                                                            <input type='text' class='form-control' id='recipient-name' placeholder='".$crop[$i]['customer_email']."' name='customer_email'>
+                                                            <input type='text' class='form-control' id='recipient-name' value='".$crop[$i]['customer_email']."' name='customer_email'>
                                                             <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
                                                         </div>
 
                                                         <div class='modal-footer'>
                                                         <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                        <input type='hidden' name='customer_email' value='".$crop[$i]['customer_email']."'>
                                                         <button type='submit' class='btn btn-outline-success' name='send_mail'>Send Email</button>
                                                     </div>
                                                      </form>
