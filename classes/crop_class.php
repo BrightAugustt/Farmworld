@@ -78,7 +78,7 @@ class crop_class extends db_connection
     // show crop
     function show_all_crop()
     {
-        $sql="SELECR * FROM `crops` where `Approved`='Yes'";
+        $sql="SELECT * FROM `crops` where `Approved`='Yes'";
         return $this->db_fetch_all($sql);
     }
 
