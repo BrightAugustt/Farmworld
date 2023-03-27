@@ -173,12 +173,42 @@
                                         "</tr>";
 
                                         echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
+                                                        <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
+                                                        <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
+                                                        <div class='form-group form-check'>
+                                                        <input type='checkbox' <?php if(".$crop[$i]['Approved']=='Yes'."){
+                                                            echo 'checked';
+                                                        } ?> name='status' onclick='document.getElementById('<?php echo 'approve'.$i; ?>').submit();'>
+                                                        </div>
+                                                    </form></th>";
+
+                                        echo "<th><form action='../actions/updatecropstatus.php' method='POST'>
+                                        <input type='hidden name='crop_id' value='".$crop[$i]['crop_id']."'>
+                                        <input type='hidden' name='check' value='".$crop[$i]['Approved']."'>
+                                        <label class='switch'>
+                                        <input type='checkbox'  <?php if($crop[$i]['Approved']=='Yes')
+                                            {echo 'checked'}?> name='status' onchange='this.form.submit()'>
+                                        <span class='slider round'></span>
+                                        </label>
+                                        </form>
+                                        </th>";
+
+                                        echo "<th><form action='../actions/updatecropstatus.php' method='POST'   id= echo 'approve'.$i'>
+                                        <input type='hidden name='crop_id' value='".$crop[$i]['crop_id']."'>
+                                        <input type='hidden' name='check' value='".$crop[$i]['Approved']."'>
+                                        <label class='switch'>
+                                        <input type='checkbox'  <?php if($crop[$i]['Approved']=='Yes')
+                                            {echo 'checked'}?> name='status' onchange='this.form.submit()'>
+                                        <span class='slider round'></span>
+                                        </label>
+                                        </form>
+                                        </th>";
+
+                                        echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
                                         <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
                                         <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
-                                        <div class='form-group form-check'>
-                                        <input type='checkbox' class='form-check-input' id='exampleCheck1' if(.$crop[$i]['Approved']=='Yes'){echo 'checked'} name='status' onclick='document.getElementById(echo 'approve'.$i).submit();'>
-                                        </div>
-                                    </form></th>";
+                                       <button type='submit' class='btn btn-toggle' <?php if($crop[$i]['Approved']=='Yes'){ echo 'checked';}?>>".$crop[$i]['Approved']."'>
+                                        </form></th>";
 
                                         echo 
                                         "

@@ -201,13 +201,24 @@ session_start();
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
                                                 <span class='bi bi-envelope-fill'></span>
                                                 </button>";
+
                                                 echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
                                                         <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
                                                         <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
-                                                        <div class='form-group form-check'>
-                                                        <input type='checkbox' class='form-check-input' id='exampleCheck1' if(.$crop[$i]['Approved']=='Yes'){echo 'checked'} name='status' onclick='document.getElementById(echo 'approve'.$i).submit();'>
-                                                        </div>
-                                                    </form></th>";
+                                                        <button type='submit' class='btn btn-toggle' <?php if(".$crop[$i]['Approved']."=='Yes'){ echo 'checked';}?>".$crop[$i]['Approved']."</button>
+                                                        </form></th>";
+
+                                                 echo "<th><form action='../actions/updatecropstatus.php' method='POST'   id= echo 'approve'.$i'>
+                                                        <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
+                                                        <input type='hidden' name='check' value='".$crop[$i]['Approved']."'>
+                                                        <label class='switch'>
+                                                        <input type='checkbox'  if(".$crop[$i]['Approved']."=='Yes')
+                                                            {echo 'checked';}?> name='status' onchange='this.form.submit()'>
+                                                        <span class='slider round'></span>
+                                                        </label>
+                                                        </form>
+                                                        </th>";
+
                                                 echo 
                                                 "
                                                 <div class='modal' id='first-modal$i' data-backdrop='static' data-keyboard='false'>

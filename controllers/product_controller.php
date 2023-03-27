@@ -44,6 +44,45 @@ function get_all_croprecords_ctr()
     }
 }
 
+function show_allcrops_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->showall_crops();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
+function update_statuscrops_ctr($crop_id,$status)
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->updatestatus_crops($crop_id,$status);
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
+
+
+
 function get_all_officercrop_ctr($customer_id)
 {
     //create an instance of the class
@@ -79,6 +118,11 @@ function get_all_catrecords_ctr()
         return false;
     }
 }
+
+
+
+
+
 
 function get_all_orderrecords_ctr()
 {
