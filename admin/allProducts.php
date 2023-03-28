@@ -208,16 +208,7 @@ session_start();
                                                         <button type='submit' class='btn btn-toggle' <?php if(".$crop[$i]['Approved']."=='Yes'){ echo 'checked';}?>".$crop[$i]['Approved']."</button>
                                                         </form></th>";
 
-                                                 echo "<th><form action='../actions/updatecropstatus.php' method='POST'   id='approve'.$i'>
-                                                        <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
-                                                        <input type='hidden' name='check' value='".$crop[$i]['Approved']."'>
-                                                        <label class='switch'>
-                                                        <input type='checkbox'  if(".$crop[$i]['Approved']."=='Yes')
-                                                            {echo 'checked';}?> name='status' onchange='this.form.submit()'>
-                                                        <span class='slider round'></span>
-                                                        </label>
-                                                        </form>
-                                                        </th>";
+                                              
 
                                                 echo 
                                                 "

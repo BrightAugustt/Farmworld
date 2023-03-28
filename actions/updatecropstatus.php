@@ -18,26 +18,6 @@ if (isset($_POST['check'])) {
     if(update_statuscrops_ctr($crop_id,$status) == True){
         header('Location:../admin/allProducts.php');
     }
-
-
-
-
-
-
-
-// 	$id=$_POST['id'];
-// 	$status=$_POST['ss'];
-// 	$fstatus;
-// 	if($status=='Yes'){
-// $fstatus='No';
-// 	}
-// 	else{
-// 	$fstatus='Yes';	
-// 	}
-// 	if(update_advert_ctr($id,$fstatus)==True){
-// 		header('Location:../Admin/advertisment.php');
-// 	}
-	
 }
 
 
