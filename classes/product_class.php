@@ -39,8 +39,12 @@ class crop_class extends db_connection
     }
 
 // Updates the status of the crop to change the approved value
-    function updatestatus_crops($crop_id,$status){
-        $sql ="UPDATE `crops` set `Approved`='$status' where `crop_id`='$crop_id';";
+    function updatestatus_crops($crop_id,$status)
+    {
+        // return true or false
+        return $this->db_query(
+            "UPDATE `crops` set `Approved`='$status' where `crop_id`='$crop_id'"
+        );
     }
 
 

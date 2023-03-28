@@ -64,20 +64,8 @@ function show_allcrops_ctr()
 
 function update_statuscrops_ctr($crop_id,$status)
 {
-    //create an instance of the class
-    $item_object = new crop_class();
-
-    //run the method
-    $item_records = $item_object->updatestatus_crops($crop_id,$status);
-
-    //check if the method worked
-    if ($item_records) {
-        //return all the data
-        return $item_object->db_fetch_all();
-    } else {
-        //no data found
-        return false;
-    }
+    $updatestatus=new crop_class();
+     return $updatestatus->updatestatus_crops($crop_id,$status);
 }
 
 
