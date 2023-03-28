@@ -78,7 +78,7 @@ class crop_class extends db_connection
     // show crop
     function show_all_crop()
     {
-        $sql="SELECR * FROM `crops` where `Approved`='Yes'";
+        $sql="SELECT * FROM `crops` where `Approved`='Yes'";
         return $this->db_fetch_all($sql);
     }
 
@@ -96,6 +96,14 @@ class crop_class extends db_connection
         $sql="SELECT customer_email FROM customer JOIN crops ON customer.customer_id = crops.customer_id WHERE crops.customer_id = '$customer_id'";
         return $this->db_query($sql);
     }
+
+    function admincropshow(){
+        $sql="SELECT crops.*, customer.customer_email FROM crops JOIN customer ON crops.customer_id = customer.customer_id ORDER BY crops.crop_id DESC";
+        return $this->db_query($sql);
+    }
+
+
+
 
 
 }

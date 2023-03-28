@@ -1,5 +1,9 @@
 <?php
 session_start();
+// if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+//     header('Location:../Login/login.php');
+//  };
+// include_once '../controllers/crop_controller.php';
 
 
 
@@ -177,9 +181,11 @@ session_start();
                                     <?php 
                                         require "../controllers/product_controller.php";
                                         function displayCtr(){
-                                            $crop = get_all_croprecords_ctr();
 
+                                            $crop = get_all_croprecords_ctr();
+                                         
                                             for ($i=0; $i < count($crop); $i++) {
+                                              
                                                 echo "<tr>";
                                                 echo "<td>".$crop[$i]['crop_name']."<td>";
                                                 echo "<td>".$crop[$i]['farmer_name']."<td>";
@@ -195,13 +201,24 @@ session_start();
                                                 echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
                                                 <span class='bi bi-envelope-fill'></span>
                                                 </button>";
+
                                                 echo "<th><form method='POST' action='../actions/updatecrop.php' id= echo 'approve'.$i'>
                                                         <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
                                                         <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
-                                                        <div class='form-group form-check'>
-                                                        <input type='checkbox' class='form-check-input' id='exampleCheck1' if(.$crop[$i]['Approved']=='Yes'){echo 'checked'} name='status' onclick='document.getElementById(echo 'approve'.$i).submit();'>
-                                                        </div>
-                                                    </form></th>";
+                                                        <button type='submit' class='btn btn-toggle' <?php if(".$crop[$i]['Approved']."=='Yes'){ echo 'checked';}?>".$crop[$i]['Approved']."</button>
+                                                        </form></th>";
+
+                                                 echo "<th><form action='../actions/updatecropstatus.php' method='POST'   id= echo 'approve'.$i'>
+                                                        <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
+                                                        <input type='hidden' name='check' value='".$crop[$i]['Approved']."'>
+                                                        <label class='switch'>
+                                                        <input type='checkbox'  if(".$crop[$i]['Approved']."=='Yes')
+                                                            {echo 'checked';}?> name='status' onchange='this.form.submit()'>
+                                                        <span class='slider round'></span>
+                                                        </label>
+                                                        </form>
+                                                        </th>";
+
                                                 echo 
                                                 "
                                                 <div class='modal' id='first-modal$i' data-backdrop='static' data-keyboard='false'>
@@ -229,7 +246,7 @@ session_start();
                                                         </div>
                                                         <div class='modal-footer'>
                                                         <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                        <input type = 'submit' value='update' name='edit_image' class='btn btn-outline-success''>
+                                                        <input type = 'submit' value='update' name='edit_image' class='btn btn-outline-success'>
                                                         <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
                                                         </div>
                                                         </form>
@@ -247,22 +264,21 @@ session_start();
                                                     <h4 class='modal-title'>Second Modal</h4>
                                                     </div>
                                                     <div class='modal-body'>
-                                                    <form>
+                                                    <form method='POST' action='../actions/mail.php'>
                                                         <div class='form-group'>
                                                             <label for='recipient-name' class='col-form-label'>Recipient:</label>
-                                                            <input type='text' class='form-control' id='recipient-name'>
-                                                            <input type='hidden' name='crop_id' value='".$crop[$i]['crop_']."'>
+                                                            <input type='text' class='form-control' id='recipient-name' value='".$crop[$i]['customer_email']."' name='customer_email'>
+                                                            <input type='hidden' name='crop_id' value='".$crop[$i]['crop_id']."'>
                                                         </div>
-                                                        <div class='form-group'>
-                                                            <label for='message-text' class='col-form-label'>Message:</label>
-                                                            <textarea class='form-control' id='message-text'></textarea>
-                                                        </div>
+
+                                                        <div class='modal-footer'>
+                                                        <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                        <input type='hidden' name='customer_email' value='".$crop[$i]['customer_email']."'>
+                                                        <button type='submit' class='btn btn-outline-success' name='send_mail'>Send Email</button>
+                                                    </div>
                                                      </form>
                                                     </div>
-                                                    <div class='modal-footer'>
-                                                    <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                    <button type='button' class='btn btn-primary'>Send message</button>
-                                                    </div>
+                                                   
                                                 </div>
                                                 </div>
                                             </div>

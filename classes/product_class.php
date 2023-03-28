@@ -21,13 +21,29 @@ class crop_class extends db_connection
         );
     }
 
+    // Select all crops
     function get_all_croprecords_cls()
     {
         // return true or false
         return $this->db_query(
-            "SELECT * from crops"
+            "SELECT crops.*, customer.customer_email 
+            FROM crops 
+            JOIN customer ON crops.customer_id = customer.customer_id 
+            ORDER BY crops.crop_id DESC"
         );
     }
+
+// Show all crops
+    function showall_crops(){
+        $sql = "SELECT crops.*, customer.customer_email FROM crops JOIN customer ON crops.customer_id = customer.customer_id WHERE `Approved`='No' ORDER BY crops.crop_id DESC;";
+    }
+
+// Updates the status of the crop to change the approved value
+    function updatestatus_crops($crop_id,$status){
+        $sql ="UPDATE `crops` set `Approved`='$status' where `crop_id`='$crop_id';";
+    }
+
+
 
     function get_all_officercrop_cls($customer_id)
     {
@@ -138,6 +154,19 @@ class crop_class extends db_connection
         JOIN entries ON customer.customer_id = entries.customer_id
         WHERE entries.entry_id = $email";
     }
+
+    function admincropshow(){
+        $sql = "SELECT crops.*, customer.customer_email 
+        FROM crops 
+        JOIN customer ON crops.customer_id = customer.customer_id 
+        ORDER BY crops.crop_id DESC";
+    }
+
+  
+
+
+
+
 
 }
 ?>

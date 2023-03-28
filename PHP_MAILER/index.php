@@ -7,7 +7,7 @@
   # Version: 1.0					  #
   # Website: www.BroExperts.com 	  #
   #####################################*/
-
+include_once '../controllers/crop_controller.php';
 //Include required PHPMailer files
 	require 'includes/PHPMailer.php';
 	require 'includes/SMTP.php';
@@ -43,12 +43,12 @@
 //Email body
 	$mail->Body = "<h1>This is HTML h1 Heading</h1></br><p>This is html paragraph</p>";
 //Add recipient
-	$mail->addAddress('$customer_email');
+	$mail->addAddress(Sendemail_ctr($customer_id));
 //Finally send email
 	if ( $mail->send() ) {
 		echo "Email Sent..!";
 	}else{
-		echo "Message could not be sent. Mailer Error: "{$mail->ErrorInfo};
+		echo'Email could not be sent. Error: ' . $mail->ErrorInfo;
 	}
 //Closing smtp connection
 	$mail->smtpClose();
