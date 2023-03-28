@@ -14,6 +14,8 @@ function insert_order_ctr($custId,$invoice,$date, $orderStatus){
   return $select->insert_order_cls($custId,$invoice,$date, $orderStatus);
 }
 
+
+
 function orderid_ctr(){
   $select= new cart_class();
   return $select->orderid_cls();
@@ -24,9 +26,9 @@ function orderdate_ctr(){
   return $select->orderdate_cls();
 }
 
-function insert_payment_ctr($p_amount, $custId, $orderid, $orderdate){
+function insert_payment_ctr($order_amount, $custId, $order_date,$payMode){
   $select= new cart_class();
-  return $select->insert_payment_cls($p_amount, $custId, $orderid, $orderdate);
+  return $select->insert_payment_cls($order_amount, $custId, $order_date,$payMode);
 }
 
 //--SELECT--//

@@ -27,8 +27,8 @@ class cart_class extends db_connection{
 	}
 
 	//--INSERT--//
-	public function insert_payment_cls($p_amount, $custId, $orderid, $orderdate){
-		$sql = "INSERT INTO `payment`(`amt`, `customer_id`, `order_id`,`currency`, `payment_date`) VALUES ('$p_amount', '$custId', '$orderid', 'GHS', '$orderdate')";
+	public function insert_payment_cls($order_amount, $custId, $order_date, $payMode){
+		$sql = "INSERT INTO `payment`(`amount`, `customer_id`, `currency`, `payment_date`, `paymentMode`) VALUES ('$order_amount', '$custId', 'GHS', '$order_date', '$payMode')";
 		return $this-> db_query($sql);
 	}
 

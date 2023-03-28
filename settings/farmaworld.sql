@@ -61,7 +61,7 @@ CREATE TABLE `orderdetails` (
   `crop_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `customer_email`varchar(50) NOT NULL,
-  `amount`double NOT NULL,
+  `amount`double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -192,6 +192,7 @@ ALTER TABLE `payment`
   ADD KEY `customer_id` (`customer_id`),
   ADD KEY `order_id` (`order_id`);
 
+
 --
 -- Indexes for table `crops`
 --
@@ -260,7 +261,18 @@ ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
+
+DELIMITER $$
+CREATE TRIGGER payment_insert_trigger BEFORE INSERT ON `payment`
+FOR EACH ROW
+BEGIN
+    INSERT INTO `orders` (`orders_id`) VALUES (NULL);
+    SET NEW.order_id = LAST_INSERT_ID();
+END $$
+DELIMITER ;
+
 --
+
 -- Constraints for table `crops`
 --
 -- ALTER TABLE `crops`

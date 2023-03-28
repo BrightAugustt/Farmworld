@@ -5,15 +5,15 @@ include_once '../controllers/cart_controller.php';
 if (isset($_POST['paybox_momoSubmit'])) {
 	
 	// $order_id = $_POST['order_id'];
-	$customer_id = get_id();
+	$custId = get_id();
 	$email = $_POST['customer_email'];
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
-	$order_date = date('Y/m/d');
-	$payMode = "Mobile Money";
+	$order_date = date('Y-m-d');
+	$payMode = "Test";
 	$network = $_POST['network'];
 
-	// var_dump($email,$number,$network,$customer_id ,$order_amount);
+	// var_dump($email,$number,$network,$custId ,$order_amount);
 
 	$curl = curl_init();
 
@@ -40,7 +40,7 @@ if (isset($_POST['paybox_momoSubmit'])) {
 			// 'payerName' => 'John Doe',
 			'payerPhone' => '0',
 			'payerEmail' => $email,
-			'customer_id' => $customer_id,
+			'cust$custId' => $custId,
 			'callback_url' => ''
 		),
 	));
@@ -50,28 +50,26 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	curl_close($curl);
 
 	// Process the payment response
-	// $result = array();
-	// parse_str($response, $result);
 	$result = json_decode($response, true);
 	echo $result['status'];
 
-	// if ($result['status'] == 'Pending') {
-	// 	$order = insert_order_ctr($customer_id, $p_invoice, $order_date, $orderStatus);
+	if ($result['status'] == 'Success') {
+		$order = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
 
-	// 	if ($order) {
-	// 		echo $order;
-	// 		// Payment successful
-	// 		// Redirect the user to the success URL
-	// 		// header('Location: ' . $params['pg_success_url']);
-	// 	} else {
-	// 		echo "Order insert failed";
-	// 	}
-	// } else {
-	// 	// Payment failed
-	// 	// Redirect the user to the failure URL
-	// 	// header('Location: ' . $params['pg_failure_url']);
-	// 	echo "API call failed";
-	// }
+		if ($order) {
+			echo $order;
+			// Payment successful
+			// Redirect the user to the success URL
+			// header('Location: ' . $params['pg_success_url']);
+		} else {
+			echo "Order insert failed";
+		}
+	} else {
+		// Payment failed
+		// Redirect the user to the failure URL
+		// header('Location: ' . $params['pg_failure_url']);
+		echo "API call failed";
+	}
 }
 
 
