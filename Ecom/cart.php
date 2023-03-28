@@ -139,12 +139,12 @@ $api_key = "e476bf07-dffb-43bc-a8ae-a42be8be9c02";
 
                                                         <div class='col-12'>
                                                             <label>Total Amount</label>
-                                                            <input type='text' name='customer_email' id='customer_email' class='form-control' placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
+                                                            <input type='text' name='order_amount' id='order_amount' class='form-control' placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
                                                         </div>
 
                                                         <div class='form-group mt-3'>
-                                                            <button type="submit" name="paybox_momoSubmit" class="btn btn-success" id="payButton">Pay</button>
-                                                            <!-- <input type='submit' class='btn btn-success' name='addcrop' value='Submit'> -->
+                                                            <!-- <button type="submit" name="paybox_momoSubmit" class="btn btn-success" id="payButton">Pay</button> -->
+                                                            <input type='submit' class='btn btn-success' name='paybox_momoSubmit' value='Submit'>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -165,6 +165,13 @@ $api_key = "e476bf07-dffb-43bc-a8ae-a42be8be9c02";
 </body>
 <!-- embed script -->
 <script>
+    const payButton = document.getElementById('paymomoButton');
+
+    payButton.addEventListener('click', () => {
+        if ($custId == NULL) { // replace 'userLoggedIn' with your logic to check if the user is logged in
+            window.location.href = '../Login/login.php'; // replace '/login' with the URL of your login page
+        }
+    });
     // Get references to the paymomoButton and paycardButton elements
     document.getElementById("paymomoButton").addEventListener("click", function(event) {
         event.preventDefault(); // prevent the default behavior of form submission
@@ -176,7 +183,7 @@ $api_key = "e476bf07-dffb-43bc-a8ae-a42be8be9c02";
     const modal = document.getElementById("second-modal");
     const form = document.getElementById("paymentForm");
 
-   
+
     // Add a click event listener to the paymomoButton
     paymomoButton.addEventListener("click", () => {
         // Display the modal

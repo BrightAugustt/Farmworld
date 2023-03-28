@@ -59,7 +59,9 @@ CREATE TABLE `customer` (
 CREATE TABLE `orderdetails` (
   `order_id` int(11) NOT NULL,
   `crop_id` int(11) NOT NULL,
-  `qty` int(11) NOT NULL
+  `qty` int(11) NOT NULL,
+  `customer_email`varchar(50) NOT NULL,
+  `amount`double NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

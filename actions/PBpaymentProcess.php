@@ -3,15 +3,17 @@ require("../settings/core.php");
 include_once '../controllers/cart_controller.php';
 
 if (isset($_POST['paybox_momoSubmit'])) {
-	$order_id = $_POST['order_id'];
-	$customer_id = $_POST['customer_id'];
+	
+	// $order_id = $_POST['order_id'];
+	$customer_id = get_id();
 	$email = $_POST['customer_email'];
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
 	$order_date = date('Y/m/d');
-	$payMode = $_POST['mode'];
+	$payMode = "Mobile Money";
 	$network = $_POST['network'];
 
+	// var_dump($email,$number,$network,$customer_id ,$order_amount);
 
 	$curl = curl_init();
 
@@ -27,7 +29,7 @@ if (isset($_POST['paybox_momoSubmit'])) {
 		CURLOPT_CUSTOMREQUEST => 'POST',
 		CURLOPT_POSTFIELDS =>
 		array(
-			'order_id' => $order_id,
+			// 'order_id' => $order_id,
 			'currency' => 'GHS',
 			'amount' => $order_amount,
 			'mode' => $payMode,
@@ -46,28 +48,30 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	$response = curl_exec($curl);
 
 	curl_close($curl);
-	echo $response;
-
 
 	// Process the payment response
-	$result = array();
-	parse_str($response, $result);
+	// $result = array();
+	// parse_str($response, $result);
+	$result = json_decode($response, true);
+	echo $result['status'];
 
-	if ($result['status'] == 'Success') {
-		$order = insert_order_ctr($customer_id, $p_invoice, $order_date, $orderStatus);
+	// if ($result['status'] == 'Pending') {
+	// 	$order = insert_order_ctr($customer_id, $p_invoice, $order_date, $orderStatus);
 
-		if ($order) {
-			// Payment successful
-			// Redirect the user to the success URL
-			header('Location: ' . $params['pg_success_url']);
-		} else {
-			echo "Order insert failed";
-		}
-	} else {
-		// Payment failed
-		// Redirect the user to the failure URL
-		header('Location: ' . $params['pg_failure_url']);
-	}
+	// 	if ($order) {
+	// 		echo $order;
+	// 		// Payment successful
+	// 		// Redirect the user to the success URL
+	// 		// header('Location: ' . $params['pg_success_url']);
+	// 	} else {
+	// 		echo "Order insert failed";
+	// 	}
+	// } else {
+	// 	// Payment failed
+	// 	// Redirect the user to the failure URL
+	// 	// header('Location: ' . $params['pg_failure_url']);
+	// 	echo "API call failed";
+	// }
 }
 
 
