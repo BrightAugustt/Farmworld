@@ -2,17 +2,15 @@
 require("../settings/core.php");
 include_once '../controllers/cart_controller.php';
 
-if (isset($_POST['payment_amount'])) {
+if (isset($_POST['paybox_momoSubmit'])) {
 	$order_id = $_POST['order_id'];
 	$customer_id = $_POST['customer_id'];
-	$merchant_id = $_POST['merchant_id'];
 	$email = $_POST['customer_email'];
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
 	$order_date = date('Y/m/d');
 	$payMode = $_POST['mode'];
 	$network = $_POST['network'];
-
 
 
 	$curl = curl_init();

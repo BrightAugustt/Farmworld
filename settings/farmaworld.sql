@@ -101,6 +101,7 @@ CREATE TABLE `payment` (
   `customer_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `currency` text NOT NULL,
+  `paymentMode` enum("Test", "Cash", "Mobile Money", "Card"),
   `payment_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
