@@ -73,7 +73,7 @@ function update_statuscrops_ctr($crop_id,$status)
     //check if the method worked
     if ($item_records) {
         //return all the data
-        return $item_object->db_fetch_all();
+        return $item_object->db_fetch_one();
     } else {
         //no data found
         return false;
