@@ -6,8 +6,12 @@ include("../controllers/product_controller.php");
 if (isset($_POST['check'])) {
 
     $crop_id=$_POST['crop_id'];
-    $status=$_POST['Approved'];
-    if($_POST['check'] == "No"){
+    $fstatus=$_POST['check'];
+    $status;
+
+
+    var_dump($crop_id,$fstatus);
+    if($fstatus == "No"){
         $status="Yes";
     }else {
         $status="No";
