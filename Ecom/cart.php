@@ -9,9 +9,6 @@ $all_cartproducts = view_cart_ctr($custId);
 $ip_add = getIPAddress();
 $total = 0;
 
-$merchant_id = "#e476bf07-dffb-43bc-a8ae-a42be8be9c02";
-$api_key = "e476bf07-dffb-43bc-a8ae-a42be8be9c02";
-
 // $transaction_id = $_POST['transaction_id'];
 // $status = $_POST['status'];
 ?>
@@ -35,7 +32,8 @@ $api_key = "e476bf07-dffb-43bc-a8ae-a42be8be9c02";
         </style> -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <script defer src="../js/activepage.js"></script>
+    <script defer src="../js/modal.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
