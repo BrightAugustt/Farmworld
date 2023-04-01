@@ -205,24 +205,11 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="search.php" method="POST">
-                                <!-- <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div> -->
-                                <input type="text" placeholder="search for specific products">
+                            <form action="crop_search.php" method="POST">
+                                <input type="text" placeholder="I am looking for.....">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        <!-- <div class="hero__search__phone"> -->
-                            <!-- <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div> -->
-                            <!-- <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div> -->
-                        <!-- </div> -->
                     </div>
                     <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
                         <div class="hero__text">
@@ -239,117 +226,74 @@
     
     <!-- Categories Section Begin -->
     <section class="featured spad">
+                        
         <div class="container try">
             <div class="row">
                 <div class="col-lg-12">
+                    
                     <div class="section-title">
                         <h2>Recently Added</h2>
                     </div>
+                    
                     <div class="row style=size:10px;">
+                        
                         <div class="categories__slider owl-carousel style=size:10px;">
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                <a href="single_page.php">
-                                    <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                    </div>
-                                    <div class="featured__item__texts">
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>GHC30.00</h5>
-                                    </div>
-                                </a>
-                            </div>
+                        <?php
+                            $p_list = get_all_croprecords_ctr();
+                            foreach ($p_list as $apat) {
 
+                                // print_r($apat);
+    
+                                $cropname = $apat['crop_name'];
+                                $cropcat = $apat['crop_cat'];
+                                $qtyavail = $apat['qty'];
+                                $price = $apat['crop_price'];
+                                $desc = $apat['crop_desc'];
+                                //Displaying image
+                                $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
+                            
+                        ?>
                             <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+                                
                                 <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                    <a href="single_page.php">
-                                        <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
+                                    <a href="single_page.php?crop_id=<?php echo($apat['crop_id'])?>">
+                                        <div class="featured__item__pics categories__item set-bg set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
                                         </div>
                                         <div class="featured__item__texts">
-                                            <h6><a href="#">Crab Pool Security</a></h6>
-                                            <h5>GHC30.00</h5>
+                                            <h6><a href="#"><?php echo $cropname; ?></a></h6>
+                                            <h5>GHc<?php echo $price; ?></h5>
                                         </div>
                                     </a>
                             </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                    <a href="single_page.php">
-                                        <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                        </div>
-                                        <div class="featured__item__texts">
-                                            <h6><a href="#">Crab Pool Security</a></h6>
-                                            <h5>GHC30.00</h5>
-                                        </div>
-                                    </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                    <a href="single_page.php">
-                                        <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                        </div>
-                                        <div class="featured__item__texts">
-                                            <h6><a href="#">Crab Pool Security</a></h6>
-                                            <h5>GHC30.00</h5>
-                                        </div>
-                                    </a>
+                            <?php
+                            }?>
                             </div>
                             
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                    <a href="single_page.php">
-                                        <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                        </div>
-                                        <div class="featured__item__texts">
-                                            <h6><a href="#">Crab Pool Security</a></h6>
-                                            <h5>GHC30.00</h5>
-                                        </div>
-                                    </a>
-                            </div>
-                            </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
-            <div class="row featured__filter">
-
-                <div>
-
-                </div>
-              
     </section>
+    
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
     <section class="featured spad">
         <div class="container try">
+            <?php
+                $p_list = get_all_croprecords_ctr();
+            ?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Featured Product</h2>
                     </div>
-                    <!-- <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
+              
             <div class="row featured__filter">
-
-                <div>
-
-                </div>
-                <?php
-                $p_list = get_all_croprecords_ctr();
-                ?>
-                <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
-                    <div class="featured__item">
-                        <?php
+            <?php
                         foreach ($p_list as $apat) {
 
                             // print_r($apat);
@@ -360,9 +304,15 @@
                             $price = $apat['crop_price'];
                             $desc = $apat['crop_desc'];
                             //Displaying image
-                            $pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200 ");
+                            $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
                         
-                        ?>
+                    ?>
+                <div>
+
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
+                    <div class="featured__item">
+                        
                         <div class="featured__item__pic set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
                             <ul class="featured__item__pic__hover">
                                 <li><a href="favourites.php"><i class="fa fa-heart">
@@ -373,9 +323,9 @@
                                     </i></a>
                                 </li>
                                 <li>
-                                    <form action="../actions/addtoCart.php" method="POST">
+                                    <form action="singleCrop.php" method="GET">
                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
-                                            <button type="submit" name="addcart" class="fa fa-eye image button"></button>
+                                            <button type="submit" name="view" class="fa fa-eye image button"></button>
                                     </form>
                                 </li>
                                 <li>
@@ -438,28 +388,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
+            
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>

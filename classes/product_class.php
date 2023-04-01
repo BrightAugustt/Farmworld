@@ -35,7 +35,7 @@ class crop_class extends db_connection
 
 // Show all crops
     function showall_crops(){
-        $sql = "SELECT crops.*, customer.customer_email FROM crops JOIN customer ON crops.customer_id = customer.customer_id WHERE `Approved`='No' ORDER BY crops.crop_id DESC;";
+        $sql = "SELECT crops.*, customer.customer_email FROM crops JOIN customer ON crops.customer_id = customer.customer_id WHERE `Approved`='Yes' ORDER BY crops.crop_id DESC;";
     }
 
 // Updates the status of the crop to change the approved value
