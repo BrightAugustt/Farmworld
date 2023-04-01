@@ -114,6 +114,14 @@ session_start();
                                 Records
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="allcustomers.php">
+                                <span data-feather="file"></span>
+                                <span id="boot-icon" class="bi bi-people record" style="font-size: 25px;"></span>
+                                Clients
+                            </a>
+                        </li>
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
@@ -163,18 +171,21 @@ session_start();
                         <th></th>
                         <th>Farmer</th>
                         <th></th>
-                        <th>Farmer Contact</th>
+                        <th> Contact</th>
                         <th></th>
                         <th>Quantity</th>
                         <th></th>
                         <th>Crop Price/kg</th>
                         <th></th>
-                        <th>Crop Image</th>
-                        <th>Crop Category</th>
+                        <th>Image</th>
+                        <th>Category</th>
                         <th></th>
-                        <th>Crop Description</th>
+                        <th> Description</th>
+                        <th></th>
+                        <th>Status</th>
                         <th></th>
                         <th>Actions</th>
+                        <th></th>
                         </tr>
                     </thead>
                                     <tbody>
@@ -192,9 +203,14 @@ session_start();
                                                 echo "<td>".$crop[$i]['farmer_contact']."<td>";
                                                 echo "<td>".$crop[$i]['qty']."<td>";
                                                 echo "<td>".$crop[$i]['crop_price']."<td>";
-                                                echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px'></td>";
+                                                echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px' width='90%'></td>";
                                                 echo "<td>".$crop[$i]['crop_cat']."<td>";
                                                 echo "<td>".$crop[$i]['crop_desc']."<td>";
+                                                echo "<th><form method='POST' action='../actions/updatecropstatus.php' id='approve'.$i'>
+                                                        <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
+                                                        <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
+                                                        <button type='submit' class='btn btn-toggle' <?php if(".$crop[$i]['Approved']."=='Yes'){ echo 'checked';}?>".$crop[$i]['Approved']."</button>
+                                                        </form></th>";
                                                 echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
                                                 <span class='bi bi-card-image'></span> 
                                                 </button></th>";
@@ -202,11 +218,6 @@ session_start();
                                                 <span class='bi bi-envelope-fill'></span>
                                                 </button>";
 
-                                                echo "<th><form method='POST' action='../actions/updatecropstatus.php' id='approve'.$i'>
-                                                        <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
-                                                        <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
-                                                        <button type='submit' class='btn btn-toggle' <?php if(".$crop[$i]['Approved']."=='Yes'){ echo 'checked';}?>".$crop[$i]['Approved']."</button>
-                                                        </form></th>";
 
                                               
 

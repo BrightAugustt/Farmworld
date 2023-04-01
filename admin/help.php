@@ -100,6 +100,14 @@ session_start();
                                 Records
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="allcustomers.php">
+                                <span data-feather="file"></span>
+                                <span id="boot-icon" class="bi bi-people record" style="font-size: 25px;"></span>
+                                Clients
+                            </a>
+                        </li>
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">

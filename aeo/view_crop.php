@@ -176,7 +176,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                         <th></th>
                         <th>Farmer Contact</th>
                         <th></th>
-                        <th>Farmer Contact</th>
+                        <th>Farm Size</th>
                         <th></th>
                         <th>Quantity</th>
                         <th></th>
@@ -208,7 +208,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                                 echo "<td>".$crop[$i]['farm_size']."<td>";
                                                 echo "<td>".$crop[$i]['qty']."<td>";
                                                 echo "<td>".$crop[$i]['crop_price']."<td>";
-                                                echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px'></td>";
+                                                echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px' width='100%'></td>";
                                                 echo "<td>".$crop[$i]['crop_cat']."<td>";
                                                 echo "<td>".$crop[$i]['crop_desc']."<td>";
                                                 echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
