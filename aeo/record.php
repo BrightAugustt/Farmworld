@@ -141,8 +141,8 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div>
-                    <h1 class="h2">Transactions</h1>
-                    <p>A complete list of all crops sold.</p>
+                    <h1 class="h2">Records</h1>
+                    <p>List Of All Crops Uploaded That Are Sold Out.</p>
                     </div>
                     
                     <div class="btn-toolbar mb-2 mb-md-0">
