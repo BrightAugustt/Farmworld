@@ -92,21 +92,20 @@ session_start();
                                 </i>Products
                             </a>
                         </li>
-                      
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px; color:black;"></span></i>Crops
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
-                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
-                            </div>
-                        </li> -->
+
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
                                 <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px;"></span>
                                 Records
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="allcustomers.php">
+                                <span data-feather="file"></span>
+                                <span id="boot-icon" class="bi bi-people record" style="font-size: 25px;"></span>
+                                Clients
                             </a>
                         </li>
                         <hr>

@@ -93,20 +93,19 @@ session_start();
                             </a>
                         </li>
                       
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px; color:black;"></span></i>Crops
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
-                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
-                            </div>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
                                 <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px;"></span>
                                 Records
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="allcustomers.php">
+                                <span data-feather="file"></span>
+                                <span id="boot-icon" class="bi bi-people record" style="font-size: 25px;"></span>
+                                Clients
                             </a>
                         </li>
                         <hr>
@@ -141,36 +140,46 @@ session_start();
 
                 <h5 class="heading">Overview</h5>
                 <div class="row over">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="card over">
                         <div class="card-body over">
                             <div>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+                                <span id="boot-icon" class="bi bi-cash-stack" style="font-size: 20px; color:black;"></span>
                             </div>
 
                             <div>
-                                <h5 class="card-title">Revenue</h5>
-                                <p class="card-text">Revenue obtained from selling the produce of all farmers on platform.</p>
+                                <h5 class="card-title">Sales</h5>
+                                <p class="card-text">Money obatined from sales of farm produce of farmers</p>
                             </div>
                         </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="card">
                         <div class="card-body">
 
-                        <span id="boot-icon"class="bi bi-cash help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <span id="boot-icon"class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">AEOs</h5>
+                            <p class="card-text">Agriculture Extension Officers regsitered on the platform.</p>
                            
                         </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="card">
                         <div class="card-body">
-                        <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">Customers</h5>
+                            <p class="card-text">Consumers regsitered on the platform.</p>
+                            
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="card">
+                        <div class="card-body">
+                        <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 20px; color:black;"></span><h5 class="card-title">Products</h5>
+                            <p class="card-text">Products submitted by AEOs to be sold on the platform.</p>
                             
                         </div>
                         </div>
@@ -182,7 +191,7 @@ session_start();
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Transactions</h3>
+                                    <h3 class="pull-left" style="font-size: 24px;">Orders</h3>
                                     <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
                                 </div>
                                 <table class="table">

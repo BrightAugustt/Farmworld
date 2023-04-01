@@ -3,14 +3,13 @@ session_start();
 if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
     header('Location:../Login/login.php');
  };
- $cid = $_SESSION['customer_id'];
- echo $cid;
+//  $cid = $_SESSION['customer_id'];
+//  echo $cid;
 //  $customer = $_SESSION['customer_email'];
 //  echo $customer;
 //  $cust = $_SESSION['user_role'];
 //  echo $cust;
 $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
-
 
 ?>
 
@@ -166,7 +165,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                         <th></th>
                         <th>Farmer Contact</th>
                         <th></th>
-                        <th>Farmer Contact</th>
+                        <th>Farm Size</th>
                         <th></th>
                         <th>Quantity</th>
                         <th></th>
@@ -176,15 +175,17 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                         <th>Crop Category</th>
                         <th></th>
                         <th>Crop Description</th>
-                        <th></th>
-                        <th>Actions</th>
+                       
                         </tr>
                     </thead>
                                     <tbody>
                                     <?php 
                                         require "../controllers/product_controller.php";
                                         function displayCtr(){
-                                            $crop = get_all_croprecords_ctr();
+                                            $customer_id= $_SESSION['customer_id'];
+                                            
+                                            // $customer_id = $_GET['customer_id'];
+                                            $crop = get_all_officercrop_ctr($customer_id);
 
                                             for ($i=0; $i < count($crop); $i++) {
                                                 echo "<tr>";
@@ -197,15 +198,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                                 echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px'></td>";
                                                 echo "<td>".$crop[$i]['crop_cat']."<td>";
                                                 echo "<td>".$crop[$i]['crop_desc']."<td>";
-                                                echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
-                                                <span class='bi bi-card-image'></span> 
-                                                </button></th>";
-                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
-                                                <span class='bi bi-pen'></span>
-                                                </button>";
-                                                echo " <th><button type='button' class='btn-second-modal btn btn-outline-success btn-lg' style='font-size:10px;'>
-                                                <span class='bi bi-trash'></span>
-                                                </button>";
+                                              
                                             }
                                         }
                                         displayCtr();
