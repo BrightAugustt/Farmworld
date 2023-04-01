@@ -10,7 +10,7 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
 	$order_date = date('Y-m-d');
-	$payMode = "Test";
+	$payMode = "Mobile Money";
 	$network = $_POST['network'];
 
 	// var_dump($email,$number,$network,$custId ,$order_amount);
