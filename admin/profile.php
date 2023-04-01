@@ -55,9 +55,9 @@ session_start();
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@ session_start();
         </button>
         <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -125,7 +125,7 @@ session_start();
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -136,90 +136,48 @@ session_start();
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        
-
-                <h5 class="heading">Overview</h5>
-                <div class="row over">
-                    <div class="col-sm-4">
-                        <div class="card over">
-                        <div class="card-body over">
-                            <div>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
-                            </div>
-
-                            <div>
-                                <h5 class="card-title">Revenue</h5>
-                                <p class="card-text">Revenue obtained from selling the produce of all farmers on platform.</p>
+                <div class="container rounded bg-white mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-3 border-right">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                                <button type='button' class='mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
+                                    <span class='bi bi-card-image'></span></button>
+                                <span class="font-weight-bold">Edogaru</span>
+                                <span class="text-black-50">edogaru@mail.com.my</span><span> </span>
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                        <div class="card-body">
-
-                        <span id="boot-icon"class="bi bi-cash help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                           
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="card">
-                        <div class="card-body">
-                        <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Transactions</h3>
-                                    <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
+                        <div class="col-md-5 border-right">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4 class="text-right">Profile Settings</h4>
                                 </div>
-                                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Crop Name</th>
-                        <th>Farmer</th>
-                        <th>Quantity</th>
-                        <th>Crop Price/kg</th>
-                        <th>Date</th>
-                        </tr>
-                    </thead>
-                                    <tbody>
-                                        <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
-
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_date'] . "</td>
-                                                        <td>";
-                                            "</td>";
-                                            "</tr>";
-                                        }
-                                        ?>
-                                    </tbody>
-                    </table>
+                                <div class="row mt-2">
+                                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 py-5">
+                                <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" placeholder="enter email address" value=""></div> <br>
+                                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Area/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                                </div>
+                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-            </main>
         </div>
+    </div>
+    </main>
+    </div>
     </div>
 
 
