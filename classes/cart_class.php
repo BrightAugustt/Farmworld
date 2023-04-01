@@ -72,7 +72,7 @@ class cart_class extends db_connection{
 		$sql = "SELECT p.*
 		FROM crops p
 		JOIN cart c ON p.crop_id = c.crop_id
-		WHERE c.customer_id = '$custId' AND c.orders_id = '$order_id'";
+		WHERE c.customer_id = '$custId' AND c.order_id = '$order_id'";
 		return $this->fetch($sql);		
 	}
 

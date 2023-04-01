@@ -141,6 +141,7 @@ $total = 0;
                                                         </div>
 
                                                         <div class='form-group mt-3'>
+                                                            <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
                                                             <!-- <button type="submit" name="paybox_momoSubmit" class="btn btn-success" id="payButton">Pay</button> -->
                                                             <input type='submit' class='btn btn-success' name='paybox_momoSubmit' value='Submit'>
                                                         </div>

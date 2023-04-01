@@ -266,7 +266,7 @@ DELIMITER $$
 CREATE TRIGGER payment_insert_trigger BEFORE INSERT ON `payment`
 FOR EACH ROW
 BEGIN
-    INSERT INTO `orders` (`orders_id`) VALUES (NULL);
+    INSERT INTO `orders` (`order_id`) VALUES (NULL);
     SET NEW.order_id = LAST_INSERT_ID();
 END $$
 DELIMITER ;
