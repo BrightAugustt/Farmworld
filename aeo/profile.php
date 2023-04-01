@@ -142,7 +142,6 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                 <span class="font-weight-bold">Edogaru</span>
                                 <span class="text-black-50">edogaru@mail.com.my</span><span> </span>
                             </div>
-
                         </div>
                         <div class="col-md-5 border-right">
                             <div class="p-3 py-5">
@@ -156,24 +155,18 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                 <div class="row mt-3">
                                     <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
                                     <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                                    <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                                    <div class="col-md-12"><label class="labels">Region</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                                    <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                                    <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" placeholder="enter email address" value=""></div>
-                                    <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                                </div>
-                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-3 py-5">
-                                <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
+                                <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" placeholder="enter email address" value=""></div> <br>
                                 <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Area/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                                </div>
+                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                             </div>
                         </div>
                     </div>
