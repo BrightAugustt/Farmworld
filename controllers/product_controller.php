@@ -130,6 +130,24 @@ function get_all_orderrecords_ctr()
     }
 }
 
+function get_all_fruit_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->get_all_fruit();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
 
 function get_one_croprecord_ctr($cid)
 {

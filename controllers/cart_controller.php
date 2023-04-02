@@ -103,4 +103,11 @@ function del_cart_ctr($custId){
   return $select->del_cart_cls($custId);
 }
 
+
+// count cart
+function count_cart_ctr($cid,$ip){
+  $select= new cart_class();
+  return $select->count_cart($cid,$ip);
+}
+
 ?>

@@ -110,4 +110,13 @@ class cart_class extends db_connection{
 		";
 		return $this-> fetchOne($sql);
 	 }
+
+	 function count_cart($cid,$ip){
+        $sql = "SELECT SUM(`qty`) as `cart_num` FROM `cart` WHERE `customer_id`='$cid'";
+		return $this-> db_fetch_one($sql);
+     }
+	  
 }
+
+
+

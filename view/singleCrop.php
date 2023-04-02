@@ -266,7 +266,7 @@ include("../controllers/product_controller.php");
                             <img class="product__details__pic__item--large"
                                 src='../images/crops/<?php echo $apat['crop_image']; ?>' alt="">
                         </div>
-                        <div class="product__details__pic__slider owl-carousel">
+                        <!-- <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"
                                 src="img/product/details/thumb-1.jpg" alt="">
                             <img data-imgbigurl="img/product/details/product-details-3.jpg"
@@ -275,7 +275,7 @@ include("../controllers/product_controller.php");
                                 src="img/product/details/thumb-3.jpg" alt="">
                             <img data-imgbigurl="img/product/details/product-details-4.jpg"
                                 src="img/product/details/thumb-4.jpg" alt="">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -412,66 +412,62 @@ include("../controllers/product_controller.php");
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            <?php
+                        $p_list = get_all_fruit_ctr();
+                        foreach ($p_list as $apat) {
+
+                            // print_r($apat);
+
+                            $cropname = $apat['crop_name'];
+                            $cropcat = $apat['crop_cat'];
+                            $qtyavail = $apat['qty'];
+                            $price = $apat['crop_price'];
+                            $desc = $apat['crop_desc'];
+                            //Displaying image
+                            $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
+                        
+                    ?>
+                <div>
+
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
+                    <div class="featured__item">
+                        
+                        <div class="featured__item__pic set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="favourites.php"><i class="fa fa-heart">
+                                    <form action="singleCrop.php" method="POST">
+                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
+                                            <!-- <a> <button type="submit" name="view"><i class="fa fa-retweet"></i></button></a> -->
+                                    </form>
+                                    </i></a>
+                                </li>
+                                <li>
+                                    <form action="singleCrop.php" method="GET">
+                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
+                                            <button type="submit" name="view" class="fa fa-eye image button"></button>
+                                    </form>
+                                </li>
+                                <li>
+                                  
+                                        <form action="../actions/addtoCart.php" method="POST">
+                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
+                                            <button type="submit" name="addcart" class="fa fa-shopping-cart image button"></button>
+                                        </form>
+                                    
+                                </li>
                             </ul>
                         </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                        <div class="featured__item__text">
+                            <h6><?php echo $cropname; ?></h6>
+                            <h5>GHc<?php echo $price; ?></h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
+
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>

@@ -66,6 +66,24 @@ class crop_class extends db_connection
         );
     }
 
+    function get_all_fruit()
+    {
+        // return true or false
+        
+        return $this->db_query(
+            "SELECT * from `crops` WHERE `crop_cat`='Fruit';"
+        );
+    }
+
+    function get_all_vegetavle()
+    {
+        // return true or false
+        
+        return $this->db_query(
+            "SELECT * from `crops` WHERE `crop_cat`='Vegetable';"
+        );
+    }
+
     function get_all_orderrecords_cls()
     {
         // return true or false
