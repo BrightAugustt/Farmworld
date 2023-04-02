@@ -17,18 +17,21 @@ function sumAeo(){
     $result=aeo_count_ctr();
     
     if ($result!=false) {
-     echo $result['aeo'];
+     echo $result;
    }
    else{
     echo "0";
   }
 }
 
+echo aeo_count_ctr();
+
 function sumCustomers(){
     $result=customer_count_ctr();
     
+    
     if ($result!=false) {
-     echo $result['customer'];
+     echo $result['clients'];
    }
    else{
     echo "0";

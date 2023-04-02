@@ -11,13 +11,13 @@ function addCrop_ctr($crop_name,$customer_id,$farmer_name,$farmer_contact,$farm_
     return $add_crop->add_crop($crop_name,$customer_id,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc);
 }
 
-function add_catrecord_ctr($catname)
-{
-    // create an instance of the crop class
-    $add_cat = new crop_class();
+// function add_catrecord_ctr($catname)
+// {
+//     // create an instance of the crop class
+//     $add_cat = new crop_class();
 
-    return $add_cat->add_cat($catname);
-}
+//     return $add_cat->add_cat($catname);
+// }
 
 function updateCrop_ctr($crop_id,$crop_name,$farmer_name,$farmer_contact,$farm_size,$qty,$crop_price,$crop_image,$crop_cat,$crop_desc)
 {
@@ -59,15 +59,15 @@ function deleteCrop_ctr($crop_id)
     return $delete->delete_crop($crop_id);
 }
 
-function get_all_catrecords_ctr()
-{
-    //create an instance of the class
-    $item_object = new crop_class();
+// function get_all_catrecords_ctr()
+// {
+//     //create an instance of the class
+//     $item_object = new crop_class();
 
-    //run the method
-   return $item_object->selectAll_cat();
+//     //run the method
+//    return $item_object->selectAll_cat();
 
-}
+// }
 
 function show_all_crops_ctr()
 {
@@ -104,8 +104,8 @@ function admincropshow_ctr()
 
 function aeo_count_ctr()
 {
-    $edit=new crop_class();
-    return $edit->aeo_count();
+    $edits=new crop_class();
+    return $edits->aeo_count();
 }
 
 

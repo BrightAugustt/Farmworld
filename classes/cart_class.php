@@ -115,6 +115,11 @@ class cart_class extends db_connection{
         $sql = "SELECT SUM(`qty`) as `cart_num` FROM `cart` WHERE `customer_id`='$cid'";
 		return $this-> db_fetch_one($sql);
      }
+
+	 function products_count(){
+        $sql="SELECT count(*) as `products` FROM `crops`";
+        return $this->db_fetch_one($sql);
+    }
 	  
 }
 

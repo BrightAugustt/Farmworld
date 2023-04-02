@@ -1,7 +1,11 @@
 <?php
 session_start();
-require("../function/cart_function.php"); 
+require("../controllers/crop_controller.php"); 
+$totalAeo = aeo_count_ctr();
+var_dump($totalAeo);
 
+$totalCustomer = customer_count_ctr();
+echo $totalCustomer;
 
 ?>
 
@@ -159,7 +163,7 @@ require("../function/cart_function.php");
                         <div class="card">
                         <div class="card-body">
 
-                        <span id="boot-icon"class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">AEOs</h5>
+                        <span id="boot-icon"class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">$totalAeo</h5>
                             <p class="card-text">Agriculture Extension Officers regsitered on the platform.</p>
                            
                         </div>
@@ -169,7 +173,7 @@ require("../function/cart_function.php");
                     <div class="col-sm-3">
                         <div class="card">
                         <div class="card-body">
-                        <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">Customers</h5>
+                        <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">$totalCustomer</h5>
                             <p class="card-text">Consumers regsitered on the platform.</p>
                             
                         </div>
