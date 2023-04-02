@@ -191,6 +191,7 @@ session_start();
                                     <tbody>
                                     <?php 
                                         require "../controllers/product_controller.php";
+                                        
                                         function displayCtr(){
 
                                             $crop = get_all_croprecords_ctr();

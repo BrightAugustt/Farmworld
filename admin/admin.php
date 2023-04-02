@@ -1,11 +1,15 @@
 <?php
 session_start();
-require("../controllers/crop_controller.php"); 
-$totalAeo = aeo_count_ctr();
-var_dump($totalAeo);
+// require("../controllers/crop_controller.php"); 
+require("../controllers/product_controller.php"); 
+// $totalAeo = aeo_count_ctr();
+// var_dump($totalAeo);
 
-$totalCustomer = customer_count_ctr();
-echo $totalCustomer;
+// $totalCustomer = customer_count_ctr();
+// echo $totalCustomer;
+
+$total = product_count_ctr();
+echo $total;
 
 ?>
 

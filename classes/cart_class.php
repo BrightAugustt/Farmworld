@@ -118,7 +118,9 @@ class cart_class extends db_connection{
 
 	 function products_count(){
         $sql="SELECT count(*) as `products` FROM `crops`";
-        return $this->db_fetch_one($sql);
+		echo $sql;
+        return $this->db_query($sql);
+
     }
 	  
 }

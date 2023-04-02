@@ -251,3 +251,19 @@ function admincropshow_ctr()
     // call the method from the class
     return $class_instance->admincropshow();
 }
+
+function count_aeo_ctr()
+{
+    // create an instance of the crop class
+    $class_instance = new crop_class();
+    // call the method from the class
+    return $class_instance->count_aeo_cls();
+}
+
+function product_count_ctr()
+{
+    // create an instance of the crop class
+    $class_instance = new crop_class();
+    // call the method from the class
+    return $class_instance->product_count();
+}
