@@ -101,4 +101,18 @@ function admincropshow_ctr()
     return $edit->admincropshow();
 }
 
+
+function aeo_count_ctr()
+{
+    $edit=new crop_class();
+    return $edit->aeo_count();
+}
+
+
+function customer_count_ctr()
+{
+    $edit=new crop_class();
+    return $edit->customer_count();
+}
+
 ?>

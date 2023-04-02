@@ -110,4 +110,6 @@ function count_cart_ctr($cid,$ip){
   return $select->count_cart($cid,$ip);
 }
 
+
+
 ?>
