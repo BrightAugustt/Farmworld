@@ -10,7 +10,7 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
 	$order_date = date('Y-m-d');
-	$payMode = "Mobile Money";
+	$payMode = "Test";
 	$network = $_POST['network'];
 
 	// var_dump($email,$number,$network,$custId ,$order_amount);
@@ -54,6 +54,7 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	echo $result['status'];
 
 	if ($result['status'] == 'Success') {
+		
 		$order = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
 
 		if ($order) {

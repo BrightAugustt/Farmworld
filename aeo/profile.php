@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 2) {
     header('Location:../Login/login.php');
- };
+};
 
 
 ?>
@@ -58,9 +58,9 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
         </button>
         <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -77,7 +77,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -87,10 +87,10 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                 </i>Dashboard
                             </a>
                         </li>
-                      
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
+                                <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
@@ -122,7 +122,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -133,67 +133,48 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">crops Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span>
-                            This week
-                        </button>
-                    </div>
-                </div>
-
-                <div class="wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Edit New crop/crop Details</h3>
-                                    <a href="addcrop.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New crop</a>
+                <div class="container rounded bg-white mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-3 border-right">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                                <button type='button' class='mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
+                                    <span class='bi bi-card-image'></span></button>
+                                <span class="font-weight-bold">Edogaru</span>
+                                <span class="text-black-50">edogaru@mail.com.my</span><span> </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 border-right">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4 class="text-right">Profile Settings</h4>
                                 </div>
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Crop Name</th>
-                                            <th>Farmer Name</th>
-                                            <th>Quantity</th>
-                                            <th>Crop Price/kg</th>
-                                            <th>Date</th>
-                                            <th>Crop Category</th>
-                                            <th>Description</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
-
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_id'] . "</td>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
-                                                        <td>";
-                                            echo '<a href="updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            "</td>";
-                                            "</tr>";
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+                                <div class="row mt-2">
+                                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 py-5">
+                                <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" placeholder="enter email address" value=""></div> <br>
+                                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Area/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                                </div>
+                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
         </div>
+    </div>
+    </main>
+    </div>
     </div>
 
 

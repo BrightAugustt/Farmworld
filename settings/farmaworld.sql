@@ -107,7 +107,14 @@ CREATE TABLE `payment` (
   `payment_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
+DELIMITER $$
+CREATE TRIGGER `payment_insert_trigger` BEFORE INSERT ON `payment`
+FOR EACH ROW
+BEGIN
+    INSERT INTO `orders` (`order_id`) VALUES (NULL);
+    SET NEW.order_id = LAST_INSERT_ID();
+END $$
+DELIMITER ;
 -- --------------------------------------------------------
 
 --
@@ -262,14 +269,7 @@ ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 
-DELIMITER $$
-CREATE TRIGGER payment_insert_trigger BEFORE INSERT ON `payment`
-FOR EACH ROW
-BEGIN
-    INSERT INTO `orders` (`orders_id`) VALUES (NULL);
-    SET NEW.order_id = LAST_INSERT_ID();
-END $$
-DELIMITER ;
+
 
 --
 
