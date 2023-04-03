@@ -1,6 +1,6 @@
 <?php
 //connect to the user account class
-include_once(dirname(__FILE__)) . '/../classes/product_class.php';
+include_once (dirname(__FILE__)) . '/../classes/product_class.php';
 
 
 function add_catrecord_ctr($catname)
@@ -19,7 +19,8 @@ function add_croprecord_ctr($cropName, $farmerName, $qty, $price, $category, $fi
     return $class_instance->add_croprecord_cls($cropName, $farmerName, $qty, $price, $category, $file, $cdesc);
 }
 
-function getEmailSender_ctr($email){
+function getEmailSender_ctr($email)
+{
 
     $details = new crop_class();
 
@@ -62,10 +63,10 @@ function show_allcrops_ctr()
     }
 }
 
-function update_statuscrops_ctr($crop_id,$status)
+function update_statuscrops_ctr($crop_id, $status)
 {
-    $updatestatus=new crop_class();
-     return $updatestatus->updatestatus_crops($crop_id,$status);
+    $updatestatus = new crop_class();
+    return $updatestatus->updatestatus_crops($crop_id, $status);
 }
 
 
@@ -108,7 +109,23 @@ function get_all_catrecords_ctr()
 }
 
 
+function selectFruits_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
 
+    //run the method
+    $item_records = $item_object->selectFruits();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
 
 
 

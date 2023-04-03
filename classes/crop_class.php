@@ -31,6 +31,15 @@ class crop_class extends db_connection
         );
     }
 
+    // select one
+    function selectFruits()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT * FROM `crops` where `crop_cat`='fruit' AND `crop_cat`='nuts'"
+        );
+    }
+
     // select all crops
     function selectAll_crop()
     {

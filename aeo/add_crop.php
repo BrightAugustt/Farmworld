@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 2) {
     header('Location:../Login/login.php');
- };
+};
 $customer_id = $_SESSION['customer_id'];
 echo $customer_id;
 // $customer = $_SESSION['customer_email'];
@@ -156,12 +156,12 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     <div class="form">
                         <form id="formid" action="../actions/addcrop.php" method="POST" class="row g-3" enctype="multipart/form-data">
 
-                            
+
                             <div class="col-12">
                                 <label>Crop Name</label>
                                 <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
                             </div>
-                       
+
                             <br>
                             <div class="col-12">
                                 <label>Farmer Name</label>
@@ -189,10 +189,25 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                 <input type="file" name="crop_image[]" id="customer_pass" class="form-control" required accept="image/*">
                             </div>
 
-                            <div class="col-12">
+                            <br>
+
+                            <div class='col-12'>
+                                <p>Please select the tyoe of Crop:</p>
+                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="fruit">
+                                  <label for="fruit">Fruit</label><br>
+                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="vegetable">
+                                  <label for="vegetable">Vegetable</label><br>
+                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="cereal">
+                                  <label for="cereal">Cereal</label>
+                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="legume">
+                                  <label for="legume">Legume</label>
+                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="sugar">
+                                  <label for="sugar">Sugar crop</label>
+                            </div>
+                            <!-- <div class="col-12">
                                 <label> Crop Category</label>
                                 <input type="text" name="crop_cat" id="crop_cat" class="form-control" placeholder=" Crop Category" pattern="[A-Za-z]+">
-                            </div>
+                            </div> -->
 
                             <div class="col-12">
                                 <label> Crop Description</label>
@@ -200,10 +215,10 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                             </div>
 
                             <div class="form-group mt-3">
-                                <input type="hidden" name="customer_id" value="<?php echo $_SESSION['customer_id'];?>">
-                                
+                                <input type="hidden" name="customer_id" value="<?php echo $_SESSION['customer_id']; ?>">
+
                                 <input type="submit" class="btn btn-success" name="addcrop" value="Submit">
-                                
+
                             </div>
                         </form>
 

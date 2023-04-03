@@ -206,7 +206,7 @@ $linkdash="../dash/dashboard.php";
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="vegMelons.php">Vegetables & melons</a></li>
+                            <li><a href="vegMelons.php">Vegetables</a></li>
                             <li><a href="cereals.php">Cereals</a></li>
                             <li><a href="fruitNuts.php">Fruit & Nuts</a></li>
                             <li><a href="legumes.php">Leguminous Crops</a></li>
@@ -252,7 +252,7 @@ $linkdash="../dash/dashboard.php";
                         
                         <div class="categories__slider owl-carousel style=size:10px;">
                         <?php
-                            $p_list = get_all_croprecords_ctr();
+                            $p_list = selectFruits_ctr();
                             foreach ($p_list as $apat) {
 
                                 // print_r($apat);
