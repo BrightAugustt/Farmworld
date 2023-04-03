@@ -47,8 +47,6 @@ include("../controllers/product_controller.php");
                                     $crop_cat = ($apat['crop_cat']);
                                 ?>
 
-
-
                                     <div class="card">
                                         <img src='../images/crops/<?php echo $apat['crop_image']; ?>' class="card-img-top" width="100px" alt="<?php echo $cropname; ?>">
                                         <div class="card-body">

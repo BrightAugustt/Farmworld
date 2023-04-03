@@ -7,8 +7,8 @@ require('../function/cart_function.php');
 // $customer_id = $_SESSION['customer_id'];
 $link;
 $linkdash;
-$link="../cart/index.php";
-$linkdash="../dash/dashboard.php";
+$link = "../cart/index.php";
+$linkdash = "../dash/dashboard.php";
 ?>
 
 
@@ -56,7 +56,7 @@ $linkdash="../dash/dashboard.php";
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <!-- Php code to take the total cart will be here -->
-                <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> 
+                <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
@@ -157,12 +157,12 @@ $linkdash="../dash/dashboard.php";
                             <!-- <li class="active"><a href="./index.html">Home</a></li>
                             <li><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="#">Pages</a> -->
-                                <ul class="header__menu__dropdown">
-                                    <!-- <li><a href="./shop-details.html">Shop Details</a></li> -->
-                                    <!-- <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                            <ul class="header__menu__dropdown">
+                                <!-- <li><a href="./shop-details.html">Shop Details</a></li> -->
+                                <!-- <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li> -->
-                                    <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
-                                </ul>
+                                <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
+                            </ul>
                             </li>
                             <!-- <li><a href="./blog.html">Blog</a></li>
                             <li><a href="./contact.html">Contact</a></li> -->
@@ -174,15 +174,14 @@ $linkdash="../dash/dashboard.php";
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
                             <li><a href="<?php echo $link; ?>"><i class="fa fa-shopping-bag"></i><span>
-                                <?php
-                                if(empty($_SESSION['id'])){
-                                    echo 0;
-                                }
-                                else{
-                                countCart($_SESSION['id'],0);
-                            }
-                                ?>
-                            </span></a></li>
+                                        <?php
+                                        if (empty($_SESSION['id'])) {
+                                            echo 0;
+                                        } else {
+                                            countCart($_SESSION['id'], 0);
+                                        }
+                                        ?>
+                                    </span></a></li>
                         </ul>
                         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
@@ -236,66 +235,67 @@ $linkdash="../dash/dashboard.php";
         </div>
     </section>
     <!-- Hero Section End -->
-    
+
     <!-- Categories Section Begin -->
     <section class="featured spad">
-                        
+
         <div class="container try">
             <div class="row">
                 <div class="col-lg-12">
-                    
-                    <div class="section-title">
-                        <h2>Recently Added</h2>
-                    </div>
-                    
-                    <div class="row style=size:10px;">
-                        
-                        <div class="categories__slider owl-carousel style=size:10px;">
-                        <?php
-                            $p_list = get_all_croprecords_ctr();
-                            foreach ($p_list as $apat) {
 
-                                // print_r($apat);
-    
-                                $cropname = $apat['crop_name'];
-                                $cropcat = $apat['crop_cat'];
-                                $qtyavail = $apat['qty'];
-                                $price = $apat['crop_price'];
-                                $desc = $apat['crop_desc'];
-                                //Displaying image
-                                $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
-                            
-                        ?>
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                    <a href="single_page.php?crop_id=<?php echo($apat['crop_id'])?>">
-                                        <div class="featured__item__pics categories__item set-bg set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
-                                        </div>
-                                        <div class="featured__item__texts">
-                                            <h6><a href="#"><?php echo $cropname; ?></a></h6>
-                                            <h5>GHc<?php echo $price; ?></h5>
-                                        </div>
-                                    </a>
-                            </div>
-                            <?php
-                            }?>
-                            </div>
-                            
-                        </div>
+                    <div class="section-title">
+                        <h2>Search Results</h2>
                     </div>
-                    
+
+                    <div class="row style=size:10px;">
+                        <form method="POST" enctype="multipart/form-data">
+                            <?php $searchkeys = $_GET['search']; ?>
+                            <div class="categories__slider owl-carousel style=size:10px;">
+                                <?php
+                                $p_list =  search_for_one_crop_ctr($searchkeys);
+                                foreach ($p_list as $apat) {
+
+                                    print_r($apat);
+
+                                    $cropname = $apat['crop_name'];
+                                    $cropcat = $apat['crop_cat'];
+                                    $qtyavail = $apat['qty'];
+                                    $price = $apat['crop_price'];
+                                    $desc = $apat['crop_desc'];
+                                    //Displaying image
+                                    $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
+
+                                ?>
+                                    <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+
+                                        <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
+                                        <a href="single_page.php?crop_id=<?php echo ($apat['crop_id']) ?>">
+                                            <div class="featured__item__pics categories__item set-bg set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
+                                            </div>
+                                            <div class="featured__item__texts">
+                                                <h6><a href="#"><?php echo $cropname; ?></a></h6>
+                                                <h5>GHc<?php echo $price; ?></h5>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php
+                                } ?>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
             </div>
+        </div>
     </section>
-    
+
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
     <section class="featured spad">
         <div class="container try">
             <?php
-                $p_list = get_all_croprecords_ctr();
+            $p_list = get_all_croprecords_ctr();
             ?>
             <div class="row">
                 <div class="col-lg-12">
@@ -304,59 +304,59 @@ $linkdash="../dash/dashboard.php";
                     </div>
                 </div>
             </div>
-              
+
             <div class="row featured__filter">
-            <?php
-                        foreach ($p_list as $apat) {
+                <?php
+                foreach ($p_list as $apat) {
 
-                            // print_r($apat);
+                    // print_r($apat);
 
-                            $cropname = $apat['crop_name'];
-                            $cropcat = $apat['crop_cat'];
-                            $qtyavail = $apat['qty'];
-                            $price = $apat['crop_price'];
-                            $desc = $apat['crop_desc'];
-                            //Displaying image
-                            $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
-                        
-                    ?>
-                <div>
+                    $cropname = $apat['crop_name'];
+                    $cropcat = $apat['crop_cat'];
+                    $qtyavail = $apat['qty'];
+                    $price = $apat['crop_price'];
+                    $desc = $apat['crop_desc'];
+                    //Displaying image
+                    $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
 
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
-                    <div class="featured__item">
-                        
-                        <div class="featured__item__pic set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="favourites.php"><i class="fa fa-heart">
-                                    <form action="singleCrop.php" method="POST">
-                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
-                                            <!-- <a> <button type="submit" name="view"><i class="fa fa-retweet"></i></button></a> -->
-                                    </form>
-                                    </i></a>
-                                </li>
-                                <li>
-                                    <form action="singleCrop.php" method="GET">
+                ?>
+                    <div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
+                        <div class="featured__item">
+
+                            <div class="featured__item__pic set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="favourites.php"><i class="fa fa-heart">
+                                                <form action="singleCrop.php" method="POST">
+                                                    <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
+                                                    <!-- <a> <button type="submit" name="view"><i class="fa fa-retweet"></i></button></a> -->
+                                                </form>
+                                            </i></a>
+                                    </li>
+                                    <li>
+                                        <form action="singleCrop.php" method="GET">
                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                             <button type="submit" name="view" class="fa fa-eye image button"></button>
-                                    </form>
-                                </li>
-                                <li>
-                                  
+                                        </form>
+                                    </li>
+                                    <li>
+
                                         <form action="../actions/addtoCart.php" method="POST">
                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                             <button type="submit" name="addcart" class="fa fa-shopping-cart image button"></button>
                                         </form>
-                                    
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><?php echo $cropname; ?></h6>
-                            <h5>GHc<?php echo $price; ?></h5>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><?php echo $cropname; ?></h6>
+                                <h5>GHc<?php echo $price; ?></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <?php
                 }
@@ -401,14 +401,17 @@ $linkdash="../dash/dashboard.php";
                         </ul>
                     </div>
                 </div>
-            
+
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
                 </div>
