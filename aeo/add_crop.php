@@ -172,11 +172,11 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                 <input type="tel" name="farmer_contact" id="farmer_contact" class="form-control" placeholder="Contact" pattern="^\d{10}$">
                             </div>
                             <div class="col-12">
-                                <label>Farm Size</label>
+                                <label>Farm Size (In Acres)</label>
                                 <input type="tel" name="farm_size" id="farm_size" class="form-control" placeholder="Farm size">
                             </div>
                             <div class="col-12">
-                                <label>Quantity(kg)</label>
+                                <label>Quantity(In Kg)</label>
                                 <input type="tel" name="qty" id="qty" class="form-control" placeholder="Quantity">
                             </div>
                             <div class="col-12">
