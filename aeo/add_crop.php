@@ -191,23 +191,43 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
                             <br>
 
-                            <div class='col-12'>
-                                <p>Please select the tyoe of Crop:</p>
-                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="fruit">
-                                  <label for="fruit">Fruit</label><br>
-                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="vegetable">
-                                  <label for="vegetable">Vegetable</label><br>
-                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="cereal">
-                                  <label for="cereal">Cereal</label>
-                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="legume">
-                                  <label for="legume">Legume</label>
-                                  <input type="radio" id="crop_cat" name="crop_cat" class='form-control' value="sugar">
-                                  <label for="sugar">Sugar crop</label>
+                            <p class="col-12">Please select the type of Crop:</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crop_cat" value="Fruit" id="crop_cat">
+                                <label class="form-check-label" for="Fruit">
+                                    Fruit
+                                </label>
                             </div>
-                            <!-- <div class="col-12">
-                                <label> Crop Category</label>
-                                <input type="text" name="crop_cat" id="crop_cat" class="form-control" placeholder=" Crop Category" pattern="[A-Za-z]+">
-                            </div> -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crop_cat" value="Vegetable" id="crop_cat">
+                                <label class="form-check-label" for="Vegetable">
+                                    Vegetable
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crop_cat" value="Nuts" id="crop_cat">
+                                <label class="form-check-label" for="Nuts">
+                                    Nuts
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crop_cat" value="Cereal" id="crop_cat">
+                                <label class="form-check-label" for="Cereal">
+                                    Cereal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crop_cat" value="Legume" id="crop_cat">
+                                <label class="form-check-label" for="Legume">
+                                    Legume
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="crop_cat" value="Sugars" id="crop_cat">
+                                <label class="form-check-label" for="Sugars">
+                                    Sugar crop
+                                </label>
+                            </div>
 
                             <div class="col-12">
                                 <label> Crop Description</label>
