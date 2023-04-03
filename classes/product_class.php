@@ -1,6 +1,6 @@
 <?php
 //connect to database class
-include_once(dirname(__FILE__))  . '../../settings/db_class.php';
+include_once (dirname(__FILE__))  . '../../settings/db_class.php';
 
 class crop_class extends db_connection
 {
@@ -33,13 +33,59 @@ class crop_class extends db_connection
         );
     }
 
-// Show all crops
-    function showall_crops(){
+    // Show all crops
+    function showall_crops()
+    {
         $sql = "SELECT crops.*, customer.customer_email FROM crops JOIN customer ON crops.customer_id = customer.customer_id WHERE `Approved`='Yes' ORDER BY crops.crop_id DESC;";
     }
 
-// Updates the status of the crop to change the approved value
-    function updatestatus_crops($crop_id,$status)
+    // select FRUITS & NUTS
+    function selectFruits()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT * FROM `crops` WHERE `crop_cat`='Fruit' AND `crop_cat`='Nuts'"
+        );
+    }
+
+    // select Vegetables
+    function selectVegetables()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT * FROM `crops` WHERE `crop_cat`='Vegetable'"
+        );
+    }
+
+    // select Legumes
+    function selectLegume()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT * FROM `crops` WHERE `crop_cat`='Legume'"
+        );
+    }
+
+    // select Cereals
+    function selectCereals()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT * FROM `crops` WHERE `crop_cat`='Cereal'"
+        );
+    }
+
+    // select Sugars
+    function selectSugars()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT * FROM `crops` WHERE `crop_cat`='Sugars'"
+        );
+    }
+
+    // Updates the status of the crop to change the approved value
+    function updatestatus_crops($crop_id, $status)
     {
         // return true or false
         return $this->db_query(
@@ -60,7 +106,7 @@ class crop_class extends db_connection
     function get_all_catrecords_cls()
     {
         // return true or false
-        
+
         return $this->db_query(
             "SELECT * from categories"
         );
@@ -69,7 +115,7 @@ class crop_class extends db_connection
     function get_all_fruit()
     {
         // return true or false
-        
+
         return $this->db_query(
             "SELECT * from `crops` WHERE `crop_cat`='Fruit';"
         );
@@ -78,7 +124,7 @@ class crop_class extends db_connection
     function get_all_vegetavle()
     {
         // return true or false
-        
+
         return $this->db_query(
             "SELECT * from `crops` WHERE `crop_cat`='Vegetable';"
         );
@@ -87,14 +133,14 @@ class crop_class extends db_connection
     function get_all_orderrecords_cls()
     {
         // return true or false
-        
+
         return $this->db_query(
             "SELECT * from orders"
         );
     }
 
 
-     function get_one_croprecord_cls($cid)
+    function get_one_croprecord_cls($cid)
     {
         // return true or false
         return $this->db_query(
@@ -102,10 +148,11 @@ class crop_class extends db_connection
         );
     }
 
-    function search_for_one_crop_cls($searchkeys){
-		$sql= "SELECT `crop_id`, `crop_name`, `farmer_name`, `qty`, `crop_price`, `crop_desc`, `crop_cat`, `crop_image` FROM crops WHERE `crop_desc` LIKE '%$searchkeys%' or `crop_name` LIKE '$searchkeys'or `crop_cat` LIKE '$searchkeys'";
-		return $this->fetch($sql);
-	}
+    function search_for_one_crop_cls($searchkeys)
+    {
+        $sql = "SELECT `crop_id`, `crop_name`, `farmer_name`, `qty`, `crop_price`, `crop_desc`, `crop_cat`, `crop_image` FROM crops WHERE `crop_desc` LIKE '%$searchkeys%' or `crop_name` LIKE '$searchkeys'or `crop_cat` LIKE '$searchkeys'";
+        return $this->fetch($sql);
+    }
 
     function get_one_catrecord_cls($cid)
     {
@@ -113,7 +160,7 @@ class crop_class extends db_connection
         return $this->db_query(
             "SELECT * from categories where cat_id ='$cid'"
         );
-    } 
+    }
 
     function update_catrecord_cls($id, $name)
     {
@@ -171,13 +218,15 @@ class crop_class extends db_connection
         );
     }
 
-    function getEmailSender($email){
+    function getEmailSender($email)
+    {
         $sql = "SELECT `customer_email` FROM `customer` 
         JOIN entries ON customer.customer_id = entries.customer_id
         WHERE entries.entry_id = $email";
     }
 
-    function admincropshow(){
+    function admincropshow()
+    {
         $sql = "SELECT crops.*, customer.customer_email 
         FROM crops 
         JOIN customer ON crops.customer_id = customer.customer_id 
@@ -193,21 +242,16 @@ class crop_class extends db_connection
     }
 
 
-    function product_count(){
-        $sql="SELECT count(*) as `products` FROM `crops`";
+    function product_count()
+    {
+        $sql = "SELECT count(*) as `products` FROM `crops`";
         return $this->db_fetch_one($sql);
     }
 
-    
-    function vendor_crop_count(){
-        $sql="SELECT customer.customer_email, COUNT(crops.crop_id) AS crop_count FROM crops JOIN customer ON crops.customer_id = customer.customer_id GROUP BY customer.customer_email";
-        return $this->db_fetch_all($sql);    
+
+    function vendor_crop_count()
+    {
+        $sql = "SELECT customer.customer_email, COUNT(crops.crop_id) AS crop_count FROM crops JOIN customer ON crops.customer_id = customer.customer_id GROUP BY customer.customer_email";
+        return $this->db_fetch_all($sql);
     }
-
-
-
-
-
-
 }
-?>

@@ -127,6 +127,77 @@ function selectFruits_ctr()
     }
 }
 
+function selectVeg_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->selectVegetables();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
+function selectCereal_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->selectCereals();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
+function selectLegume_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->selectLegume();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
+function selectSugars_ctr()
+{
+    //create an instance of the class
+    $item_object = new crop_class();
+
+    //run the method
+    $item_records = $item_object->selectSugars();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
 
 
 function get_all_orderrecords_ctr()

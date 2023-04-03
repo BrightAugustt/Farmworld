@@ -252,7 +252,7 @@ $linkdash="../dash/dashboard.php";
                         
                         <div class="categories__slider owl-carousel style=size:10px;">
                         <?php
-                            $p_list = get_all_croprecords_ctr();
+                            $p_list = selectCereal_ctr();
                             foreach ($p_list as $apat) {
 
                                 // print_r($apat);
