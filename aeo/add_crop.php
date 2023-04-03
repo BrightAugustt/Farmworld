@@ -231,7 +231,7 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
                             <div class="col-12">
                                 <label> Crop Description</label>
-                                <input type="text" name="crop_desc" id="crop_desc" class="form-control" placeholder=" Crop Description" pattern="[A-Za-z]+">
+                                <input type="text" name="crop_desc" id="crop_desc" class="form-control" placeholder=" Crop Description">
                             </div>
 
                             <div class="form-group mt-3">
