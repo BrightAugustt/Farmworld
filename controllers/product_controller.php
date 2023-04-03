@@ -267,3 +267,11 @@ function product_count_ctr()
     // call the method from the class
     return $class_instance->product_count();
 }
+
+function vendor_crop_count_ctr()
+{
+    // create an instance of the crop class
+    $class_instance = new crop_class();
+    // call the method from the class
+    return $class_instance->vendor_crop_count();
+}

@@ -1,7 +1,9 @@
 <?php
-session_start();
+// session_start();
+include ("../controllers/product_controller.php");
+$stats=vendor_crop_count_ctr();
 
-
+var_export($stats);
 ?>
 
 
@@ -24,6 +26,10 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/aeo.css">
     <script defer src="../js/activepage.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div> -->
 
 
     <style>
@@ -177,7 +183,7 @@ session_start();
                     </thead>
                                     <tbody>
                                     <?php 
-                                        require "../controllers/product_controller.php";
+                                        // require "../controllers/product_controller.php";
                                         function displayCtr(){
                                             $crop = get_all_croprecords_ctr();
 
@@ -204,6 +210,8 @@ session_start();
                         </div>
                     </div>
                 </div>
+
+
             </main>
         </div>
     </div>

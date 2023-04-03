@@ -198,6 +198,13 @@ class crop_class extends db_connection
         return $this->db_fetch_one($sql);
     }
 
+    
+    function vendor_crop_count(){
+        $sql="SELECT customer.customer_email, COUNT(crops.crop_id) AS crop_count FROM crops JOIN customer ON crops.customer_id = customer.customer_id GROUP BY customer.customer_email";
+        return $this->db_fetch_all($sql);    
+    }
+
+
 
 
 
