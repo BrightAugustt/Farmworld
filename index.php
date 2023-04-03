@@ -1,5 +1,5 @@
 <?php
 	//redirect to index
-	header('Location: Ecom/homepage.php');
+	header('Location: view/index.php');
 ?>
 	
