@@ -11,8 +11,8 @@ class cart_class extends db_connection{
 	}
 
 	/**INSERT ORDERS */
-	public function insert_order_cls($custId,$invoice,$date, $orderStatus){
-		$sql = "INSERT INTO `orders` (`customer_id`, `invoice_no`, `order_date`, `order_status`) VALUES ('$custId', '$invoice', '$date', '$orderStatus')"; 
+	public function insert_order_cls($custId, $cropName, $date, $qty, $customerEmail, $amount){
+		$sql = "INSERT INTO `orders` (`customer_id`, `crop_name`, `order_date` ,`qty`, `customer_email`, `amount`) VALUES ('$custId', '$cropName', '$date', '$qty', '$customerEmail', '$amount')";
 		return $this-> db_query($sql);
 	}
 

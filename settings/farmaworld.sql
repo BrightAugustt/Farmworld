@@ -53,29 +53,17 @@ CREATE TABLE `customer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderdetails`
---
-
-CREATE TABLE `orderdetails` (
-  `order_id` int(11) NOT NULL,
-  `crop_id` int(11) NOT NULL,
-  `qty` int(11) NOT NULL,
-  `customer_email`varchar(50) NOT NULL,
-  `amount`double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
   `order_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `invoice_no` int(11) NOT NULL,
   `order_date` date NOT NULL,
-  `order_status` varchar(100) NOT NULL
+  `crop_name` varchar(200) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `customer_email`varchar(50) NOT NULL,
+  `amount`double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -171,18 +159,11 @@ ALTER TABLE `customer`
   ADD UNIQUE KEY `customer_email` (`customer_email`);
 
 --
--- Indexes for table `orderdetails`
---
-ALTER TABLE `orderdetails`
-  ADD KEY `order_id` (`order_id`),
-  ADD KEY `crop_id` (`crop_id`);
-
---
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
-  ADD KEY `customer_id` (`customer_id`);
+  ADD KEY `customer_id` (`customer_id`),
 
 --
 -- Indexes for table `cart`
@@ -248,18 +229,10 @@ ALTER TABLE `crops`
 --
 
 --
-
--- Constraints for table `orderdetails`
---
-ALTER TABLE `orderdetails`
-  ADD CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`crop_id`) REFERENCES `crops` (`crop_id`);
-
---
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
 
 --
 -- Constraints for table `payment`
@@ -267,9 +240,6 @@ ALTER TABLE `orders`
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
-
-
-
 
 --
 

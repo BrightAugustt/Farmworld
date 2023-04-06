@@ -210,7 +210,8 @@ session_start();
                                                 echo "<th><form method='POST' action='../actions/updatecropstatus.php' id='approve'.$i'>
                                                         <input type='hidden' name='crop_id' value= '".$crop[$i]['crop_id']."'>
                                                         <input type='hidden' name='check' value= '".$crop[$i]['Approved']."'>
-                                                        <button type='submit' class='btn btn-toggle' <?php if(".$crop[$i]['Approved']."=='Yes'){ echo 'checked';}?>".$crop[$i]['Approved']."</button>
+                                                        <button type='submit' class='btn btn-toggle' <?php if(".$crop[$i]['Approved']."=='Yes'){ echo 'checked';}?>
+                                                        ".$crop[$i]['Approved']."</button>
                                                         </form></th>";
                                                 echo "<th><button type='button' class=' mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
                                                 <span class='bi bi-card-image'></span> 

@@ -7,7 +7,7 @@ require('../function/cart_function.php');
 // $customer_id = $_SESSION['customer_id'];
 $link;
 $linkdash;
-$link="../cart/index.php";
+$link="../view/shopping-cart.php";
 $linkdash="../dash/dashboard.php";
 ?>
 
@@ -56,7 +56,7 @@ $linkdash="../dash/dashboard.php";
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <!-- Php code to take the total cart will be here -->
-                <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> 
+                <li><a href="shoping-cart.php"><i class="fa fa-shopping-bag"></i> 
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
@@ -81,7 +81,7 @@ $linkdash="../dash/dashboard.php";
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                        <li><a href="./shoping-cart.php">Shoping Cart</a></li>
                         <li><a href="./checkout.html">Check Out</a></li>
                         <li><a href="./blog-details.html">Blog Details</a></li>
                     </ul>
@@ -300,7 +300,7 @@ $linkdash="../dash/dashboard.php";
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
+                        <h2>All Products</h2>
                     </div>
                 </div>
             </div>
