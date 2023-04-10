@@ -110,6 +110,12 @@ class ContactClass extends db_connection
 
 	}
 
+    function client_count($user_role)
+    {
+        $sql = "SELECT COUNT(*) FROM `customer` WHERE `user_role`='$user_role'";
+        return $this->db_fetch_one($sql);
+    
+    }
  
 
 }

@@ -151,10 +151,11 @@ class crop_class extends db_connection
         return $this->db_query($sql);
     }
 
-    function aeo_count()
+    function aeo_count($user_role)
     {
-        $sql = "SELECT COUNT(customer_id) as `aeo` FROM `customer` WHERE `user_role`=2";
-        return $this->db_fetch_all($sql);
+        $sql = "SELECT COUNT(*) FROM `customer` WHERE `user_role`='$user_role'";
+        return $this->db_fetch_one($sql);
+    
     }
 
 

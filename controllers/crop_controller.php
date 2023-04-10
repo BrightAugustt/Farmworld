@@ -103,10 +103,10 @@ function admincropshow_ctr()
 }
 
 
-function aeo_count_ctr()
+function aeo_count_ctr($user_role)
 {
     $edits=new crop_class();
-    return $edits->aeo_count();
+    return $edits->aeo_count($user_role);
 }
 
 

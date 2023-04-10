@@ -233,12 +233,10 @@ class crop_class extends db_connection
         ORDER BY crops.crop_id DESC";
     }
 
-    function count_aeo_cls()
+	function aeo_count()
     {
-        // return true or false
-        return $this->db_fetch_all(
-            "SELECT COUNT(customer_id)as `aeo` FROM `customer` WHERE user_role=2"
-        );
+        $sql = "SELECT COUNT(*) FROM `customer` WHERE user_role=2";
+        return  $this->fetchOne($sql);
     }
 
 

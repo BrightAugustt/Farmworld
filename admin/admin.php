@@ -1,15 +1,11 @@
 <?php
 session_start();
-// require("../controllers/crop_controller.php"); 
+require("../controllers/general_controller.php");
 require("../controllers/product_controller.php"); 
-// $totalAeo = aeo_count_ctr();
-// var_dump($totalAeo);
 
-// $totalCustomer = customer_count_ctr();
-// echo $totalCustomer;
 
-$total = product_count_ctr();
-echo $total;
+// $total = product_count_ctr();
+// echo $total;
 
 ?>
 
@@ -157,7 +153,10 @@ echo $total;
                             </div>
 
                             <div>
-                                <h5 class="card-title">Sales</h5>
+                                <h5 class="card-title">
+                                    Sales
+                                </h5>
+                                
                                 <p class="card-text">Money obatined from sales of farm produce of farmers</p>
                             </div>
                         </div>
@@ -167,7 +166,13 @@ echo $total;
                         <div class="card">
                         <div class="card-body">
 
-                        <span id="boot-icon"class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">$totalAeo</h5>
+                        <span id="boot-icon"class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">
+                        <?php
+                       $count =aeoCount_ctr();
+                       $count = intval(array_values($count)[0]);
+                       echo $count;
+                        ?>
+                        </h5>
                             <p class="card-text">Agriculture Extension Officers regsitered on the platform.</p>
                            
                         </div>
@@ -177,7 +182,14 @@ echo $total;
                     <div class="col-sm-3">
                         <div class="card">
                         <div class="card-body">
-                        <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">$totalCustomer</h5>
+                        <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">
+                        <?php
+                        $customer =customerCount_ctr();
+                        $customer = intval(array_values($customer)[0]);
+                        echo $customer;
+                        ?>
+                        </h5>
+                        </h5>
                             <p class="card-text">Consumers regsitered on the platform.</p>
                             
                         </div>
@@ -187,7 +199,13 @@ echo $total;
                     <div class="col-sm-3">
                         <div class="card">
                         <div class="card-body">
-                        <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 20px; color:black;"></span><h5 class="card-title">Products</h5>
+                        <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 20px; color:black;"></span><h5 class="card-title">
+                        <?php
+                        $crops =cropsCount_ctr();
+                        $crops = intval(array_values($crops)[0]);
+                        echo $crops;
+                        ?>
+                        </h5>
                             <p class="card-text">Products submitted by AEOs to be sold on the platform.</p>
                             
                         </div>
