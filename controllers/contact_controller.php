@@ -128,4 +128,13 @@ function loginCustomer_ctr($customer_email){
      return $verify_customer->verify_customer($customer_email);
 
 }
+
+function clientCustomer_ctr($user_role){
+
+    // Create an instance of the class
+    $verify_customer = new ContactClass();
+
+     return $verify_customer->client_count($user_role);
+
+}
 ?>

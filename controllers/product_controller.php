@@ -345,7 +345,7 @@ function count_aeo_ctr()
     // create an instance of the crop class
     $class_instance = new crop_class();
     // call the method from the class
-    return $class_instance->count_aeo_cls();
+    return $class_instance->aeo_count();
 }
 
 function product_count_ctr()
