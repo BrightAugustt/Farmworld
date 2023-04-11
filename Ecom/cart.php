@@ -93,6 +93,7 @@ $total = 0;
                                     <th>Subtotal: <?php echo $totalsum['Multiply']; ?></th>
                                     <form method="post" action="" id="paymentForm">
                                         <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
+                                        <input type="hidden" name="crop_name" value="">
                                         <input type="hidden" name="order_id" value="<?php //echo $order_id(); 
                                                                                     ?>">
                                         <input type="hidden" name="description" value="Order payment">
@@ -100,8 +101,7 @@ $total = 0;
                                         <input type="hidden" name="cancel_url" value="https://www.example.com/checkout/cancel">
                                         <input type="hidden" name="notify_url" value="https://www.example.com/checkout/paybox-ipn">
                                         <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
-                                        <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; 
-                                                                                            ?>">
+                                        <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; ?>">
                                         <th><button type="submit" name="paybox_card" class="btn btn-success" id="paycardButton">Pay With Bank Card</button></th>
                                         <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With Momo</button></th>
                                     </form>
