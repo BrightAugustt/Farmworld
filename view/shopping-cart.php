@@ -279,11 +279,6 @@ $total = 0;
                                         </tr> ";
                                 }
                                 ?>
-                                <tr>
-                                    <td colspan="3" class="text-right">Total:</td>
-                                    <td class="shoping__cart__total"><?php echo $total; ?></td>
-                                </tr>
-
                                 <!-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-3.jpg" alt="">
