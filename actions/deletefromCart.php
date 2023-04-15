@@ -10,7 +10,7 @@ if (isset($_GET['crop_id'])) {
     // echo $id;
     $result = delete_cart_record_ctr($crpId,$custId);
     if ($result) {
-        header('Location: ../Ecom/cart.php');
+        header('Location: ../view/shopping-cart.php');
     } else {
         echo 'error';
     }

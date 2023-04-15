@@ -1,3 +1,18 @@
+<?php
+include("../settings/core.php");
+include("../controllers/cart_controller.php");
+include("../function/function.php");
+
+$custId = get_id();
+// echo $custId;
+$all_cartproducts = view_cart_ctr($custId);
+$ip_add = getIPAddress();
+$total = 0;
+
+// $transaction_id = $_POST['transaction_id'];
+// $status = $_POST['status'];
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -244,56 +259,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
-                                        <!-- <div class="remove">
-                                            <button class="removebutton"> Remove</button>
-                                            <p>$55.00</p>
-                                        </div> -->
-
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                    GH₵ 55.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
+                            <?php
+                                foreach ($all_cartproducts as $cart) {
+                                    $totals = $total + ($cart['qty'] * $cart['crop_price']);
+                                    echo "
+                                    <tr>
+                                        <td class= 'shoping__cart__item'>
+                                            <img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;>
+                                            <h5>{$cart['crop_name']}</h5>
+                                        </td>
+                                        <td class='shoping__cart__price'>
+                                            {$cart['crop_price']}
+                                        </td>
+                                        <td class='shoping__cart__quantity'>
+                                            <div class='quantity'>
+                                                <div class='pro-qty'>
+                                                    <input type='text' value='{$cart['qty']}'>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                    GH₵ 110.00
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                    GH₵ 39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                    GH₵ 39.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
+                                        </td>
+                                        <td class='shoping__cart__total'>
+                                            $totals
+                                        </td>
+                                        <td class='shoping__cart__item__close'>
+                                            <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
+                                        </td>
+                                        <br>
+                                    </tr> ";
+                                }
+                                ?>
+                                <!-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-3.jpg" alt="">
                                         <h5>Organic Bananas</h5>
@@ -313,19 +308,19 @@
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <button class="removebutton"><span><i class="fa fa-trash-o"></i></span></button>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
+                <?php $totalsum = totalPrice_ctr($custId); ?>
                 <div class="col-lg-4">
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>GH₵ 454.98</span></li>
-                            <li>Total <span>GH₵ 454.98</span></li>
+                            <li>Subtotal <span><?php echo $totalsum['Multiply'];?></span></li>
+                            <!-- <li>Total <span>GH₵ 454.98</span></li> -->
                         </ul>
                         <a href="checkout.html" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
@@ -334,7 +329,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="index.html" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                        <a href="index.php" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                     </div>
                 </div>
             </div>
