@@ -153,8 +153,12 @@ require("../controllers/product_controller.php");
                             </div>
 
                             <div>
-                                <h5 class="card-title">
-                                    Sales
+                                <h5 class="card-title"> GHC
+                                <?php
+                       $sales =salesCount_ctr();
+                       $sales = intval(array_values($sales)[0]);
+                       echo $sales;
+                        ?>
                                 </h5>
                                 
                                 <p class="card-text">Money obatined from sales of farm produce of farmers</p>
@@ -218,7 +222,9 @@ require("../controllers/product_controller.php");
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left" style="font-size: 24px;">Orders</h3>
+                                    <h3 class="pull-left" style="font-size: 24px;">
+                                    Orders
+                                </h3>
                                     <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
                                 </div>
                                 <table class="table">
