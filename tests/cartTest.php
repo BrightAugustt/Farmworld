@@ -1,13 +1,12 @@
 <?php
 
-require "classes\product_class.php";
+require "classes\cart_class.php";
 
-
-class CropsTest extends \PHPUnit\Framework\TestCase{
+class CartTest extends \PHPUnit\Framework\TestCase{
 
    public function testAdd(){
-        $add_croprecord_cls = new App\crop_class;
-        $result = $add_croprecord_cls->add_croprecord_cls( 'Test Crop',
+        $add_to_cart_cls= new App\cart_class;
+        $result = $add_to_cart_cls->add_to_cart_cls( 'Test Crop',
         'Test Farmer',
         10,
         5.0,
