@@ -272,7 +272,7 @@ $total = 0;
                                                 <h5>{$cart['crop_name']}</h5>
                                             </td>
                                             <td class='shoping__cart__price'>
-                                                {$cart['crop_price']}
+                                                GH₵ {$cart['crop_price']}
                                             </td>
                                             <td class='shoping__cart__quantity'>
                                                 <div class='quantity'>
@@ -290,6 +290,7 @@ $total = 0;
                                             <br>
                                         </tr> ";
                                     }
+                                    echo "Total: $total";
                                 ?>
 
                                 <!-- <tr>
