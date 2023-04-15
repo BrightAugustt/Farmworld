@@ -270,7 +270,8 @@ $total = 0;
                                                 </div>
                                             </td>
                                             <td class='shoping__cart__total'>
-                                                {$cart['qty'] * $cart['crop_price']}
+                                                $subtotal ={$cart['qty']} * {$cart['crop_price']}
+                                                <?php echo $subtotal; ?>
                                             </td>
                                             <td class='shoping__cart__item__close'>
                                                 <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
