@@ -1,6 +1,6 @@
 <?php
 //database
-
+namespace App;
 //database credentials
 require 'db_cred.php';
 

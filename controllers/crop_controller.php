@@ -1,4 +1,5 @@
 <?php
+namespace App;
 //connect to the user account class
 include_once(dirname(__FILE__)) . '/../classes/crop_class.php';
 
@@ -116,10 +117,10 @@ function customer_count_ctr()
     return $edit->customer_count();
 }
 
-function product_count_ctr()
-{
-    $edit=new crop_class();
-    return $edit->product_count();
-}
+// function product_count_ctr()
+// {
+//     $edit=new crop_class();
+//     return $edit->product_count();
+// }
 
 ?>

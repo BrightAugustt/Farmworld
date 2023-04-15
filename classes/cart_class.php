@@ -1,4 +1,5 @@
 <?php
+namespace App;
 //connect to database class
 include_once(dirname(__FILE__)) . "../../settings/db_class.php";
 

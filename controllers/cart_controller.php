@@ -1,4 +1,5 @@
 <?php
+namespace App;
 //connect to the user account class
 require_once(dirname(__FILE__)) . '/../classes/cart_class.php';
 

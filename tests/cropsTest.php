@@ -27,13 +27,6 @@ class CropsTest extends \PHPUnit\Framework\TestCase{
 
    }
 
-   
-
-   
-
-
-
-
 }
 
 
