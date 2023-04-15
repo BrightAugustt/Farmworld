@@ -204,18 +204,6 @@ $total = 0;
                         </ul>
                     </div>
                 </div>
-
-                <!-- <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <!-- <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form> -->
             </div>
         </div>
 
@@ -289,9 +277,13 @@ $total = 0;
                                             </td>
                                             <br>
                                         </tr> ";
-                                    }
-                                    echo "Total: $total";
+                                }
+                                echo "Total: $total";
                                 ?>
+                                <tr>
+                                    <td colspan="3" class="text-right">Total:</td>
+                                    <td class="shoping__cart__total"><?php echo $total; ?></td>
+                                </tr>
 
                                 <!-- <tr>
                                     <td class="shoping__cart__item">
