@@ -5,7 +5,7 @@ include_once '../controllers/cart_controller.php';
 if (isset($_POST['paybox_momoSubmit'])) {
 	
 	// $order_id = $_POST['order_id'];
-	$cropName = ;
+	$cropName = $_POST['crop_name'];
 	$custId = get_id();
 	$email = $_POST['customer_email'];
 	$number = $_POST['customer_contact'];

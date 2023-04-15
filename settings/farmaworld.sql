@@ -163,7 +163,7 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
-  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `customer_id` (`customer_id`);
 
 --
 -- Indexes for table `cart`
@@ -232,7 +232,7 @@ ALTER TABLE `crops`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
 
 --
 -- Constraints for table `payment`
