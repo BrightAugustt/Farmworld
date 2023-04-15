@@ -259,35 +259,39 @@ $total = 0;
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php
+                                <?php
+                                $total = 0; // initialize the total variable outside the loop
+
                                 foreach ($all_cartproducts as $cart) {
-                                    $totals = $total + ($cart['qty'] * $cart['crop_price']);
+                                    $subtotal = $cart['qty'] * $cart['crop_price']; // calculate the subtotal for each product
+                                    $total += $subtotal; // add the subtotal to the total
                                     echo "
-                                    <tr>
-                                        <td class= 'shoping__cart__item'>
-                                            <img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;>
-                                            <h5>{$cart['crop_name']}</h5>
-                                        </td>
-                                        <td class='shoping__cart__price'>
-                                            {$cart['crop_price']}
-                                        </td>
-                                        <td class='shoping__cart__quantity'>
-                                            <div class='quantity'>
-                                                <div class='pro-qty'>
-                                                    <input type='text' value='{$cart['qty']}'>
+                                        <tr>
+                                            <td class= 'shoping__cart__item'>
+                                                <img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;>
+                                                <h5>{$cart['crop_name']}</h5>
+                                            </td>
+                                            <td class='shoping__cart__price'>
+                                                {$cart['crop_price']}
+                                            </td>
+                                            <td class='shoping__cart__quantity'>
+                                                <div class='quantity'>
+                                                    <div class='pro-qty'>
+                                                        <input type='text' value='{$cart['qty']}' data-product-id='{$cart['product_id']}'>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td class='shoping__cart__total'>
-                                            $totals
-                                        </td>
-                                        <td class='shoping__cart__item__close'>
-                                            <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
-                                        </td>
-                                        <br>
-                                    </tr> ";
-                                }
+                                            </td>
+                                            <td class='shoping__cart__total'>
+                                                $subtotal
+                                            </td>
+                                            <td class='shoping__cart__item__close'>
+                                                <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
+                                            </td>
+                                            <br>
+                                        </tr> ";
+                                    }
                                 ?>
+
                                 <!-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-3.jpg" alt="">
@@ -319,7 +323,7 @@ $total = 0;
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span><?php echo $totalsum['Multiply'];?></span></li>
+                            <li>Subtotal <span><?php echo $totalsum['Multiply']; ?></span></li>
                             <!-- <li>Total <span>GH₵ 454.98</span></li> -->
                         </ul>
                         <a href="checkout.html" class="primary-btn">PROCEED TO CHECKOUT</a>
@@ -508,6 +512,31 @@ $total = 0;
     </footer>
     <!-- Footer Section End -->
 
+    <script>
+        $('.pro-qty input[type="text"]').on('change', function() {
+            var qty = $(this).val();
+            var productId = $(this).data('product-id');
+            // Call the updateCart method with the new quantity and product id
+            updateCart(qty, productId)
+        });
+    </script>
+    <script>
+        function updateCart(qty, productId) {
+            $.ajax({
+                type: 'POST',
+                url: '../actions/updateCart.php',
+                data: {
+                    qty: qty,
+                    crpId: productId
+                },
+                dataType: 'json',
+                success: function(data) {
+                    // Update the total price in the cart
+                    $('.cart__total span').text(data.total_price);
+                }
+            });
+        }
+    </script>
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -91,8 +91,8 @@ class cart_class extends db_connection{
     }
  	
     //--UPDATE--//
-    function update_cart_qty_cls($crpId, $custId, $qty){
-        $sql= "UPDATE  `cart` SET `qty` = '$qty' WHERE crop_id= '$crpId' AND customer_id = '$custId'";
+    function update_cart_qty_cls($crpId, $qty){
+        $sql= "UPDATE  `cart` SET `qty` = '$qty' WHERE crop_id= '$crpId'";
 		return $this-> db_query($sql);
     }
 

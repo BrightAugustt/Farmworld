@@ -64,9 +64,9 @@ function getUserDetailsById_ctr($id){
 
 
 //--UPDATE--//
-function update_cart_qty_ctr($crpId, $custId, $qty){
+function update_cart_qty_ctr($crpId, $qty){
   $update= new cart_class();
-  return $update->update_cart_qty_cls($crpId, $custId, $qty);
+  return $update->update_cart_qty_cls($crpId, $qty);
 }
 
 
