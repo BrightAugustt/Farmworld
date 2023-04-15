@@ -265,13 +265,14 @@ $total = 0;
                                             <td class='shoping__cart__quantity'>
                                                 <div class='quantity'>
                                                     <div class='pro-qty'>
-                                                        <input type='text' value='{$cart['qty']}' data-product-id='{$cart['crop_id']}'>
+                                                    <input type='text' value='{$cart['qty']}' data-product-id='{$cart['crop_id']}' class='quantity-input'>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class='shoping__cart__total'>
-                                                $subtotal
+                                            <td class='shoping__cart__total' data-subtotal='<?php echo $subtotal; ?>'>
+                                                <?php echo $subtotal; ?>
                                             </td>
+
                                             <td class='shoping__cart__item__close'>
                                                 <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
                                             </td>
@@ -506,30 +507,36 @@ $total = 0;
     <!-- Footer Section End -->
 
     <script>
-        $('.pro-qty input[type="text"]').on('change', function() {
-            var qty = $(this).val();
-            var productId = $(this).data('product-id');
-            // Call the updateCart method with the new quantity and product id
-            updateCart(qty, productId)
-        });
-    </script>
-    <script>
-        function updateCart(qty, productId) {
-            $.ajax({
-                type: 'POST',
-                url: '../actions/updateCart.php',
-                data: {
-                    qty: qty,
-                    crpId: productId
-                },
-                dataType: 'json',
-                success: function(data) {
-                    // Update the total price in the cart
-                    $('.cart__total span').text(data.total_price);
-                }
-            });
+        function updateCart(element) {
+            var productId = element.dataset.productId;
+            var quantity = element.value;
+            var row = element.closest('tr');
+            var subtotalCell = row.querySelector('.shoping__cart__total');
+            var subtotal = quantity * parseFloat(subtotalCell.dataset.subtotal) / parseInt(element.defaultValue);
+            subtotalCell.innerHTML = subtotal.toFixed(2);
+            subtotalCell.dataset.subtotal = subtotal;
+            element.defaultValue = quantity;
+
+            var total = 0;
+            var subtotalCells = document.querySelectorAll('.shoping__cart__total');
+            for (var i = 0; i < subtotalCells.length; i++) {
+                total += parseFloat(subtotalCells[i].dataset.subtotal);
+            }
+
+            var totalCell = document.querySelector('.cart-total');
+            totalCell.innerHTML = total.toFixed(2);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '../actions/updateCart.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                console.log(this.responseText);
+            };
+            xhr.send('product_id=' + productId + '&quantity=' + quantity);
         }
     </script>
+
+
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
