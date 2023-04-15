@@ -516,7 +516,7 @@ $total = 0;
                 const newQty = quantityInput.value;
 
                 // Send an Ajax request to update the cart
-                fetch('updateCart.php', {
+                fetch('../actions/updateCart.php', {
                         method: 'POST',
                         body: new URLSearchParams({
                             product_id: productId,
