@@ -279,7 +279,6 @@ $total = 0;
                                             <br>
                                         </tr> ";
                                 }
-                                echo "Total: $total";
                                 ?>
                                 <tr>
                                     <td colspan="3" class="text-right">Total:</td>
