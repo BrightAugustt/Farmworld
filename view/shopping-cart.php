@@ -254,7 +254,7 @@ $total = 0;
                                     $subtotal = $cart['qty'] * $cart['crop_price']; // calculate the subtotal for each product
                                     $total += $subtotal; // add the subtotal to the total
                                     echo "
-                                        <tr>
+                                        <tr class='cart-row'>
                                             <td class= 'shoping__cart__item'>
                                                 <img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;>
                                                 <h5>{$cart['crop_name']}</h5>
@@ -505,33 +505,63 @@ $total = 0;
     <!-- Footer Section End -->
 
     <script>
-        function updateCart(element) {
-            var productId = element.dataset.productId;
-            var quantity = element.value;
-            var row = element.closest('tr');
-            var subtotalCell = row.querySelector('.shoping__cart__total');
-            var subtotal = quantity * parseFloat(subtotalCell.dataset.subtotal) / parseInt(element.defaultValue);
-            subtotalCell.innerHTML = subtotal.toFixed(2);
-            subtotalCell.dataset.subtotal = subtotal;
-            element.defaultValue = quantity;
+        // Find all quantity input fields on the page
+        const quantityInputs = document.querySelectorAll('.quantity-input');
 
-            var total = 0;
-            var subtotalCells = document.querySelectorAll('.shoping__cart__total');
-            for (var i = 0; i < subtotalCells.length; i++) {
-                total += parseFloat(subtotalCells[i].dataset.subtotal);
-            }
+        // Listen for changes to each quantity input field
+        quantityInputs.forEach(quantityInput => {
+            quantityInput.addEventListener('change', () => {
+                // Get the product ID and new quantity from the input field
+                const productId = quantityInput.dataset.productId;
+                const newQty = quantityInput.value;
 
-            var totalCell = document.querySelector('.cart-total');
-            totalCell.innerHTML = total.toFixed(2);
+                // Send an Ajax request to update the cart
+                fetch('updateCart.php', {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            product_id: productId,
+                            qty: newQty
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update the total price on the page
+                        const totalPriceElem = document.querySelector('#total-price');
+                        totalPriceElem.textContent = data.total_price;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '../actions/updateCart.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.onload = function() {
-                console.log(this.responseText);
-            };
-            xhr.send('product_id=' + productId + '&quantity=' + quantity);
-        }
+        // function updateCart(element) {
+        //     var productId = element.dataset.productId;
+        //     var quantity = element.value;
+        //     var row = element.closest('tr');
+        //     var subtotalCell = row.querySelector('.shoping__cart__total');
+        //     var subtotal = quantity * parseFloat(subtotalCell.dataset.subtotal) / parseInt(element.defaultValue);
+        //     subtotalCell.innerHTML = subtotal.toFixed(2);
+        //     subtotalCell.dataset.subtotal = subtotal;
+        //     element.defaultValue = quantity;
+
+        //     var total = 0;
+        //     var subtotalCells = document.querySelectorAll('.shoping__cart__total');
+        //     for (var i = 0; i < subtotalCells.length; i++) {
+        //         total += parseFloat(subtotalCells[i].dataset.subtotal);
+        //     }
+
+        //     var totalCell = document.querySelector('.cart-total');
+        //     totalCell.innerHTML = total.toFixed(2);
+
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.open('POST', '../actions/updateCart.php', true);
+        //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        //     xhr.onload = function() {
+        //         console.log(this.responseText);
+        //     };
+        //     xhr.send('product_id=' + productId + '&quantity=' + quantity);
+        // }
     </script>
 
 
