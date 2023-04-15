@@ -4,23 +4,17 @@ require "classes\cart_class.php";
 
 class CartTest extends \PHPUnit\Framework\TestCase{
 
-   public function testCart(){
-        $add_to_cart_cls= new App\cart_class;
-        $result = $add_to_cart_cls->add_to_cart_cls( 'Test Crop',
-        'Test Farmer',
-        10,
-        5.0,
-        'Test Category',
-        'test_image.jpg', 
-        'Test Description');
+   public function testAdd_to_Cart(){
+        $add_to_cart_cls= new cart_class();
+        $result = $add_to_cart_cls->add_to_cart_cls(3, '127.0.0.1', 1, 2);
 
         $this->assertTrue($result);
 
    }
 
-   public function testDelete_crop_added(){
-        $delete_croprecord_cls = new App\crop_class;
-        $result = $delete_croprecord_cls->delete_croprecord_cls('Sample Crop', 'Sample Farmer', 10, 50, 'Vegetable', 'sample_image.jpg', 'Sample Crop Description');
+   public function testRemove_customer_cart_items(){
+        $del_cart_cls = new cart_class;
+        $result = $del_cart_cls->del_cart_cls('123');
 
         $this->assertTrue($result);
 

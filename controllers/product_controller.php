@@ -1,5 +1,5 @@
 <?php
-namespace App;
+
 //connect to the user account class
 include_once (dirname(__FILE__)) . '/../classes/product_class.php';
 

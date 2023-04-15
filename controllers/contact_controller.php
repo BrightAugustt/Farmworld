@@ -1,5 +1,5 @@
 <?php 
-namespace App;
+
 //make the controller aware of the class
 include_once(dirname(__FILE__)) . '/../classes/customer_class.php';
 

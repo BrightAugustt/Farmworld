@@ -1,5 +1,5 @@
 <?php
-namespace App;
+
 //connect to the user account class
 include("../classes/general_class.php");
 

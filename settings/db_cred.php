@@ -1,5 +1,5 @@
 <?php
-namespace App;
+
 //Database credentials
 //for XAMPP
 define("DATABASE", "farmaworld");
