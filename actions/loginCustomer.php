@@ -25,7 +25,7 @@ if(isset($_POST['loginButton'])){
                 } else if ($_SESSION['user_role'] == 3) {
                     header('location: ../admin/admin.php');
                 } else if($_SESSION['user_role'] == 1) {
-                    header('location: ../Ecom/homepage.php');
+                    header('location: ../view/index.php');
                 }
         
         }

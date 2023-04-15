@@ -50,7 +50,7 @@ $linkdash="../dash/dashboard.php";
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="index.php"><img src="../images/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>

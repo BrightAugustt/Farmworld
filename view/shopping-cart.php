@@ -1,3 +1,18 @@
+<?php
+include("../settings/core.php");
+include("../controllers/cart_controller.php");
+include("../function/function.php");
+
+$custId = get_id();
+// echo $custId;
+$all_cartproducts = view_cart_ctr($custId);
+$ip_add = getIPAddress();
+$total = 0;
+
+// $transaction_id = $_POST['transaction_id'];
+// $status = $_POST['status'];
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -33,7 +48,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="#"><img src="../images/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -60,7 +75,7 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
+                <li class="active"><a href="./index.php">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
@@ -132,7 +147,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.html"><img src="../images/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -189,18 +204,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <!-- <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form> -->
             </div>
         </div>
 
@@ -244,56 +247,45 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
-                                        <!-- <div class="remove">
-                                            <button class="removebutton"> Remove</button>
-                                            <p>$55.00</p>
-                                        </div> -->
+                                <?php
+                                $total = 0; // initialize the total variable outside the loop
 
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                    GH₵ 55.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                    GH₵ 110.00
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
+                                foreach ($all_cartproducts as $cart) {
+                                    $subtotal = $cart['qty'] * $cart['crop_price']; // calculate the subtotal for each product
+                                    $total += $subtotal; // add the subtotal to the total
+                                    echo "
+                                        <tr>
+                                            <td class= 'shoping__cart__item'>
+                                                <img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;>
+                                                <h5>{$cart['crop_name']}</h5>
+                                            </td>
+                                            <td class='shoping__cart__price'>
+                                                GH₵ {$cart['crop_price']}
+                                            </td>
+                                            <td class='shoping__cart__quantity'>
+                                                <div class='quantity'>
+                                                    <div class='pro-qty'>
+                                                    <input type='text' value='{$cart['qty']}' data-product-id='{$cart['crop_id']}' class='quantity-input'>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class='shoping__cart__total' data-subtotal='<?php echo $subtotal; ?>'>
+                                                <?php echo $subtotal; ?>
+                                            </td>
+
+                                            <td class='shoping__cart__item__close'>
+                                                <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
+                                            </td>
+                                            <br>
+                                        </tr> ";
+                                }
+                                ?>
                                 <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                    GH₵ 39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                    GH₵ 39.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
+                                    <td colspan="3" class="text-right">Total:</td>
+                                    <td class="shoping__cart__total"><?php echo $total; ?></td>
                                 </tr>
-                                <tr>
+
+                                <!-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-3.jpg" alt="">
                                         <h5>Organic Bananas</h5>
@@ -313,19 +305,19 @@
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <button class="removebutton"><span><i class="fa fa-trash-o"></i></span></button>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
+                <?php $totalsum = totalPrice_ctr($custId); ?>
                 <div class="col-lg-4">
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>GH₵ 454.98</span></li>
-                            <li>Total <span>GH₵ 454.98</span></li>
+                            <li>Subtotal <span><?php echo $totalsum['Multiply']; ?></span></li>
+                            <!-- <li>Total <span>GH₵ 454.98</span></li> -->
                         </ul>
                         <a href="checkout.html" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
@@ -334,7 +326,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="index.html" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                        <a href="index.php" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                     </div>
                 </div>
             </div>
@@ -449,7 +441,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="index.php"><img src="../images/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Phone: 0544262308</li>
@@ -512,6 +504,37 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+
+    <script>
+        function updateCart(element) {
+            var productId = element.dataset.productId;
+            var quantity = element.value;
+            var row = element.closest('tr');
+            var subtotalCell = row.querySelector('.shoping__cart__total');
+            var subtotal = quantity * parseFloat(subtotalCell.dataset.subtotal) / parseInt(element.defaultValue);
+            subtotalCell.innerHTML = subtotal.toFixed(2);
+            subtotalCell.dataset.subtotal = subtotal;
+            element.defaultValue = quantity;
+
+            var total = 0;
+            var subtotalCells = document.querySelectorAll('.shoping__cart__total');
+            for (var i = 0; i < subtotalCells.length; i++) {
+                total += parseFloat(subtotalCells[i].dataset.subtotal);
+            }
+
+            var totalCell = document.querySelector('.cart-total');
+            totalCell.innerHTML = total.toFixed(2);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '../actions/updateCart.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                console.log(this.responseText);
+            };
+            xhr.send('product_id=' + productId + '&quantity=' + quantity);
+        }
+    </script>
+
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

@@ -77,7 +77,7 @@ if (isset($_POST['addcart'])) {
     if ($duplicate_check == false) {
         $addCart = add_to_cart_ctr($prodId, $ip_address, $custId, $qty);
         if ($addCart) {
-            header('Location: ../Ecom/homepage.php');
+            header('Location: ../view/index.php');
         } else {
             echo "Failed insertion!";
         }
@@ -85,7 +85,7 @@ if (isset($_POST['addcart'])) {
         $update_check = update_cart_qty_ctr($prodId, $custId, $qty);
         if ($update_check) {
             // if update was succesfull, redirect to cart page.
-            header('location:../Ecom/cart.php');
+            header('location:../view/shopping-cart.php');
         } else {
             echo "Failed Update!";
         }
