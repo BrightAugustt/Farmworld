@@ -4,7 +4,7 @@ require "classes\cart_class.php";
 
 class CartTest extends \PHPUnit\Framework\TestCase{
 
-   public function testAdd(){
+   public function testCart(){
         $add_to_cart_cls= new App\cart_class;
         $result = $add_to_cart_cls->add_to_cart_cls( 'Test Crop',
         'Test Farmer',
