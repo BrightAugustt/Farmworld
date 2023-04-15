@@ -2,7 +2,7 @@
 
 class CropsTest extends \PHPUnit\Framework\TestCase{
 
-    public function testAdd{
+    public function testAdd(){
         $crop = new App\crops;
         $result = $crop->insert();
 
