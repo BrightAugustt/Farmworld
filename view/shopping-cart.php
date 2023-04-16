@@ -265,7 +265,7 @@ $total = 0;
                                             <td class='shoping__cart__quantity'>
                                                 <div class='quantity'>
                                                     <div class='pro-qty'>
-                                                    <input type='text' value='{$cart['qty']}' data-product-id='{$cart['crop_id']}' class='quantity-input'>
+                                                    <input type='text' value='1' data-product-id='{$cart['crop_id']}' class='quantity-input'>
                                                     </div>
                                                 </div>
                                             </td>
