@@ -313,7 +313,7 @@ $total = 0;
                             <li>Subtotal <span><?php echo $totalsum['Multiply']; ?></span></li>
                             <!-- <li>Total <span>GH₵ 454.98</span></li> -->
                         </ul>
-                        <a href="checkout.html" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="./checkout.php" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>
