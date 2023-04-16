@@ -22,7 +22,7 @@ $total = 0;
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Farmaworld/cart</title>
+    <title>Cart</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -265,12 +265,21 @@ $total = 0;
                                             <td class='shoping__cart__quantity'>
                                                 <div class='quantity'>
                                                     <div class='pro-qty'>
-                                                    <input type='text' value='{$cart['qty']}' data-product-id='{$cart['crop_id']}' class='quantity-input'>
+                                                    <input type='text' value='1' data-product-id='{$cart['crop_id']}' class='quantity-input'>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class='shoping__cart__total' data-subtotal='<?php echo $subtotal; ?>'>
-                                                {$cart['qty']} * {$cart['crop_price']}
+                                            <td class='shoping__cart__total'>
+                                                $subtotal
+                                            </td>
+                                            <td>
+                                            <form class='form-inline' method='POST' action=''>
+                                                <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
+                                                <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
+                                                <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
+                                                <input class='form-control mr-sm-2' name='qty' type='number' placeholder='Quantity' aria-label='Quantity'>
+                                                <input type='submit' class='btn-btn primary' name='updateQty' value='Update'>
+                                            </form>
                                             </td>
                                             <td class='shoping__cart__item__close'>
                                                 <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
@@ -278,12 +287,10 @@ $total = 0;
                                             <br>
                                         </tr> ";
                                 }
+                                // var_dump($cart,$subtotal);
                                 ?>
-                                <tr>
-                                    <td colspan="3" class="text-right">Total:</td>
-                                    <td class="shoping__cart__total"><?php echo $total; ?></td>
-                                </tr>
 
+                                
                                 <!-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-3.jpg" alt="">
@@ -318,7 +325,7 @@ $total = 0;
                             <li>Subtotal <span><?php echo $totalsum['Multiply']; ?></span></li>
                             <!-- <li>Total <span>GH₵ 454.98</span></li> -->
                         </ul>
-                        <a href="checkout.html" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="./checkout.php" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>

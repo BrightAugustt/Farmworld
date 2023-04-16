@@ -80,13 +80,19 @@ function delete_cart_record_ctr($crpId,$custId)
     return $class_instance->delete_from_cart_cls($crpId,$custId);
 }
 
-function totalPrice_ctr($custId)
-{
-    // create an instance of the Product class
-    $class_instance = new cart_class();
-    // call the method from the class
-    return $class_instance->multiplyPrice($custId);
+function totalPrice_ctr($custId) {
+  $cartModel = new cart_class();
+  $totalsum = $cartModel->multiplyPrice($custId);
+  return $totalsum;
 }
+
+// function totalPrice_ctr($custId)
+// {
+//     // create an instance of the Product class
+//     $class_instance = new cart_class();
+//     // call the method from the class
+//     return $class_instance->multiplyPrice($custId);
+// }
 
 function cart_details_ctr($custId){
   $select= new cart_class();
