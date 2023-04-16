@@ -37,6 +37,13 @@ class general_class extends db_connection
         $sql = "SELECT COUNT(*) FROM `crops`";
         return  $this->fetchOne($sql);
     }
+
+    function vendor_crop_count()
+    {
+        $sql = "SELECT customer.customer_email, COUNT(crops.crop_id) AS crop_count FROM crops JOIN customer ON crops.customer_id = customer.customer_id GROUP BY customer.customer_email";
+        var_dump($this->db_fetch_all($sql));
+        return $this->db_fetch_all($sql);
+    }
 	
 	
 

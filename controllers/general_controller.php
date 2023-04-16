@@ -41,5 +41,14 @@ function cropsCount_ctr(){
 
 }
 
+function vendor_crop_Count_ctr(){
+
+    // Create an instance of the class
+    $verify_customer = new general_class();
+
+     return $verify_customer->vendor_crop_count();
+
+}
+
 
 ?>

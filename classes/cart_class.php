@@ -17,6 +17,14 @@ class cart_class extends db_connection{
 		return $this-> db_query($sql);
 	}
 
+	public function insert_orders($customer_id,$invoice_no, $order_date){
+
+		// Write query
+		$sql =  "INSERT INTO `orders`(`customer_id`, `invoice_no`, `order_date`, `order_status`) VALUES ('$customer_id','$invoice_no','$order_date','success')";
+		// Return  
+		return $this->db_query($sql);
+	}
+
 	public function orderid_cls(){
 		$sql = "SELECT `order_id` FROM `orders` ORDER BY `order_id` DESC LIMIT 1"; 
 		return $this-> fetchOne($sql);//fetch one

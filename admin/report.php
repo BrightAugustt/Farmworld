@@ -1,9 +1,10 @@
 <?php
 // session_start();
 include ("../controllers/product_controller.php");
+
 $stats=vendor_crop_count_ctr();
 
-var_export($stats);
+var_dump($stats);
 ?>
 
 
