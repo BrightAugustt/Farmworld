@@ -278,7 +278,7 @@ $total = 0;
                                             <br>
                                         </tr> ";
                                 }
-                                var_dump($cart,$subtotal);
+                                // var_dump($cart,$subtotal);
                                 ?>
 
                                 
