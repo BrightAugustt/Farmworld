@@ -278,7 +278,10 @@ $total = 0;
                                             <br>
                                         </tr> ";
                                 }
+                                var_dump($qty,$subtotal);
                                 ?>
+
+                                
                                 <!-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-3.jpg" alt="">
