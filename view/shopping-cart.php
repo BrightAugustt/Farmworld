@@ -272,6 +272,15 @@ $total = 0;
                                             <td class='shoping__cart__total'>
                                                 $subtotal
                                             </td>
+                                            <td>
+                                            <form class='form-inline' method='POST' action=''>
+                                                <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
+                                                <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
+                                                <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
+                                                <input class='form-control mr-sm-2' name='qty' type='number' placeholder='Quantity' aria-label='Quantity'>
+                                                <input type='submit' class='btn-btn primary' name='updateQty' value='Update'>
+                                            </form>
+                                            </td>
                                             <td class='shoping__cart__item__close'>
                                                 <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
                                             </td>
