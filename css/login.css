@@ -14,7 +14,7 @@ body{
 
 .container{
     position: relative;
-    height: 900px;
+    height: 500px;
     width: 1440px;
     /* background-image: url(../images/registerback.jpg);
     background-position: center;
@@ -26,10 +26,10 @@ body{
 .form{
     position: absolute;
     width: 500px;
-    height: 800px;
+    height: 400px;
     left: 400px;
     top:39px;
-    background-color: hsl(0, 0%, 100%);
+    background-color: hsl(0, 61%, 43%);
     /* text-align: center; */
     border-radius: 10px;
 }
