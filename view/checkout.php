@@ -4,9 +4,9 @@ include("../settings/core.php");
 include("../controllers/cart_controller.php");
 include("../function/function.php");
 
-if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 2) {
     header('Location:../Login/login.php');
- };
+};
 
 $custId = get_id();
 $all_cartproducts = view_cart_ctr($custId);
@@ -211,7 +211,7 @@ $all_cartproducts = view_cart_ctr($custId);
     <section class="checkout spad">
         <div class="container">
             <div class="row">
-               
+
             </div>
             <div class="checkout__form">
                 <h4>Billing Details</h4>
@@ -219,7 +219,7 @@ $all_cartproducts = view_cart_ctr($custId);
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
-                              
+
                                 <div class="col-lg-12 col-md-6">
                                     <div class="checkout__order">
                                         <h4>Your Order</h4>
@@ -255,7 +255,8 @@ $all_cartproducts = view_cart_ctr($custId);
                                                 <input type="hidden" name="cancel_url" value="https://www.example.com/checkout/cancel">
                                                 <input type="hidden" name="notify_url" value="https://www.example.com/checkout/paybox-ipn">
                                                 <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
-                                                <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; ?>">
+                                                <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; 
+                                                                                                    ?>">
                                                 <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With MOMO</button></th>
                                                 <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton">Pay With Bank Account</button></th>
                                             </form>
@@ -270,6 +271,11 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                 <div class='col-12'>
                                                                     <label>Email Address</label>
                                                                     <input type='text' name='customer_email' id='customer_email' class='form-control' placeholder='someone@example.com'>
+                                                                </div>
+
+                                                                <div class='col-12'>
+                                                                    <label>Location</label>
+                                                                    <input type='text' name='location' id='location' class='form-control' placeholder='6 Sesame St., Dansoman Accra-Ghana'>
                                                                 </div>
 
                                                                 <br>
@@ -288,7 +294,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                     <label>MOMO number</label>
                                                                     <input type="tel" name='customer_contact' id='customer_contact' class='form-control' placeholder='0000000000'>
                                                                 </div>
-                                                                
+
                                                                 <div class='col-12'>
                                                                     <label>Total Amount</label>
                                                                     <input type='text' name='order_amount' id='order_amount' class='form-control' placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
@@ -307,7 +313,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                     </div>
                                                 </div>
                                             </div>
-                                </tr>
+                                        </tr>
                                     </div>
                                 </div>
 
@@ -407,7 +413,7 @@ $all_cartproducts = view_cart_ctr($custId);
 
 
 </body>
-<script src="https://js.paystack.co/v1/inline.js"></script> 
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
 </html>
 <!-- embed script -->
