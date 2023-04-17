@@ -2,6 +2,10 @@
 include("../settings/core.php");
 include("../controllers/cart_controller.php");
 include("../function/function.php");
+// if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=1) ){
+// 	header("location:..Login/login.php"); // redirects to login page
+//         exit;
+// }
 
 $custId = get_id();
 $all_cartproducts = view_cart_ctr($custId);
@@ -16,7 +20,7 @@ $all_cartproducts = view_cart_ctr($custId);
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
+    <title>Farm-A-World/checkout</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -145,18 +149,9 @@ $all_cartproducts = view_cart_ctr($custId);
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <!-- <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a> -->
                             <ul class="header__menu__dropdown">
-                                <!-- <li><a href="./shop-details.html">Shop Details</a></li> -->
-                                <!-- <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li> -->
-                                <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
                             </ul>
                             </li>
-                            <!-- <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li> -->
                         </ul>
                     </nav>
                 </div>
@@ -197,13 +192,7 @@ $all_cartproducts = view_cart_ctr($custId);
                         </ul>
                     </div>
                 </div>
-
-                <!-- <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li> -->
-                <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
                 </ul>
-                <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
             </div>
 
         </div>
@@ -236,10 +225,7 @@ $all_cartproducts = view_cart_ctr($custId);
     <section class="checkout spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
-                    </h6>
-                </div>
+               
             </div>
             <div class="checkout__form">
                 <h4>Billing Details</h4>
@@ -247,80 +233,7 @@ $all_cartproducts = view_cart_ctr($custId);
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
-                                <!-- <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Ship to a different address?
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
-                        </div> -->
+                              
                                 <div class="col-lg-12 col-md-6">
                                     <div class="checkout__order">
                                         <h4>Your Order</h4>
@@ -459,5 +372,36 @@ $all_cartproducts = view_cart_ctr($custId);
 
 
 </body>
+<script src="https://js.paystack.co/v1/inline.js"></script> 
 
 </html>
+<script type="text/javascript">const paymentForm = document.getElementById('paymentForm');
+  paymentForm.addEventListener("submit", payWithPaystack, false);
+
+  // PAYMENT FUNCTION
+  function payWithPaystack(e) {
+  e.preventDefault();
+  let handler = PaystackPop.setup({
+    key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd', // Replace with your public key
+    email: document.getElementById("email").value,
+    amount: document.getElementById("amount").value * 100,
+    currency:'GHS',
+     ref: Math.floor((Math.random() * 1000000000) + 1),
+    onClose: function(){
+    alert('Payment failed');
+    document.getElementById("fail").submit();
+    },
+    callback: function(response){
+            $.ajax({
+              url:"../../actions/process.php?reference="+ response.reference,
+              method:'GET',
+              success: function (response){
+              	document.getElementById("clearCart").submit();
+               /* window.location.href = "../view/order-complete.php";*/
+              }
+
+            });
+    }
+  });
+  handler.openIframe();
+}</script>
