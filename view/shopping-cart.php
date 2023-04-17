@@ -38,6 +38,27 @@ $total = 0;
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
+<!-- Add CSS styles for the alert messages -->
+<style>
+  .alert {
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+</style>
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -280,7 +301,7 @@ $total = 0;
                                                 <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
                                                 <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
                                                 <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
-                                                <input class='form-control mr-sm-2' name='qty' type='number' value='{$cart['qty']}' min='{$cart['qty']}' aria-label='Quantity'>
+                                                <input class='form-control mr-sm-2' name='qty' type='number' value='{$cart['qty']}' min='1' aria-label='Quantity'>
                                         
                                             </form>
                                             </td>
@@ -294,28 +315,6 @@ $total = 0;
                                 // var_dump($cart,$subtotal);
                                 ?>
 
-                                
-                                <!-- <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                    GH₵ 69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                    GH₵ 69.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <button class="removebutton"><span><i class="fa fa-trash-o"></i></span></button>
-                                    </td> -->
                                 </tr>
                             </tbody>
                         </table>
@@ -515,94 +514,41 @@ $total = 0;
     <!-- Footer Section End -->
 
     <script>
-        $(document).ready(function() {
-    // Listen for changes to the quantity input field
-    $('#qty-input').on('change', function() {
-      const formData = $('#quantity-form').serialize(); // Serialize form data
-      const url = '../actions/updateCart.php'; // Replace with your actual URL
+          $(document).ready(function() {
+    let timer = null; // Declare a timer variable
+  
+    // Listen for focusout event on the quantity input field
+    $('#qty-input').on('focusout', function() {
+      clearTimeout(timer); // Clear any previous timers
       
-      $.ajax({
-        url: url,
-        type: 'POST',
-        data: formData,
-        success: function(response) {
-          // Handle successful response, if needed
-          console.log(response);
-          location.reload(); // Refresh the page to update the UI
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          // Handle error response, if needed
-          console.error(errorThrown);
-        }
-      });
+      // Set a timer to trigger the AJAX request after a short delay (500ms)
+      timer = setTimeout(function() {
+        const formData = $('#quantity-form').serialize(); // Serialize form data
+        const url = '../actions/updateCart.php'; // Replace with your actual URL
+        
+        $.ajax({
+          url: url,
+          type: 'POST',
+          data: formData,
+          dataType: 'json', // Expect a JSON response
+          success: function(response) {
+            // Handle successful response
+            if (response.status === 'success') {
+              $('#response-message').html(`<div class="alert alert-success">${response.message}</div>`); // Show success message in a styled element
+              location.reload(); // Refresh the page to update the UI
+            } else {
+              $('#response-message').html(`<div class="alert alert-danger">${response.message}</div>`); // Show error message in a styled element
+            }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            // Handle error response
+            console.error(errorThrown);
+          }
+        });
+      }, 500);
     });
   });
 
-
-
-
-
-
-
-
-
-        // Find all quantity input fields on the page
-        // const quantityInputs = document.querySelectorAll('.quantity-input');
-
-        // Listen for changes to each quantity input field
-        // quantityInputs.forEach(quantityInput => {
-        //     quantityInput.addEventListener('change', () => {
-        //         // Get the product ID and new quantity from the input field
-        //         const productId = quantityInput.dataset.productId;
-        //         const newQty = quantityInput.value;
-
-        //         // Send an Ajax request to update the cart
-        //         fetch('../actions/updateCart.php', {
-        //                 method: 'POST',
-        //                 body: new URLSearchParams({
-        //                     product_id: productId,
-        //                     qty: newQty
-        //                 })
-        //             })
-        //             .then(response => response.json())
-        //             .then(data => {
-        //                 // Update the total price on the page
-        //                 const totalPriceElem = document.querySelector('#total-price');
-        //                 totalPriceElem.textContent = data.total_price;
-        //             })
-        //             .catch(error => {
-        //                 console.error(error);
-        //             });
-        //     });
-        // });
-
-        // function updateCart(element) {
-        //     var productId = element.dataset.productId;
-        //     var quantity = element.value;
-        //     var row = element.closest('tr');
-        //     var subtotalCell = row.querySelector('.shoping__cart__total');
-        //     var subtotal = quantity * parseFloat(subtotalCell.dataset.subtotal) / parseInt(element.defaultValue);
-        //     subtotalCell.innerHTML = subtotal.toFixed(2);
-        //     subtotalCell.dataset.subtotal = subtotal;
-        //     element.defaultValue = quantity;
-
-        //     var total = 0;
-        //     var subtotalCells = document.querySelectorAll('.shoping__cart__total');
-        //     for (var i = 0; i < subtotalCells.length; i++) {
-        //         total += parseFloat(subtotalCells[i].dataset.subtotal);
-        //     }
-
-        //     var totalCell = document.querySelector('.cart-total');
-        //     totalCell.innerHTML = total.toFixed(2);
-
-        //     var xhr = new XMLHttpRequest();
-        //     xhr.open('POST', '../actions/updateCart.php', true);
-        //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        //     xhr.onload = function() {
-        //         console.log(this.responseText);
-        //     };
-        //     xhr.send('product_id=' + productId + '&quantity=' + quantity);
-        // }
     </script>
 
 
