@@ -1,6 +1,6 @@
 <?php
 // session_start();
-// include("../settings/core.php");
+include("../settings/core.php");
 require("../controllers/product_controller.php");
 require('../function/cart_function.php');
 // $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";

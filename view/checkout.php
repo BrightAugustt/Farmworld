@@ -2,10 +2,10 @@
 include("../settings/core.php");
 include("../controllers/cart_controller.php");
 include("../function/function.php");
-// if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=1) ){
-// 	header("location:..Login/login.php"); // redirects to login page
-//         exit;
-// }
+if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=1) ){
+	header("location:../Login/login.php"); // redirects to login page
+        exit;
+}
 
 $custId = get_id();
 $all_cartproducts = view_cart_ctr($custId);

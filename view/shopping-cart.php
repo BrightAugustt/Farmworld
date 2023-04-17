@@ -202,7 +202,7 @@ $total = 0;
                                 $total = 0; // initialize the total variable outside the loop
 
                                 foreach ($all_cartproducts as $cart) {
-                                    $subtotal = $cart['qty'] * $cart['crop_price']; // calculate the subtotal for each product
+                                    $subtotal = $cart['total_qty'] * $cart['crop_price']; // calculate the subtotal for each product
                                     $total += $subtotal; // add the subtotal to the total
                                     echo "
                                         <tr class='cart-row'>
@@ -216,12 +216,12 @@ $total = 0;
                                             <td class='shoping__cart__quantity'>
                                                 <div class='quantity'>
                                                     
-                                                    <input type='text' value='{$cart['qty']}' data-product-id='{$cart['crop_id']}' style='width:50px; text-align:center; class='quantity-input' disabled>
+                                                    <input type='text' value='{$cart['total_qty']}' data-product-id='{$cart['crop_id']}' style='width:50px; text-align:center; class='quantity-input' disabled>
                                                     
                                                 </div>
                                             </td>
                                             <td class='shoping__cart__total'>
-                                            {$cart['crops.crop_price*cart.qty']}
+                                            {$cart['total_price']}
                                             </td>
 
 
@@ -230,7 +230,7 @@ $total = 0;
                                                 <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
                                                 <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
                                                 <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
-                                                <input class='form-control mr-sm-2' name='qty' type='number' value='{$cart['qty']}' min='1' aria-label='Quantity'>
+                                                <input class='form-control mr-sm-2' name='qty' type='number' value='{$cart['total_qty']}' min='1' aria-label='Quantity'>
                                         
                                             </form>
                                             </td>
