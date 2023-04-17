@@ -72,13 +72,8 @@ $total = 0;
             <a href="#"><img src="../images/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <!-- Php code to take the total cart will be here -->
-                <li><a href="shopping-cart.php"><i class="fa fa-shopping-bag"></i>
-                        <!-- Cart Total: 2 --></span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+         
+           
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -141,21 +136,6 @@ $total = 0;
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                            <!-- <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div> -->
-                            <!-- <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div> -->
                             <div class="header__top__right__auth">
                                 <a href="../Login/login.php"><i class="fa fa-user"></i> Login</a>
                             </div>
@@ -165,40 +145,7 @@ $total = 0;
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="../images/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <!-- <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a> -->
-                            <ul class="header__menu__dropdown">
-                                <!-- <li><a href="./shop-details.html">Shop Details</a></li> -->
-                                <!-- <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li> -->
-                                <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
-                            </ul>
-                            </li>
-                            <!-- <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li> -->
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div>
-                </div>
-            </div>
+   
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
             </div>
@@ -208,25 +155,7 @@ $total = 0;
 
     <!-- Hero Section Begin -->
     <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="vegMelons.php">Vegetables & Melons</a></li>
-                            <li><a href="cereals.php">Cereals</a></li>
-                            <li><a href="fruitNuts.php">Fruit & Nuts</a></li>
-                            <li><a href="legumes.php">Leguminous Crops</a></li>
-                            <li><a href="sugars.php">Sugar Crops</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         </div>
         </div>
@@ -250,7 +179,7 @@ $total = 0;
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
+    <div id="response-message"></div>
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
         <div class="container">
@@ -350,96 +279,7 @@ $total = 0;
 
     <!-- Available Products Section End -->
 
-    <!-- Categories Section Begin -->
-    <section class="featureds spad">
-        <div class="container try">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="like">
-                        <h2>You may also like</h2>
-                    </div>
-                    <div class="row style=size:10px;">
-                        <div class="categories__slider owl-carousel style=size:10px;">
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                <a href="single_page.php">
-                                    <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                    </div>
-                                    <div class="featured__item__texts">
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>GHC30.00</h5>
-                                    </div>
-                                </a>
-                            </div>
 
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                <a href="single_page.php">
-                                    <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                    </div>
-                                    <div class="featured__item__texts">
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>GHC30.00</h5>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                <a href="single_page.php">
-                                    <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                    </div>
-                                    <div class="featured__item__texts">
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>GHC30.00</h5>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                <a href="single_page.php">
-                                    <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                    </div>
-                                    <div class="featured__item__texts">
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>GHC30.00</h5>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                <a href="single_page.php">
-                                    <div class="featured__item__pics categories__item set-bg set-bg" data-setbg="img/featured/feature-2.jpg">
-                                    </div>
-                                    <div class="featured__item__texts">
-                                        <h6><a href="#">Crab Pool Security</a></h6>
-                                        <h5>GHC30.00</h5>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
-                        </ul>
-                    </div> -->
-            </div>
-        </div>
-        <div class="row featured__filter">
-
-            <div>
-
-            </div>
-
-    </section>
     <!-- Categories Section End -->
 
     <!-- Footer Section Begin -->
