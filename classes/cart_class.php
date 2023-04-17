@@ -81,10 +81,11 @@ class cart_class extends db_connection
 
 	function view_cart_cls($custId)
 	{
-		$sql = "SELECT crops.crop_id, crops.crop_image, crops.crop_name, crops.crop_price, cart.qty, crops.crop_price*cart.qty
+		$sql = "SELECT crops.crop_id, crops.crop_image, crops.crop_name, crops.crop_price, SUM(cart.qty) AS total_qty, crops.crop_price* SUM(cart.qty) AS total_price
 		FROM `crops`
 		JOIN cart ON crops.crop_id = cart.crop_id
-		WHERE crops.crop_id AND cart.customer_id = '$custId'";
+		WHERE crops.crop_id AND cart.customer_id = '$custId'
+		GROUP BY crops.crop_id";
 		return $this->fetch($sql);
 	}
 
@@ -98,10 +99,12 @@ class cart_class extends db_connection
 	}
 
 	//controller for duplicate
-	function dup_cart_qty_cls($crpId, $custId)
+	function dup_cart_qty_cls($prodId, $custId)
 	{
-		$sql = "SELECT * FROM `cart` WHERE `crop_id`= '$crpId' AND `customer_id` = '$custId'";
-		return $this->db_fetch_all($sql);
+		$sql = "SELECT * FROM `cart` WHERE `crop_id`= '$prodId' AND `customer_id` = '$custId'";
+		$result = $this->db_fetch_all($sql);
+		return ($result ? $result: []); // return true if result set contains any rows, false otherwise
+	
 	}
 
 	function getUserDetailsById_cls($id)
