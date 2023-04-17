@@ -7,11 +7,13 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	// $order_id = $_POST['order_id'];
 	$cropName = $_POST['crop_name'];
 	$custId = get_id();
+	$qty = $_POST['total_qty'];
 	$email = $_POST['customer_email'];
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
 	$order_date = date('Y-m-d');
 	$payMode = "Test";
+	$location = $_POST["location"];
 	$network = $_POST['network'];
 
 	// var_dump($email,$number,$network,$custId ,$order_amount);
@@ -55,14 +57,14 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	echo $result['status'];
 
 	if ($result['status'] == 'Success') {
-		$order = insert_order_ctr($custId, $cropName, $date, $qty, $customerEmail, $amount);
+		$order = insert_order_ctr($custId, $cropName, $order_date, $qty, $email, $order_amount, $location);
 		//$payment = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
 
 		if ($order) {
-			echo $payment;
+			echo "Success Page";
 			// Payment successful
 			// Redirect the user to the success URL
-			// header('Location: ' . $params['pg_success_url']);
+			header('Location: ../view/success.php');
 		} else {
 			echo "Order insert failed";
 		}

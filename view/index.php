@@ -269,7 +269,7 @@ $linkdash="../dash/dashboard.php";
                             <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                                 
                                 <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                    <a href="single_page.php?crop_id=<?php echo($apat['crop_id'])?>">
+                                    <a href="singleCrop.php?crop_id=<?php echo($apat['crop_id'])?>">
                                         <div class="featured__item__pics categories__item set-bg set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
                                         </div>
                                         <div class="featured__item__texts">

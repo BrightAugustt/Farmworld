@@ -10,9 +10,9 @@ function add_to_cart_ctr($prodId, $ip_address, $custId, $qty){
     return $insert->add_to_cart_cls($prodId, $ip_address, $custId, $qty);
 }
 
-function insert_order_ctr($custId, $cropName, $date, $qty, $customerEmail, $amount){
+function insert_order_ctr($custId, $cropName, $date, $qty, $customerEmail, $amount, $location){
   $select= new cart_class();
-  return $select->insert_order_cls($custId, $cropName, $date, $qty, $customerEmail, $amount);
+  return $select->insert_order_cls($custId, $cropName, $date, $qty, $customerEmail, $amount, $location);
 }
 
 
