@@ -64,7 +64,7 @@ if (isset($_POST['paybox_momoSubmit'])) {
 			echo "Success Page";
 			// Payment successful
 			// Redirect the user to the success URL
-			// header('Location: ' . $params['pg_success_url']);
+			header('Location: ../view/success.php');
 		} else {
 			echo "Order insert failed";
 		}
