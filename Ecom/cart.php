@@ -61,12 +61,12 @@ $total = 0;
                             <tbody>
                                 <?php
                                 foreach ($all_cartproducts as $cart) {
-                                    $totals = $total + ($cart['qty'] * $cart['crop_price']);
+                                    $totals = $total + ($cart['total_qty'] * $cart['crop_price']);
                                     echo "
                                     <tr>
                                     <td><img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;></td>
                                     <td>{$cart['crop_name']}</td>
-                                    <td>{$cart['qty']}</td>
+                                    <td>{$cart['total_qty']}</td>
                                     <td>{$cart['crop_price']}</td>
                                     <td>$totals</td>
                                     <td>
@@ -115,12 +115,17 @@ $total = 0;
                                                     <form id='formid' action='../actions/PBpaymentProcess.php' method='POST' class='row g-3' enctype='multipart/form-data'>
                                                     <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name'];?>">
                                                     <input type="hidden" name="date" value="<?php echo date("Y-M-D");?>">
-                                                    <input type="hidden" name="qty" value="<?php echo $cart['qty'];?>">
+                                                    <input type="hidden" name="total_qty" value="<?php echo $cart['total_qty'];?>">
                                                     <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
                                                     <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
                                                         <div class='col-12'>
                                                             <label>Email Address</label>
                                                             <input type='text' name='customer_email' id='customer_email' class='form-control' placeholder='someone@example.com'>
+                                                        </div>
+                                                        
+                                                        <div class='col-12'>
+                                                            <label>Location</label>
+                                                            <input type='text' name='location' id='location' class='form-control' placeholder='6 Sesame St., Dansoman Accra-Ghana'>
                                                         </div>
 
                                                         <br>
@@ -142,7 +147,7 @@ $total = 0;
 
                                                         <div class='col-12'>
                                                             <label>Total Amount</label>
-                                                            <input type='text' name='order_amount' id='order_amount' class='form-control' placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
+                                                            <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
                                                         </div>
 
                                                         <div class='form-group mt-3'>

@@ -7,12 +7,13 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	// $order_id = $_POST['order_id'];
 	$cropName = $_POST['crop_name'];
 	$custId = get_id();
-	$qty = $_POST['qty'];
+	$qty = $_POST['total_qty'];
 	$email = $_POST['customer_email'];
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
 	$order_date = date('Y-m-d');
 	$payMode = "Test";
+	$location = $_POST["location"];
 	$network = $_POST['network'];
 
 	// var_dump($email,$number,$network,$custId ,$order_amount);
@@ -56,7 +57,7 @@ if (isset($_POST['paybox_momoSubmit'])) {
 	echo $result['status'];
 
 	if ($result['status'] == 'Success') {
-		$order = insert_order_ctr($custId, $cropName, $order_date, $qty, $email, $order_amount);
+		$order = insert_order_ctr($custId, $cropName, $order_date, $qty, $email, $order_amount, $location);
 		//$payment = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
 
 		if ($order) {
