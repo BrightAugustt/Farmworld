@@ -10,7 +10,14 @@ class cart_class extends db_connection
 	function add_to_cart_cls($prodId, $ip_address, $custId, $qty)
 	{
 		$sql = "INSERT INTO cart (`crop_id`,`ip_add`,`customer_id`,`qty`) VALUES ('$prodId', '$ip_address', '$custId','$qty')";
-		return $this->db_query($sql);
+		$this->db_query($sql);
+
+		if (mysqli_affected_rows($this->db)==0){
+			$sql1="UPDATE `cart` set `qty`=`qty`+'$qty' where `crop_id`='$prodId' and `ip_add`='$ip_address' and `customer_id`='$custId'";
+			return $this->db_query($sql1);
+		} else{
+			return $this->db_query($sql);
+		}
 	}
 
 	/**INSERT ORDERS */
