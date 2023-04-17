@@ -346,6 +346,7 @@ $linkdash="../dash/dashboard.php";
                                         <form action="../actions/addtoCart.php" method="POST">
                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                             <button type="submit" name="addcart" class="fa fa-shopping-cart image button"></button>
+                                            <input type="hidden" name="qty" value="9.90">
                                         </form>
                                     
                                 </li>

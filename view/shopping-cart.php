@@ -243,6 +243,7 @@ $total = 0;
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th>Total</th>
+                                    <th>Update</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -264,23 +265,26 @@ $total = 0;
                                             </td>
                                             <td class='shoping__cart__quantity'>
                                                 <div class='quantity'>
-                                                    <div class='pro-qty'>
-                                                    <input type='text' value='1' data-product-id='{$cart['crop_id']}' class='quantity-input'>
-                                                    </div>
+                                                    
+                                                    <input type='text' value='{$cart['qty']}' data-product-id='{$cart['crop_id']}' style='width:50px; text-align:center; class='quantity-input' disabled>
+                                                    
                                                 </div>
                                             </td>
                                             <td class='shoping__cart__total'>
-                                                $subtotal
+                                            {$cart['crops.crop_price*cart.qty']}
                                             </td>
+
+
                                             <td>
-                                            <form class='form-inline' method='POST' action=''>
+                                            <form class='form-inline update-cart-form' method='POST' action='../actions/updateCart.php'  id='quantity-form'>
                                                 <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
                                                 <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
                                                 <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
-                                                <input class='form-control mr-sm-2' name='qty' type='number' placeholder='Quantity' aria-label='Quantity'>
-                                                <input type='submit' class='btn-btn primary' name='updateQty' value='Update'>
+                                                <input class='form-control mr-sm-2' name='qty' type='number' value='{$cart['qty']}' min='{$cart['qty']}' aria-label='Quantity'>
+                                        
                                             </form>
                                             </td>
+                                            
                                             <td class='shoping__cart__item__close'>
                                                 <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
                                             </td>
@@ -323,7 +327,6 @@ $total = 0;
                         <h5>Cart Total</h5>
                         <ul>
                             <li>Subtotal <span><?php echo $totalsum['Multiply']; ?></span></li>
-                            <!-- <li>Total <span>GH₵ 454.98</span></li> -->
                         </ul>
                         <a href="./checkout.php" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>
@@ -512,35 +515,66 @@ $total = 0;
     <!-- Footer Section End -->
 
     <script>
+        $(document).ready(function() {
+    // Listen for changes to the quantity input field
+    $('#qty-input').on('change', function() {
+      const formData = $('#quantity-form').serialize(); // Serialize form data
+      const url = '../actions/updateCart.php'; // Replace with your actual URL
+      
+      $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        success: function(response) {
+          // Handle successful response, if needed
+          console.log(response);
+          location.reload(); // Refresh the page to update the UI
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          // Handle error response, if needed
+          console.error(errorThrown);
+        }
+      });
+    });
+  });
+
+
+
+
+
+
+
+
+
         // Find all quantity input fields on the page
-        const quantityInputs = document.querySelectorAll('.quantity-input');
+        // const quantityInputs = document.querySelectorAll('.quantity-input');
 
         // Listen for changes to each quantity input field
-        quantityInputs.forEach(quantityInput => {
-            quantityInput.addEventListener('change', () => {
-                // Get the product ID and new quantity from the input field
-                const productId = quantityInput.dataset.productId;
-                const newQty = quantityInput.value;
+        // quantityInputs.forEach(quantityInput => {
+        //     quantityInput.addEventListener('change', () => {
+        //         // Get the product ID and new quantity from the input field
+        //         const productId = quantityInput.dataset.productId;
+        //         const newQty = quantityInput.value;
 
-                // Send an Ajax request to update the cart
-                fetch('../actions/updateCart.php', {
-                        method: 'POST',
-                        body: new URLSearchParams({
-                            product_id: productId,
-                            qty: newQty
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Update the total price on the page
-                        const totalPriceElem = document.querySelector('#total-price');
-                        totalPriceElem.textContent = data.total_price;
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            });
-        });
+        //         // Send an Ajax request to update the cart
+        //         fetch('../actions/updateCart.php', {
+        //                 method: 'POST',
+        //                 body: new URLSearchParams({
+        //                     product_id: productId,
+        //                     qty: newQty
+        //                 })
+        //             })
+        //             .then(response => response.json())
+        //             .then(data => {
+        //                 // Update the total price on the page
+        //                 const totalPriceElem = document.querySelector('#total-price');
+        //                 totalPriceElem.textContent = data.total_price;
+        //             })
+        //             .catch(error => {
+        //                 console.error(error);
+        //             });
+        //     });
+        // });
 
         // function updateCart(element) {
         //     var productId = element.dataset.productId;

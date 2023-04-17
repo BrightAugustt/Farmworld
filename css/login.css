@@ -26,7 +26,7 @@ body{
 .form{
     position: absolute;
     width: 500px;
-    height: 400px;
+    height: 600px;
     left: 400px;
     top:39px;
     background-color: hsl(0, 61%, 43%);
@@ -44,6 +44,7 @@ h2{
 
 .form-floating{
   margin:20px;
+  margin-top: 50px;
 }
 
 .already{

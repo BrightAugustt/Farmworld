@@ -81,7 +81,7 @@ class cart_class extends db_connection
 
 	function view_cart_cls($custId)
 	{
-		$sql = "SELECT crops.crop_id, crops.crop_image, crops.crop_name, crops.crop_price, cart.qty
+		$sql = "SELECT crops.crop_id, crops.crop_image, crops.crop_name, crops.crop_price, cart.qty, crops.crop_price*cart.qty
 		FROM `crops`
 		JOIN cart ON crops.crop_id = cart.crop_id
 		WHERE crops.crop_id AND cart.customer_id = '$custId'";
@@ -113,9 +113,9 @@ class cart_class extends db_connection
 	}
 
 	//--UPDATE--//
-	function update_cart_qty_cls($crpId, $qty)
+	function update_cart_qty_cls($customer_id,$crpId, $qty)
 	{
-		$sql = "UPDATE  `cart` SET `qty` = '$qty' WHERE crop_id= '$crpId'";
+		$sql = "UPDATE  `cart` SET `qty` = '$qty' WHERE crop_id= '$crpId' and `customer_id`='$customer_id'";
 		return $this->db_query($sql);
 	}
 
@@ -136,6 +136,8 @@ class cart_class extends db_connection
 		return $this->fetchOne($sql);
 	}
 
+
+
 	function count_cart($cid, $ip)
 	{
 		$sql = "SELECT SUM(`qty`) as `cart_num` FROM `cart` WHERE `customer_id`='$cid'";
@@ -148,4 +150,14 @@ class cart_class extends db_connection
 		echo $sql;
 		return $this->db_query($sql);
 	}
+
+	public function getfrom_cart($a){
+
+		// Write query
+		$sql =  "SELECT crops.crop_price*cart.qty ,cart.qty, crops.crop_id,crops.crop_name,crops.crop_desc,crops.crop_image,crops.crop_price FROM cart INNER JOIN crops ON cart.customer_id = crops.crop_id WHERE cart.customer_id ='$a'";
+		// Return  
+		return $this->db_fetch_all($sql);
+	}
+
+	
 }

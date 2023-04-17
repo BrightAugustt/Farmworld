@@ -65,9 +65,9 @@ function getUserDetailsById_ctr($id){
 
 
 //--UPDATE--//
-function update_cart_qty_ctr($crpId, $qty){
+function update_cart_qty_ctr($customer_id,$crpId, $qty){
   $update= new cart_class();
-  return $update->update_cart_qty_cls($crpId, $qty);
+  return $update->update_cart_qty_cls($customer_id,$crpId, $qty);
 }
 
 
@@ -115,6 +115,15 @@ function del_cart_ctr($custId){
 function count_cart_ctr($cid,$ip){
   $select= new cart_class();
   return $select->count_cart($cid,$ip);
+}
+
+function get_from_cart_ctr($a){
+
+  // Create an instance of the product class. 
+  $increasecart= new cart_class();
+
+   return $increasecart->getfrom_cart($a);
+
 }
 
 
