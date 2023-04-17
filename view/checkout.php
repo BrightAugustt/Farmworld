@@ -297,7 +297,7 @@ $all_cartproducts = view_cart_ctr($custId);
 
                                                                 <div class='col-12'>
                                                                     <label>Total Amount</label>
-                                                                    <input type='text' name='order_amount' id='order_amount' class='form-control' placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
+                                                                    <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
                                                                 </div>
 
                                                                 <div class='form-group mt-3'>
