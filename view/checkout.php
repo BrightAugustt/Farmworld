@@ -257,7 +257,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                 <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
                                                 <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; ?>">
                                                 <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With MOMO</button></th>
-                                                <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton">Pay With Bank Account</button></th>
+                                                <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton" style="background-color:white; color:black;">Pay With Bank Account</button></th>
                                             </form>
                                             <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
                                                 <div class='modal-dialog'>
