@@ -268,6 +268,11 @@ $all_cartproducts = view_cart_ctr($custId);
                                                         </div>
                                                         <div class='modal-body' name="momo">
                                                             <form id='formid' action='../actions/PBpaymentProcess.php' method='POST' class='row g-3' enctype='multipart/form-data'>
+                                                                <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name']; ?>">
+                                                                <input type="hidden" name="date" value="<?php echo date("Y-M-D"); ?>">
+                                                                <input type="hidden" name="total_qty" value="<?php echo $cart['total_qty']; ?>">
+                                                                <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
+                                                                <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
                                                                 <div class='col-12'>
                                                                     <label>Email Address</label>
                                                                     <input type='text' name='customer_email' id='customer_email' class='form-control' placeholder='someone@example.com'>
