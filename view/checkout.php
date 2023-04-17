@@ -1,11 +1,12 @@
 <?php
 include("../settings/core.php");
+// session_start();
 include("../controllers/cart_controller.php");
 include("../function/function.php");
-if (empty($_SESSION['id']) and empty($_SESSION['name']) and empty($_SESSION['email'] and $_SESSION['role']!=1) ){
-	header("location:../Login/login.php"); // redirects to login page
-        exit;
-}
+
+if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+    header('Location:../Login/login.php');
+ };
 
 $custId = get_id();
 $all_cartproducts = view_cart_ctr($custId);
@@ -116,21 +117,6 @@ $all_cartproducts = view_cart_ctr($custId);
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                            <!-- <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div> -->
-                            <!-- <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div> -->
                             <div class="header__top__right__auth">
                                 <a href="../Login/login.php"><i class="fa fa-user"></i> Login</a>
                             </div>
@@ -242,7 +228,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                             <?php
                                             $total = 0;
                                             foreach ($all_cartproducts as $cart) {
-                                                $product_total = $cart['qty'] * $cart['crop_price'];
+                                                $product_total = $cart['total_qty'] * $cart['crop_price'];
                                                 $total += $product_total;
                                                 echo "
                                                     <li>{$cart['crop_name']} <span>{$product_total}</span></li>
@@ -252,33 +238,82 @@ $all_cartproducts = view_cart_ctr($custId);
                                         </ul>
                                         <div class="checkout__order__subtotal">Subtotal <span><?php echo $total; ?></span></div>
                                         <div class="checkout__order__total">Total <span><?php echo $total; ?></span></div>
-                                        <div class="checkout__input__checkbox">
-                                            <label for="acc-or">
-                                                Create an account?
-                                                <input type="checkbox" id="acc-or">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <div class="checkout__input__checkbox">
-                                            <label for="payment">
-                                                Check Payment
-                                                <input type="checkbox" id="payment">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="checkout__input__checkbox">
-                                            <label for="paypal">
-                                                Paypal
-                                                <input type="checkbox" id="paypal">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <button type="submit" class="site-btn">PLACE ORDER</button>
+                                        <!-- <button type="submit" class="site-btn">PLACE ORDER</button> -->
+                                        <?php $totalsum = totalPrice_ctr($custId); ?>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <!-- <th>Subtotal: <?php echo $totalsum['Multiply']; ?></th> -->
+                                            <form method="post" action="" id="paymentForm">
+                                                <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
+                                                <input type="hidden" name="crop_name" value="">
+                                                <input type="hidden" name="order_id" value="<?php //echo $order_id(); 
+                                                                                            ?>">
+                                                <input type="hidden" name="description" value="Order payment">
+                                                <input type="hidden" name="return_url" value="https://www.example.com/checkout/thank-you">
+                                                <input type="hidden" name="cancel_url" value="https://www.example.com/checkout/cancel">
+                                                <input type="hidden" name="notify_url" value="https://www.example.com/checkout/paybox-ipn">
+                                                <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
+                                                <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; ?>">
+                                                <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With MOMO</button></th>
+                                                <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton">Pay With Bank Account</button></th>
+                                            </form>
+                                            <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
+                                                <div class='modal-dialog'>
+                                                    <div class='modal-content'>
+                                                        <div class='modal-header'>
+                                                            <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
+                                                        </div>
+                                                        <div class='modal-body' name="momo">
+                                                            <form id='formid' action='../actions/PBpaymentProcess.php' method='POST' class='row g-3' enctype='multipart/form-data'>
+                                                                <div class='col-12'>
+                                                                    <label>Email Address</label>
+                                                                    <input type='text' name='customer_email' id='customer_email' class='form-control' placeholder='someone@example.com'>
+                                                                </div>
+
+                                                                <br>
+                                                                <div class='col-12'>
+                                                                    <p>Please select your network for Payment:</p>
+                                                                      <input type="radio" id="mtn" name="network" class='form-control' value="MTN">
+                                                                      <label for="MTN">MTN</label><br>
+                                                                      <input type="radio" id="vodafone" name="network" class='form-control' value="Vodafone">
+                                                                      <label for="Vodafone">Vodafone</label><br>
+                                                                      <input type="radio" id="airteltigo" name="network" class='form-control' value="AirtelTigo">
+                                                                      <label for="AirtelTigo">AirtelTigo</label>
+                                                                </div>
+
+                                                                <br>
+                                                                <div class='col-12'>
+                                                                    <label>MOMO number</label>
+                                                                    <input type="tel" name='customer_contact' id='customer_contact' class='form-control' placeholder='0000000000'>
+                                                                </div>
+                                                                
+                                                                <div class='col-12'>
+                                                                    <label>Total Amount</label>
+                                                                    <input type='text' name='order_amount' id='order_amount' class='form-control' placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
+                                                                </div>
+
+                                                                <div class='form-group mt-3'>
+                                                                    <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
+                                                                    <!-- <button type="submit" name="paybox_momoSubmit" class="btn btn-success" id="payButton">Pay</button> -->
+                                                                    <input type='submit' class='btn btn-success' name='paybox_momoSubmit' value='Submit'>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class='modal-footer'>
+                                                            <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                </tr>
                                     </div>
                                 </div>
 
                             </div>
+                        </div>
+
                 </form>
             </div>
         </div>
@@ -375,33 +410,39 @@ $all_cartproducts = view_cart_ctr($custId);
 <script src="https://js.paystack.co/v1/inline.js"></script> 
 
 </html>
-<script type="text/javascript">const paymentForm = document.getElementById('paymentForm');
-  paymentForm.addEventListener("submit", payWithPaystack, false);
+<!-- embed script -->
+<script>
+    const payButton = document.getElementById('paymomoButton');
 
-  // PAYMENT FUNCTION
-  function payWithPaystack(e) {
-  e.preventDefault();
-  let handler = PaystackPop.setup({
-    key: 'pk_live_bd5356607a881f3a0d6843b75d3172b74b9675cd', // Replace with your public key
-    email: document.getElementById("email").value,
-    amount: document.getElementById("amount").value * 100,
-    currency:'GHS',
-     ref: Math.floor((Math.random() * 1000000000) + 1),
-    onClose: function(){
-    alert('Payment failed');
-    document.getElementById("fail").submit();
-    },
-    callback: function(response){
-            $.ajax({
-              url:"../../actions/process.php?reference="+ response.reference,
-              method:'GET',
-              success: function (response){
-              	document.getElementById("clearCart").submit();
-               /* window.location.href = "../view/order-complete.php";*/
-              }
+    payButton.addEventListener('click', () => {
+        if ($custId == NULL) { // replace 'userLoggedIn' with your logic to check if the user is logged in
+            window.location.href = '../Login/login.php'; // replace '/login' with the URL of your login page
+        }
+    });
+    // Get references to the paymomoButton and paycardButton elements
+    document.getElementById("paymomoButton").addEventListener("click", function(event) {
+        event.preventDefault(); // prevent the default behavior of form submission
+        $('#second-modal').modal('show'); // show the modal
+    });
+    const paycardButton = document.getElementById("paycardButton");
 
-            });
-    }
-  });
-  handler.openIframe();
-}</script>
+    // Get references to the modal and form elements
+    const modal = document.getElementById("second-modal");
+    const form = document.getElementById("paymentForm");
+
+
+    // Add a click event listener to the paymomoButton
+    paymomoButton.addEventListener("click", () => {
+        // Display the modal
+        modal.style.display = "block";
+    });
+
+    // Add a click event listener to the paycardButton
+    paycardButton.addEventListener("click", () => {
+        // Display the form
+        form.style.display = "block";
+    });
+</script>
+
+
+<script src="https://widget.paybox.com.co/js/app.js" defer></script>
