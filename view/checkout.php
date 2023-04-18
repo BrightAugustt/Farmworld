@@ -21,10 +21,9 @@ $all_cartproducts = view_cart_ctr($custId);
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Farm-A-World/checkout</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -35,7 +34,6 @@ $all_cartproducts = view_cart_ctr($custId);
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body>
@@ -259,129 +257,175 @@ $all_cartproducts = view_cart_ctr($custId);
                                                 <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; 
                                                                                                     ?>">
                                                 <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With MOMO</button></th>
-                                                <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton" style="background-color:white; color:black;">Pay With Bank Account</button></th>
+                                                <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton" style="background-color:white; color:black;">Pay With Bank Card</button></th>
                                             </form>
                                             <div class='modal' id='first-modal' data-backdrop='static' data-keyboard='false'>
                                                 <div class='modal-dialog'>
                                                     <div class='modal-content'>
                                                         <div class='modal-header'>
-                                                            <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
+                                                            <button type='button' class='btn-first-modal-close close'><span aria-hidden='true'>&times;</span></button>
                                                         </div>
-                                                        <div class='modal-body' name="momo">
-                                                            <form id='formid' action='../actions/PBcardpmtprocess.php' method='POST' class='row g-3' enctype='multipart/form-data'>
+                                                        <div class='modal-body' name="card">
+                                                            <form id='formid' class="credit-card" method='POST' class='row g-3' enctype='multipart/form-data' action='../actions/PBcardpmtprocess.php'>
+                                                                <div class="form-header">
+                                                                    <h4 class="title">Credit Card Details</h4>
+                                                                </div>
+                                                                <br>
                                                                 <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name']; ?>">
                                                                 <input type="hidden" name="date" value="<?php echo date("Y-M-D"); ?>">
                                                                 <input type="hidden" name="total_qty" value="<?php echo $cart['total_qty']; ?>">
                                                                 <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
                                                                 <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
-                                                                <div class='col-12'>
-                                                                    <label>Email Address</label>
-                                                                    <input type='text' name='customer_email' id='customer_email' class='form-control' placeholder='someone@example.com'>
-                                                                </div>
+                                                                <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
 
                                                                 <div class='col-12'>
                                                                     <label>Location</label>
                                                                     <input type='text' name='location' id='location' class='form-control' placeholder='6 Sesame St., Dansoman Accra-Ghana'>
                                                                 </div>
-
                                                                 <br>
-
-                                                                
-                                                                <div class='col-12'>
-                                                                    <p>Please select your card for Payment:</p>
-                                                                      <input type="radio" id="mtn" name="network" class='form-control' value="MTN">
-                                                                      <label for="MTN">MTN</label><br>
-                                                                      <input type="radio" id="vodafone" name="network" class='form-control' value="Vodafone">
-                                                                      <label for="Vodafone">Vodafone</label><br>
-                                                                      <input type="radio" id="airteltigo" name="network" class='form-control' value="AirtelTigo">
-                                                                      <label for="AirtelTigo">AirtelTigo</label>
-                                                                </div>
-
-                                                                <br>
-                                                                <div class='col-12'>
-                                                                    <label>MOMO number</label>
-                                                                    <input type="tel" name='customer_contact' id='customer_contact' class='form-control' placeholder='0000000000'>
-                                                                </div>
 
                                                                 <div class='col-12'>
                                                                     <label>Total Amount</label>
                                                                     <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
                                                                 </div>
 
+
+                                                                <!-- Card Number -->
+                                                                <div class='col-12'>
+                                                                    <label>Card Number</label>
+                                                                    <input type='text' name='card_num' id='card_num' class='form-control' placeholder="Card Number">
+                                                                </div>
+
+                                                                <!-- Date Field -->
+                                                                <div class="date-field">
+                                                                    <div class="month">
+                                                                        <select name="Month">
+                                                                            <option value="january">January</option>
+                                                                            <option value="february">February</option>
+                                                                            <option value="march">March</option>
+                                                                            <option value="april">April</option>
+                                                                            <option value="may">May</option>
+                                                                            <option value="june">June</option>
+                                                                            <option value="july">July</option>
+                                                                            <option value="august">August</option>
+                                                                            <option value="september">September</option>
+                                                                            <option value="october">October</option>
+                                                                            <option value="november">November</option>
+                                                                            <option value="december">December</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="year">
+                                                                        <select name="Year">
+                                                                            <option value="2016">2016</option>
+                                                                            <option value="2017">2017</option>
+                                                                            <option value="2018">2018</option>
+                                                                            <option value="2019">2019</option>
+                                                                            <option value="2020">2020</option>
+                                                                            <option value="2021">2021</option>
+                                                                            <option value="2022">2022</option>
+                                                                            <option value="2023">2023</option>
+                                                                            <option value="2024">2024</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Card Verification Field -->
+                                                                <div class='col-12 cvv-input'>
+                                                                    <label>Card Number</label>
+                                                                    <input type="password" name="card_cvc" placeholder="CVV">
+                                                                </div>
+                                                                <div class="card-verification">
+                                                                    <!-- <div class="cvv-details">
+                                                                            <p>3 or 4 digits usually found <br> on the signature strip</p>
+                                                                        </div> -->
+                                                                </div>
+                                                                <!-- Buttons -->
                                                                 <div class='form-group mt-3'>
-                                                                    <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
-                                                                    <!-- <button type="submit" name="paybox_momoSubmit" class="btn btn-success" id="payButton">Pay</button> -->
-                                                                    <input type='submit' class='btn btn-success' name='paybox_cardSubmit' value='Submit'>
+                                                                    <button type="submit" name="paybox_cardSubmit" class="proceed-btn">Proceed</button>
+                                                                </div>
+                                                                <div class='modal-footer'>
+                                                                    <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
                                                                 </div>
                                                             </form>
-                                                        </div>
-                                                        <div class='modal-footer'>
-                                                            <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
-                                                <div class='modal-dialog'>
-                                                    <div class='modal-content'>
-                                                        <!-- <div class='modal-header'>
-                                                            <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
-                                                        </div> -->
-                                                        <div class='modal-body' name="momo">
-                                                            <form id='formid' action='../actions/PBpaymentProcess.php' method='POST' class='row g-3' enctype='multipart/form-data'>
-                                                                <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name']; ?>">
-                                                                <input type="hidden" name="date" value="<?php echo date("Y-M-D"); ?>">
-                                                                <input type="hidden" name="total_qty" value="<?php echo $cart['total_qty']; ?>">
-                                                                <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
-                                                                <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
-                                                                <div class='col-12'>
-                                                                    <label>Email Address</label>
-                                                                    <input type='text' name='customer_email' id='customer_email' class='form-control' value="<?php echo $_SESSION['customer_email']; ?>" disabled>
-                                                                </div>
-
-                                                                <div class='col-12'>
-                                                                    <label>Location</label>
-                                                                    <input type='text' name='location' id='location' class='form-control' placeholder='6 Sesame St., Dansoman Accra-Ghana'>
-                                                                </div>
-
-                                                                <br>
-
-                                                                <p>Please select your network for Payment:</p>
-                                                                <div class=' form-check form-check-inline'>
-                                                                      <input class="form-check-input" type="radio" id="mtn inlineRadio1" name="network" class='form-control' value="MTN">
-                                                                      <label class="form-check-label" for="MTN">MTN</label>
-                                                                </div>
-                                                                <div class=' form-check form-check-inline'>
-                                                                    <input class="form-check-input" type="radio" id="vodafone inlineRadio1" name="network" class='form-control' value="Vodafone">
-                                                                     <label class="form-check-label" for="Vodafone">Vodafone</label><br>
-                                                                </div>
-                                                                <div class=' form-check form-check-inline'>
-                                                                    <input class="form-check-input" type="radio" id="airteltigo inlineRadio1" name="network" class='form-control' value="AirtelTigo">
-                                                                     <label class="form-check-label" for="AirtelTigo">AirtelTigo</label>
-                                                                </div>
-                                                        </div>
-
-                                                        <br>
-                                                        <div class='col-12'>
-                                                            <label>MOMO number</label>
-                                                            <input type="tel" name='customer_contact' id='customer_contact' class='form-control' placeholder='0000000000'>
-                                                        </div>
-
-                                                        <div class='col-12'>
-                                                            <label>Total Amount</label>
-                                                            <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
-                                                        </div>
-
-                                                        <div class='form-group mt-3'>
-                                                            <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
-
-                                                            <input type='submit' class='btn btn-success' name='paybox_momoSubmit' style="margin-left: 20px; background-color:#16AD22;" value='Make Payment'>
-                                                        </div>
-                                                        <div class='modal-footer'>
-                                                            <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
-                                                        </div>
+                                        </tr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
+        </div>
+
+
+        <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <!-- <div class='modal-header'>
+                                                            <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
+                                                        </div> -->
+                    <div class='modal-body' name="momo">
+                        <form id='formid' action='../actions/PBpaymentProcess.php' method='POST' class='row g-3' enctype='multipart/form-data'>
+                            <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name']; ?>">
+                            <input type="hidden" name="date" value="<?php echo date("Y-M-D"); ?>">
+                            <input type="hidden" name="total_qty" value="<?php echo $cart['total_qty']; ?>">
+                            <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
+                            <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
+                            <div class='col-12'>
+                                <label>Email Address</label>
+                                <input type='text' name='customer_email' id='customer_email' class='form-control' value="<?php echo $_SESSION['customer_email']; ?>" disabled>
+                            </div>
+
+                            <div class='col-12'>
+                                <label>Location</label>
+                                <input type='text' name='location' id='location' class='form-control' placeholder='6 Sesame St., Dansoman Accra-Ghana'>
+                            </div>
+
+                            <br>
+
+                            <p>Please select your network for Payment:</p>
+                            <div class=' form-check form-check-inline'>
+                                  <input class="form-check-input" type="radio" id="mtn inlineRadio1" name="network" class='form-control' value="MTN">
+                                  <label class="form-check-label" for="MTN">MTN</label>
+                            </div>
+                            <div class=' form-check form-check-inline'>
+                                <input class="form-check-input" type="radio" id="vodafone inlineRadio1" name="network" class='form-control' value="Vodafone">
+                                 <label class="form-check-label" for="Vodafone">Vodafone</label><br>
+                            </div>
+                            <div class=' form-check form-check-inline'>
+                                <input class="form-check-input" type="radio" id="airteltigo inlineRadio1" name="network" class='form-control' value="AirtelTigo">
+                                 <label class="form-check-label" for="AirtelTigo">AirtelTigo</label>
+                            </div>
+                    </div>
+
+                    <br>
+                    <div class='col-12'>
+                        <label>MOMO number</label>
+                        <input type="tel" name='customer_contact' id='customer_contact' class='form-control' placeholder='0000000000'>
+                    </div>
+
+                    <div class='col-12'>
+                        <label>Total Amount</label>
+                        <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
+                    </div>
+
+                    <div class='form-group mt-3'>
+                        <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
+
+                        <input type='submit' class='btn btn-success' name='paybox_momoSubmit' style="margin-left: 20px; background-color:#16AD22;" value='Make Payment'>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        </div>
 
         </div>
         </div>
@@ -495,9 +539,15 @@ $all_cartproducts = view_cart_ctr($custId);
 
     const paycardButton = document.getElementById("paycardButton");
 
+    paycardButton.addEventListener('click', () => {
+        if ($custId == NULL) { // replace 'userLoggedIn' with your logic to check if the user is logged in
+            window.location.href = '../Login/login.php'; // replace '/login' with the URL of your login page
+        }
+    });
+
     // Get references to the modal and form elements
-    const modal = document.getElementById("first-modal");
-    const form = document.getElementById("paymentForm");
+    const smodal = document.getElementById("second-modal");
+    const sform = document.getElementById("paymentForm");
 
 
     // Get references to the paymomoButton and paycardButton elements
@@ -505,6 +555,10 @@ $all_cartproducts = view_cart_ctr($custId);
         event.preventDefault(); // prevent the default behavior of form submission
         $('#first-modal').modal('show'); // show the modal
     });
+
+    // Get references to the modal and form elements
+    const modal = document.getElementById("first-modal");
+    const form = document.getElementById("paymentForm");
 
     // Add a click event listener to the paymomoButton
     paymomoButton.addEventListener("click", () => {
