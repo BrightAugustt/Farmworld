@@ -1,8 +1,8 @@
 <?php
 session_start();
-// if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
-//     header('Location:../Login/login.php');
-//  };
+if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
+    header('Location:../Login/login.php');
+};
 // include_once '../controllers/crop_controller.php';
 
 
