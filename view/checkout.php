@@ -27,6 +27,7 @@ $all_cartproducts = view_cart_ctr($custId);
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
@@ -258,7 +259,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                 <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; 
                                                                                                     ?>">
                                                 <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With MOMO</button></th>
-                                                <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton">Pay With Bank Account</button></th>
+                                                <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton" style="background-color:white; color:black;">Pay With Bank Account</button></th>
                                             </form>
                                             <div class='modal' id='first-modal' data-backdrop='static' data-keyboard='false'>
                                                 <div class='modal-dialog'>
@@ -321,9 +322,9 @@ $all_cartproducts = view_cart_ctr($custId);
                                             <div class='modal' id='second-modal' data-backdrop='static' data-keyboard='false'>
                                                 <div class='modal-dialog'>
                                                     <div class='modal-content'>
-                                                        <div class='modal-header'>
+                                                        <!-- <div class='modal-header'>
                                                             <button type='button' class='btn-second-modal-close close'><span aria-hidden='true'>&times;</span></button>
-                                                        </div>
+                                                        </div> -->
                                                         <div class='modal-body' name="momo">
                                                             <form id='formid' action='../actions/PBpaymentProcess.php' method='POST' class='row g-3' enctype='multipart/form-data'>
                                                                 <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name']; ?>">
@@ -333,7 +334,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                 <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
                                                                 <div class='col-12'>
                                                                     <label>Email Address</label>
-                                                                    <input type='text' name='customer_email' id='customer_email' class='form-control' placeholder='someone@example.com'>
+                                                                    <input type='text' name='customer_email' id='customer_email' class='form-control' value="<?php echo $_SESSION['customer_email']; ?>" disabled>
                                                                 </div>
 
                                                                 <div class='col-12'>
@@ -342,49 +343,56 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                 </div>
 
                                                                 <br>
-                                                                <div class='col-12'>
-                                                                    <p>Please select your network for Payment:</p>
-                                                                      <input type="radio" id="mtn" name="network" class='form-control' value="MTN">
-                                                                      <label for="MTN">MTN</label><br>
-                                                                      <input type="radio" id="vodafone" name="network" class='form-control' value="Vodafone">
-                                                                      <label for="Vodafone">Vodafone</label><br>
-                                                                      <input type="radio" id="airteltigo" name="network" class='form-control' value="AirtelTigo">
-                                                                      <label for="AirtelTigo">AirtelTigo</label>
-                                                                </div>
 
-                                                                <br>
-                                                                <div class='col-12'>
-                                                                    <label>MOMO number</label>
-                                                                    <input type="tel" name='customer_contact' id='customer_contact' class='form-control' placeholder='0000000000'>
+                                                                <p>Please select your network for Payment:</p>
+                                                                <div class=' form-check form-check-inline'>
+                                                                      <input class="form-check-input" type="radio" id="mtn inlineRadio1" name="network" class='form-control' value="MTN">
+                                                                      <label class="form-check-label" for="MTN">MTN</label>
                                                                 </div>
+                                                                <div class=' form-check form-check-inline'>
+                                                                    <input class="form-check-input" type="radio" id="vodafone inlineRadio1" name="network" class='form-control' value="Vodafone">
+                                                                     <label class="form-check-label" for="Vodafone">Vodafone</label><br>
+                                                                </div>
+                                                                <div class=' form-check form-check-inline'>
+                                                                    <input class="form-check-input" type="radio" id="airteltigo inlineRadio1" name="network" class='form-control' value="AirtelTigo">
+                                                                     <label class="form-check-label" for="AirtelTigo">AirtelTigo</label>
+                                                                </div>
+                                                        </div>
 
-                                                                <div class='col-12'>
-                                                                    <label>Total Amount</label>
-                                                                    <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
-                                                                </div>
+                                                        <br>
+                                                        <div class='col-12'>
+                                                            <label>MOMO number</label>
+                                                            <input type="tel" name='customer_contact' id='customer_contact' class='form-control' placeholder='0000000000'>
+                                                        </div>
 
-                                                                <div class='form-group mt-3'>
-                                                                    <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
-                                                                    <!-- <button type="submit" name="paybox_momoSubmit" class="btn btn-success" id="payButton">Pay</button> -->
-                                                                    <input type='submit' class='btn btn-success' name='paybox_momoSubmit' value='Submit'>
-                                                                </div>
-                                                            </form>
+                                                        <div class='col-12'>
+                                                            <label>Total Amount</label>
+                                                            <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
+                                                        </div>
+
+                                                        <div class='form-group mt-3'>
+                                                            <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
+
+                                                            <input type='submit' class='btn btn-success' name='paybox_momoSubmit' style="margin-left: 20px; background-color:#16AD22;" value='Make Payment'>
                                                         </div>
                                                         <div class='modal-footer'>
                                                             <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </tr>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
                 </form>
             </div>
+
+        </div>
+        </div>
+        </div>
+        </tr>
+        </div>
+        </div>
+
+        </div>
+        </div>
+
+        </form>
+        </div>
         </div>
     </section>
     <!-- Checkout Section End -->
@@ -410,14 +418,12 @@ $all_cartproducts = view_cart_ctr($custId);
                         <ul>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Our Sitemap</a></li>
                         </ul>
                         <ul>
                             <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
                             <li><a href="#">Projects</a></li>
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Innovation</a></li>
@@ -446,14 +452,6 @@ $all_cartproducts = view_cart_ctr($custId);
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text">
-                            <p>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
                         </div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
@@ -476,7 +474,6 @@ $all_cartproducts = view_cart_ctr($custId);
 
 
 </body>
-<script src="https://js.paystack.co/v1/inline.js"></script>
 
 </html>
 <!-- embed script -->

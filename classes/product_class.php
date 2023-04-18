@@ -37,6 +37,19 @@ class crop_class extends db_connection
         );
     }
 
+
+    
+    function get_all_crop_feature_cls()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT crops.*, customer.customer_email 
+            FROM crops 
+            JOIN customer ON crops.customer_id = customer.customer_id 
+            ORDER BY crops.crop_id DESC LIMIT 4"
+        );
+    }
+
     // Show all crops
     function showall_crops()
     {
@@ -115,6 +128,8 @@ class crop_class extends db_connection
             "SELECT * from categories"
         );
     }
+
+
 
     function get_all_fruit()
     {

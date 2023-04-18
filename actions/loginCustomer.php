@@ -19,6 +19,7 @@ if(isset($_POST['loginButton'])){
             $_SESSION['customer_fname']=$result['customer_fname'];
             $_SESSION['customer_lname']=$result['customer_lname'];
             $_SESSION['customer_email']=$result['customer_email'];
+            $_SESSION['customer_contact']=$result['customer_contact'];
             $_SESSION['user_role']=$result['user_role'];
             if ($_SESSION['user_role'] == 2) {
                 header('location: ../aeo/aeo.php');
