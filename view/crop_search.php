@@ -251,30 +251,28 @@ $linkdash = "../dash/dashboard.php";
                         <form method="POST" enctype="multipart/form-data">
                             <?php $searchkeys = $_GET['search']; ?>
                             <!-- <div class="categories__slider owl-carousel style=size:10px;"> -->
-                                <?php
-                                $p_list =  search_for_one_crop_ctr($searchkeys);
+                            <?php
+                                $searchkeys = $_GET['search'];
+                                $p_list = search_for_one_crop_ctr($searchkeys);
+                                // print_r($p_list);
                                 foreach ($p_list as $apat) {
-
-                                    print_r($apat);
-
-                                    // $cropname = $apat['crop_name'];
-                                    // $cropcat = $apat['crop_cat'];
-                                    // $qtyavail = $apat['qty'];
-                                    // // $price = $apat['crop_price'];
-                                    // $desc = $apat['crop_desc'];
-                                    //Displaying image
-                                    // $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
-
+                                    $cropname = ($apat['crop_name']);
+                                    $farmername = ($apat['farmer_name']);
+                                    $qty = $apat['qty'];
+                                    $cropprice = ($apat['crop_price']);
+                                    $cdesc = ($apat['crop_desc']);
+                                    $crop_cat = ($apat['crop_cat']);
                                 ?>
                                     <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
 
                                         <!-- <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg"> -->
-                                        <a href="single_page.php?crop_id=<?php echo ($apat['crop_id']) ?>">
-                                            <div class="featured__item__pics categories__item set-bg set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
+                                        <a href="singleCrop.php?crop_id=<?php echo ($apat['crop_id']) ?>">
+                                            <div class="featured__item__pics categories__item set-bg set-bg">
+                                            <img src='../images/crops/<?php echo $apat['crop_image']; ?>' class="card-img-top" width="250px" alt="<?php echo $cropname; ?>">
                                             </div>
                                             <div class="featured__item__texts">
-                                                <h6><a href="#"><?php echo $apat['crop_name'];; ?></a></h6>
-                                                <h5>GHc<?php echo$apat['crop_price']; ?></h5>
+                                                <h6><?php echo $cropname; ?></h6>
+                                                <h5>GHc<?php echo$cropprice; ?></h5>
                                             </div>
                                         </a>
                                     </div>
