@@ -56,7 +56,8 @@ class crop_class extends db_connection
         return $this->db_query(
             "SELECT crops.*, customer.customer_email 
             FROM crops 
-            JOIN customer ON crops.customer_id = customer.customer_id 
+            JOIN customer ON crops.customer_id = customer.customer_id
+            WHERE crops.approved = 'Yes' 
             ORDER BY crops.crop_id DESC LIMIT 4"
         );
     }
