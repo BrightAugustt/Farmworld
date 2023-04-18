@@ -20,6 +20,8 @@ class cart_class extends db_connection
 		}
 	}
 
+
+
 	/**INSERT ORDERS */
 	public function insert_order_cls($custId, $cropName, $date, $qty, $customerEmail, $amount, $location)
 	{
@@ -33,6 +35,18 @@ class cart_class extends db_connection
 		$sql =  "INSERT INTO `orders`(`customer_id`, `invoice_no`, `order_date`, `order_status`) VALUES ('$customer_id','$invoice_no','$order_date','success')";
 		// Return  
 		return $this->db_query($sql);
+	}
+
+	public function view_order_cls()
+	{
+		$sql = "SELECT * from `orders` ORDER BY `order_date`";
+		return $this->fetch($sql);
+	}
+
+	public function view_recentOrder_cls()
+	{
+		$sql = "SELECT * FROM `orders` ORDER BY `order_date` DESC LIMIT 4";
+		return $this->db_fetch_all($sql);
 	}
 
 	public function orderid_cls()

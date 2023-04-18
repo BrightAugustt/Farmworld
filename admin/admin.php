@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("../controllers/general_controller.php");
-require("../controllers/product_controller.php"); 
+require("../controllers/cart_controller.php"); 
 
 
 // $total = product_count_ctr();
@@ -230,15 +230,32 @@ require("../controllers/product_controller.php");
                                 <table class="table">
                     <thead>
                     <tr>
+                        <th>Order ID</th>
                         <th>Crop Name</th>
-                        <th>Farmer</th>
-                        <th>Quantity</th>
-                        <th>Crop Price/kg</th>
-                        <th>Date</th>
+                        <th>Quantity </th>
+                        <th>Amount</th>
+                        <th>Order Date</th>
+                        <th>Location</th>
                         </tr>
                     </thead>
                                     <tbody>
-                                       
+                                       <?php
+                                       function displayCtr(){
+                                        $crop = view_recentorder_ctr(); 
+
+                                        foreach($crop as $order)
+                                        {
+                                            echo "<tr>";
+                                            echo "<td>".$order[$i]['order_id']."<td>";
+                                            echo "<td>".$order[$i]['crop_name']."<td>";
+                                            echo "<td>".$order[$i]['qty']."<td>";
+                                            echo "<td>".$order[$i]['amount']."<td>";
+                                            echo "<td>".$order[$i]['order_date']."<td>";
+                                            echo "<td>".$order[$i]['location']."<td>";
+                                        }
+                                       }
+                                       DisplayCtr();
+                                       ?>
                                     </tbody>
                     </table>
                             </div>
