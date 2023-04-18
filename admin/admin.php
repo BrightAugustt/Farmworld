@@ -231,10 +231,15 @@ require("../controllers/cart_controller.php");
                     <thead>
                     <tr>
                         <th>Order ID</th>
+                        <th></th>
                         <th>Crop Name</th>
+                        <th></th>
                         <th>Quantity </th>
+                        <th></th>
                         <th>Amount</th>
+                        <th></th>
                         <th>Order Date</th>
+                        <th></th>
                         <th>Location</th>
                         </tr>
                     </thead>
