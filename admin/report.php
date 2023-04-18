@@ -5,7 +5,7 @@ require("../controllers/cart_controller.php");
 
 $stats=vendor_crop_count_ctr();
 
-var_dump($stats);
+
 ?>
 
 
@@ -241,7 +241,7 @@ var_dump($stats);
                                     <tbody>
                                        <?php
                                        function displayOrderCtr(){
-                                        $order = view_recentorder_ctr(); 
+                                        $order = view_order_ctr(); 
 
                                         for($i=0; $i < count($order); $i++)
                                         {
