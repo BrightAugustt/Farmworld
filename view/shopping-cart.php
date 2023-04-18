@@ -251,7 +251,7 @@ $total = 0;
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span><?php echo $totalsum['Multiply']; ?></span></li>
+                            <li>Subtotal <span><?php echo $total; ?></span></li>
                         </ul>
                         <a href="./checkout.php" class="primary-btn">PROCEED TO CHECKOUT</a>
                     </div>

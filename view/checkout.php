@@ -57,7 +57,7 @@ $all_cartproducts = view_cart_ctr($custId);
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
+            <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -150,7 +150,7 @@ $all_cartproducts = view_cart_ctr($custId);
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
                 </div>
             </div>
@@ -257,7 +257,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                 <input type="hidden" name="return_url" value="https://www.example.com/checkout/thank-you">
                                                 <input type="hidden" name="cancel_url" value="https://www.example.com/checkout/cancel">
                                                 <input type="hidden" name="notify_url" value="https://www.example.com/checkout/paybox-ipn">
-                                                <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
+                                                <input type="hidden" name="order_amount" value="<?php echo $total; ?>">
                                                 <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; 
                                                                                                     ?>">
                                                 <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With MOMO</button></th>
@@ -278,7 +278,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                 <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name']; ?>">
                                                                 <input type="hidden" name="date" value="<?php echo date("Y-M-D"); ?>">
                                                                 <input type="hidden" name="total_qty" value="<?php echo $cart['total_qty']; ?>">
-                                                                <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
+                                                                <input type="hidden" name="order_amount" value="<?php echo $total; ?>">
                                                                 <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
                                                                 <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
 
@@ -384,7 +384,7 @@ $all_cartproducts = view_cart_ctr($custId);
                             <input type="hidden" name="crop_name" value="<?php echo $cart['crop_name']; ?>">
                             <input type="hidden" name="date" value="<?php echo date("Y-M-D"); ?>">
                             <input type="hidden" name="total_qty" value="<?php echo $cart['total_qty']; ?>">
-                            <input type="hidden" name="order_amount" value="<?php echo $totalsum['Multiply']; ?>">
+                            <input type="hidden" name="order_amount" value="<?php echo $total; ?>">
                             <input type="hidden" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>">
                             <div class='col-12'>
                                 <label>Email Address</label>
@@ -421,7 +421,7 @@ $all_cartproducts = view_cart_ctr($custId);
 
                     <div class='col-12'>
                         <label>Total Amount</label>
-                        <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $totalsum['Multiply']; ?>" value="<?php echo $totalsum['Multiply']; ?>">
+                        <input type='text' name='order_amount' id='order_amount' class='form-control' disabled placeholder="<?php echo $total; ?>" value="<?php echo $total; ?>">
                     </div>
 
                     <div class='form-group mt-3'>
