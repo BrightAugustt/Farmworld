@@ -295,7 +295,7 @@ $linkdash="../dash/dashboard.php";
     <section class="featured spad">
         <div class="container try">
             <?php
-                $p_list = get_all_croprecords_ctr();
+                $p_list = get_all_approvedcrop_ctr();
             ?>
             <div class="row">
                 <div class="col-lg-12">
