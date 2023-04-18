@@ -1,9 +1,9 @@
 <?php
 session_start();
-include ("../controllers/product_controller.php");
-require("../controllers/cart_controller.php"); 
+include("../controllers/product_controller.php");
+require("../controllers/cart_controller.php");
 
-$stats=vendor_crop_count_ctr();
+$stats = vendor_crop_count_ctr();
 
 
 ?>
@@ -62,9 +62,9 @@ $stats=vendor_crop_count_ctr();
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@ $stats=vendor_crop_count_ctr();
         </button>
         <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -81,7 +81,7 @@ $stats=vendor_crop_count_ctr();
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -99,7 +99,7 @@ $stats=vendor_crop_count_ctr();
                                 </i>Products
                             </a>
                         </li>
-                      
+
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
@@ -132,7 +132,7 @@ $stats=vendor_crop_count_ctr();
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -143,16 +143,16 @@ $stats=vendor_crop_count_ctr();
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div>
-                    <h1 class="h2">Transactions</h1>
-                    <p>A complete list of all crops sold.</p>
+                        <h1 class="h2">Transactions</h1>
+                        <p>A complete list of all crops sold.</p>
                     </div>
-                    
+
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <a href="exportdata.php"><button type="button" class="btn btn-sm btn btn-outline-success">
-                            Export Excel Format
-                        </button></a>
+                                Export Excel Format
+                            </button></a>
                     </div>
                 </div>
 
@@ -161,52 +161,52 @@ $stats=vendor_crop_count_ctr();
                         <div class="row">
                             <div class="col-md-12">
                                 <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Crop Name</th>
-                        <th></th>
-                        <th>Farmer</th>
-                        <th></th>
-                        <th>Farmer Contact</th>
-                        <th></th>
-                        <th>Farmer Contact</th>
-                        <th></th>
-                        <th>Quantity</th>
-                        <th></th>
-                        <th>Crop Price/kg</th>
-                        <th></th>
-                        <th>Crop Image</th>
-                        <th>Crop Category</th>
-                        <th></th>
-                        <th>Crop Description</th>
-                      
-                        </tr>
-                    </thead>
+                                    <thead>
+                                        <tr>
+                                            <th>Crop Name</th>
+                                            <th></th>
+                                            <th>Farmer</th>
+                                            <th></th>
+                                            <th>Farmer Contact</th>
+                                            <th></th>
+                                            <th>Farmer Contact</th>
+                                            <th></th>
+                                            <th>Quantity</th>
+                                            <th></th>
+                                            <th>Crop Price/kg</th>
+                                            <th></th>
+                                            <th>Crop Image</th>
+                                            <th>Crop Category</th>
+                                            <th></th>
+                                            <th>Crop Description</th>
+
+                                        </tr>
+                                    </thead>
                                     <tbody>
-                                    <?php 
+                                        <?php
                                         // require "../controllers/product_controller.php";
-                                        function displayCtr(){
+                                        function displayCtr()
+                                        {
                                             $crop = get_all_croprecords_ctr();
 
-                                            for ($i=0; $i < count($crop); $i++) {
+                                            for ($i = 0; $i < count($crop); $i++) {
                                                 echo "<tr>";
-                                                echo "<td>".$crop[$i]['crop_name']."<td>";
-                                                echo "<td>".$crop[$i]['farmer_name']."<td>";
-                                                echo "<td>".$crop[$i]['farmer_contact']."<td>";
-                                                echo "<td>".$crop[$i]['farm_size']."<td>";
-                                                echo "<td>".$crop[$i]['qty']."<td>";
-                                                echo "<td>".$crop[$i]['crop_price']."<td>";
+                                                echo "<td>" . $crop[$i]['crop_name'] . "<td>";
+                                                echo "<td>" . $crop[$i]['farmer_name'] . "<td>";
+                                                echo "<td>" . $crop[$i]['farmer_contact'] . "<td>";
+                                                echo "<td>" . $crop[$i]['farm_size'] . "<td>";
+                                                echo "<td>" . $crop[$i]['qty'] . "<td>";
+                                                echo "<td>" . $crop[$i]['crop_price'] . "<td>";
                                                 echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px'></td>";
-                                                echo "<td>".$crop[$i]['crop_cat']."<td>";
-                                                echo "<td>".$crop[$i]['crop_desc']."<td>";
-                                               
+                                                echo "<td>" . $crop[$i]['crop_cat'] . "<td>";
+                                                echo "<td>" . $crop[$i]['crop_desc'] . "<td>";
                                             }
                                         }
                                         displayCtr();
-                                            
+
                                         ?>
                                     </tbody>
-                    </table>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -218,49 +218,49 @@ $stats=vendor_crop_count_ctr();
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
                                     <h3 class="pull-left" style="font-size: 20px;">
-                                    Orders
-                               
-                                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th></th>
-                        <th>Crop Name</th>
-                        <th></th>
-                        <th>Quantity </th>
-                        <th></th>
-                        <th>Amount</th>
-                        <th></th>
-                        <th>Order Date</th>
-                        <th></th>
-                        <th>Location</th>
-                        <th></th>
-                        </tr>
-                    </thead>
-                                    <tbody>
-                                       <?php
-                                       function displayOrderCtr(){
-                                        $order = view_order_ctr(); 
+                                        Orders
 
-                                        for($i=0; $i < count($order); $i++)
-                                        {
-                                            echo "<tr>";
-                                            echo "<td>".$order[$i]['order_id']."<td>";
-                                            echo "<td>".$order[$i]['crop_name']."<td>";
-                                            echo "<td>".$order[$i]['qty']."<td>";
-                                            echo "<td>".$order[$i]['amount']."<td>";
-                                            echo "<td>".$order[$i]['order_date']."<td>";
-                                            echo "<td>".$order[$i]['location']."<td>";
-                                        }
-                                       }
-                                       displayOrderCtr();
-                                       ?>
-                                    </tbody>
-                    </table>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order ID</th>
+                                                    <th></th>
+                                                    <th>Crop Name</th>
+                                                    <th></th>
+                                                    <th>Quantity </th>
+                                                    <th></th>
+                                                    <th>Amount</th>
+                                                    <th></th>
+                                                    <th>Order Date</th>
+                                                    <th></th>
+                                                    <th>Location</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                function displayOrderCtr()
+                                                {
+                                                    $order = view_order_ctr();
+
+                                                    for ($i = 0; $i < count($order); $i++) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $order[$i]['order_id'] . "<td>";
+                                                        echo "<td>" . $order[$i]['crop_name'] . "<td>";
+                                                        echo "<td>" . $order[$i]['qty'] . "<td>";
+                                                        echo "<td>" . $order[$i]['amount'] . "<td>";
+                                                        echo "<td>" . $order[$i]['order_date'] . "<td>";
+                                                        echo "<td>" . $order[$i]['location'] . "<td>";
+                                                    }
+                                                }
+                                                displayOrderCtr();
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
             </main>
@@ -274,4 +274,5 @@ $stats=vendor_crop_count_ctr();
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
     <script src="dashboard.js"></script>
 </body>
+
 </html>

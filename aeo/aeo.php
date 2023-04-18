@@ -150,7 +150,7 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
 
                 <h5 class="heading">Overview</h5>
                 <div class="row over">
-                    <div class="col-sm-4">
+                    <!-- <div class="col-sm-4">
                         <div class="card over">
                         <div class="card-body over">
                             <div>
@@ -160,12 +160,12 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
                            
                         </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-sm-4">
                         <div class="card">
                         <div class="card-body">
 
-                        <span id="boot-icon"class="bi bi-cash help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
+                        <span id="boot-icon"class="bi bi-people" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                            
                         </div>
@@ -175,7 +175,7 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
                     <div class="col-sm-4">
                         <div class="card">
                         <div class="card-body">
-                        <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
+                        <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             
                         </div>
