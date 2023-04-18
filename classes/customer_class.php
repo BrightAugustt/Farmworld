@@ -12,6 +12,14 @@ class ContactClass extends db_connection
         );
     }
 
+    function update_custrecord_cls($id,$fname, $lname, $number, $region, $email)
+    {
+        // return true or false
+        return $this->db_query(
+            "UPDATE `customer` SET `customer_fname`='$fname', `customer_lname`='$lname', `customer_region`= '$region', `customer_contact`='$number',`customer_email`='$email' WHERE `customer_id`='$id'"
+        );
+    }
+
     function add_Admin_record_cls($fname, $lname, $number, $country, $email, $password, $user_role)
     {
         // return true or false
@@ -117,6 +125,8 @@ class ContactClass extends db_connection
         return $this->db_fetch_one($sql);
     
     }
+
+    
  
 
 }

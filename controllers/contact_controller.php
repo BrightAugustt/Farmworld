@@ -12,6 +12,14 @@ function add_record_ctr($fname, $lname, $number, $region, $email, $password, $us
     return $class_instance->add_Cust_record_cls($fname, $lname, $number, $region, $email, $password, $user_role);
 }
 
+function update_custrecord_ctr($id,$fname, $lname, $number, $region, $email)
+{
+    // create an instance of the Product class
+    $class_instance = new ContactClass();
+    // call the method from the class
+    return $class_instance->update_custrecord_cls($id,$fname, $lname, $number, $region, $email);
+}
+
 function add_Admin_record_ctr($fname, $lname, $number, $region, $email, $password, $user_role)
 {
     // create an instance of the Product class
