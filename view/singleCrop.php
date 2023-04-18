@@ -242,7 +242,7 @@ $custId = get_id();
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <form class='form-inline update-cart-form' method='POST' action='../actions/addtoCart.php' id='quantity-form'>
-                                    <input class='form-control mr-sm-2' type='hidden' name='crop_id' value="<?php $apat['crop_id']?>">
+                                    <input class='form-control mr-sm-2' type='hidden' name='crop_id' value="<?php echo $prodId; ?>">
                                     <input type="hidden" name="qty" value="1">
                                     <button name="addtocart" class="primary-btn" style="border-radius:5px">ADD TO CART</button>
                                 </form>
