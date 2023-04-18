@@ -16,7 +16,6 @@ if (isset($_POST['paybox_cardSubmit'])) {
     $cardExpiry = [$selected_month, $selected_year];
     $cardCvc = $_POST['card_cvc'];
 	$email = $_POST['customer_email'];
-	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
     
     
@@ -70,8 +69,9 @@ if (isset($_POST['paybox_cardSubmit'])) {
 		//$payment = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
 
 		if ($order) {
-			echo "Success Page";
-			// Payment successful
+            delete_after_pay_cropcart_ctr($custId);
+
+            // Payment successful
 			// Redirect the user to the success URL
 			header('Location: ../view/success.php');
 		} else {

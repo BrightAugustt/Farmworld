@@ -12,10 +12,10 @@ class cart_class extends db_connection
 		$sql = "INSERT INTO cart (`crop_id`,`ip_add`,`customer_id`,`qty`) VALUES ('$prodId', '$ip_address', '$custId','$qty')";
 		$this->db_query($sql);
 
-		if (mysqli_affected_rows($this->db)==0){
-			$sql1="UPDATE `cart` set `qty`=`qty`+'$qty' where `crop_id`='$prodId' and `ip_add`='$ip_address' and `customer_id`='$custId'";
+		if (mysqli_affected_rows($this->db) == 0) {
+			$sql1 = "UPDATE `cart` set `qty`=`qty`+'$qty' where `crop_id`='$prodId' and `ip_add`='$ip_address' and `customer_id`='$custId'";
 			return $this->db_query($sql1);
-		} else{
+		} else {
 			return $this->db_query($sql);
 		}
 	}
@@ -29,7 +29,8 @@ class cart_class extends db_connection
 		return $this->db_query($sql);
 	}
 
-	public function insert_orders($customer_id,$invoice_no, $order_date){
+	public function insert_orders($customer_id, $invoice_no, $order_date)
+	{
 
 		// Write query
 		$sql =  "INSERT INTO `orders`(`customer_id`, `invoice_no`, `order_date`, `order_status`) VALUES ('$customer_id','$invoice_no','$order_date','success')";
@@ -124,8 +125,8 @@ class cart_class extends db_connection
 	{
 		$sql = "SELECT * FROM `cart` WHERE `crop_id`= '$prodId' AND `customer_id` = '$custId'";
 		$result = $this->db_fetch_all($sql);
-		return ($result ? $result: []); // return true if result set contains any rows, false otherwise
-	
+		return ($result ? $result : []); // return true if result set contains any rows, false otherwise
+
 	}
 
 	function getUserDetailsById_cls($id)
@@ -137,7 +138,7 @@ class cart_class extends db_connection
 	}
 
 	//--UPDATE--//
-	function update_cart_qty_cls($customer_id,$crpId, $qty)
+	function update_cart_qty_cls($customer_id, $crpId, $qty)
 	{
 		$sql = "UPDATE  `cart` SET `qty` = '$qty' WHERE crop_id= '$crpId' and `customer_id`='$customer_id'";
 		return $this->db_query($sql);
@@ -174,7 +175,8 @@ class cart_class extends db_connection
 		return $this->db_query($sql);
 	}
 
-	public function getfrom_cart($a){
+	public function getfrom_cart($a)
+	{
 
 		// Write query
 		$sql =  "SELECT crops.crop_price*cart.qty ,cart.qty, crops.crop_id,crops.crop_name,crops.crop_desc,crops.crop_image,crops.crop_price FROM cart INNER JOIN crops ON cart.customer_id = crops.crop_id WHERE cart.customer_id ='$a'";
@@ -188,5 +190,10 @@ class cart_class extends db_connection
 		return $this->db_query($sql);
 	}
 
-	
+	function delete_after_pay_cropcart($custId)
+	{
+		$sql = "DELETE FROM `cart` WHERE `customer_id`='$custId'";
+
+		return $this->db_query($sql);
+	}
 }

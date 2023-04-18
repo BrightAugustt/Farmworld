@@ -135,12 +135,6 @@ function get_from_cart_ctr($a){
 
 }
 
-function delete_after_pay_cropctr($cid){
-  $add = new cart_class();
-  return $add->delete_after_pay_cropcart($cid);
-}
-
-
 
 
 ?>
