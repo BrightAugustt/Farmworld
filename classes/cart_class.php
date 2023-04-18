@@ -88,7 +88,7 @@ class cart_class extends db_connection
 
 	function view_cart_cls($custId)
 	{
-		$sql = "SELECT crops.crop_id, crops.crop_image, crops.crop_name, crops.crop_price, SUM(cart.qty) AS total_qty, crops.crop_price* SUM(cart.qty) AS total_price
+		$sql = "SELECT crops.crop_id, crops.crop_image, crops.crop_name, crops.crop_price, cart.qty AS total_qty, crops.crop_price* cart.qty AS total_price
 		FROM `crops`
 		JOIN cart ON crops.crop_id = cart.crop_id
 		WHERE crops.crop_id AND cart.customer_id = '$custId'
@@ -145,7 +145,6 @@ class cart_class extends db_connection
 		";
 		return $this->fetchOne($sql);
 	}
-
 
 
 	function count_cart($cid, $ip)

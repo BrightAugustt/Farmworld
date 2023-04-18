@@ -176,7 +176,7 @@ $linkdash="../dash/dashboard.php";
                             <li><a href="<?php echo $link; ?>"><i class="fa fa-shopping-bag"></i><span>
                                 <?php
                                 if(empty($_SESSION['id'])){
-                                    echo 0;
+                                    // echo 0;
                                 }
                                 else{
                                 countCart($_SESSION['id'],0);
@@ -252,7 +252,7 @@ $linkdash="../dash/dashboard.php";
                         
                         <div class="categories__slider owl-carousel style=size:10px;">
                         <?php
-                            $p_list = get_all_croprecords_ctr();
+                            $p_list = get_all_crop_feature_ctr();
                             foreach ($p_list as $apat) {
 
                                 // print_r($apat);
@@ -263,7 +263,7 @@ $linkdash="../dash/dashboard.php";
                                 $price = $apat['crop_price'];
                                 $desc = $apat['crop_desc'];
                                 //Displaying image
-                                $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
+                                $pimage = ("<img src='{$apat['crop_image']}'. height=100 width=100");
                             
                         ?>
                             <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
@@ -317,7 +317,7 @@ $linkdash="../dash/dashboard.php";
                             $price = $apat['crop_price'];
                             $desc = $apat['crop_desc'];
                             //Displaying image
-                            $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
+                            $pimage = ("<img src='{$apat['crop_image']}'. height=100 width=100");
                         
                     ?>
                 <div>

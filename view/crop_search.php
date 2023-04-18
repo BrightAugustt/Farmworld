@@ -250,20 +250,20 @@ $linkdash = "../dash/dashboard.php";
                     <div class="row style=size:10px;">
                         <form method="POST" enctype="multipart/form-data">
                             <?php $searchkeys = $_GET['search']; ?>
-                            <div class="categories__slider owl-carousel style=size:10px;">
+                            <!-- <div class="categories__slider owl-carousel style=size:10px;"> -->
                                 <?php
                                 $p_list =  search_for_one_crop_ctr($searchkeys);
                                 foreach ($p_list as $apat) {
 
                                     print_r($apat);
 
-                                    $cropname = $apat['crop_name'];
-                                    $cropcat = $apat['crop_cat'];
-                                    $qtyavail = $apat['qty'];
-                                    $price = $apat['crop_price'];
-                                    $desc = $apat['crop_desc'];
+                                    // $cropname = $apat['crop_name'];
+                                    // $cropcat = $apat['crop_cat'];
+                                    // $qtyavail = $apat['qty'];
+                                    // // $price = $apat['crop_price'];
+                                    // $desc = $apat['crop_desc'];
                                     //Displaying image
-                                    $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
+                                    // $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
 
                                 ?>
                                     <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
@@ -273,8 +273,8 @@ $linkdash = "../dash/dashboard.php";
                                             <div class="featured__item__pics categories__item set-bg set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
                                             </div>
                                             <div class="featured__item__texts">
-                                                <h6><a href="#"><?php echo $cropname; ?></a></h6>
-                                                <h5>GHc<?php echo $price; ?></h5>
+                                                <h6><a href="#"><?php echo $apat['crop_name'];; ?></a></h6>
+                                                <h5>GHc<?php echo$apat['crop_price']; ?></h5>
                                             </div>
                                         </a>
                                     </div>
@@ -292,77 +292,7 @@ $linkdash = "../dash/dashboard.php";
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
-    <section class="featured spad">
-        <div class="container try">
-            <?php
-            $p_list = get_all_croprecords_ctr();
-            ?>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Featured Product</h2>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row featured__filter">
-                <?php
-                foreach ($p_list as $apat) {
-
-                    // print_r($apat);
-
-                    $cropname = $apat['crop_name'];
-                    $cropcat = $apat['crop_cat'];
-                    $qtyavail = $apat['qty'];
-                    $price = $apat['crop_price'];
-                    $desc = $apat['crop_desc'];
-                    //Displaying image
-                    $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
-
-                ?>
-                    <div>
-
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
-                        <div class="featured__item">
-
-                            <div class="featured__item__pic set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
-                                <ul class="featured__item__pic__hover">
-                                    <li><a href="favourites.php"><i class="fa fa-heart">
-                                                <form action="singleCrop.php" method="POST">
-                                                    <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
-                                                    <!-- <a> <button type="submit" name="view"><i class="fa fa-retweet"></i></button></a> -->
-                                                </form>
-                                            </i></a>
-                                    </li>
-                                    <li>
-                                        <form action="singleCrop.php" method="GET">
-                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
-                                            <button type="submit" name="view" class="fa fa-eye image button"></button>
-                                        </form>
-                                    </li>
-                                    <li>
-
-                                        <form action="../actions/addtoCart.php" method="POST">
-                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
-                                            <button type="submit" name="addcart" class="fa fa-shopping-cart image button"></button>
-                                        </form>
-
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="featured__item__text">
-                                <h6><?php echo $cropname; ?></h6>
-                                <h5>GHc<?php echo $price; ?></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php
-                }
-                ?>
-
-    </section>
     <!-- Featured Section End -->
 
     <!-- Footer Section Begin -->
