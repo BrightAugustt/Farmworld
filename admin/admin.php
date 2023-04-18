@@ -241,9 +241,9 @@ require("../controllers/cart_controller.php");
                                     <tbody>
                                        <?php
                                        function displayCtr(){
-                                        $crop = view_recentorder_ctr(); 
+                                        $order = view_recentorder_ctr(); 
 
-                                        foreach($crop as $order)
+                                        for($i=0; $i < count($order); $i++)
                                         {
                                             echo "<tr>";
                                             echo "<td>".$order[$i]['order_id']."<td>";
@@ -254,7 +254,7 @@ require("../controllers/cart_controller.php");
                                             echo "<td>".$order[$i]['location']."<td>";
                                         }
                                        }
-                                       DisplayCtr();
+                                       displayCtr();
                                        ?>
                                     </tbody>
                     </table>
