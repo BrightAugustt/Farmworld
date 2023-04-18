@@ -28,9 +28,10 @@ class general_class extends db_connection
 
 	function sales_count()
     {
-        $sql = "SELECT COUNT(*) FROM `orders`";
-        return  $this->fetchOne($sql);
+        $sql = "SELECT SUM(amount) FROM `orders`";
+        return $this->fetchOne($sql);
     }
+
 
 	function crops_count()
     {
@@ -43,5 +44,3 @@ class general_class extends db_connection
 	
 
 }
-
-?>
