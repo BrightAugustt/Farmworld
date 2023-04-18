@@ -18,6 +18,19 @@ if (isset($_POST['addcart'])) {
     }
 }
 
+if (isset($_POST['addtocart'])) {
+    $ip_address = $_SERVER["REMOTE_ADDR"];
+    $prodId = $_POST['crop_id'];
+    $custId = $_SESSION['customer_id'];
+    $qty = $_POST['qty'];
+
+    $addCart=add_to_cart_ctr($prodId, $ip_address, $custId, $qty);
+    if($addCart == True){
+        header('Location:../view/singleCrop.php');
+    }
+}
+
+
 
 
 // if (isset($_POST['addcart'])) {

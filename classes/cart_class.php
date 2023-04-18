@@ -177,7 +177,6 @@ class cart_class extends db_connection
 
 	public function getfrom_cart($a)
 	{
-
 		// Write query
 		$sql =  "SELECT crops.crop_price*cart.qty ,cart.qty, crops.crop_id,crops.crop_name,crops.crop_desc,crops.crop_image,crops.crop_price FROM cart INNER JOIN crops ON cart.customer_id = crops.crop_id WHERE cart.customer_id ='$a'";
 		// Return  

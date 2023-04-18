@@ -49,7 +49,7 @@ $custId = get_id();
             <ul>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <!-- Php code to take the total cart will be here -->
-                <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> 
+                <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i>
             </ul>
             <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
@@ -113,7 +113,7 @@ $custId = get_id();
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                            
+
                             <div class="header__top__right__auth">
                                 <a href="../Login/login.php"><i class="fa fa-user"></i> Login</a>
                             </div>
@@ -126,23 +126,23 @@ $custId = get_id();
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.php"><img src="../images//logo.png" alt=""></a>
+                        <a href="./index.php"><img src="../images/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                                <ul class="header__menu__dropdown">
-                                </ul>
+                            <ul class="header__menu__dropdown">
+                            </ul>
                             </li>
-                           
+
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="./shopping-cart.php"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
@@ -201,12 +201,12 @@ $custId = get_id();
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
-        <?php
+            <?php
 
-            $cid = $_GET['crop_id'];
-            $apat = get_one_croprecord_ctr($cid);
+            $prodId = $_GET['crop_id'];
+            $apat = get_one_croprecord_ctr($prodId);
             //print_r($brand_list);
-            $cid = $apat['crop_id'];
+            $prodId = $apat['crop_id'];
             $cropname = ($apat['crop_name']);
             $farmername = ($apat['farmer_name']);
             $qty = $apat['qty'];
@@ -216,19 +216,17 @@ $custId = get_id();
             //Displaying image
             $pimage = ("<img src='{$apat['crop_image']}'. height=200 width=200");
             $cdesc = ($apat['crop_desc']);
-        ?>
+            ?>
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large"
-                                src='../images/crops/<?php echo $apat['crop_image']; ?>'  style=border-radius:5px;
-                                alt="">
+                            <img class="product__details__pic__item--large" src='../images/crops/<?php echo $apat['crop_image']; ?>' style=border-radius:5px; alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                
+
                     <div class="product__details__text">
                         <h3><?php echo $cropname; ?></h3>
                         <div class="product__details__rating">
@@ -243,12 +241,12 @@ $custId = get_id();
                         <p><?php echo $cdesc; ?></p>
                         <div class="product__details__quantity">
                             <div class="quantity">
-                                <form class='form-inline update-cart-form' method='POST' action='../actions/addtoCart.php'  id='quantity-form'>
-                                    <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ="$apat['crop_id']">
+                                <form class='form-inline update-cart-form' method='POST' action='../actions/addtoCart.php' id='quantity-form'>
+                                    <input class='form-control mr-sm-2' type='hidden' name='crop_id' value="<?php $apat['crop_id']?>">
                                     <input type="hidden" name="qty" value="1">
                                     <button name="addtocart" class="primary-btn" style="border-radius:5px">ADD TO CART</button>
                                 </form>
-                                
+
                             </div>
                         </div>
                         <!-- <a href="../actions/addtoCart.php" name="addtocart" class="primary-btn" style="border-radius:5px">ADD TO CART</a> -->
@@ -269,24 +267,22 @@ $custId = get_id();
                 <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
-                       
+
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                    aria-selected="false">Information</a>
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">Information</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">Reviews <span>(1)</span></a>
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="false">Reviews <span>(1)</span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                           
+
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
                                     <h6>Products Infomation</h6>
 
                                     <p style="max-width: 900px;">At Farm-A-World, we take pride in sourcing high-quality crops from reputable growers who use sustainable and environmentally friendly farming practices. We understand that consumers want to know where their food comes from and how it's grown, which is why we prioritize transparency and traceability in our supply chain. Our crops are rigorously tested for quality and safety to ensure that they meet our high standards and are safe for consumption.</p>
-                                   
+
                                     <p style="max-width: 900px;">In addition to sourcing high-quality crops, we also have an efficient delivery system that enables us to get the crops to consumers quickly and reliably. Depending on the location of the consumer, our delivery times range from one to two weeks, ensuring that our customers receive fresh and high-quality crops in a timely manner. We work with trusted shipping partners to ensure that our crops are handled with care during transit, and we offer tracking information so that customers can monitor the progress of their orders. Our goal is to make it easy and convenient for customers to access high-quality crops and support sustainable farming practices.</p>
 
                                     <p style="max-width: 900px;">Ghana is a country known for its diverse agriculture sector, with different regions specializing in different crops. For example, the Ashanti region is known for producing cocoa, while the Northern region is known for producing shea nuts. Other crops grown in Ghana include yams, cassava, maize, and rice. One of the strengths of Ghana's agriculture sector is the experience of the individuals who grow these crops. Many farmers in Ghana have been cultivating their crops for years, and have a deep understanding of the local soil and weather conditions. They use advanced farming techniques and technologies together with their traditional skills to produce high-quality crops that are sought after by consumers both domestically and internationally.</p>
@@ -327,58 +323,59 @@ $custId = get_id();
                 </div>
             </div>
             <div class="row">
-            <?php
-                        $p_list = get_all_fruit_ctr();
-                        foreach ($p_list as $apat) {
+                <?php
+                $p_list = get_all_fruit_ctr();
+                foreach ($p_list as $apat) {
 
-                            // print_r($apat);
+                    // print_r($apat);
 
-                            $cropname = $apat['crop_name'];
-                            $cropcat = $apat['crop_cat'];
-                            $qtyavail = $apat['qty'];
-                            $price = $apat['crop_price'];
-                            $desc = $apat['crop_desc'];
-                            //Displaying image
-                            $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
-                        
-                    ?>
-                <div>
+                    $prodId = $apat['crop_id'];
+                    $cropname = $apat['crop_name'];
+                    $cropcat = $apat['crop_cat'];
+                    $qtyavail = $apat['qty'];
+                    $price = $apat['crop_price'];
+                    $desc = $apat['crop_desc'];
+                    //Displaying image
+                    $pimage = ("<img src='{$apat['crop_image']}'. height=150 width=150");
 
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
-                    <div class="featured__item">
-                        
-                        <div class="featured__item__pic set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="favourites.php"><i class="fa fa-heart">
-                                    <form action="singleCrop.php" method="POST">
-                                            <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
-                                            <!-- <a> <button type="submit" name="view"><i class="fa fa-retweet"></i></button></a> -->
-                                    </form>
-                                    </i></a>
-                                </li>
-                                <li>
-                                    <form action="singleCrop.php" method="GET">
+                ?>
+                    <div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 oranges fresh-meat products ">
+                        <div class="featured__item">
+
+                            <div class="featured__item__pic set-bg" data-setbg='../images/crops/<?php echo $apat["crop_image"] ?>'>
+                                <ul class="featured__item__pic__hover">
+                                    <li><a href="favourites.php"><i class="fa fa-heart">
+                                                <form action="singleCrop.php" method="POST">
+                                                    <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
+                                                    <!-- <a> <button type="submit" name="view"><i class="fa fa-retweet"></i></button></a> -->
+                                                </form>
+                                            </i></a>
+                                    </li>
+                                    <li>
+                                        <form action="singleCrop.php" method="GET">
                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                             <button type="submit" name="view" class="fa fa-eye image button"></button>
-                                    </form>
-                                </li>
-                                <li>
-                                  
+                                        </form>
+                                    </li>
+                                    <li>
+
                                         <form action="../actions/addtoCart.php" method="POST">
                                             <input type="hidden" name="crop_id" value="<?php echo $apat['crop_id'] ?>">
                                             <button type="submit" name="addcart" class="fa fa-shopping-cart image button"></button>
                                         </form>
-                                    
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><?php echo $cropname; ?></h6>
-                            <h5>GHc<?php echo $price; ?></h5>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="featured__item__text">
+                                <h6><?php echo $cropname; ?></h6>
+                                <h5>GHc<?php echo $price; ?></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <?php
                 }
@@ -445,9 +442,13 @@ $custId = get_id();
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>
+                                    document.write(new Date().getFullYear());
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
                 </div>
