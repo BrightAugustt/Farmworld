@@ -69,7 +69,7 @@ if (isset($_POST['paybox_cardSubmit'])) {
 		//$payment = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
 
 		if ($order) {
-            delete_after_pay_cropcart_ctr($custId);
+            del_cart_ctr($custId);
 
             // Payment successful
 			// Redirect the user to the success URL
