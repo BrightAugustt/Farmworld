@@ -34,6 +34,10 @@ $all_cartproducts = view_cart_ctr($custId);
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -279,6 +283,16 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                 <input type="hidden" name="customer_id" value="<?php echo $custId; ?>">
 
                                                                 <div class='col-12'>
+                                                                    <label>First Name</label>
+                                                                    <input type='text' name='cust_fname' id='cust_fname' class='form-control' placeholder='Steven'>
+                                                                </div>
+
+                                                                <div class='col-12'>
+                                                                    <label>Last Name</label>
+                                                                    <input type='text' name='cust_lname' id='cust_lname' class='form-control' placeholder='Appiah'>
+                                                                </div>
+
+                                                                <div class='col-12'>
                                                                     <label>Location</label>
                                                                     <input type='text' name='location' id='location' class='form-control' placeholder='6 Sesame St., Dansoman Accra-Ghana'>
                                                                 </div>
@@ -296,6 +310,13 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                     <input type='text' name='card_num' id='card_num' class='form-control' placeholder="Card Number">
                                                                 </div>
 
+                                                                <!-- Card Verification Field -->
+                                                                <div class='col-12'>
+                                                                    <label>CVV Number</label>
+                                                                    <input type="password" class='form-control' name="card_cvc" placeholder="CVV">
+                                                                </div>
+
+                                                                <br>
                                                                 <!-- Date Field -->
                                                                 <div class="date-field">
                                                                     <div class="month">
@@ -328,20 +349,10 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                         </select>
                                                                     </div>
                                                                 </div>
-
-                                                                <!-- Card Verification Field -->
-                                                                <div class='col-12 cvv-input'>
-                                                                    <label>Card Number</label>
-                                                                    <input type="password" name="card_cvc" placeholder="CVV">
-                                                                </div>
-                                                                <div class="card-verification">
-                                                                    <!-- <div class="cvv-details">
-                                                                            <p>3 or 4 digits usually found <br> on the signature strip</p>
-                                                                        </div> -->
-                                                                </div>
+                                                          
                                                                 <!-- Buttons -->
                                                                 <div class='form-group mt-3'>
-                                                                    <button type="submit" name="paybox_cardSubmit" class="proceed-btn">Proceed</button>
+                                                                    <button type="submit" name="paybox_cardSubmit" class="btn btn-success">Proceed</button>
                                                                 </div>
                                                                 <div class='modal-footer'>
                                                                     <button type='button' class='btn-second-modal-close btn btn-default'>Close</button>

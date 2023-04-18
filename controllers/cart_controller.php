@@ -135,6 +135,13 @@ function get_from_cart_ctr($a){
 
 }
 
+function  delete_after_pay_cropcart_ctr($custId){
+   // Create an instance of the product class. 
+   $decreasecart= new cart_class();
+
+   return $decreasecart->delete_after_pay_cropcart($custId);
+}
+
 
 
 ?>
