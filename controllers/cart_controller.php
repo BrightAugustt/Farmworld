@@ -15,6 +15,15 @@ function insert_order_ctr($custId, $cropName, $date, $qty, $customerEmail, $amou
   return $select->insert_order_cls($custId, $cropName, $date, $qty, $customerEmail, $amount, $location);
 }
 
+function view_order_ctr(){
+  $select= new cart_class();
+  return $select->view_order_cls();
+}
+
+function view_recentOrder_ctr(){
+  $select= new cart_class();
+  return $select->view_recentOrder_cls();
+}
 
 
 function orderid_ctr(){
