@@ -178,48 +178,6 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                         </div>
                     </div>
                 </div>
-
-                <div class="wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Transactions</h3>
-                                    <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
-                                </div>
-                                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Crop Name</th>
-                        <th>Farmer</th>
-                        <th>Quantity</th>
-                        <th>Crop Price/kg</th>
-                        <th>Date</th>
-                        </tr>
-                    </thead>
-                                    <tbody>
-                                        <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
-
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_date'] . "</td>
-                                                        <td>";
-                                            "</td>";
-                                            "</tr>";
-                                        }
-                                        ?>
-                                    </tbody>
-                    </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
             </main>
         </div>
