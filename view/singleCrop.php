@@ -1,12 +1,11 @@
 <?php
-session_start();
+include("../settings/core.php");
 include("../controllers/product_controller.php");
+include("../controllers/cart_controller.php");
+$custId = get_id();
+// $ip_add = getIPAddress();
 
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -109,27 +108,12 @@ include("../controllers/product_controller.php");
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> farmaworld@gmail.com</li>
-                                <!-- <li>Free Shipping for all Order of $99</li> -->
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
-                            <!-- <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div> -->
-                            <!-- <div class="header__top__right__language">
-                                <img src="img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div> -->
+                            
                             <div class="header__top__right__auth">
                                 <a href="../Login/login.php"><i class="fa fa-user"></i> Login</a>
                             </div>
@@ -148,28 +132,19 @@ include("../controllers/product_controller.php");
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <!-- <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a> -->
                                 <ul class="header__menu__dropdown">
-                                    <!-- <li><a href="./shop-details.html">Shop Details</a></li> -->
-                                    <!-- <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li> -->
-                                    <!-- <li><a href="./blog-details.html">Blog Details</a></li> -->
                                 </ul>
                             </li>
-                            <!-- <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li> -->
+                           
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
                 </div>
             </div>
@@ -200,23 +175,6 @@ include("../controllers/product_controller.php");
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="crop_search.php" method="POST">
-                                <input type="text" placeholder="I am looking for.....">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -264,18 +222,9 @@ include("../controllers/product_controller.php");
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src='../images/crops/<?php echo $apat['crop_image']; ?>' alt="">
+                                src='../images/crops/<?php echo $apat['crop_image']; ?>'  style=border-radius:5px;
+                                alt="">
                         </div>
-                        <!-- <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                src="img/product/details/thumb-1.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                                src="img/product/details/thumb-2.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                                src="img/product/details/thumb-3.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                                src="img/product/details/thumb-4.jpg" alt="">
-                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -294,23 +243,24 @@ include("../controllers/product_controller.php");
                         <p><?php echo $cdesc; ?></p>
                         <div class="product__details__quantity">
                             <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
+                                <form class='form-inline update-cart-form' method='POST' action='../actions/addtoCart.php'  id='quantity-form'>
+                                    <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ="$apat['crop_id']">
+                                    <input type="hidden" name="qty" value="1">
+                                    <button name="addtocart" class="primary-btn" style="border-radius:5px">ADD TO CART</button>
+                                </form>
+                                
                             </div>
                         </div>
-                        <a href="../actions/addtoCart.php" name="addtocart" class="primary-btn">ADD TO CART</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <!-- <a href="../actions/addtoCart.php" name="addtocart" class="primary-btn" style="border-radius:5px">ADD TO CART</a> -->
                         <ul>
-                            <li><b>Availability</b> <span>In Stock</span></li>
-                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                            <li><b>Availability</b> <span><?php echo $qty; ?></span></li>
+                            <!-- <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li> -->
                             <li><b>Weight</b> <span>0.5 kg</span></li>
                             <li><b>Share on</b>
                                 <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/login?lang=en"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram"></i></a>
                                 </div>
                             </li>
                         </ul>
@@ -319,10 +269,7 @@ include("../controllers/product_controller.php");
                 <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
-                            <!-- <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                                    aria-selected="true">Description</a>
-                            </li> -->
+                       
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
                                     aria-selected="false">Information</a>
@@ -333,48 +280,16 @@ include("../controllers/product_controller.php");
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <!-- <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
-                                        suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
-                                        vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat,
-                                        accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-                                        pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula
-                                        elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus
-                                        et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
-                                        vel, ullamcorper sit amet ligula. Proin eget tortor risus.</p>
-                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed
-                                        porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum
-                                        sed sit amet dui. Proin eget tortor risus.</p>
-                                </div>
-                            </div> -->
+                           
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
                                     <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+
+                                    <p style="max-width: 900px;">At Farm-A-World, we take pride in sourcing high-quality crops from reputable growers who use sustainable and environmentally friendly farming practices. We understand that consumers want to know where their food comes from and how it's grown, which is why we prioritize transparency and traceability in our supply chain. Our crops are rigorously tested for quality and safety to ensure that they meet our high standards and are safe for consumption.</p>
+                                   
+                                    <p style="max-width: 900px;">In addition to sourcing high-quality crops, we also have an efficient delivery system that enables us to get the crops to consumers quickly and reliably. Depending on the location of the consumer, our delivery times range from one to two weeks, ensuring that our customers receive fresh and high-quality crops in a timely manner. We work with trusted shipping partners to ensure that our crops are handled with care during transit, and we offer tracking information so that customers can monitor the progress of their orders. Our goal is to make it easy and convenient for customers to access high-quality crops and support sustainable farming practices.</p>
+
+                                    <p style="max-width: 900px;">Ghana is a country known for its diverse agriculture sector, with different regions specializing in different crops. For example, the Ashanti region is known for producing cocoa, while the Northern region is known for producing shea nuts. Other crops grown in Ghana include yams, cassava, maize, and rice. One of the strengths of Ghana's agriculture sector is the experience of the individuals who grow these crops. Many farmers in Ghana have been cultivating their crops for years, and have a deep understanding of the local soil and weather conditions. They use advanced farming techniques and technologies together with their traditional skills to produce high-quality crops that are sought after by consumers both domestically and internationally.</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">

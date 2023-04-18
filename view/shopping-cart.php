@@ -4,13 +4,10 @@ include("../controllers/cart_controller.php");
 include("../function/function.php");
 
 $custId = get_id();
-// echo $custId;
 $all_cartproducts = view_cart_ctr($custId);
 $ip_add = getIPAddress();
 $total = 0;
 
-// $transaction_id = $_POST['transaction_id'];
-// $status = $_POST['status'];
 ?>
 
 <!DOCTYPE html>
