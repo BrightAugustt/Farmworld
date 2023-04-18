@@ -260,7 +260,7 @@ $all_cartproducts = view_cart_ctr($custId);
                                                 <input type="hidden" name="order_amount" value="<?php echo $total; ?>">
                                                 <input type="hidden" name="customer_email" value="<?php //echo $_SESSION['customer_email']; 
                                                                                                     ?>">
-                                                <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton">Pay With MOMO</button></th>
+                                                <th><button type="submit" name="paybox_momo" class="btn btn-success" id="paymomoButton" style="background-color: #16AD22;">Pay With MOMO</button></th>
                                                 <th><button type="submit" name="paybox_card" class="btn btn-success account" id="paycardButton" style="background-color:white; color:black;">Pay With Bank Card</button></th>
                                             </form>
                                             <div class='modal' id='first-modal' data-backdrop='static' data-keyboard='false'>
