@@ -182,11 +182,4 @@ class cart_class extends db_connection
 		// Return  
 		return $this->db_fetch_all($sql);
 	}
-
-	function delete_after_pay_cropcart($custId)
-	{
-		$sql = "DELETE FROM `cart` WHERE `customer_id`='$custId'";
-
-		return $this->db_query($sql);
-	}
 }

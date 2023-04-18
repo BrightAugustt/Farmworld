@@ -9,7 +9,6 @@ $stats=vendor_crop_count_ctr();
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
