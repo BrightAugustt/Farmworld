@@ -4,7 +4,9 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
     header('Location:../Login/login.php');
 };
 
-
+require("../controllers/contact_controller.php");
+$cid = $_SESSION['customer_id'];
+$result = get_one_record_ctr($cid)
 ?>
 
 
@@ -56,7 +58,6 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 </head>
 
 <body>
-
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
@@ -134,44 +135,79 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="container rounded bg-white mt-5 mb-5">
-                    <div class="row">
-                        <div class="col-md-3 border-right">
-                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                                <button type='button' class='mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
-                                    <span class='bi bi-card-image'></span></button>
-                                <span class="font-weight-bold">Edogaru</span>
-                                <span class="text-black-50">edogaru@mail.com.my</span><span> </span>
-                            </div>
-                        </div>
-                        <div class="col-md-5 border-right">
-                            <div class="p-3 py-5">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h4 class="text-right">Profile Settings</h4>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                                    <div class="col-md-12"><label class="labels">Region</label><input type="text" class="form-control" placeholder="enter Region" value=""></div>
+                    <form action="../actions/updateProfile.php" method="POST">
+                        <div class="row">
+                            <div class="col-md-3 border-right">
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                                    <button type='button' class='mr-3 btn-first-modal btn btn-outline-success btn-lg' data-toggle='modal' data-target='#first-modal$i' style='font-size:10px;'>
+                                        <span class='bi bi-card-image'></span></button>
+                                    <span class="font-weight-bold"><?php echo $_SESSION['customer_fname'] ?></span>
+                                    <span class="text-black-50"><?php echo $_SESSION['customer_email']; ?></span><span> </span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-3 py-5">
-                                <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" placeholder="enter email address" value=""></div> <br>
-                                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                            <div class="col-md-5 border-right">
+                                <div class="p-3 py-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Profile Settings</h4>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-6"><label class="form-group labels">Name</label><input type="text" class="form-control" placeholder="first name" id="fname" name="customer_fname" value="<?php echo $_SESSION['customer_fname']; ?>"></div>
+                                        <div class="col-md-6"><label class="form-group labels">Surname</label><input type="text" class="form-control" id="lname" name="customer_lname" value="<?php echo $_SESSION['customer_lname']; ?>" placeholder="surname"></div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12"><label class="form-group labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" id="contact" name="customer_contact" value="<?php echo $_SESSION['customer_contact']; ?>"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 py-5">
+                                    <div class="col-md-12"><label class="form-group labels">Email Address</label><input type="text" class="form-control" placeholder="enter email address" id="email" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>"></div> <br>
+                                    <input type="hidden" name="customer_id" value="<?php echo $_SESSION['customer_id'] ?>" />
+                                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" id="updateBtn" name="updateBtn">Save Profile</button></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
+            </main>
         </div>
     </div>
-    </main>
-    </div>
-    </div>
+
+
+    <script>
+        // document.getElementById("updateBtn").addEventListener("click", function(event) {
+        //     // Create a new FormData object
+        //     var formData = new FormData();
+
+        //     // Get the field values and add them to the formData object
+        //     formData.append("fname", document.getElementById("fname").value);
+        //     formData.append("lname", document.getElementById("lname").value);
+        //     formData.append("contact", document.getElementById("contact").value);
+        //     formData.append("region", document.getElementById("region").value);
+        //     formData.append("email", document.getElementById("email").value);
+
+        //     // Add more fields as necessary
+
+        //     // Send the form data to the updateProfile.php page
+        //     fetch("../actions/updateProfile.php", {
+        //             method: "POST",
+        //             body: formData
+        //         })
+        //         .then(response => {
+        //             if (response.ok) {
+        //                 // If the response is OK, redirect to the updateProfile.php page
+        //                 window.location.href = "../actions/updateProfile.php";
+        //             } else {
+        //                 // If the response is not OK, display an error message
+        //                 alert("An error occurred while updating your profile.");
+        //             }
+        //         })
+        //         .catch(error => {
+        //             // If an error occurs, display an error message
+        //             alert("An error occurred while updating your profile.");
+        //         });
+        // });
+    </script>
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

@@ -12,11 +12,11 @@ class ContactClass extends db_connection
         );
     }
 
-    function update_custrecord_cls($id,$fname, $lname, $number, $region, $email)
+    function update_custrecord_cls($cid,$fname, $lname, $number, $email)
     {
         // return true or false
         return $this->db_query(
-            "UPDATE `customer` SET `customer_fname`='$fname', `customer_lname`='$lname', `customer_region`= '$region', `customer_contact`='$number',`customer_email`='$email' WHERE `customer_id`='$id'"
+            "UPDATE `customer` SET `customer_fname`='$fname', `customer_lname`='$lname', `customer_contact`='$number',`customer_email`='$email' WHERE `customer_id`='$cid'"
         );
     }
 
