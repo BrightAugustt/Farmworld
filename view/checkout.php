@@ -285,6 +285,8 @@ $all_cartproducts = view_cart_ctr($custId);
                                                                 </div>
 
                                                                 <br>
+
+                                                                
                                                                 <div class='col-12'>
                                                                     <p>Please select your card for Payment:</p>
                                                                       <input type="radio" id="mtn" name="network" class='form-control' value="MTN">
