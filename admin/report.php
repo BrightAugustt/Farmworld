@@ -1,6 +1,7 @@
 <?php
-// session_start();
+session_start();
 include ("../controllers/product_controller.php");
+require("../controllers/cart_controller.php"); 
 
 $stats=vendor_crop_count_ctr();
 
@@ -205,6 +206,56 @@ var_dump($stats);
                                         displayCtr();
                                             
                                         ?>
+                                    </tbody>
+                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-5 mb-3 clearfix">
+                                    <h3 class="pull-left" style="font-size: 20px;">
+                                    Orders
+                               
+                                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th></th>
+                        <th>Crop Name</th>
+                        <th></th>
+                        <th>Quantity </th>
+                        <th></th>
+                        <th>Amount</th>
+                        <th></th>
+                        <th>Order Date</th>
+                        <th></th>
+                        <th>Location</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                                    <tbody>
+                                       <?php
+                                       function displayOrderCtr(){
+                                        $order = view_recentorder_ctr(); 
+
+                                        for($i=0; $i < count($order); $i++)
+                                        {
+                                            echo "<tr>";
+                                            echo "<td>".$order[$i]['order_id']."<td>";
+                                            echo "<td>".$order[$i]['crop_name']."<td>";
+                                            echo "<td>".$order[$i]['qty']."<td>";
+                                            echo "<td>".$order[$i]['amount']."<td>";
+                                            echo "<td>".$order[$i]['order_date']."<td>";
+                                            echo "<td>".$order[$i]['location']."<td>";
+                                        }
+                                       }
+                                       displayOrderCtr();
+                                       ?>
                                     </tbody>
                     </table>
                             </div>

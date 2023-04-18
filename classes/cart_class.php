@@ -46,7 +46,7 @@ class cart_class extends db_connection
 	public function view_recentOrder_cls()
 	{
 		$sql = "SELECT * FROM `orders` ORDER BY `order_date` DESC LIMIT 4";
-		return $this->db_fetch_all($sql);
+		return $this->fetch($sql);
 	}
 
 	public function orderid_cls()
