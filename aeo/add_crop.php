@@ -159,13 +159,13 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
 
                             <div class="col-12">
                                 <label>Crop Name</label>
-                                <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z]+">
+                                <input type="text" name="crop_name" id="crop_name" class="form-control" placeholder="Crop Name" pattern="[A-Za-z ]+">
                             </div>
 
                             <br>
                             <div class="col-12">
                                 <label>Farmer Name</label>
-                                <input type="text" name="farmer_name" id="farmer_name" class="form-control" placeholder="Farmer Name" pattern="[A-Za-z]+">
+                                <input type="text" name="farmer_name" id="farmer_name" class="form-control" placeholder="Farmer Name" pattern="[A-Za-z ]+">
                             </div>
                             <div class="col-12">
                                 <label>Farmer Contact</label>

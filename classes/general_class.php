@@ -39,8 +39,18 @@ class general_class extends db_connection
         return  $this->fetchOne($sql);
     }
 
+    function aeo_crop_count($cid)
+    {
+    $sql = "SELECT COUNT(*) FROM `crops` WHERE `customer_id` = '$cid'";
 
-	
-	
+    return $this->fetchOne($sql);
+    }
+
+	function count_farmers_by_customer($cid) {
+        $sql = "SELECT COUNT(DISTINCT farmer_name) FROM crops WHERE customer_id = $cid";
+        $result = $this->fetchOne($sql);
+        return $result;
+    }
+    
 
 }

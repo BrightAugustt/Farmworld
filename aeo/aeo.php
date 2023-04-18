@@ -1,13 +1,14 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+require("../controllers/general_controller.php");
+if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 2) {
     header('Location:../Login/login.php');
- };
- $cid = $_SESSION['customer_id'];
+};
+$cid = $_SESSION['customer_id'];
 //  echo $cid;
- $customer = $_SESSION['customer_email'];
+$customer = $_SESSION['customer_email'];
 //  echo $customer;
- $cust = $_SESSION['user_role'];
+$cust = $_SESSION['user_role'];
 //  echo $cust;
 ?>
 
@@ -20,7 +21,7 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AEO Dashboard</title>
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -63,9 +64,9 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +74,7 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
         </button>
         <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -82,7 +83,7 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -92,10 +93,10 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
                                 </i>Dashboard
                             </a>
                         </li>
-                      
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
+                                <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
@@ -127,7 +128,7 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
 
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -163,27 +164,38 @@ if (empty($_SESSION['customer_id']) and  empty($_SESSION['customer_email']) and 
                     </div> -->
                     <div class="col-sm-4">
                         <div class="card">
-                        <div class="card-body">
-
-                        <span id="boot-icon"class="bi bi-people" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                           
-                        </div>
+                            <div class="card-body">
+                                <span id="boot-icon" class="bi bi-people" style="font-size: 25px; color:black;"></span>
+                                <h5 class="card-title">
+                                    <?php
+                                    $totalFarmers = count_farmers_by_customer_ctr($cid);
+                                    $totalFarmers = intval(array_values($totalFarmers)[0]);
+                                    echo $totalFarmers;
+                                    ?>
+                                </h5>
+                                <p class="card-text">Total Number of Farmers Registered.</p>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="card">
-                        <div class="card-body">
-                        <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            
-                        </div>
+                            <div class="card-body">
+                                <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 25px; color:black;"></span>
+                                <h5 class="card-title">
+                                    <?php
+                                    $totalCrops = aeo_crop_count_ctr($cid);
+                                    $totalCrops = intval(array_values($totalCrops)[0]);
+                                    echo $totalCrops;
+                                    ?>
+                                </h5>
+                                <p class="card-text">Total Number of Products Uploaded.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                
+
             </main>
         </div>
     </div>

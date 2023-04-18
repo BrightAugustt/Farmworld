@@ -41,7 +41,17 @@ function cropsCount_ctr(){
 
 }
 
+ function aeo_crop_count_ctr($cid){
+    $addcust = new general_class();
 
+    return $addcust->aeo_crop_count($cid);
+ }
+
+  function count_farmers_by_customer_ctr($cid){
+    $countfarmer =new general_class();
+
+    return $countfarmer -> count_farmers_by_customer($cid);
+  }
 
 
 ?>
