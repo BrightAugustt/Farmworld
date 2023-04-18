@@ -10,12 +10,16 @@ if (isset($_POST['paybox_cardSubmit'])) {
 	$qty = $_POST['total_qty'];
     $first_name =  $_POST['cust_fname'];
     $last_name =  $_POST['cust_lname'];
+    $selected_month = $_POST['Month'];
+    $selected_year = $_POST['Year'];
     $cardNum = $_POST['card_num'];
-    $cardExpiry = $_POST['card_expiry'];
+    $cardExpiry = [$selected_month, $selected_year];
     $cardCvc = $_POST['card_cvc'];
 	$email = $_POST['customer_email'];
 	$number = $_POST['customer_contact'];
 	$order_amount = $_POST['order_amount'];
+    
+    
 	$order_date = date('Y-m-d');
 	$payMode = "Test";
 	$location = $_POST["location"];
@@ -80,8 +84,3 @@ if (isset($_POST['paybox_cardSubmit'])) {
 		echo "API call failed";
 	}
 }
-
-
-
-
-?>
