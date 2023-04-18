@@ -37,6 +37,16 @@ class crop_class extends db_connection
         );
     }
 
+        function get_all_approvedcrops_cls()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT crops.*, customer.customer_email 
+            FROM crops 
+            JOIN customer ON crops.customer_id = customer.customer_id 
+            ORDER BY crops.crop_id DESC"
+        );
+    }
 
     
     function get_all_crop_feature_cls()
