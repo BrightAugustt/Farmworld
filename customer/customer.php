@@ -4,7 +4,6 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
     header('Location:../Login/login.php');
 };
 $cust_id=$_SESSION['customer_id'];
-echo $cust_id;
 require("../controllers/general_controller.php");
 require("../controllers/cart_controller.php");
 
@@ -145,7 +144,6 @@ require("../controllers/cart_controller.php");
                     <div class="col-sm-3">
                         <div class="card">
                             <div class="card-body">
-
                                 <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
                                 <h5 class="card-title">GHC
                                     <?php
@@ -155,8 +153,6 @@ require("../controllers/cart_controller.php");
                                     ?>
                                 </h5>
                                 <p class="card-text">Amount of money spend on purchasing desired crops</p>
-                                <p class="card-text"><a href="orders.php">View Orders</a></p>
-
                             </div>
                         </div>
                     </div>
