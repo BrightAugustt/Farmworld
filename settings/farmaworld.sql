@@ -65,7 +65,7 @@ CREATE TABLE `orders` (
   `customer_email`varchar(50) NOT NULL,
   `amount`double NOT NULL,
   `location` VARCHAR(150) NOT NULL,
-  `Completed` enum('No','Yes') NOT NULL
+  `Completed` enum('Pending','Completed') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

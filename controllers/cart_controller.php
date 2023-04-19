@@ -104,8 +104,8 @@ function update_cart_qty_ctr($customer_id,$crpId, $qty){
 
 function update_orderstatus_ctr($order_id,$status)
 {
-    $updatestatus = new crop_class();
-    return $updatestatus->updateorderStatus($order_id,$status);
+    $updatestatus = new cart_class();
+    return $updatestatus-> updateorderStatus($order_id, $status);
 }
 
 // //--DELETE--//

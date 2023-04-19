@@ -241,10 +241,10 @@ require("../controllers/cart_controller.php");
                                                         echo "<td>" . $order[$i]['order_date'] . "<td>";
                                                         echo "<td>" . $order[$i]['location'] . "<td>";
                                                         echo "<th><form method='POST' action='../actions/updateorderstatus.php' id='approve'.$i'>
-                                                        <input type='hidden' name='crop_id' value= '".$order[$i]['crop_id']."'>
-                                                        <input type='hidden' name='check' value= '".$order[$i]['Approved']."'>
-                                                        <button type='submit' class='btn btn-toggle' <?php if(".$order[$i]['Approved']."=='Yes'){ echo 'checked';}?>
-                                                        ".$order[$i]['Approved']."</button>
+                                                        <input type='hidden' name='order_id' value= '".$order[$i]['order_id']."'>
+                                                        <input type='hidden' name='check' value= '".$order[$i]['Completed']."'>
+                                                        <button type='submit' class='btn btn-toggle' <?php if(".$order[$i]['Completed']."=='Completed'){ echo 'checked';}?>
+                                                        ".$order[$i]['Completed']."</button>
                                                         </form></th>";
                                                     }
                                                 }

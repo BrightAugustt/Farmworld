@@ -9,14 +9,14 @@ if (isset($_POST['check'])) {
     $fstatus=$_POST['check'];
     $status;
     // var_dump($crop_id,$fstatus);
-    if($fstatus == 'Yes'){
-        $status='No';
+    if($fstatus == 'Completed'){
+        $status='Pending';
     }else{
-        $status='Yes';
+        $status='Completed';
     }
 
     if(update_orderstatus_ctr($order_id,$status) == True){
-        header('Location:../admin/allProducts.php');
+        header('Location:../admin/report.php');
     }
 }
 
