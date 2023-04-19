@@ -36,6 +36,7 @@ if (isset($_POST['updateBtn'])) {
         $number = $customer['customer_contact'];
         $email = $customer['customer_email'];
 
+        header("Location: ../aeo/profile.php");
         // display updated customer data on page
         // echo '<h2>Customer Details Updated:</h2>';
         // echo '<p>ID: ' . $customer_id . '</p>';
