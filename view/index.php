@@ -121,12 +121,11 @@ $linkdash="../dash/dashboard.php";
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right" style="gap: 10px;">
+                            <div class="header__top__right__auth" style="gap: 10px;">
+                                <a href="../customer/customer.php"><i class="fa fa-home"></i> Dashboard </a>
+                            </div>
                             <div class="header__top__right__auth " style="gap: 10px;">
                                 <a href="../Login/login.php"><i class="fa fa-user"></i> Login</a>
-                            </div>
-
-                            <div class="header__top__right__auth" style="gap: 10px;">
-                                <a href="../customer/customer.php"><i class="fa fa-home" ></i> Dashboard</a>
                             </div>
                         </div>
                     </div>
