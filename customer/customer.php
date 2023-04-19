@@ -3,6 +3,7 @@ session_start();
 if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
     header('Location:../Login/login.php');
 };
+$cust_id=$_SESSION['customer_id'];
 require("../controllers/general_controller.php");
 require("../controllers/cart_controller.php");
 
