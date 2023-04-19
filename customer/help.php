@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
-    header('Location:../Login/login.php');
-};
+// if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
+//     header('Location:../Login/login.php');
+// };
 
 
 ?>
@@ -15,7 +15,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -89,7 +89,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="admin.php">
+                            <a class="nav-link dashboard" aria-current="page" href="customer.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
                                 </i>Dashboard
@@ -97,7 +97,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
+                            <a class="nav-link dashboard" aria-current="page" href="orders.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
                                 </i>Orders

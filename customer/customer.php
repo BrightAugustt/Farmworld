@@ -3,8 +3,8 @@ session_start();
 // if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
 //     header('Location:../Login/login.php');
 // };
-require("../controllers/general_controller.php");
-require("../controllers/cart_controller.php");
+// require("../../controllers/general_controller.php");
+// require("../../controllers/cart_controller.php");
 
 ?>
 
@@ -16,7 +16,7 @@ require("../controllers/cart_controller.php");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">

@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 2) {
-    header('Location:../Login/login.php');
-};
+// if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 2) {
+//     header('Location:../Login/login.php');
+// };
 
 require("../controllers/contact_controller.php");
 $cid = $_SESSION['customer_id'];
@@ -82,7 +82,7 @@ $result = get_one_record_ctr($cid)
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="admin.php">
+                            <a class="nav-link dashboard" aria-current="page" href="customer.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
                                 </i>Dashboard
@@ -90,7 +90,7 @@ $result = get_one_record_ctr($cid)
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
+                            <a class="nav-link dashboard" aria-current="page" href="orders.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
                                 </i>Orders
