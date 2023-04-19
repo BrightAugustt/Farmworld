@@ -66,7 +66,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="customer.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
             <use xlink:href="#bootstrap" />
             </img>
@@ -77,8 +77,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
         <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
         <div class="navbar-nav">
             <div class=" text-nowrap admin">
-                <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
-                <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
+                <a class="nav-link px-3" href="../view/index.php" style="color:black; margin-top:10px; color:#16AD22">Back to Shop</a>
             </div>
         </div>
     </header>

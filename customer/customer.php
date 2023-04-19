@@ -60,7 +60,7 @@ require("../controllers/cart_controller.php");
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="customer.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
             <use xlink:href="#bootstrap" />
             </img>
@@ -71,8 +71,7 @@ require("../controllers/cart_controller.php");
         <h4 style="color:#16AD22;text-align:center;">Customer Dashboard</h4>
         <div class="navbar-nav">
             <div class=" text-nowrap admin">
-                <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
-                <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
+                <a class="nav-link px-3" href="../view/index.php" style="color:black; margin-top:10px; color:#16AD22">Back to Shop</a>
             </div>
         </div>
     </header>
@@ -83,7 +82,7 @@ require("../controllers/cart_controller.php");
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="admin.php">
+                            <a class="nav-link dashboard" aria-current="page" href="customer.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
                                 </i>Dashboard
