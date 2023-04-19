@@ -82,27 +82,32 @@ $result = get_one_record_ctr($cid)
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
+                            <a class="nav-link dashboard" aria-current="page" href="admin.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
                                 </i>Dashboard
                             </a>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
+                                <span data-feather="home"></span>
+                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
+                                </i>Products
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
-                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
-                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="record.php">
                                 <span data-feather="file"></span>
                                 <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; "></span>
                                 Records
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="allcustomers.php">
+                                <span data-feather="file"></span>
+                                <span id="boot-icon" class="bi bi-people record" style="font-size: 25px;"></span>
+                                Clients
                             </a>
                         </li>
                         <hr>
@@ -172,42 +177,6 @@ $result = get_one_record_ctr($cid)
             </main>
         </div>
     </div>
-
-
-    <script>
-        // document.getElementById("updateBtn").addEventListener("click", function(event) {
-        //     // Create a new FormData object
-        //     var formData = new FormData();
-
-        //     // Get the field values and add them to the formData object
-        //     formData.append("fname", document.getElementById("fname").value);
-        //     formData.append("lname", document.getElementById("lname").value);
-        //     formData.append("contact", document.getElementById("contact").value);
-        //     formData.append("region", document.getElementById("region").value);
-        //     formData.append("email", document.getElementById("email").value);
-
-        //     // Add more fields as necessary
-
-        //     // Send the form data to the updateProfile.php page
-        //     fetch("../actions/updateProfile.php", {
-        //             method: "POST",
-        //             body: formData
-        //         })
-        //         .then(response => {
-        //             if (response.ok) {
-        //                 // If the response is OK, redirect to the updateProfile.php page
-        //                 window.location.href = "../actions/updateProfile.php";
-        //             } else {
-        //                 // If the response is not OK, display an error message
-        //                 alert("An error occurred while updating your profile.");
-        //             }
-        //         })
-        //         .catch(error => {
-        //             // If an error occurs, display an error message
-        //             alert("An error occurred while updating your profile.");
-        //         });
-        // });
-    </script>
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
