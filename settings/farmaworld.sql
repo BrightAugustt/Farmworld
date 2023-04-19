@@ -90,7 +90,6 @@ CREATE TABLE `payment` (
   `pay_id` int(11) NOT NULL,
   `amount` double NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
   `currency` text NOT NULL,
   `paymentMode` enum("Test", "Cash", "Mobile Money", "Card"),
   `payment_date` date NOT NULL
@@ -179,7 +178,6 @@ ALTER TABLE `cart`
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`pay_id`),
   ADD KEY `customer_id` (`customer_id`),
-  ADD KEY `order_id` (`order_id`);
 
 
 --
@@ -240,7 +238,6 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`),
-  ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
 
