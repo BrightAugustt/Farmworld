@@ -85,7 +85,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -134,41 +134,36 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                         </div>
 
                         <div class="container">
-                                        <div class="row" style="gap:10px">
-                                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                                                <div class="contact__widget">
-                                                    <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 40px; color:#16AD22;"></span>
-                                                    <h5 class="card-title">
-                                                        Phone</h4>
-                                                        <p>0544262308</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                                                <div class="contact__widget">
-                                                    <span id="boot-icon" class="bi bi-envelope" style="font-size: 40px; color:#16AD22;"></span>
-                                                    <h5 class="card-title" style="gap:10px">
-                                                        Email</h4>
-                                                        <p>farmaworld2023@gmail.com</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-3 col-sm-6 text-center" style="gap:10px">
-                                                <div class="contact__widget">
-                                                    <span id="boot-icon" class="bi bi-map" style="font-size: 40px; color:#16AD22;"></span>
-                                                    <h5 class="card-title">
-                                                        Address</h4>
-                                                        <p>0544262308</p>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                                                <div class="contact__widget">
-                                                    <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 20px; color:black;"></span>
-                                                    <h5 class="card-title">
-                                                        </h4>
-                                                        <p>0544262308</p>
-                                                </div>
-                                            </div> -->
-                                        </div>
+                            <div class="row" style="gap:10px">
+                                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                    <div class="contact__widget">
+                                        <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 40px; color:#16AD22;"></span>
+                                        <h5 class="card-title">
+                                            Phone</h4>
+                                            <p>0544262308</p>
                                     </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                    <div class="contact__widget">
+                                        <span id="boot-icon" class="bi bi-envelope" style="font-size: 40px; color:#16AD22;"></span>
+                                        <h5 class="card-title" style="gap:10px">
+                                            Email</h4>
+                                            <a style="color:black;" href="mailto:farmaworld2023@gmail.com">
+                                                <p>farmaworld2023@gmail.com</p>
+                                            </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 text-center" style="gap:10px">
+                                    <div class="contact__widget">
+                                        <span id="boot-icon" class="bi bi-map" style="font-size: 40px; color:#16AD22;"></span>
+                                        <h5 class="card-title">
+                                            Address</h4>
+                                            <p>Berekuso, Ghana</p>
+                                    </div>
+                                </div>
+                          
+                            </div>
+                        </div>
 
 
                     </div>

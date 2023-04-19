@@ -155,7 +155,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                             <h3 class="mb-3" style="color:black">Let's work together</h3>
                             <p style="color:black; line-height:35px; font-size:15px;">Welcome to the Admin Help page! As an administrator, you have access to several features that allow you to manage the products, orders, and vendors on the platform. Let's explore the features of the Admin page and how you can use them effectively.
 
-                            The first feature available to you as an admin is the ability to check the report of all crops and orders from customers. This feature enables you to keep track of all orders and ensures that all transactions are carried out smoothly. You can use this feature to monitor the progress of orders, track inventory levels, and generate reports on sales and revenue. With this information, you can make informed decisions about inventory management, pricing, and vendor partnerships.</p>
+                                The first feature available to you as an admin is the ability to check the report of all crops and orders from customers. This feature enables you to keep track of all orders and ensures that all transactions are carried out smoothly. You can use this feature to monitor the progress of orders, track inventory levels, and generate reports on sales and revenue. With this information, you can make informed decisions about inventory management, pricing, and vendor partnerships.</p>
                             <p style="color:black; line-height:35px; font-size:15px;">The Admin page is the ability to view crops added to the platform. This feature allows you to keep track of the products available on the platform and ensure that they are of the highest quality. With error detection the Admin can send emails to the AEO to update the crops with the right details</p>
 
 
@@ -176,7 +176,9 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                         <span id="boot-icon" class="bi bi-envelope" style="font-size: 40px; color:#16AD22;"></span>
                                         <h5 class="card-title" style="gap:10px">
                                             Email</h4>
-                                            <p>farmaworld2023@gmail.com</p>
+                                            <a style="color:black;" href="mailto:farmaworld2023@gmail.com">
+                                                <p>farmaworld2023@gmail.com</p>
+                                            </a>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-6 text-center" style="gap:10px">
@@ -184,17 +186,9 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                         <span id="boot-icon" class="bi bi-map" style="font-size: 40px; color:#16AD22;"></span>
                                         <h5 class="card-title">
                                             Address</h4>
-                                            <p>0544262308</p>
+                                            <p>Berekuso, Ghana</p>
                                     </div>
                                 </div>
-                                <!-- <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                                                <div class="contact__widget">
-                                                    <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 20px; color:black;"></span>
-                                                    <h5 class="card-title">
-                                                        </h4>
-                                                        <p>0544262308</p>
-                                                </div>
-                                            </div> -->
                             </div>
                         </div>
 
