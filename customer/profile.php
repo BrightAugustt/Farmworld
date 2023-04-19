@@ -88,14 +88,6 @@ $result = get_one_record_ctr($cid)
                                 </i>Dashboard
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="orders.php">
-                                <span data-feather="home"></span>
-                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
-                                </i>Orders
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>

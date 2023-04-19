@@ -4,6 +4,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
     header('Location:../Login/login.php');
 };
 $cust_id=$_SESSION['customer_id'];
+echo $cust_id;
 require("../controllers/general_controller.php");
 require("../controllers/cart_controller.php");
 
@@ -89,14 +90,6 @@ require("../controllers/cart_controller.php");
                                 </i>Dashboard
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
-                                <span data-feather="home"></span>
-                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
-                                </i>Orders
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
@@ -138,7 +131,7 @@ require("../controllers/cart_controller.php");
                                 <div>
                                     <h5 class="card-title"> 
                                         <?php
-                                        $order_count = customerorder_amount_ctr($cust_id);
+                                        $order_count = customerorder_count_ctr($cust_id);
                                         $order_count = intval(array_values($order_count)[0]);
                                         echo $order_count;
                                         ?>
