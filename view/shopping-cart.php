@@ -239,48 +239,6 @@ $total = 0;
                                         </tr> ";
                                 }
                                 
-                                if(isset($_SESSION['cart'])){
-                                    foreach($_SESSION['cart'] as $cart){
-                                        $subtotal = $cart['total_qty'] * $cart['crop_price']; // calculate the subtotal for each product
-                                        $total += $subtotal; // add the subtotal to the total
-                                        echo "
-                                            <tr class='cart-row'>
-                                                <td class= 'shoping__cart__item'>
-                                                    <img src='./../images/crops/{$cart['crop_image']}' style = height:100px; width:100px;>
-                                                    <h5>{$cart['crop_name']}</h5>
-                                                </td>
-                                                <td class='shoping__cart__price'>
-                                                    GH₵ {$cart['crop_price']}
-                                                </td>
-                                                <td class='shoping__cart__quantity'>
-                                                    <div class='quantity'>
-                                                        
-                                                        <input type='text' value='{$cart['total_qty']}' data-product-id='{$cart['crop_id']}' style='width:50px; text-align:center; class='quantity-input' disabled>
-                                                        
-                                                    </div>
-                                                </td>
-                                                <td class='shoping__cart__total'>
-                                                {$cart['total_price']}
-                                                </td>
-    
-    
-                                                <td>
-                                                <form class='form-inline update-cart-form' method='POST' action='../actions/updateCart.php'  id='quantity-form'>
-                                                    <input class='form-control mr-sm-2' type='hidden' value='$ip_add' name='ip_address'>
-                                                    <input class='form-control mr-sm-2' type='hidden' value='{$custId}' name='customer_id'>
-                                                    <input class='form-control mr-sm-2' type='hidden' name='crop_id' value ='{$cart['crop_id']}'>
-                                                    <input class='form-control mr-sm-2' name='qty' type='number' value='{$cart['total_qty']}' min='1' aria-label='Quantity'>
-                                            
-                                                </form>
-                                                </td>
-                                                
-                                                <td class='shoping__cart__item__close'>
-                                                    <a href='../actions/deletefromCart.php?crop_id={$cart['crop_id']}'data-toggle='tooltip'><button class='removebutton'><span><i class='fa fa-trash-o'></i></span></button></a>
-                                                </td>
-                                                <br>
-                                            </tr> ";
-                                    }
-                                }
                                 ?>
 
                                 </tr>
