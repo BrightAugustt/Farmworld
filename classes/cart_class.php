@@ -107,6 +107,18 @@ class cart_class extends db_connection
 		return $this->fetch($sql);
 	}
 
+	// Select all crops
+    function get_all_paymentrecords_cls()
+    {
+        // return true or false
+        return $this->db_query(
+            "SELECT payment.*, customer.customer_email 
+            FROM payment 
+            JOIN customer ON payment.customer_id = customer.customer_id 
+            ORDER BY payment.pay_id DESC"
+        );
+    }
+
 	function view_cart_cls($custId)
 	{
 		$sql = "SELECT crops.crop_id, crops.crop_image, crops.crop_name, crops.crop_price, cart.qty AS total_qty, crops.crop_price* cart.qty AS total_price
