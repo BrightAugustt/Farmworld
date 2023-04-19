@@ -15,12 +15,20 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AEO Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -58,17 +66,17 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
+        <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -95,7 +103,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                 </i>Products
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
@@ -128,7 +136,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -139,46 +147,60 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        
 
-                <h5 class="heading">Overview</h5>
-                <div class="row over">
-                    <div class="col-sm-4">
-                        <div class="card over">
-                        <div class="card-body over">
-                            <div>
-                                <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11 mr-auto">
+                            <h3 class="mb-3" style="color:black">Let's work together</h3>
+                            <p style="color:black; line-height:35px; font-size:15px;">Welcome to the Admin Help page! As an administrator, you have access to several features that allow you to manage the products, orders, and vendors on the platform. Let's explore the features of the Admin page and how you can use them effectively.
+
+                            The first feature available to you as an admin is the ability to check the report of all crops and orders from customers. This feature enables you to keep track of all orders and ensures that all transactions are carried out smoothly. You can use this feature to monitor the progress of orders, track inventory levels, and generate reports on sales and revenue. With this information, you can make informed decisions about inventory management, pricing, and vendor partnerships.</p>
+                            <p style="color:black; line-height:35px; font-size:15px;">The Admin page is the ability to view crops added to the platform. This feature allows you to keep track of the products available on the platform and ensure that they are of the highest quality. With error detection the Admin can send emails to the AEO to update the crops with the right details</p>
+
+
+                        </div>
+
+                        <div class="container">
+                            <div class="row" style="gap:10px">
+                                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                    <div class="contact__widget">
+                                        <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 40px; color:#16AD22;"></span>
+                                        <h5 class="card-title">
+                                            Phone</h4>
+                                            <p>0544262308</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                    <div class="contact__widget">
+                                        <span id="boot-icon" class="bi bi-envelope" style="font-size: 40px; color:#16AD22;"></span>
+                                        <h5 class="card-title" style="gap:10px">
+                                            Email</h4>
+                                            <p>farmaworld2023@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 text-center" style="gap:10px">
+                                    <div class="contact__widget">
+                                        <span id="boot-icon" class="bi bi-map" style="font-size: 40px; color:#16AD22;"></span>
+                                        <h5 class="card-title">
+                                            Address</h4>
+                                            <p>0544262308</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                                <div class="contact__widget">
+                                                    <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 20px; color:black;"></span>
+                                                    <h5 class="card-title">
+                                                        </h4>
+                                                        <p>0544262308</p>
+                                                </div>
+                                            </div> -->
                             </div>
+                        </div>
 
-                            <div>
-                                <h5 class="card-title">Revenue</h5>
-                                <p class="card-text">Revenue obtained from selling the produce of all farmers on platform.</p>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                        <div class="card-body">
 
-                        <span id="boot-icon"class="bi bi-cash help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Farmers</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                           
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="card">
-                        <div class="card-body">
-                        <span id="boot-icon" class="bi bi-question-circle help" style="font-size: 25px; color:black;"></span><h5 class="card-title">Total Products</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            
-                        </div>
-                        </div>
                     </div>
                 </div>
-                
             </main>
         </div>
     </div>
