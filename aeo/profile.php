@@ -161,7 +161,7 @@ $result = get_one_record_ctr($cid)
                             </div>
                             <div class="col-md-4">
                                 <div class="p-3 py-5">
-                                    <div class="col-md-12"><label class="form-group labels">Email Address</label><input type="text" class="form-control" placeholder="enter email address" id="email" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>"></div> <br>
+                                    <div class="col-md-12"><label class="form-group labels">Email Address</label><input type="text" disabled class="form-control" placeholder="enter email address" id="email" name="customer_email" value="<?php echo $_SESSION['customer_email']; ?>"></div> <br>
                                     <input type="hidden" name="customer_id" value="<?php echo $_SESSION['customer_id'] ?>" />
                                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" id="updateBtn" name="updateBtn">Save Profile</button></div>
                                 </div>

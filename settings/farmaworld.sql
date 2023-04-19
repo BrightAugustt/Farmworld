@@ -177,7 +177,7 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`pay_id`),
-  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `customer_id` (`customer_id`);
 
 
 --
