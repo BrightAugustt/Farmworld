@@ -20,6 +20,11 @@ function view_order_ctr(){
   return $select->view_order_cls();
 }
 
+function view_custorder_ctr($custId){
+  $select= new cart_class();
+  return $select->view_custorder_cls($custId);
+}
+
 function view_recentOrder_ctr(){
   $select= new cart_class();
   return $select->view_recentOrder_cls();
