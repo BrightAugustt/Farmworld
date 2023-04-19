@@ -5,6 +5,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,7 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="addcustomer.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="form">
@@ -42,18 +44,18 @@ session_start();
                 </div>
                 <div class="form-floating">
                     <label>Password</label>
-                    <input type="password" name="customer_pass" id="customer_pass" class="form-control" placeholder="Password"  pattern=".{6,}">
+                    <input type="password" name="customer_pass" id="customer_pass" class="form-control" placeholder="Password" pattern=".{6,}">
                 </div>
 
                 <div class="form-floating">
                     <label> Confirm Password</label>
-                    <input type="password" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password"  pattern=".{6,}">
+                    <input type="password" name="cpass" id="customer_pass" class="form-control" placeholder=" Confirm Password" pattern=".{6,}">
                 </div>
 
                 <div class="button">
-                <button class="button1" id="butcustomer" name="insertcustomer" onclick="formsubmit()" >Sign up as a customer</button>
-                <p>OR</p>
-                <button class="button2" id="butaeo" name="insertaeo">Sign up as an AEO</button>
+                    <button class="button1" id="butcustomer" name="insertcustomer" onclick="formsubmit()">Sign up as a customer</button>
+                    <p>OR</p>
+                    <button class="button2" id="butaeo" name="insertaeo">Sign up as an AEO</button>
                 </div>
                 <div class="already">
                     <p>Already have an account? <span class="login"><a href="login.php" class="login">Login Here</a></span></p>
@@ -84,52 +86,55 @@ session_start();
         });
     });
     </script> -->
-    <!-- <script>
+    <script>
         $("#butcustomer").click(function(ev) {
-			  var form = $("#formid");
-			  var url = form.attr('../actions/addCustomer.php');
-				$.ajax({
-				  type: "POST",
-				  url: url,
-				  data: form.serialize(),
-				  success: function(data) {
-					// Ajax call completed successfully
-					alert("Form Submited Successfully");
-				  },
-				  error: function(data) {
-					  // Some error in ajax call
-					  alert("some Error");
-				  }
-			  });
-			  
-		  });
+            var form = $("#formid");
+            var url = form.attr('../actions/addCustomer.php');
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: function(data) {
+                    // Ajax call completed successfully
+                    alert("Form Submited Successfully");
+                },
+                error: function(data) {
+                    // Some error in ajax call
+                    alert("some Error");
+                }
+            });
 
-          $("#butaeo").click(function(ev) {
-			  var form = $("#formid");
-			  var fname = $("#fname").val();
-			  var fnumber = $("#fnumber").val();
-			  var url = form.attr('./actions/adduser.php');
-			  if (fname!="" && fnumber!=""){
-				$.ajax({
-				  type: "POST",
-				  url: url,
-				  data: form.serialize(),
-				  success: function(data) {
-						
-					// Ajax call completed successfully
-					alert("Form Submited Successfully");
-				  },
-				  error: function(data) {
-						
-					  // Some error in ajax call
-					  alert("some Error");
-				  }
-			  });
-			  }else{
-				alert("Please fill all the flield");
-			  }
-			  
-		  });
+        });
+    </script>
+
+   <!--  <script>
+        $("#butaeo").click(function(ev) {
+            var form = $("#formid");
+            var fname = $("#fname").val();
+            var fnumber = $("#fnumber").val();
+            var url = form.attr('./actions/adduser.php');
+            if (fname != "" && fnumber != "") {
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(),
+                    success: function(data) {
+
+                        // Ajax call completed successfully
+                        alert("Form Submited Successfully");
+                    },
+                    error: function(data) {
+
+                        // Some error in ajax call
+                        alert("some Error");
+                    }
+                });
+            } else {
+                alert("Please fill all the flield");
+            }
+
+        });
     </script> -->
 </body>
+
 </html>

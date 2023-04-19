@@ -70,6 +70,24 @@ function get_products_by_id_ctr($order_id, $custId){
   return $select-> get_products_by_id_cls($order_id, $custId);
 }
 
+function get_all_paymentrecords_ctr()
+{
+    //create an instance of the class
+    $item_object = new cart_class();
+
+    //run the method
+    $item_records = $item_object->get_all_paymentrecords_cls();
+
+    //check if the method worked
+    if ($item_records) {
+        //return all the data
+        return $item_object->db_fetch_all();
+    } else {
+        //no data found
+        return false;
+    }
+}
+
 function getUserDetailsById_ctr($id){
 
   $details = new cart_class();
