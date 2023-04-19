@@ -1,8 +1,9 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role']!= 2)   {
+if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
     header('Location:../Login/login.php');
- };
+};
+
 
 ?>
 
@@ -14,12 +15,20 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AEO Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -57,17 +66,17 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="aeo.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h4 style="color:#16AD22;text-align:center;">AEO Dashboard</h4>
+        <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -76,38 +85,45 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dashboard" aria-current="page" href="aeo.php">
+                            <a class="nav-link dashboard" aria-current="page" href="admin.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-house-door-fill icon" style="font-size: 25px;"></span>
                                 </i>Dashboard
                             </a>
                         </li>
-                      
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dashboard dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           <span id="boot-icon" class="bi bi-card-list crop" style="font-size: 25px; color:black;"></span></i>Crops
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="add_crop.php">Add New Crops</a>
-                                <a class="dropdown-item" href="view_crop.php">All Crops</a>
-                            </div>
-                        </li>
+
                         <li class="nav-item">
-                            <a class="nav-link dashboard" href="record.php">
+                            <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
+                                <span data-feather="home"></span>
+                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
+                                </i>Products
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px;"></span>
                                 Records
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dashboard" href="allcustomers.php">
+                                <span data-feather="file"></span>
+                                <span id="boot-icon" class="bi bi-people record" style="font-size: 25px;"></span>
+                                Clients
                             </a>
                         </li>
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
-                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-person-lines-fill profile" style="font-size: 25px ;"></span>
                                 Profile
                             </a>
                         </li>
@@ -118,10 +134,9 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
                                 Help
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -132,62 +147,56 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Help Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span>
-                            This week
-                        </button>
-                    </div>
-                </div>
 
-                <div class="wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mt-5 mb-3 clearfix">
-                                    <h3 class="pull-left">Contact Any Of Our Admins For Further Assistance</h3>
-                                </div>
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Crop Name</th>
-                                            <th>Farmer Name</th>
-                                            <th>Quantity</th>
-                                            <th>Crop Price/kg</th>
-                                            <th>Date</th>
-                                            <th>Crop Category</th>
-                                            <th>Description</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        require "../controllers/product_controller.php";
-                                        $result = get_all_croprecords_ctr();
 
-                                        foreach ($result as $crop) {
-                                            echo "<tr>
-                                                        <td>" . $crop['crop_id'] . "</td>
-                                                        <td>" . $crop['crop_name'] . "</td>
-                                                        <td>" . $crop['farmer_name'] . "</td>
-                                                        <td>" . $crop['qty'] . "</td>
-                                                        <td>" . $crop['crop_price'] . "</td>
-                                                        <td>" . $crop['crop_cat'] . "</td>
-                                                        <td>" . $crop['crop_desc'] . "</td>
-                                                        <td>";
-                                            echo '<a href="updatecrop.php?crop_id=' . $crop['crop_id'] . '" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="../actions/deletecrop.php?delid=' . $crop['crop_id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
-                                            "</td>";
-                                            "</tr>";
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-11 mr-auto">
+                            <h3 class="mb-3" style="color:black">Let's work together</h3>
+                            <p style="color:black; line-height:35px; font-size:15px;">The AEO page provides several features that enable you to manage products on the platform effectively. One feature is the ability to submit crops to the admin. This feature allows you to upload new crops to the platform, which are then checked for errors by the admin before they are shown to customers. You can upload images, descriptions, prices, quantities, and vendor details for each crop, and the admin will review and approve the listing before it goes live. This feature helps to ensure that only high-quality products that meet the platform's standards are available to customers.</p>
+                            <p style="color:black; line-height:35px; font-size:15px;">Another feature of the AEO page is the ability to view crops added to the platform. This feature enables you to keep track of the products available on the platform and ensure that they meet the platform's high standards. You can view the images and descriptions of each crop, as well as the prices, quantities, and vendor details. This feature makes it easy for you to manage product listings and ensure that the platform offers a diverse range of high-quality products.</p>
+
+
                         </div>
+
+                        <div class="container">
+                                        <div class="row" style="gap:10px">
+                                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                                <div class="contact__widget">
+                                                    <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 40px; color:#16AD22;"></span>
+                                                    <h5 class="card-title">
+                                                        Phone</h4>
+                                                        <p>0544262308</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                                <div class="contact__widget">
+                                                    <span id="boot-icon" class="bi bi-envelope" style="font-size: 40px; color:#16AD22;"></span>
+                                                    <h5 class="card-title" style="gap:10px">
+                                                        Email</h4>
+                                                        <p>farmaworld2023@gmail.com</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6 text-center" style="gap:10px">
+                                                <div class="contact__widget">
+                                                    <span id="boot-icon" class="bi bi-map" style="font-size: 40px; color:#16AD22;"></span>
+                                                    <h5 class="card-title">
+                                                        Address</h4>
+                                                        <p>0544262308</p>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                                                <div class="contact__widget">
+                                                    <span id="boot-icon" class="bi bi-telephone-forward" style="font-size: 20px; color:black;"></span>
+                                                    <h5 class="card-title">
+                                                        </h4>
+                                                        <p>0544262308</p>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+
                     </div>
                 </div>
             </main>

@@ -3,7 +3,7 @@ session_start();
 include("../controllers/product_controller.php");
 require("../controllers/cart_controller.php");
 
-$stats = vendor_crop_count_ctr();
+// $stats = vendor_crop_count_ctr();
 
 
 ?>
@@ -81,7 +81,7 @@ $stats = vendor_crop_count_ctr();
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -99,7 +99,7 @@ $stats = vendor_crop_count_ctr();
                                 </i>Products
                             </a>
                         </li>
-
+                      
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
@@ -132,7 +132,7 @@ $stats = vendor_crop_count_ctr();
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -140,7 +140,6 @@ $stats = vendor_crop_count_ctr();
                     </ul>
                 </div>
             </nav>
-
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
