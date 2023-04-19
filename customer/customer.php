@@ -136,10 +136,10 @@ require("../controllers/cart_controller.php");
                                 </div>
 
                                 <div>
-                                    <h5 class="card-title"> GHC
+                                    <h5 class="card-title"> 
                                         <?php
-                                        $order_count = customerorder_count_ctr($cust_id);
-                                        $order = intval(array_values($order_count)[0]);
+                                        $order_count = customerorder_amount_ctr($cust_id);
+                                        $order_count = intval(array_values($order_count)[0]);
                                         echo $order_count;
                                         ?>
                                     </h5>
@@ -154,7 +154,7 @@ require("../controllers/cart_controller.php");
                             <div class="card-body">
 
                                 <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
-                                <h5 class="card-title">
+                                <h5 class="card-title">GHC
                                     <?php
                                     $order_amount = customerorder_amount_ctr($cust_id);
                                     $order_amount = intval(array_values($order_amount)[0]);
