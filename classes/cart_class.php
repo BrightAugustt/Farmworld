@@ -108,16 +108,16 @@ class cart_class extends db_connection
 	}
 
 	// Select all crops
-    function get_all_paymentrecords_cls()
-    {
-        // return true or false
-        return $this->db_query(
-            "SELECT payment.*, customer.customer_email 
+	function get_all_paymentrecords_cls()
+	{
+		// return true or false
+		return $this->db_query(
+			"SELECT payment.*, customer.customer_email, customer.customer_contact 
             FROM payment 
             JOIN customer ON payment.customer_id = customer.customer_id 
             ORDER BY payment.pay_id DESC"
-        );
-    }
+		);
+	}
 
 	function view_cart_cls($custId)
 	{
@@ -160,6 +160,15 @@ class cart_class extends db_connection
 	{
 		$sql = "UPDATE  `cart` SET `qty` = '$qty' WHERE crop_id= '$crpId' and `customer_id`='$customer_id'";
 		return $this->db_query($sql);
+	}
+
+	function updateorderStatus($order_id, $status)
+	{
+		// Updates the status of the crop to change the approved value
+		// return true or false
+		return $this->db_query(
+			"UPDATE `orders` SET `Completed`='$status' WHERE `order_id`='$order_id'"
+		);
 	}
 
 	//--DELETE--//

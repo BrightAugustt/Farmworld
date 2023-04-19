@@ -3,7 +3,7 @@ session_start();
 include("../controllers/product_controller.php");
 require("../controllers/cart_controller.php");
 
-// $stats = vendor_crop_count_ctr();
+// $stats = vendor_pmt_count_ctr();
 
 
 ?>
@@ -95,7 +95,7 @@ require("../controllers/cart_controller.php");
                         <li class="nav-item">
                             <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
                                 <span data-feather="home"></span>
-                                <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
+                                <span id="boot-icon" class="bi bi-wallet-fill pmt" style="font-size: 25px;"></span>
                                 </i>Products
                             </a>
                         </li>
@@ -145,7 +145,7 @@ require("../controllers/cart_controller.php");
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div>
                         <h1 class="h2">Transactions</h1>
-                        <p>A complete list of all crops sold.</p>
+                        <p>A complete list of all pmts sold.</p>
                     </div>
 
                     <div class="btn-toolbar mb-2 mb-md-0">
@@ -162,23 +162,16 @@ require("../controllers/cart_controller.php");
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Crop Name</th>
+                                            <th>Customer Email</th>
                                             <th></th>
-                                            <th>Farmer</th>
+                                            <th>Amount</th>
                                             <th></th>
-                                            <th>Farmer Contact</th>
+                                            <th>Customer Contact</th>
                                             <th></th>
-                                            <th>Farmer Contact</th>
+                                            <th>Payment Mode</th>
                                             <th></th>
-                                            <th>Quantity</th>
+                                            <th>Payment Date</th>
                                             <th></th>
-                                            <th>Crop Price/kg</th>
-                                            <th></th>
-                                            <th>Crop Image</th>
-                                            <th>Crop Category</th>
-                                            <th></th>
-                                            <th>Crop Description</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -186,19 +179,15 @@ require("../controllers/cart_controller.php");
                                         // require "../controllers/product_controller.php";
                                         function displayCtr()
                                         {
-                                            $crop = get_all_croprecords_ctr();
+                                            $pmt = get_all_paymentrecords_ctr();
 
-                                            for ($i = 0; $i < count($crop); $i++) {
+                                            for ($i = 0; $i < count($pmt); $i++) {
                                                 echo "<tr>";
-                                                echo "<td>" . $crop[$i]['crop_name'] . "<td>";
-                                                echo "<td>" . $crop[$i]['farmer_name'] . "<td>";
-                                                echo "<td>" . $crop[$i]['farmer_contact'] . "<td>";
-                                                echo "<td>" . $crop[$i]['farm_size'] . "<td>";
-                                                echo "<td>" . $crop[$i]['qty'] . "<td>";
-                                                echo "<td>" . $crop[$i]['crop_price'] . "<td>";
-                                                echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px'></td>";
-                                                echo "<td>" . $crop[$i]['crop_cat'] . "<td>";
-                                                echo "<td>" . $crop[$i]['crop_desc'] . "<td>";
+                                                echo "<td>" . $pmt[$i]['customer_email'] . "<td>";
+                                                echo "<td>" . $pmt[$i]['amount'] . "<td>";
+                                                echo "<td>" . $pmt[$i]['customer_contact'] . "<td>";
+                                                echo "<td>" . $pmt[$i]['paymentMode'] . "<td>";
+                                                echo "<td>" . $pmt[$i]['payment_date'] . "<td>";
                                             }
                                         }
                                         displayCtr();
@@ -217,7 +206,7 @@ require("../controllers/cart_controller.php");
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
                                     <h3 class="pull-left" style="font-size: 20px;">
-                                        Orders
+                                        Orders</h3>
 
                                         <table class="table">
                                             <thead>
@@ -234,6 +223,7 @@ require("../controllers/cart_controller.php");
                                                     <th></th>
                                                     <th>Location</th>
                                                     <th></th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -250,6 +240,12 @@ require("../controllers/cart_controller.php");
                                                         echo "<td>" . $order[$i]['amount'] . "<td>";
                                                         echo "<td>" . $order[$i]['order_date'] . "<td>";
                                                         echo "<td>" . $order[$i]['location'] . "<td>";
+                                                        echo "<th><form method='POST' action='../actions/updateorderstatus.php' id='approve'.$i'>
+                                                        <input type='hidden' name='order_id' value= '".$order[$i]['order_id']."'>
+                                                        <input type='hidden' name='check' value= '".$order[$i]['Completed']."'>
+                                                        <button type='submit' class='btn btn-toggle' <?php if(".$order[$i]['Completed']."=='Completed'){ echo 'checked';}?>
+                                                        ".$order[$i]['Completed']."</button>
+                                                        </form></th>";
                                                     }
                                                 }
                                                 displayOrderCtr();
