@@ -136,10 +136,14 @@ require("../controllers/cart_controller.php");
 
                                 <div>
                                     <h5 class="card-title"> GHC
-
+                                        <?php
+                                        $order_count = customerorder_count_ctr($cust_id);
+                                        $order = intval(array_values($order_count)[0]);
+                                        echo $order_count;
+                                        ?>
                                     </h5>
 
-                                    <p class="card-text">Money obatined from sales of farm produce of farmers</p>
+                                    <p class="card-text">Number of orders made by consumer</p>
                                 </div>
                             </div>
                         </div>
@@ -150,40 +154,19 @@ require("../controllers/cart_controller.php");
 
                                 <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
                                 <h5 class="card-title">
-
+                                    <?php
+                                    $order_amount = customerorder_amount_ctr($cust_id);
+                                    $order_amount = intval(array_values($order_amount)[0]);
+                                    echo $order_amount;
+                                    ?>
                                 </h5>
-                                <p class="card-text">Agriculture Extension Officers regsitered on the platform.</p>
+                                <p class="card-text">Amount of money spend on purchasing desired crops</p>
+                                <p class="card-text"><a href="orders.php">View Orders</a></p>
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
-                                <h5 class="card-title">
-
-                                </h5>
-                                </h5>
-                                <p class="card-text">Consumers regsitered on the platform.</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 20px; color:black;"></span>
-                                <h5 class="card-title">
-
-                                </h5>
-                                <p class="card-text">Products submitted by AEOs to be sold on the platform.</p>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="wrapper">

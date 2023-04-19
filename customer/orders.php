@@ -150,20 +150,13 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                     <tr>
                         <th>Crop Name</th>
                         <th></th>
-                        <th>Farmer</th>
-                        <th></th>
-                        <th>Farmer Contact</th>
-                        <th></th>
-                        <th>Farm Size</th>
-                        <th></th>
                         <th>Quantity</th>
                         <th></th>
-                        <th>Crop Price/kg</th>
+                        <th>Amount</th>
                         <th></th>
-                        <th>Crop Image</th>
-                        <th>Crop Category</th>
+                        <th>Location</th>
                         <th></th>
-                        <th>Crop Description</th>
+                        <th>Order Date</th>
                        
                         </tr>
                     </thead>
@@ -174,19 +167,16 @@ $customer_id = isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : "";
                                             $customer_id= $_SESSION['customer_id'];
                                             
                                             // $customer_id = $_GET['customer_id'];
-                                            $crop = get_all_officercrop_ctr($customer_id);
+                                            $crop = view_custorder_ctr($customer_id);
 
                                             for ($i=0; $i < count($crop); $i++) {
                                                 echo "<tr>";
                                                 echo "<td>".$crop[$i]['crop_name']."<td>";
-                                                echo "<td>".$crop[$i]['farmer_name']."<td>";
-                                                echo "<td>".$crop[$i]['farmer_contact']."<td>";
-                                                echo "<td>".$crop[$i]['farm_size']."<td>";
                                                 echo "<td>".$crop[$i]['qty']."<td>";
-                                                echo "<td>".$crop[$i]['crop_price']."<td>";
-                                                echo "<td><img src='../images/crops/"  . $crop[$i]['crop_image']  . "' height='50px'></td>";
-                                                echo "<td>".$crop[$i]['crop_cat']."<td>";
-                                                echo "<td>".$crop[$i]['crop_desc']."<td>";
+                                                echo "<td>".$crop[$i]['amount']."<td>";
+                                                echo "<td>".$crop[$i]['location']."<td>";
+                                                echo "<td>".$crop[$i]['order_date']."<td>";
+                                               
                                               
                                             }
                                         }

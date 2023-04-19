@@ -4,7 +4,7 @@ if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and em
     header('Location:../Login/login.php');
 };
 require("../controllers/general_controller.php");
-require("../controllers/cart_controller.php"); 
+require("../controllers/cart_controller.php");
 
 
 ?>
@@ -60,9 +60,9 @@ require("../controllers/cart_controller.php");
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-white flex-md-nowrap p-0 shadow header">
-         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="admin.php">
             <img class="bi me-2" src="../images/logo.png" width="189" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap" />
+            <use xlink:href="#bootstrap" />
             </img>
         </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +70,7 @@ require("../controllers/cart_controller.php");
         </button>
         <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
         <div class="navbar-nav">
-            <div class=" text-nowrap admin" >
+            <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
                 <span id="boot-icon" class="bi bi-person-circle" style="font-size: 30px;"></span>
             </div>
@@ -97,7 +97,7 @@ require("../controllers/cart_controller.php");
                                 </i>Products
                             </a>
                         </li>
-                      
+
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="report.php">
                                 <span data-feather="file"></span>
@@ -130,7 +130,7 @@ require("../controllers/cart_controller.php");
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
                             </a>
@@ -141,78 +141,81 @@ require("../controllers/cart_controller.php");
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        
+
 
                 <h5 class="heading">Overview</h5>
                 <div class="row over">
                     <div class="col-sm-3">
                         <div class="card over">
-                        <div class="card-body over">
-                            <div>
-                                <span id="boot-icon" class="bi bi-cash-stack" style="font-size: 20px; color:black;"></span>
-                            </div>
+                            <div class="card-body over">
+                                <div>
+                                    <span id="boot-icon" class="bi bi-cash-stack" style="font-size: 20px; color:black;"></span>
+                                </div>
 
-                            <div>
-                                <h5 class="card-title"> GHC
-                                <?php
-                       $sales =salesCount_ctr();
-                       $sales = intval(array_values($sales)[0]);
-                       echo $sales;
-                        ?>
+                                <div>
+                                    <h5 class="card-title"> GHC
+                                        <?php
+                                        $sales = salesCount_ctr();
+                                        $sales = intval(array_values($sales)[0]);
+                                        echo $sales;
+                                        ?>
+                                    </h5>
+
+                                    <p class="card-text">Money obatined from sales of farm produce of farmers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
+                                <h5 class="card-title">
+                                    <?php
+                                    $count = aeoCount_ctr();
+                                    $count = intval(array_values($count)[0]);
+                                    echo $count;
+                                    ?>
                                 </h5>
-                                
-                                <p class="card-text">Money obatined from sales of farm produce of farmers</p>
+                                <p class="card-text">Agriculture Extension Officers regsitered on the platform.</p>
+
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                        <div class="card-body">
-
-                        <span id="boot-icon"class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">
-                        <?php
-                       $count =aeoCount_ctr();
-                       $count = intval(array_values($count)[0]);
-                       echo $count;
-                        ?>
-                        </h5>
-                            <p class="card-text">Agriculture Extension Officers regsitered on the platform.</p>
-                           
-                        </div>
-                        </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="card">
-                        <div class="card-body">
-                        <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span><h5 class="card-title">
-                        <?php
-                        $customer =customerCount_ctr();
-                        $customer = intval(array_values($customer)[0]);
-                        echo $customer;
-                        ?>
-                        </h5>
-                        </h5>
-                            <p class="card-text">Consumers regsitered on the platform.</p>
-                            
-                        </div>
+                            <div class="card-body">
+                                <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
+                                <h5 class="card-title">
+                                    <?php
+                                    $customer = customerCount_ctr();
+                                    $customer = intval(array_values($customer)[0]);
+                                    echo $customer;
+                                    ?>
+                                </h5>
+                                </h5>
+                                <p class="card-text">Consumers regsitered on the platform.</p>
+
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="card">
-                        <div class="card-body">
-                        <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 20px; color:black;"></span><h5 class="card-title">
-                        <?php
-                        $crops =cropsCount_ctr();
-                        $crops = intval(array_values($crops)[0]);
-                        echo $crops;
-                        ?>
-                        </h5>
-                            <p class="card-text">Products submitted by AEOs to be sold on the platform.</p>
-                            
-                        </div>
+                            <div class="card-body">
+                                <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 20px; color:black;"></span>
+                                <h5 class="card-title">
+                                    <?php
+                                    $crops = cropsCount_ctr();
+                                    $crops = intval(array_values($crops)[0]);
+                                    echo $crops;
+                                    ?>
+                                </h5>
+                                <p class="card-text">Products submitted by AEOs to be sold on the platform.</p>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -223,51 +226,51 @@ require("../controllers/cart_controller.php");
                             <div class="col-md-12">
                                 <div class="mt-5 mb-3 clearfix">
                                     <h3 class="pull-left" style="font-size: 24px;">
-                                    Orders
-                                </h3>
+                                        Orders
+                                    </h3>
                                     <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
                                 </div>
                                 <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th></th>
-                        <th>Crop Name</th>
-                        <th></th>
-                        <th>Quantity </th>
-                        <th></th>
-                        <th>Amount</th>
-                        <th></th>
-                        <th>Order Date</th>
-                        <th></th>
-                        <th>Location</th>
-                        </tr>
-                    </thead>
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th></th>
+                                            <th>Crop Name</th>
+                                            <th></th>
+                                            <th>Quantity </th>
+                                            <th></th>
+                                            <th>Amount</th>
+                                            <th></th>
+                                            <th>Order Date</th>
+                                            <th></th>
+                                            <th>Location</th>
+                                        </tr>
+                                    </thead>
                                     <tbody>
-                                       <?php
-                                       function displayCtr(){
-                                        $order = view_recentorder_ctr(); 
-
-                                        for($i=0; $i < count($order); $i++)
+                                        <?php
+                                        function displayCtr()
                                         {
-                                            echo "<tr>";
-                                            echo "<td>".$order[$i]['order_id']."<td>";
-                                            echo "<td>".$order[$i]['crop_name']."<td>";
-                                            echo "<td>".$order[$i]['qty']."<td>";
-                                            echo "<td>".$order[$i]['amount']."<td>";
-                                            echo "<td>".$order[$i]['order_date']."<td>";
-                                            echo "<td>".$order[$i]['location']."<td>";
+                                            $order = view_recentorder_ctr();
+
+                                            for ($i = 0; $i < count($order); $i++) {
+                                                echo "<tr>";
+                                                echo "<td>" . $order[$i]['order_id'] . "<td>";
+                                                echo "<td>" . $order[$i]['crop_name'] . "<td>";
+                                                echo "<td>" . $order[$i]['qty'] . "<td>";
+                                                echo "<td>" . $order[$i]['amount'] . "<td>";
+                                                echo "<td>" . $order[$i]['order_date'] . "<td>";
+                                                echo "<td>" . $order[$i]['location'] . "<td>";
+                                            }
                                         }
-                                       }
-                                       displayCtr();
-                                       ?>
+                                        displayCtr();
+                                        ?>
                                     </tbody>
-                    </table>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </main>
         </div>
     </div>

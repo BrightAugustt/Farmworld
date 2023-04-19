@@ -32,6 +32,18 @@ class general_class extends db_connection
         return $this->fetchOne($sql);
     }
 
+    function customerOrder_amount_count($cust_id)
+    {
+        $sql = "SELECT SUM(amount) FROM `orders` WHERE `customer_id`='$cust_id'";
+        return $this->fetchOne($sql);
+    }
+
+    function customerorder_count($cust_id)
+    {
+        $sql = "SELECT count(*) FROM `orders` WHERE `customer_id`='$cust_id'";
+        return $this->fetchOne($sql);
+    }
+
 
 	function crops_count()
     {
