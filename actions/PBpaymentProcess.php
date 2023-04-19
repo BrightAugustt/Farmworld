@@ -58,7 +58,8 @@ if (isset($_POST['paybox_momoSubmit'])) {
 
 	if ($result['status'] == 'Success') {
 		$order = insert_order_ctr($custId, $cropName, $order_date, $qty, $email, $order_amount, $location);
-		//$payment = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
+
+		$payment = insert_payment_ctr($order_amount, $custId, $order_date,$payMode);
 
 		if ($order) {
 			del_cart_ctr($custId);
