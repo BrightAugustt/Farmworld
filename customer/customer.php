@@ -114,7 +114,7 @@ require("../controllers/cart_controller.php");
                             <a class="nav-link" href="../login/logout.php">
                                 <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
-                                Signout
+                                <?php echo "<li> <a href='../actions/logout.php' onclick='onsignout()' ><i class='fa fa-sign-out'></i> Logout</a> </li>";?>
                             </a>
                         </li>
                     </ul>
