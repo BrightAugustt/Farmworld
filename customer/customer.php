@@ -1,11 +1,10 @@
 <?php
 session_start();
-if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
-    header('Location:../Login/login.php');
-};
+// if (empty($_SESSION['customer_id']) and empty($_SESSION['customer_name']) and empty($_SESSION['customer_email']) and $_SESSION['user_role'] != 3) {
+//     header('Location:../Login/login.php');
+// };
 require("../controllers/general_controller.php");
 require("../controllers/cart_controller.php");
-
 
 ?>
 
@@ -68,7 +67,7 @@ require("../controllers/cart_controller.php");
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <h4 style="color:#16AD22;text-align:center;">Admin Dashboard</h4>
+        <h4 style="color:#16AD22;text-align:center;">Customer Dashboard</h4>
         <div class="navbar-nav">
             <div class=" text-nowrap admin">
                 <!-- <a class="nav-link px-3" href="../login/logout.php" style="color:black">Sign Out</a>-->
@@ -94,26 +93,9 @@ require("../controllers/cart_controller.php");
                             <a class="nav-link dashboard" aria-current="page" href="allproducts.php">
                                 <span data-feather="home"></span>
                                 <span id="boot-icon" class="bi bi-wallet-fill crop" style="font-size: 25px;"></span>
-                                </i>Products
+                                </i>Orders
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" href="report.php">
-                                <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 25px;"></span>
-                                Records
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link dashboard" href="allcustomers.php">
-                                <span data-feather="file"></span>
-                                <span id="boot-icon" class="bi bi-people record" style="font-size: 25px;"></span>
-                                Clients
-                            </a>
-                        </li>
-                        <hr>
                         <li class="nav-item">
                             <a class="nav-link dashboard" href="profile.php">
                                 <span data-feather="users"></span>
@@ -129,10 +111,10 @@ require("../controllers/cart_controller.php");
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../Login/logout.php">
-                            <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
+                            <a class="nav-link" href="../login/logout.php">
+                                <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
-                                Signout
+                                <?php echo "<li> <a href='../actions/logout.php' onclick='onsignout()' ><i class='fa fa-sign-out'></i> Logout</a> </li>";?>
                             </a>
                         </li>
                     </ul>
@@ -155,13 +137,13 @@ require("../controllers/cart_controller.php");
                                 <div>
                                     <h5 class="card-title"> GHC
                                         <?php
-                                        $sales = salesCount_ctr();
-                                        $sales = intval(array_values($sales)[0]);
-                                        echo $sales;
+                                        $order_count = customerorder_count_ctr($cust_id);
+                                        $order = intval(array_values($order_count)[0]);
+                                        echo $order_count;
                                         ?>
                                     </h5>
 
-                                    <p class="card-text">Money obatined from sales of farm produce of farmers</p>
+                                    <p class="card-text">Number of orders made by consumer</p>
                                 </div>
                             </div>
                         </div>
@@ -173,51 +155,18 @@ require("../controllers/cart_controller.php");
                                 <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
                                 <h5 class="card-title">
                                     <?php
-                                    $count = aeoCount_ctr();
-                                    $count = intval(array_values($count)[0]);
-                                    echo $count;
+                                    $order_amount = customerorder_amount_ctr($cust_id);
+                                    $order_amount = intval(array_values($order_amount)[0]);
+                                    echo $order_amount;
                                     ?>
                                 </h5>
-                                <p class="card-text">Agriculture Extension Officers regsitered on the platform.</p>
+                                <p class="card-text">Amount of money spend on purchasing desired crops</p>
+                                <p class="card-text"><a href="orders.php">View Orders</a></p>
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <span id="boot-icon" class="bi bi-people" style="font-size: 20px; color:black;"></span>
-                                <h5 class="card-title">
-                                    <?php
-                                    $customer = customerCount_ctr();
-                                    $customer = intval(array_values($customer)[0]);
-                                    echo $customer;
-                                    ?>
-                                </h5>
-                                </h5>
-                                <p class="card-text">Consumers regsitered on the platform.</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <span id="boot-icon" class="bi bi-diagram-3-fill" style="font-size: 20px; color:black;"></span>
-                                <h5 class="card-title">
-                                    <?php
-                                    $crops = cropsCount_ctr();
-                                    $crops = intval(array_values($crops)[0]);
-                                    echo $crops;
-                                    ?>
-                                </h5>
-                                <p class="card-text">Products submitted by AEOs to be sold on the platform.</p>
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="wrapper">

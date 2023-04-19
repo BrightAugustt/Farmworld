@@ -32,6 +32,24 @@ function salesCount_ctr(){
 
 }
 
+function customerorder_count_ctr($cust_id){
+
+  // Create an instance of the class
+  $verify_customer = new general_class();
+
+   return $verify_customer->customerorder_count($cust_id);
+
+}
+
+function customerorder_amount_ctr($cust_id){
+
+  // Create an instance of the class
+  $verify_customer = new general_class();
+
+   return $verify_customer->customerOrder_amount_count($cust_id);
+
+}
+
 function cropsCount_ctr(){
 
     // Create an instance of the class
