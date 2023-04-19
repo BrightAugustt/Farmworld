@@ -167,7 +167,6 @@ require("../controllers/cart_controller.php");
                                     <h3 class="pull-left" style="font-size: 24px;">
                                         Orders
                                     </h3>
-                                    <a href="record.php" class="btn btn-success pull-right"><span id="boot-icon" class="bi bi-file-earmark-bar-graph record" style="font-size: 20px; color:white; margin-right:5px"></span></i> View Full Report</a>
                                 </div>
                                 <table class="table">
                                     <thead>
