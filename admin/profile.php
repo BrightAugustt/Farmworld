@@ -124,7 +124,7 @@ session_start();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../login/logout.php">
+                            <a class="nav-link" href="../Login/logout.php">
                                 <span id="boot-icon" class="bi bi-box-arrow-right help" style="font-size: 25px; "></span>
                                 <span data-feather="file"></span>
                                 Signout
